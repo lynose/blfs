@@ -1,0 +1,4 @@
+*.sh~
+a.out
+.kdev4/*
+/sources
