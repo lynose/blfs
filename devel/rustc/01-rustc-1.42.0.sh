@@ -1,12 +1,21 @@
 #!/bin/bash
+${log} `basename "$0"` " started" blfs_all &&
 
-${log} `basename "$0"` " started" devtools &&
+${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/rustc-1.42.0-src
  then
   rm -rf /sources/rustc-1.42.0-src
 fi
 
-tar -xzf /sources/rustc-1.42.0-src.tar.gz -C /sources/ &&
+SCRIPT=`realpath $0`
+SCRIPTPATH=`dirname $SCRIPT`
+
+wget https://static.rust-lang.org/dist/rustc-1.42.0-src.tar.gz \
+    --continue --directory-prefix=/sources &&
+
+md5sum -c ${SCRIPTPATH}/md5-rustc &&
+
+tar xf /sources/rustc-1.42.0-src.tar.gz -C /sources/ &&
 
 cd /sources/rustc-1.42.0-src &&
 
@@ -56,19 +65,25 @@ llvm-config = "/usr/bin/llvm-config"
 
 EOF
 
-${log} `basename "$0"` " configured" devtools &&
-
+${log} `basename "$0"` " configured" blfs_all &&
 
 export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &&
 python3 ./x.py build --exclude src/tools/miri &&
-${log} `basename "$0"` " built" devtools &&
+${log} `basename "$0"` " built" blfs_all &&
+
+python3 ./x.py test --verbose --no-fail-fast | tee rustc-testlog &&
+egrep 'running [[:digit:]]+ test' rustc-testlog | awk '{ sum += $2 } END { print sum }' > /log/rust-summary.log &&
+grep '^test result:' rustc-testlog | awk  '{ sum += $6 } END { print sum }' > /log/rust-failure.log &&
+${log} `basename "$0"` " check succeed" blfs_all &&
+
+
 export LIBSSH2_SYS_USE_PKG_CONFIG=1 &&
 DESTDIR=${PWD}/install python3 ./x.py install &&
 unset LIBSSH2_SYS_USE_PKG_CONFIG &&
 chown -R root:root install &&
 cp -a install/* / &&
+${log} `basename "$0"` " installed" blfs_all &&
 
-${log} `basename "$0"` " installed" devtools &&
 cat >> /etc/ld.so.conf << EOF
 # Begin rustc addition
 
@@ -77,7 +92,8 @@ cat >> /etc/ld.so.conf << EOF
 # End rustc addition
 EOF
 
-ldconfig
+ldconfig &&
+${log} `basename "$0"` " ld path configured" blfs_all &&
 
 cat > /etc/profile.d/rustc.sh << "EOF"
 # Begin /etc/profile.d/rustc.sh
@@ -86,8 +102,7 @@ pathprepend /opt/rustc/bin           PATH
 
 # End /etc/profile.d/rustc.sh
 EOF
+${log} `basename "$0"` " profile configured" blfs_all &&
 
-source /etc/profile.d/rustc.sh
-
-
-${log} `basename "$0"` " finished" devtools 
+source /etc/profile.d/rustc.sh &&
+${log} `basename "$0"` " finished" blfs_all 
