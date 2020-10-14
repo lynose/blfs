@@ -15,7 +15,7 @@ export -f as_root
 #   Global Xorg configuration
 #
 #############################################################################
-./X/Xorg/01preXorg.sh &&
+#./X/Xorg/01preXorg.sh &&
 source /etc/profile.d/xorg.sh && # Do not uncomment
 
 ${log} `basename "$0"` " started" blfs_all &&
@@ -157,6 +157,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/Xorg/Xorg-Libs/01-Xorg-libs.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./sys/dbus/01-dbus-1.12.20.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/xcb-util/01-xcb-util-0.4.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/xcb-util-image/01-xcb-util-image-0.4.0.sh &&
@@ -177,7 +179,10 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/Xorg/libva/01-libva-2.8.0.sh && # Rebuild after mesa
 ${log} `basename "$0"` " ======================================" blfs_all &&
-
+./X/xbitmaps/01-xbitmaps-1.1.2.sh
+${log} `basename "$0"` " ======================================" blfs_all &&
+./X/Xorg/Xorg-apps/01-Xorg-apps.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 
 #############################################################################
 #
