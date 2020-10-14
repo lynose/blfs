@@ -9,7 +9,8 @@ fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-cp -u ${SCRIPTPATH}/md5-Xorg-libs /sources
+
+cp -u ${SCRIPTPATH}/md5-Xorg-libs /sources &&
 mkdir /sources/Xorg-libs &&
 cd /sources/Xorg-libs &&
 
@@ -52,7 +53,7 @@ do
   as_root make install &&
   ${log} `basename "$0"` " installed $package" blfs_all &&
   popd
-  rm -rf $packagedir &&
+  as_root rm -rf $packagedir &&
   as_root /sbin/ldconfig &&
   ${log} `basename "$0"` " ======================================" blfs_all
 done

@@ -2,33 +2,28 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/Xorg-apps
+if test -d /sources/Xorg-fonts
  then
-  rm -rf /sources/Xorg-apps
+  rm -rf /sources/Xorg-fonts
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-cp -u ${SCRIPTPATH}/md5-Xorg-apps /sources &&
-mkdir /sources/Xorg-apps &&
-cd /sources/Xorg-apps &&
+cp -u ${SCRIPTPATH}/md5-Xorg-fonts /sources &&
+mkdir /sources/Xorg-fonts &&
+cd /sources/Xorg-fonts &&
 
 
-grep -v '^#' ../md5-Xorg-apps | awk '{print $2}' | wget -i- -c \
-    -B https://www.x.org/pub/individual/app/ &&
-md5sum -c ../md5-Xorg-apps &&
+grep -v '^#' ../md5-Xorg-fonts | awk '{print $2}' | wget -i- -c \
+    -B https://www.x.org/pub/individual/font/ &&
+md5sum -c ../md5-Xorg-fonts &&
 
-for package in $(grep -v '^#' ../md5-Xorg-apps | awk '{print $2}')
+for package in $(grep -v '^#' ../md5-Xorg-fonts | awk '{print $2}')
 do
   ${log} `basename "$0"` " ======================================" blfs_all &&
   packagedir=${package%.tar.?z*} &&
   tar -xf $package &&
   pushd $packagedir
-     case $packagedir in
-       luit-[0-9]* )
-         sed -i -e "/D_XOPEN/s/5/6/" configure
-       ;;
-     esac
      ./configure $XORG_CONFIG &&
      ${log} `basename "$0"` " configured $package" blfs_all &&
      make &&
@@ -40,5 +35,7 @@ do
   ${log} `basename "$0"` " ======================================" blfs_all
 done
 
-as_root rm -f $XORG_PREFIX/bin/xkeystone &&
+install -v -d -m755 /usr/share/fonts                               &&
+ln -svfn $XORG_PREFIX/share/fonts/X11/OTF /usr/share/fonts/X11-OTF &&
+ln -svfn $XORG_PREFIX/share/fonts/X11/TTF /usr/share/fonts/X11-TTF &&
 ${log} `basename "$0"` " finished" blfs_all 
