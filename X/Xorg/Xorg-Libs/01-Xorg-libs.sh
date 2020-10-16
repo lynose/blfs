@@ -24,8 +24,8 @@ do
   ${log} `basename "$0"` " ======================================" blfs_all &&
   packagedir=${package%.tar.bz2}
   tar -xf $package
-  pushd $packagedir
-  docdir="--docdir=$XORG_PREFIX/share/doc/$packagedir"
+  pushd $packagedir &&
+  docdir="--docdir=$XORG_PREFIX/share/doc/$packagedir" &&
   case $packagedir in
     libICE* )
       ./configure $XORG_CONFIG $docdir ICE_LIBS=-lpthread
