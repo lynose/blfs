@@ -13,13 +13,13 @@ SCRIPTPATH=`dirname $SCRIPT`
 wget https://www.freedesktop.org/software/libevdev/libevdev-1.9.1.tar.xz \
     --continue --directory-prefix=/sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-libevdev-1.9.1.tar.xz &&
+md5sum -c ${SCRIPTPATH}/md5-libevdev &&
 
 tar xf /sources/libevdev-1.9.1.tar.xz -C /sources/ &&
 
 cd /sources/libevdev-1.9.1 &&
 
-./configure $XORG_CONFIG && &&
+./configure $XORG_CONFIG &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
