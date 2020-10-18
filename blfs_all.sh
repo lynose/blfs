@@ -93,6 +93,14 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libgpg-error/01-libgpg-error-1.38.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./gnf-libs/sassc/01-sassc-3.6.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/pcre2/01-pcre2-10.35.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/libaio/01-libaio-0.3.112.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/libatasmart/01-libatasmart-0.19.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 
 
 #############################################################################
@@ -100,6 +108,12 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 #   Packages with required or recommended dependencies
 #
 #############################################################################
+./gen-libs/libassuan/01-libassuan-2.5.3.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./fsndm/LVM2/01-LVM2-2.03.10.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./fsndm/parted/01-parted-3.3.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/python-libxml2/01-python-libxml2-2.9.10.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/nss/01-nss-3.55.sh &&
@@ -124,6 +138,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen/gtk-doc/01-gtk-doc-1.32.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/libbytesize/01-libbytesize-2.4.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./xml/xmlto/01-xmlto-0.0.28.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen/asciidoc/01-asciidoc-9.0.2.sh &&
@@ -134,9 +150,9 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/git/01-git-2.28.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libidn2/01-libidn2-2.3.0.sh
+./gen-libs/libidn2/01-libidn2-2.3.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/libpsl/01-libpsl-0.21.1.sh
+./net-libs/libpsl/01-libpsl-0.21.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net-libs/nghttp2/01-nghttp2-1.41.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -158,6 +174,12 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/doxygen/01-doxygen-1.8.19.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/popt/01-popt-1.18.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./sec/gpgme/01-gpgme-1.14.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/libyaml/01-libyaml-0.2.4.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/exiv2/01-exiv2-0.27.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/gnutls/01-gnutls-3.6.14.sh &&
@@ -188,6 +210,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/pcre/01-pcre-8.44.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/swig/01-swig-4.0.2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/glib/01-glib-2.64.4.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/glib-networking/01-glib-networking-2.64.3.sh &&
@@ -211,7 +235,11 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sys/systemd/01-systemd-246.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/libpwquality/01-libpwquality-1.4.2.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+#${log} `basename "$0"` " ======================================" blfs_all &&
+./sec/cryptsetup/01-cryptsetup-2.3.3.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./sec/volume_key/01-volume_key-0.3.12.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/shadow/01-shadow-4.8.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/alsa-lib/01-alsa-lib-1.2.3.2.sh &&
@@ -288,6 +316,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/xkeyboard-config/01-xkeyboard-config-2.30.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/libxkbcommon/01-libxkbcommon-0.10.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnf-libs/pixman/01-pixman-0.40.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/cairo/01-cairo-1.17.2+f93fc72c03e.sh &&
@@ -298,9 +328,15 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/gobject-introspection/01-gobject-introspection-1.64.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/libblockdev/01-libblockdev-2.24.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./X/at-spi2-core/01-at-spi2-core-2.36.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/libsoup/01-libsoup-2.70.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libgudev/01-libgudev-233.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/home/lynose/dev/blfs/sys/udisks/01-udisks-2.9.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnome/libsecret/01-libsecret-0.20.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -314,15 +350,27 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/atk/01-atk-2.36.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./X/at-spi2-atk/01-at-spi2-atk-2.34.2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/pango/01-pango-1.46.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/gtk+/01-gtk+-2.24.32.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/alsa-tools/01-alsa-tools-1.2.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/libglade/01-libglade-2.6.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/pygtk/01-pygtk-2.24.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/librsvg/01-librsvg-2.48.8.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./icons/adwaita-icon-theme/01-adwaita-icon-theme-3.36.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./X/gtk+/01-gtk+-3.24.22.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gnome/gcr/01-gcr-3.36.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gnome/gnome-keyring/01-gnome-keyring-3.36.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/babl/01-babl-0.1.78.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -362,15 +410,5 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/Xorg/Xorg-xinit/01-xinit-1.4.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-
-
-
-#############################################################################
-#
-#   GTK-2.0 need
-#
-#############################################################################
-./mld/alsa-tools/01-alsa-tools-1.2.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all

@@ -13,7 +13,7 @@ SCRIPTPATH=`dirname $SCRIPT`
 wget http://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.32.tar.xz \
     --continue --directory-prefix=/sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-<basepack> &&
+md5sum --ignore-missing -c ${SCRIPTPATH}/md5-gtk &&
 
 tar xf /sources/gtk+-2.24.32.tar.xz -C /sources/ &&
 
