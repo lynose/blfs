@@ -101,6 +101,22 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libatasmart/01-libatasmart-0.19.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./fsndm/xfsprogs/01-xfsprogs-5.7.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/lzo/01-lzo-2.10.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./fsndm/dosfstools/01-dosfstools-4.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./fsndm/mdadm/01-mdadm-4.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./audio-utils/cdparanoia/01-cdparanoia-10.2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/soundtouch/01-soundtouch-2.1.2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/libdvdread/01-libdvdread-6.1.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./sec/krb5/01-krb5-1.18.2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 
 
 #############################################################################
@@ -108,6 +124,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 #   Packages with required or recommended dependencies
 #
 #############################################################################
+./mld/libdvdnav/01-libdvdnav-6.1.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libassuan/01-libassuan-2.5.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./fsndm/LVM2/01-LVM2-2.03.10.sh &&
@@ -144,6 +162,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen/asciidoc/01-asciidoc-9.0.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./fsndm/btrfs-progs/01-btrfs-progs-5.7.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sys/pciutils/01-pciutils-3.7.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net-libs/curl/01-curl-7.71.1.sh &&
@@ -160,7 +180,11 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/libjpeg-turbo/01-libjpeg-turbo-2.0.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./gnf-libs/jasper/01-jasper-2.0.14.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/lcms2/01-lcms2-2.11.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gnf-libs/libmng/01-libmng-2.0.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/tiff/01-tiff-4.1.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -180,11 +204,15 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libyaml/01-libyaml-0.2.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/ruby/01-ruby-2.7.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/exiv2/01-exiv2-0.27.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/gnutls/01-gnutls-3.6.14.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./twb/lynx/01-lynx2.8.9rel.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/libdaemon/01-libdaemon-0.14.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/openjpeg/01-openjpeg-2.3.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -222,6 +250,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/icu/01-icu-67.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./fsndm/gptfdisk/01-gptfdisk-1.0.5.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnf-libs/harfbuzz/01-harfbuzz-2.7.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnf-libs/freetype/02-freetype-2.10.2.sh &&
@@ -274,6 +304,10 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/Xorg/Xorg-Libs/01-Xorg-libs.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./SDL/01-SDL-1.2.15.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gnf-libs/libwebp/01-libwebp-1.1.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sys/dbus/01-dbus-1.12.20.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/vala/01-vala-0.48.9.sh &&
@@ -334,9 +368,11 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/libsoup/01-libsoup-2.70.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./gnome/rest/01-rest-0.8.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libgudev/01-libgudev-233.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/home/lynose/dev/blfs/sys/udisks/01-udisks-2.9.1.sh &&
+./sys/udisks/01-udisks-2.9.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnome/libsecret/01-libsecret-0.20.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -344,7 +380,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/pygobject/01-pygobject-3.36.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/home/lynose/dev/blfs/gen-libs/json-glib/01-json-glib-1.4.4.sh &&
+./gen-libs/json-glib/01-json-glib-1.4.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnome/gsettings-desktop-schemas/01-gsettings-desktop-schemas-3.36.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -367,6 +403,20 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./icons/adwaita-icon-theme/01-adwaita-icon-theme-3.36.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/gtk+/01-gtk+-3.24.22.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/gstreamer/01-gstreamer-1.16.2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/gst-plugins-base/01-gst-plugins-base-1.16.2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/gst-plugins-bad/01-gst-plugins-bad-1.16.2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./X/qt5/01-qt5-5.15.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/libcanberra/01-libcanberra-0.30.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./sys/notification-daemon/01-notification-daemon-3.20.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./X/libnotify/01-libnotify-0.7.9.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnome/gcr/01-gcr-3.36.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
