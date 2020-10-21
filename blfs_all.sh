@@ -121,6 +121,12 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/npth/01-npth-1.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/lua/01-lua-5.4.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/libmad/01-libmad-0.15.1b.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/a52dec/01-a52dev-0.7.4.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 
 
 #############################################################################
@@ -251,6 +257,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/swig/01-swig-4.0.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/glib/01-glib-2.64.4.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gen/desktop-file-utils/01-desktop-file-utils-0.26.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/enchant/01-enchant-2.2.8.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -455,6 +463,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sys/notification-daemon/01-notification-daemon-3.20.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/libnotify/01-libnotify-0.7.9.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./video-utils/vlc/01-vlc-3.0.11.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/webkitgtk/01-webkitgtk-2.28.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
