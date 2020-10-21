@@ -2,32 +2,31 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/dbus-glib-0.110
+if test -d /sources/libevent-2.1.12-stable
  then
-  rm -rf /sources/dbus-glib-0.110
+  rm -rf /sources/libevent-2.1.12-stable
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.110.tar.gz \
+wget https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/libevent-2.1.12-stable.tar.gz \
     --continue --directory-prefix=/sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-dbus-glib &&
+md5sum -c ${SCRIPTPATH}/md5-libevent &&
 
-tar xf /sources/dbus-glib-0.110.tar.gz -C /sources/ &&
+tar xf /sources/libevent-2.1.12-stable.tar.gz -C /sources/ &&
 
-cd /sources/dbus-glib-0.110 &&
+cd /sources/libevent-2.1.12-stable &&
 
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --disable-static &&
+./configure --prefix=/usr --disable-static &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
+doxygen Doxyfile &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make check &&
+make verify &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
 make install &&

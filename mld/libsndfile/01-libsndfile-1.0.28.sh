@@ -2,26 +2,26 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/dbus-glib-0.110
+if test -d /sources/libsndfile-1.0.28
  then
-  rm -rf /sources/dbus-glib-0.110
+  rm -rf /sources/libsndfile-1.0.28
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.110.tar.gz \
+wget http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz \
     --continue --directory-prefix=/sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-dbus-glib &&
+md5sum -c ${SCRIPTPATH}/md5-libsndfile &&
 
-tar xf /sources/dbus-glib-0.110.tar.gz -C /sources/ &&
+tar xf /sources/libsndfile-1.0.28.tar.gz -C /sources/ &&
 
-cd /sources/dbus-glib-0.110 &&
+cd /sources/libsndfile-1.0.28 &&
 
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --disable-static &&
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/libsndfile-1.0.28 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
