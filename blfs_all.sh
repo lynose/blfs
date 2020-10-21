@@ -15,8 +15,8 @@ export -f as_root
 #   Global Xorg configuration
 #
 #############################################################################
-#./X/Xorg/01preXorg.sh &&
-#./typesetting/01preTeX.sh &&
+./X/Xorg/01preXorg.sh &&
+./typesetting/01preTeX.sh &&
 source /etc/profile.d/xorg.sh && # Do not uncomment
 source /etc/profile.d/extrapaths.sh
 
