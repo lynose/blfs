@@ -13,7 +13,7 @@ SCRIPTPATH=`dirname $SCRIPT`
 wget https://github.com/uclouvain/openjpeg/archive/v2.3.1/openjpeg-2.3.1.tar.gz \
     --continue --directory-prefix=/sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-openjpeg-2.3.1.tar.gz &&
+md5sum -c ${SCRIPTPATH}/md5-openjpeg &&
 
 tar xf /sources/openjpeg-2.3.1.tar.gz -C /sources/ &&
 

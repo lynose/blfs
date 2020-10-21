@@ -10,10 +10,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-#wget https://downloads.sourceforge.net/libpng/libpng-1.6.37.tar.xz \
-#    --continue --directory-prefix=/sources &&
-#wget https://downloads.sourceforge.net/sourceforge/libpng-apng/libpng-1.6.37-apng.patch.gz \
-#    --continue --directory-prefix=/sources &&
+wget https://downloads.sourceforge.net/libpng/libpng-1.6.37.tar.xz \
+   --continue --directory-prefix=/sources &&
+wget https://downloads.sourceforge.net/sourceforge/libpng-apng/libpng-1.6.37-apng.patch.gz \
+   --continue --directory-prefix=/sources &&
 md5sum -c ${SCRIPTPATH}/md5-libpng &&
 
 tar xf /sources/libpng-1.6.37.tar.xz -C /sources/ &&

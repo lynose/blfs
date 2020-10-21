@@ -36,11 +36,11 @@ make BUILD_OPT=1                      \
   $([ -f /usr/include/sqlite3.h ] && echo NSS_USE_SYSTEM_SQLITE=1) &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-cd tests &&
-HOST=localhost DOMSUF=localdomain ./all.sh &&
-cd ../ &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
-${log} `basename "$0"` " expected check fail?" blfs_all &&
+# cd tests &&
+# HOST=localhost DOMSUF=localdomain ./all.sh &&
+# cd ../ &&
+# ${log} `basename "$0"` " unexpected check succeed" blfs_all
+# ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
 cd ../dist                                                          &&
 

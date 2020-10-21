@@ -32,8 +32,7 @@ sed -i '/t0251-gpt-unicode.sh/d' tests/Makefile &&
 sed -i '/t6002-dm-busy.sh/d' tests/Makefile &&
 sed -i '1s/python/&3/' tests/{gpt-header-move,msdos-overlap} &&
 make check &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
-${log} `basename "$0"` " expected check fail?" blfs_all &&
+${log} `basename "$0"` " check succeed" blfs_all &&
 
 make install &&
 install -v -m755 -d /usr/share/doc/parted-3.3/html &&

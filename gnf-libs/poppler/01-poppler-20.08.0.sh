@@ -12,7 +12,7 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 wget https://poppler.freedesktop.org/poppler-20.08.0.tar.xz \
     --continue --directory-prefix=/sources &&
-wget https://poppler.freedesktop.org/ \
+wget https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz \
     --continue --directory-prefix=/sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-poppler &&
@@ -37,8 +37,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 git clone git://git.freedesktop.org/git/poppler/test testfiles &&
 LC_ALL=en_US.UTF-8 make test &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
-${log} `basename "$0"` " expected check fail?" blfs_all &&
+${log} `basename "$0"` " check succeed" blfs_all &&
 
 make install &&
 install -v -m755 -d           /usr/share/doc/poppler-20.08.0 &&

@@ -19,6 +19,8 @@ tar xf /sources/jasper-2.0.14.tar.gz -C /sources/ &&
 
 cd /sources/jasper-2.0.14 &&
 
+mkdir BUILD &&
+cd    BUILD &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr    \
       -DCMAKE_BUILD_TYPE=Release     \
@@ -32,8 +34,7 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 make test &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
-${log} `basename "$0"` " expected check fail?" blfs_all &&
+${log} `basename "$0"` " check succeed" blfs_all &&
 
 make install &&
 ${log} `basename "$0"` " installed" blfs_all &&

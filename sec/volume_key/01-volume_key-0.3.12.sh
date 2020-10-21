@@ -2,9 +2,9 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/volume_key-0.3.12
+if test -d /sources/volume_key-volume_key-0.3.12
  then
-  rm -rf /sources/volume_key-0.3.12
+  rm -rf /sources/volume_key-volume_key-0.3.12
 fi
 
 SCRIPT=`realpath $0`
@@ -17,7 +17,7 @@ md5sum -c ${SCRIPTPATH}/md5-volume_key &&
 
 tar xf /sources/volume_key-0.3.12.tar.gz -C /sources/ &&
 
-cd /sources/volume_key-0.3.12 &&
+cd /sources/volume_key-volume_key-0.3.12 &&
 
 autoreconf -fiv              &&
 ./configure --prefix=/usr    \

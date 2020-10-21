@@ -26,10 +26,5 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 make install &&
-gtk-update-icon-cache &&
-gtk-encode-symbolic-svg file:///home/lynose/dev/blfs/X/at-spi2-core
-file:///home/lynose/dev/blfs/template/md5-pack
-file:///home/lynose/dev/blfs/template/01-package-x.y.z.sh
-&&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

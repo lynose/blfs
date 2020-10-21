@@ -41,7 +41,7 @@ autoreconf -fi &&
 ./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured sassc" blfs_all &&
 make &&
-{log} `basename "$0"` " built sassc" blfs_all &&
+${log} `basename "$0"` " built sassc" blfs_all &&
 make install &&
 ${log} `basename "$0"` " installed sassc" blfs_all &&
 

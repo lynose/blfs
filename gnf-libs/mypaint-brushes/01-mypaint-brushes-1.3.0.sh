@@ -19,7 +19,7 @@ md5sum -c ${SCRIPTPATH}/md5-mypaint-brushes &&
 
 tar xf /sources/mypaint-brushes-v1.3.0.tar.gz -C /sources/ &&
 
-cd /sources/mypaint-brushes-v1.3.0 &&
+cd /sources/mypaint-brushes-1.3.0 &&
 
 patch -Np1 -i ../mypaint-brushes-1.3.0-automake_1.16-1.patch &&
 ./autogen.sh                                                 &&
