@@ -9,9 +9,11 @@ fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-
-wget https://downloads.sourceforge.net/libtirpc/libtirpc-1.2.6.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/libtirpc-1.2.6.tar.bz2 ];  
+ then
+  wget https://downloads.sourceforge.net/libtirpc/libtirpc-1.2.6.tar.bz2 \
+    --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-libtirpc &&
 

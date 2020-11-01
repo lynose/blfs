@@ -17,7 +17,7 @@ md5sum -c ${SCRIPTPATH}/md5-iptables &&
 
 tar xf /sources/iptables-1.8.5.tar.bz2 -C /sources/ &&
 
-cd /sources/iptables-1.8.5.tar.bz2 &&
+cd /sources/iptables-1.8.5 &&
 
 ./configure --prefix=/usr      \
             --sbindir=/sbin    \
@@ -28,10 +28,6 @@ ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
-
-make check &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
-${log} `basename "$0"` " expected check fail?" blfs_all &&
 
 make install &&
 ln -sfv ../../sbin/xtables-legacy-multi /usr/bin/iptables-xml &&

@@ -44,8 +44,7 @@ session  required       pam_deny.so
 EOF
 
 make check &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
-${log} `basename "$0"` " expected check fail?" blfs_all &&
+${log} `basename "$0"` " check succeed" blfs_all &&
 rm -fv /etc/pam.d/other &&
 
 

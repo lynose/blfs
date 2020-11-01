@@ -39,7 +39,7 @@ ${log} `basename "$0"` " expected check fail? gimp" blfs_all &&
 
 make install &&
 gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
-#update-desktop-database -q &&
+update-desktop-database -q &&
 
 
 ${log} `basename "$0"` " installed gimp" blfs_all &&

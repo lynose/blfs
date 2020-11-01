@@ -10,8 +10,11 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/boost_1_74_0.tar.bz2 ];  
+ then
+  wget https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.bz2 \
+      --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-boost &&
 

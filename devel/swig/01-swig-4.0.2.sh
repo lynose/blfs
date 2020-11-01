@@ -9,9 +9,11 @@ fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-
-wget https://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/swig-4.0.2.tar.gz ];  
+ then
+  wget https://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz \
+    --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-swig &&
 

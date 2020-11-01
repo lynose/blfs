@@ -29,8 +29,7 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 make check &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
-${log} `basename "$0"` " expected check fail?" blfs_all &&
+${log} `basename "$0"` " check succeed" blfs_all &&
 
 make install &&
 install -v -m644 doc/gc.man /usr/share/man/man3/gc_malloc.3 &&

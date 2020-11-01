@@ -9,9 +9,11 @@ fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-
-wget https://github.com/systemd/systemd/archive/v246/systemd-246.tar.gz \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/systemd-246.tar.gz ] 
+ then
+  wget https://github.com/systemd/systemd/archive/v246/systemd-246.tar.gz \
+    --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-systemd &&
 
@@ -49,8 +51,7 @@ ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 ninja test &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
-${log} `basename "$0"` " expected check fail?" blfs_all &&
+${log} `basename "$0"` " check succeed" blfs_all &&
 
 ninja install &&
 cat >> /etc/pam.d/system-session << "EOF"

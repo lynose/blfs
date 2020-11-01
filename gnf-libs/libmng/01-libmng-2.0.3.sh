@@ -10,8 +10,11 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/libmng-2.0.3.tar.xz ];  
+ then
+  wget https://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz \
+    --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-libmng &&
 

@@ -10,10 +10,17 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.5.tar.gz \
-    --continue --directory-prefix=/sources &&
-wget http://www.linuxfromscratch.org/patches/blfs/10.0/gptfdisk-1.0.5-convenience-1.patch \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/gptfdisk-1.0.5.tar.gz ];  
+ then
+  wget https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.5.tar.gz \
+    --continue --directory-prefix=/sources
+fi
+
+if [ ! -f /sources/gptfdisk-1.0.5-convenience-1.patch ];  
+ then
+  wget http://www.linuxfromscratch.org/patches/blfs/10.0/gptfdisk-1.0.5-convenience-1.patch \
+    --continue --directory-prefix=/sources
+fi
 md5sum -c ${SCRIPTPATH}/md5-gptfdisk &&
 
 tar xf /sources/gptfdisk-1.0.5.tar.gz -C /sources/ &&

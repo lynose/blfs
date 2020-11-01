@@ -45,7 +45,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 make install &&
 
-QT5BINDIR=$QT5PREFIX/bin
+QT5BINDIR=$QT5PREFIX/bin &&
 
 install -v -dm755 /usr/share/pixmaps/                  &&
 
@@ -118,20 +118,6 @@ EOF
 for file in moc uic rcc qmake lconvert lrelease lupdate; do
   ln -sfrvn $QT5BINDIR/$file /usr/bin/$file-qt5
 done
-
-cat > /etc/profile.d/qt5.sh << "EOF"
-# Begin /etc/profile.d/qt5.sh
-
-QT5DIR=/usr
-export QT5DIR
-pathappend $QT5DIR/bin
-
-# End /etc/profile.d/qt5.sh
-EOF
-
-cat > /etc/sudoers.d/qt << "EOF"
-Defaults env_keep += QT5DIR
-EOF
 
 cat >> /etc/ld.so.conf << EOF
 # Begin Qt addition

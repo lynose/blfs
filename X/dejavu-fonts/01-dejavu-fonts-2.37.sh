@@ -9,10 +9,11 @@ fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-
-wget https://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-ttf-2.37.tar.bz2 \
-    --continue --directory-prefix=/sources &&
-
+if [ ! -f /sources/dejavu-fonts-ttf-2.37.tar.bz2 ];
+ then
+  wget https://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-ttf-2.37.tar.bz2 \
+        --continue --directory-prefix=/sources
+fi
 # md5sum -c ${SCRIPTPATH}/md5-<basepack> &&
 
 tar xf /sources/dejavu-fonts-ttf-2.37.tar.bz2 -C /sources/ &&

@@ -10,13 +10,21 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs952/ghostscript-9.52.tar.xz \
-    --continue --directory-prefix=/sources &&
-
-wget https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz \
-    --continue --directory-prefix=/sources &&
-wget https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/ghostscript-9.52.tar.xz ];  
+ then
+  wget https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs952/ghostscript-9.52.tar.xz \
+    --continue --directory-prefix=/sources
+fi
+if [ ! -f /sources/ghostscript-fonts-std-8.11.tar.gz ];  
+ then
+  wget https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz \
+    --continue --directory-prefix=/sources
+fi
+if [ ! -f /sources/gnu-gs-fonts-other-6.0.tar.gz ];  
+ then
+  wget https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz \
+    --continue --directory-prefix=/sources
+fi
     
 md5sum -c ${SCRIPTPATH}/md5-ghostscript &&
 

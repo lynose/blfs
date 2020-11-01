@@ -10,8 +10,11 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://downloads.sourceforge.net/lcms/lcms2-2.11.tar.gz \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/lcms2-2.11.tar.gz ];  
+ then
+  wget https://downloads.sourceforge.net/lcms/lcms2-2.11.tar.gz \
+    --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-lcms2 &&
 

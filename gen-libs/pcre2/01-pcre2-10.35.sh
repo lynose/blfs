@@ -9,9 +9,11 @@ fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-
-wget https://downloads.sourceforge.net/pcre/pcre2-10.35.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/pcre2-10.35.tar.bz2 ];  
+ then
+  wget https://downloads.sourceforge.net/pcre/pcre2-10.35.tar.bz2 \
+    --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-pcre2 &&
 

@@ -10,8 +10,11 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget <link> \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/<tarball> ] 
+ then
+  wget <link> \
+        --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-<basepack> &&
 
@@ -25,9 +28,12 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make check &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
-${log} `basename "$0"` " expected check fail?" blfs_all &&
+if [ ${ENABLE_TEST} == true ]
+ then
+  make check &&
+  ${log} `basename "$0"` " unexpected check succeed" blfs_all
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 make install &&
 ${log} `basename "$0"` " installed" blfs_all &&

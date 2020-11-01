@@ -10,11 +10,16 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz \
-    --continue --directory-prefix=/sources &&
-    
-wget http://www.linuxfromscratch.org/patches/blfs/10.0/libmad-0.15.1b-fixes-1.patch \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/libmad-0.15.1b.tar.gz ];  
+ then
+  wget https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz \
+    --continue --directory-prefix=/sources
+fi
+if [ ! -f /sources/libmad-0.15.1b-fixes-1.patch ];  
+ then
+  wget http://www.linuxfromscratch.org/patches/blfs/10.0/libmad-0.15.1b-fixes-1.patch \
+    --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-libmad &&
 

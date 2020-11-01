@@ -58,7 +58,7 @@ do
   ${log} `basename "$0"` " ======================================" blfs_all
 done
 
-ln -sv $XORG_PREFIX/lib/X11 /usr/lib/X11 &&
-ln -sv $XORG_PREFIX/include/X11 /usr/include/X11 &&
+#ln -sv $XORG_PREFIX/lib/X11 /usr/lib/X11 &&
+#ln -sv $XORG_PREFIX/include/X11 /usr/include/X11 &&
 
 ${log} `basename "$0"` " finished" blfs_all 

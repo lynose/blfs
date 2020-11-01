@@ -10,9 +10,11 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://downloads.sourceforge.net/lame/lame-3.100.tar.gz \
-    --continue --directory-prefix=/sources &&
-
+if [ ! -f /sources/lame-3.100.tar.gz ];  
+ then
+  wget https://downloads.sourceforge.net/lame/lame-3.100.tar.gz \
+    --continue --directory-prefix=/sources
+fi
 md5sum -c ${SCRIPTPATH}/md5-lame &&
 
 tar xf /sources/lame-3.100.tar.gz -C /sources/ &&

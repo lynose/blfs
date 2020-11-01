@@ -9,10 +9,11 @@ fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-
-wget https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.16.2.tar.xz \
-    --continue --directory-prefix=/sources &&
-
+if [ ! -f /sources/gst-plugins-base-1.16.2.tar.xz ] 
+ then
+  wget https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.16.2.tar.xz \
+    --continue --directory-prefix=/sources
+fi
 md5sum -c ${SCRIPTPATH}/md5-gst-plugins-base &&
 
 tar xf /sources/gst-plugins-base-1.16.2.tar.xz -C /sources/ &&
@@ -30,11 +31,12 @@ ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
-
-ninja test &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
-${log} `basename "$0"` " expected check fail?" blfs_all &&
-
+if [ ENABLE_TEST == true ]
+ then
+  ninja test &&
+  ${log} `basename "$0"` " unexpected check succeed" blfs_all
+  ${log} `basename "$0"` " expected check fail?" blfs_all &&
+fi
 ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

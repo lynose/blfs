@@ -10,10 +10,16 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://downloads.sourceforge.net/freetype/freetype-2.10.2.tar.xz \
-    --continue --directory-prefix=/sources &&
-wget https://downloads.sourceforge.net/freetype/freetype-doc-2.10.2.tar.xz \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/freetype-2.10.2.tar.xz ];  
+ then
+  wget https://downloads.sourceforge.net/freetype/freetype-2.10.2.tar.xz \
+    --continue --directory-prefix=/sources
+fi
+if [ ! -f /sources/freetype-doc-2.10.2.tar.xz ];  
+ then
+  wget https://downloads.sourceforge.net/freetype/freetype-doc-2.10.2.tar.xz \
+    --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-freetype &&
 

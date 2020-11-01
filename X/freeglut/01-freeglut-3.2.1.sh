@@ -10,11 +10,17 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://downloads.sourceforge.net/freeglut/freeglut-3.2.1.tar.gz \
-    --continue --directory-prefix=/sources &&
-wget http://www.linuxfromscratch.org/patches/blfs/10.0/freeglut-3.2.1-gcc10_fix-1.patch \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/freeglut-3.2.1.tar.gz ];
+ then
+  wget https://downloads.sourceforge.net/freeglut/freeglut-3.2.1.tar.gz \
+        --continue --directory-prefix=/sources
+fi
 
+if [ ! -f /sources/freeglut-3.2.1-gcc10_fix-1.patch ];
+ then
+  wget http://www.linuxfromscratch.org/patches/blfs/10.0/freeglut-3.2.1-gcc10_fix-1.patch \
+    --continue --directory-prefix=/sources
+fi
 md5sum -c ${SCRIPTPATH}/md5-freeglut &&
 
 tar xf /sources/freeglut-3.2.1.tar.gz -C /sources/ &&

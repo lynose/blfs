@@ -9,9 +9,11 @@ fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-
-wget https://static.rust-lang.org/dist/rustc-1.42.0-src.tar.gz \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/rustc-1.42.0-src.tar.gz ] 
+ then
+  wget https://static.rust-lang.org/dist/rustc-1.42.0-src.tar.gz \
+    --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-rustc &&
 

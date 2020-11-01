@@ -10,8 +10,11 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.1.tar.gz \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/fdk-aac-2.0.1.tar.gz ];  
+ then
+  wget https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.1.tar.gz \
+    --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-fdk-aac &&
 

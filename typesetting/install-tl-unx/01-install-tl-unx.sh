@@ -15,7 +15,7 @@ wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz \
 
 tar xf /sources/install-tl-unx.tar.gz -C /sources/ &&
 
-cd /sources/install-tl-20201020 &&
+cd /sources/install-tl-20201028 &&
 
 TEXLIVE_INSTALL_PREFIX=/opt/texlive ./install-tl &&
 ${log} `basename "$0"` " installed" blfs_all &&

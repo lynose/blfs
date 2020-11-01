@@ -10,8 +10,11 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://liba52.sourceforge.net/files/a52dec-0.7.4.tar.gz \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/a52dec-0.7.4.tar.gz ];  
+ then
+  wget http://liba52.sourceforge.net/files/a52dec-0.7.4.tar.gz \
+    --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-a52dec &&
 

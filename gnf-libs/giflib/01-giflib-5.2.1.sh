@@ -9,9 +9,11 @@ fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-
-wget https://sourceforge.net/projects/giflib/files/giflib-5.2.1.tar.gz \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/giflib-5.2.1.tar.gz ];  
+ then
+  wget https://sourceforge.net/projects/giflib/files/giflib-5.2.1.tar.gz \
+    --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-giflib &&
 

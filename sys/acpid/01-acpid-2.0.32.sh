@@ -9,9 +9,11 @@ fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-
-wget https://downloads.sourceforge.net/acpid2/acpid-2.0.32.tar.xz \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/acpid-2.0.32.tar.xz ];  
+ then
+  wget https://downloads.sourceforge.net/acpid2/acpid-2.0.32.tar.xz \
+    --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-acpid &&
 

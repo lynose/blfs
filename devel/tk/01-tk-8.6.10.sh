@@ -9,9 +9,11 @@ fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-
-wget https://downloads.sourceforge.net/tcl/tk8.6.10-src.tar.gz \
-    --continue --directory-prefix=/sources &&
+if [ ! -f /sources/tk8.6.10-src.tar.gz ];  
+ then
+  wget https://downloads.sourceforge.net/tcl/tk8.6.10-src.tar.gz \
+    --continue --directory-prefix=/sources
+fi
 
 md5sum -c ${SCRIPTPATH}/md5-tk &&
 
