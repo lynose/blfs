@@ -10,7 +10,26 @@ as_root()
 
 export -f as_root
 
-export ENABLE_TEST=false
+check_and_download ()
+{
+  declare url=$1
+  echo $url
+  filename=`basename ${url}`
+  echo ${filename}
+  declare dirname=$2
+  echo ${dirname}
+  
+  if [ ! -f ${dirname}/${filename} ];
+    then 
+      wget ${url} --continue --directory-prefix=${dirname}
+  fi
+}
+
+export -f check_and_download
+
+
+
+export ENABLE_TEST=true
 #############################################################################
 #
 #   Global Xorg configuration
@@ -167,7 +186,7 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/fftw/01-fftw-3.3.8.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-# 
+
 # #############################################################################
 # #
 # #   Packages with required or recommended dependencies
@@ -328,9 +347,9 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # # ${log} `basename "$0"` " ======================================" blfs_all &&
 # # ./gnf-libs/newt/01-newt-0.52.21.sh &&
 # # ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/swig/01-swig-4.0.2.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/glib/01-glib-2.64.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/swig/01-swig-4.0.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen/desktop-file-utils/01-desktop-file-utils-0.26.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -584,32 +603,32 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./typesetting/install-tl-unx/01-install-tl-unx.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./mld/pulseaudio/01-pulseaudio-13.0.sh &&
+./mld/pulseaudio/01-pulseaudio-13.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/mlt/01-mlt-6.22.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/v4l-utils/01-v4l-utils-1.20.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./mld/mlt/01-mlt-6.22.1.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# # ./mld/v4l-utils/01-v4l-utils-1.20.0.sh &&
-# # ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./mld/pipewire/01-pipewire-0.3.9.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./audio-utils/mpg123/01-mpg123-1.26.3.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./kde/phonon/01-phonon-4.11.1.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./mld/gst-plugins-good/01-gst-plugins-good-1.16.2.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./kde/phonon-backend-gstreamer/01-phonon-backend-gstreamer-4.10.0.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./mld/libcanberra/01-libcanberra-0.30.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./sys/notification-daemon/01-notification-daemon-3.20.0.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./X/libnotify/01-libnotify-0.7.9.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./video-utils/vlc/01-vlc-3.0.11.1.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./kde/phonon-backend-vlc/01-phonon-backend-vlc-4.10.0.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/pipewire/01-pipewire-0.3.9.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./audio-utils/mpg123/01-mpg123-1.26.3.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/phonon/01-phonon-4.11.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/gst-plugins-good/01-gst-plugins-good-1.16.2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/phonon-backend-gstreamer/01-phonon-backend-gstreamer-4.10.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/libcanberra/01-libcanberra-0.30.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./sys/notification-daemon/01-notification-daemon-3.20.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./X/libnotify/01-libnotify-0.7.9.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./video-utils/vlc/01-vlc-3.0.11.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/phonon-backend-vlc/01-phonon-backend-vlc-4.10.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/webkitgtk/01-webkitgtk-2.28.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./xsoft/firefox/01-firefox-78.2.0.sh &&

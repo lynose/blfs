@@ -10,8 +10,7 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://files.libburnia-project.org/releases/libburn-1.5.2.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download "http://files.libburnia-project.org/releases/libburn-1.5.2.tar.gz" "/sources" &&
 
 md5sum -c ${SCRIPTPATH}/md5-libburn &&
 

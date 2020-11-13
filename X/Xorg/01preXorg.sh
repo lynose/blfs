@@ -15,7 +15,7 @@ chmod 644 /etc/profile.d/xorg.sh &&
 
 echo "$XORG_PREFIX/lib" >> /etc/ld.so.conf &&
 sed "s@/usr/X11R6@$XORG_PREFIX@g" -i /etc/man_db.conf &&
-ln -svf $XORG_PREFIX/share/X11 /usr/share/X11 &&
+#ln -svf $XORG_PREFIX/share/X11 /usr/share/X11 &&
 ln -svf $XORG_PREFIX /usr/X11R6 &&
 
 ${log} `basename "$0"` " finished" xorg
