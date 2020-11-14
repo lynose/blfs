@@ -601,91 +601,91 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/gnupg/01-gnupg-1.1.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./typesetting/install-tl-unx/01-install-tl-unx.sh &&
+#./typesetting/install-tl-unx/01-install-tl-unx.sh &&
+#${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/pulseaudio/01-pulseaudio-13.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/pulseaudio/01-pulseaudio-13.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/mlt/01-mlt-6.22.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-# ./mld/v4l-utils/01-v4l-utils-1.20.0.sh &&
+# ./mld/mlt/01-mlt-6.22.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/pipewire/01-pipewire-0.3.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./audio-utils/mpg123/01-mpg123-1.26.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/phonon/01-phonon-4.11.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/gst-plugins-good/01-gst-plugins-good-1.16.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/phonon-backend-gstreamer/01-phonon-backend-gstreamer-4.10.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/libcanberra/01-libcanberra-0.30.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/notification-daemon/01-notification-daemon-3.20.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/libnotify/01-libnotify-0.7.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./video-utils/vlc/01-vlc-3.0.11.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/phonon-backend-vlc/01-phonon-backend-vlc-4.10.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/webkitgtk/01-webkitgtk-2.28.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./xsoft/firefox/01-firefox-78.2.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/gcr/01-gcr-3.36.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/gnome-online-accounts/01-gnome-online-accounts-3.36.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/libgdata/01-libgdata-0.17.12.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/gvfs/01-gvfs-1.44.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/gnome-keyring/01-gnome-keyring-3.36.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/babl/01-babl-0.1.78.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/gegl/01-gegl-0.4.26.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/libmypaint/01-libmypaint-1.6.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/mypaint-brushes/01-mypaint-brushes-1.3.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/poppler/01-poppler-20.08.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./typesetting/texlive/01-texlive-20200406.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./print/cups-filter/01-cups-filters-1.27.5.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./xsoft/gimp/01-gimp-2.10.20.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/avahi/01-avahi-0.8.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-server/01-xorg-server-1.20.8.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/libevdev/01-libevdev-1.9.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-input-evdev/01-xf86-input-evdev-2.10.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/libinput/01-libinput-1.16.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-input-libinput/01-xf86-input-libinput-0.30.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-input-synaptics/01-xf86-input-synaptics-1.9.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-video-amdgpu/01-xf86-video-amdgpu-19.1.0.sh    &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-video-fbdev/01-xf86-video-fbdev-0.5.0.sh       &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-video-ati/01-xf86-video-ati-19.1.0.sh &&
+# # ./mld/v4l-utils/01-v4l-utils-1.20.0.sh &&
+# # ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/pipewire/01-pipewire-0.3.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./audio-utils/mpg123/01-mpg123-1.26.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/phonon/01-phonon-4.11.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/gst-plugins-good/01-gst-plugins-good-1.16.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/phonon-backend-gstreamer/01-phonon-backend-gstreamer-4.10.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/libcanberra/01-libcanberra-0.30.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/notification-daemon/01-notification-daemon-3.20.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/libnotify/01-libnotify-0.7.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./video-utils/vlc/01-vlc-3.0.11.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/phonon-backend-vlc/01-phonon-backend-vlc-4.10.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/webkitgtk/01-webkitgtk-2.28.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./xsoft/firefox/01-firefox-78.2.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/gcr/01-gcr-3.36.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/gnome-online-accounts/01-gnome-online-accounts-3.36.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/libgdata/01-libgdata-0.17.12.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/gnome-keyring/01-gnome-keyring-3.36.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/babl/01-babl-0.1.78.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/gegl/01-gegl-0.4.26.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/libmypaint/01-libmypaint-1.6.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/mypaint-brushes/01-mypaint-brushes-1.3.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/poppler/01-poppler-20.08.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./typesetting/texlive/01-texlive-20200406.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/dejavu-fonts/01-dejavu-fonts-2.37.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./print/cups-filter/01-cups-filters-1.27.5.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./xsoft/gimp/01-gimp-2.10.20.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/avahi/01-avahi-0.8.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/gvfs/01-gvfs-1.44.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-server/01-xorg-server-1.20.8.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/libevdev/01-libevdev-1.9.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-input-evdev/01-xf86-input-evdev-2.10.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/libinput/01-libinput-1.16.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-input-libinput/01-xf86-input-libinput-0.30.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-input-synaptics/01-xf86-input-synaptics-1.9.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-video-amdgpu/01-xf86-video-amdgpu-19.1.0.sh    &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-video-fbdev/01-xf86-video-fbdev-0.5.0.sh       &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-video-ati/01-xf86-video-ati-19.1.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/Xorg/Xorg-drivers/xf86-video-intel/01-xf86-video-intel-20200817.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/Xorg/Xorg-Legacy/01-Xorg-Legacy.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/twm/01-twm-1.0.11.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/dejavu-fonts/01-dejavu-fonts-2.37.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/xterm/01-xterm-359.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
