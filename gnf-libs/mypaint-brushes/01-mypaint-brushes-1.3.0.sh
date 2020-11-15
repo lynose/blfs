@@ -10,10 +10,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/Jehan/mypaint-brushes/archive/v1.3.0/mypaint-brushes-v1.3.0.tar.gz \
-    --continue --directory-prefix=/sources &&
-wget http://www.linuxfromscratch.org/patches/blfs/10.0/mypaint-brushes-1.3.0-automake_1.16-1.patch \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/Jehan/mypaint-brushes/archive/v1.3.0/mypaint-brushes-v1.3.0.tar.gz \
+    /sources &&
+check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/mypaint-brushes-1.3.0-automake_1.16-1.patch \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-mypaint-brushes &&
 
@@ -29,6 +29,6 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

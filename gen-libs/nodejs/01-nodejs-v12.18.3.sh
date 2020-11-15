@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://nodejs.org/dist/v12.18.3/node-v12.18.3.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://nodejs.org/dist/v12.18.3/node-v12.18.3.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-nodejs &&
 
@@ -34,7 +34,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 make test-only &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 ln -sf node /usr/share/doc/node-12.18.3 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

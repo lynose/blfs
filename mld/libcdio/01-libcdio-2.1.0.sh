@@ -10,10 +10,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2 \
-    --continue --directory-prefix=/sources &&
-wget https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+2.0.1.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2 \
+    /sources &&
+check_and_download https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+2.0.1.tar.bz2 \
+    /sources &&
 md5sum -c ${SCRIPTPATH}/md5-libcdio &&
 
 tar xf /sources/libcdio-2.1.0.tar.bz2 -C /sources/ &&
@@ -29,7 +29,7 @@ ${log} `basename "$0"` " built libcdio" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed libcdio" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed libcdio" blfs_all &&
 
 
@@ -45,7 +45,7 @@ ${log} `basename "$0"` " built libcdio-paranoia" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed libcdio-paranoia" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed libcdio-paranoia" blfs_all &&
 
 

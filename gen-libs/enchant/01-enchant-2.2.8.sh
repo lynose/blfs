@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/AbiWord/enchant/releases/download/v2.2.8/enchant-2.2.8.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/AbiWord/enchant/releases/download/v2.2.8/enchant-2.2.8.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-enchant &&
 
@@ -25,7 +25,7 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install                                   &&
+as_root make install                                   &&
 rm -rf /usr/include/enchant                    &&
 ln -sfv enchant-2       /usr/include/enchant   &&
 ln -sfv enchant-2       /usr/bin/enchant       &&

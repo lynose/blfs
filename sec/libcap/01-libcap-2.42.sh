@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.42.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.42.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libcap &&
 
@@ -22,15 +22,16 @@ cd /sources/libcap-2.42 &&
 make -C pam_cap &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-install -v -m755 pam_cap/pam_cap.so /lib/security &&
-install -v -m644 pam_cap/capability.conf /etc/security &&
+as_root install -v -m755 pam_cap/pam_cap.so /lib/security &&
+as_root install -v -m644 pam_cap/capability.conf /etc/security &&
 
-mv -v /etc/pam.d/system-auth{,.bak} &&
-cat > /etc/pam.d/system-auth << "EOF" &&
+as_root mv -v /etc/pam.d/system-auth{,.bak} &&
+cat > /tmp/system-auth << "EOF" &&
 # Begin /etc/pam.d/system-auth
 
 auth      optional    pam_cap.so
 EOF
-tail -n +3 /etc/pam.d/system-auth.bak >> /etc/pam.d/system-auth &&
+as_root mv /tmp/system-auth /etc/pam.d &&
+as_root tail -n +3 /etc/pam.d/system-auth.bak >> /etc/pam.d/system-auth &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

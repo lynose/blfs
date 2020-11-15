@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://www.docbook.org/sgml/4.5/docbook-4.5.zip \
-    --continue --directory-prefix=/sources &&
+check_and_download http://www.docbook.org/sgml/4.5/docbook-4.5.zip \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-docbook-dtd &&
 
@@ -25,11 +25,11 @@ sed -i -e '/ISO 8879/d' \
        -e '/gml/d' docbook.cat &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-install -v -d /usr/share/sgml/docbook/sgml-dtd-4.5 &&
+as_root install -v -d /usr/share/sgml/docbook/sgml-dtd-4.5 &&
 chown -R root:root . &&
 
-install -v docbook.cat /usr/share/sgml/docbook/sgml-dtd-4.5/catalog &&
-cp -v -af *.dtd *.mod *.dcl /usr/share/sgml/docbook/sgml-dtd-4.5 &&
+as_root install -v docbook.cat /usr/share/sgml/docbook/sgml-dtd-4.5/catalog &&
+as_root cp -v -af *.dtd *.mod *.dcl /usr/share/sgml/docbook/sgml-dtd-4.5 &&
 
 install-catalog --add /etc/sgml/sgml-docbook-dtd-4.5.cat \
     /usr/share/sgml/docbook/sgml-dtd-4.5/catalog &&

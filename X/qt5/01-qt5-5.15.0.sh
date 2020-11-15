@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://download.qt.io/archive/qt/5.15/5.15.0/single/qt-everywhere-src-5.15.0.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://download.qt.io/archive/qt/5.15/5.15.0/single/qt-everywhere-src-5.15.0.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-qt5 &&
 
@@ -43,27 +43,27 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 
 QT5BINDIR=$QT5PREFIX/bin &&
 
-install -v -dm755 /usr/share/pixmaps/                  &&
+as_root install -v -dm755 /usr/share/pixmaps/                  &&
 
-install -v -Dm644 qttools/src/assistant/assistant/images/assistant-128.png \
+as_root install -v -Dm644 qttools/src/assistant/assistant/images/assistant-128.png \
                   /usr/share/pixmaps/assistant-qt5.png &&
 
-install -v -Dm644 qttools/src/designer/src/designer/images/designer.png \
+as_root install -v -Dm644 qttools/src/designer/src/designer/images/designer.png \
                   /usr/share/pixmaps/designer-qt5.png  &&
 
-install -v -Dm644 qttools/src/linguist/linguist/images/icons/linguist-128-32.png \
+as_root install -v -Dm644 qttools/src/linguist/linguist/images/icons/linguist-128-32.png \
                   /usr/share/pixmaps/linguist-qt5.png  &&
 
-install -v -Dm644 qttools/src/qdbus/qdbusviewer/images/qdbusviewer-128.png \
+as_root install -v -Dm644 qttools/src/qdbus/qdbusviewer/images/qdbusviewer-128.png \
                   /usr/share/pixmaps/qdbusviewer-qt5.png &&
 
 install -dm755 /usr/share/applications &&
 
-cat > /usr/share/applications/assistant-qt5.desktop << EOF
+as_root cat > /usr/share/applications/assistant-qt5.desktop << EOF
 [Desktop Entry]
 Name=Qt5 Assistant
 Comment=Shows Qt5 documentation and examples
@@ -75,7 +75,7 @@ Type=Application
 Categories=Qt;Development;Documentation;
 EOF
 
-cat > /usr/share/applications/designer-qt5.desktop << EOF
+as_root cat > /usr/share/applications/designer-qt5.desktop << EOF
 [Desktop Entry]
 Name=Qt5 Designer
 GenericName=Interface Designer
@@ -89,7 +89,7 @@ Type=Application
 Categories=Qt;Development;
 EOF
 
-cat > /usr/share/applications/linguist-qt5.desktop << EOF
+as_root cat > /usr/share/applications/linguist-qt5.desktop << EOF
 [Desktop Entry]
 Name=Qt5 Linguist
 Comment=Add translations to Qt5 applications
@@ -102,7 +102,7 @@ Type=Application
 Categories=Qt;Development;
 EOF
 
-cat > /usr/share/applications/qdbusviewer-qt5.desktop << EOF
+as_root cat > /usr/share/applications/qdbusviewer-qt5.desktop << EOF
 [Desktop Entry]
 Name=Qt5 QDbusViewer
 GenericName=D-Bus Debugger
@@ -119,7 +119,7 @@ for file in moc uic rcc qmake lconvert lrelease lupdate; do
   ln -sfrvn $QT5BINDIR/$file /usr/bin/$file-qt5
 done
 
-cat >> /etc/ld.so.conf << EOF
+as_root cat >> /etc/ld.so.conf << EOF
 # Begin Qt addition
 
 /opt/qt5/lib
@@ -129,7 +129,7 @@ EOF
 
 ldconfig
 
-cat > /etc/profile.d/qt5.sh << "EOF"
+as_root cat > /etc/profile.d/qt5.sh << "EOF"
 # Begin /etc/profile.d/qt5.sh
 
 QT5DIR=/opt/qt5

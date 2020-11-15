@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libtheora &&
 
@@ -29,10 +29,10 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 cd examples/.libs &&
 for E in *; do
-  install -v -m755 $E /usr/bin/theora_${E}
+  as_root install -v -m755 $E /usr/bin/theora_${E}
 done
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

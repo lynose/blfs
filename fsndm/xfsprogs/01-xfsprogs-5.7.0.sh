@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.7.0.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.7.0.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-xfsprogs &&
 
@@ -24,11 +24,11 @@ make DEBUG=-DNDEBUG     \
      INSTALL_GROUP=root &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.7.0 install     &&
-make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.7.0 install-dev &&
+as_root make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.7.0 install     &&
+as_root make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.7.0 install-dev &&
 
-rm -rfv /usr/lib/libhandle.a                                &&
-rm -rfv /lib/libhandle.{a,la,so}                            &&
-ln -sfv ../../lib/libhandle.so.1 /usr/lib/libhandle.so &&
+as_root rm -rfv /usr/lib/libhandle.a                                &&
+as_root rm -rfv /lib/libhandle.{a,la,so}                            &&
+as_root ln -sfv ../../lib/libhandle.so.1 /usr/lib/libhandle.so &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

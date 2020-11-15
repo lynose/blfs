@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://www.jedsoft.org/releases/slang/slang-2.3.2.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download http://www.jedsoft.org/releases/slang/slang-2.3.2.tar.bz2 \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-slang &&
 
@@ -31,7 +31,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 # ${log} `basename "$0"` " unexpected check succeed" blfs_all
 # ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install_doc_dir=/usr/share/doc/slang-2.3.2   \
+as_root make install_doc_dir=/usr/share/doc/slang-2.3.2   \
      SLSH_DOC_DIR=/usr/share/doc/slang-2.3.2/slsh \
      install-all &&
 

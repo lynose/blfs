@@ -10,11 +10,11 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://downloads.xiph.org/releases/cdparanoia/cdparanoia-III-10.2.src.tgz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://downloads.xiph.org/releases/cdparanoia/cdparanoia-III-10.2.src.tgz \
+    /sources &&
     
-wget http://www.linuxfromscratch.org/patches/blfs/10.0/cdparanoia-III-10.2-gcc_fixes-1.patch \
-    --continue --directory-prefix=/sources &&
+check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/cdparanoia-III-10.2-gcc_fixes-1.patch \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-cdparanoia &&
 
@@ -29,7 +29,7 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make -j1 &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
-chmod -v 755 /usr/lib/libcdda_*.so.0.10.2 &&
+as_root make install &&
+as_root chmod -v 755 /usr/lib/libcdda_*.so.0.10.2 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

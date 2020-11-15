@@ -11,8 +11,8 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 if [ ! -f /sources/pcre-8.44.tar.bz2 ] 
  then
-  wget https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2 \
-    --continue --directory-prefix=/sources
+  check_and_download https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2 \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-pcre &&
@@ -38,8 +38,8 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install                     &&
-mv -v /usr/lib/libpcre.so.* /lib &&
+as_root make install                     &&
+as_root mv -v /usr/lib/libpcre.so.* /lib &&
 ln -sfv ../../lib/$(readlink /usr/lib/libpcre.so) /usr/lib/libpcre.so &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

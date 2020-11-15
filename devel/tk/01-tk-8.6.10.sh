@@ -11,8 +11,8 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 if [ ! -f /sources/tk8.6.10-src.tar.gz ];  
  then
-  wget https://downloads.sourceforge.net/tcl/tk8.6.10-src.tar.gz \
-    --continue --directory-prefix=/sources
+  check_and_download https://downloads.sourceforge.net/tcl/tk8.6.10-src.tar.gz \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-tk &&
@@ -34,8 +34,8 @@ sed -e "s@^\(TK_SRC_DIR='\).*@\1/usr/include'@" \
     -i tkConfig.sh &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
-make install-private-headers &&
+as_root make install &&
+as_root make install-private-headers &&
 ln -v -sf wish8.6 /usr/bin/wish &&
 chmod -v 755 /usr/lib/libtk8.6.so &&
 ${log} `basename "$0"` " installed" blfs_all &&

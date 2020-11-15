@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://sourceware.org/ftp/lvm2/LVM2.2.03.10.tgz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://sourceware.org/ftp/lvm2/LVM2.2.03.10.tgz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-LVM2 &&
 
@@ -37,7 +37,7 @@ make check &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install &&
-make install_systemd_units &&
+as_root make install &&
+as_root make install_systemd_units &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

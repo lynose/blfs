@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://ftp.debian.org/debian/pool/main/libp/libpaper/libpaper_1.1.24+nmu5.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://ftp.debian.org/debian/pool/main/libp/libpaper/libpaper_1.1.24+nmu5.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libpaper &&
 
@@ -29,9 +29,9 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 
-make install &&
+as_root make install &&
 mkdir -vp /etc/libpaper.d &&
-cat > /etc/papersize << "EOF"
+as_root cat > /etc/papersize << "EOF"
 a4
 EOF
 ${log} `basename "$0"` " installed" blfs_all &&

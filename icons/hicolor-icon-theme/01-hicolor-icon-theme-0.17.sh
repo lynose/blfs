@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.17.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.17.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-hicolor-icon-theme &&
 
@@ -22,6 +22,6 @@ cd /sources/hicolor-icon-theme-0.17 &&
 ./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

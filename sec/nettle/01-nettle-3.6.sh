@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://ftp.gnu.org/gnu/nettle/nettle-3.6.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://ftp.gnu.org/gnu/nettle/nettle-3.6.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-nettle &&
 
@@ -28,9 +28,9 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
-chmod   -v   755 /usr/lib/lib{hogweed,nettle}.so &&
-install -v -m755 -d /usr/share/doc/nettle-3.6 &&
-install -v -m644 nettle.html /usr/share/doc/nettle-3.6 &&
+as_root make install &&
+as_root chmod   -v   755 /usr/lib/lib{hogweed,nettle}.so &&
+as_root install -v -m755 -d /usr/share/doc/nettle-3.6 &&
+as_root install -v -m644 nettle.html /usr/share/doc/nettle-3.6 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

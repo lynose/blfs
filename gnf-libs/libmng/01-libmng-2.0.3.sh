@@ -12,8 +12,8 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 if [ ! -f /sources/libmng-2.0.3.tar.xz ];  
  then
-  wget https://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz \
-    --continue --directory-prefix=/sources
+  check_and_download https://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-libmng &&
@@ -28,8 +28,8 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
-install -v -m755 -d        /usr/share/doc/libmng-2.0.3 &&
-install -v -m644 doc/*.txt /usr/share/doc/libmng-2.0.3 &&
+as_root make install &&
+as_root install -v -m755 -d        /usr/share/doc/libmng-2.0.3 &&
+as_root install -v -m644 doc/*.txt /usr/share/doc/libmng-2.0.3 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

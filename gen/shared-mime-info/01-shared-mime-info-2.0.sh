@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/0440063a2e6823a4b1a6fb2f2af8350f/shared-mime-info-2.0.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/0440063a2e6823a4b1a6fb2f2af8350f/shared-mime-info-2.0.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-shared-mime-info &&
 
@@ -30,6 +30,6 @@ ${log} `basename "$0"` " configured" blfs_all &&
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-ninja install &&
+as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

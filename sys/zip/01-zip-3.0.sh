@@ -11,8 +11,8 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 if [ ! -f /sources/zip30.tar.gz ];  
  then
-  wget https://downloads.sourceforge.net/infozip/zip30.tar.gz \
-    --continue --directory-prefix=/sources
+  check_and_download https://downloads.sourceforge.net/infozip/zip30.tar.gz \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-zip &&
@@ -24,6 +24,6 @@ cd /sources/zip30 &&
 make -f unix/Makefile generic_gcc &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make prefix=/usr MANDIR=/usr/share/man/man1 -f unix/Makefile install &&
+as_root make prefix=/usr MANDIR=/usr/share/man/man1 -f unix/Makefile install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

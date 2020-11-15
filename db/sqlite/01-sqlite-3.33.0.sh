@@ -10,11 +10,11 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://sqlite.org/2020/sqlite-autoconf-3330000.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://sqlite.org/2020/sqlite-autoconf-3330000.tar.gz \
+    /sources &&
     
-wget https://sqlite.org/2020/sqlite-doc-3330000.zip \
-    --continue --directory-prefix=/sources &&
+check_and_download https://sqlite.org/2020/sqlite-doc-3330000.zip \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-sqlite &&
 
@@ -40,8 +40,8 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
-install -v -m755 -d /usr/share/doc/sqlite-3.33.0 &&
-cp -v -R sqlite-doc-3330000/* /usr/share/doc/sqlite-3.33.0 &&
+as_root make install &&
+as_root install -v -m755 -d /usr/share/doc/sqlite-3.33.0 &&
+as_root cp -v -R sqlite-doc-3330000/* /usr/share/doc/sqlite-3.33.0 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

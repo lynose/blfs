@@ -10,11 +10,11 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download http://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2 \
+    /sources &&
 
-wget http://www.linuxfromscratch.org/patches/blfs/10.0/gpm-1.20.7-consolidated-1.patch \
-    --continue --directory-prefix=/sources &&
+check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/gpm-1.20.7-consolidated-1.patch \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-gpm &&
 
@@ -33,18 +33,18 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install                                          &&
+as_root make install                                          &&
 
-install-info --dir-file=/usr/share/info/dir           \
+as_root install-info --dir-file=/usr/share/info/dir           \
              /usr/share/info/gpm.info                 &&
 
-ln -sfv libgpm.so.2.1.0 /usr/lib/libgpm.so            &&
-install -v -m644 conf/gpm-root.conf /etc              &&
+as_root ln -sfv libgpm.so.2.1.0 /usr/lib/libgpm.so            &&
+as_root install -v -m644 conf/gpm-root.conf /etc              &&
 
-install -v -m755 -d /usr/share/doc/gpm-1.20.7/support &&
-install -v -m644    doc/support/*                     \
+as_root install -v -m755 -d /usr/share/doc/gpm-1.20.7/support &&
+as_root install -v -m644    doc/support/*                     \
                     /usr/share/doc/gpm-1.20.7/support &&
-install -v -m644    doc/{FAQ,HACK_GPM,README*}        \
+as_root install -v -m644    doc/{FAQ,HACK_GPM,README*}        \
                     /usr/share/doc/gpm-1.20.7 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

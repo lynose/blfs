@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://w1.fi/releases/wpa_supplicant-2.9.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://w1.fi/releases/wpa_supplicant-2.9.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-wpa_supplicant &&
 
@@ -63,20 +63,20 @@ make &&
 popd
 ${log} `basename "$0"` " built" blfs_all &&
 
-install -v -m755 wpa_{cli,passphrase,supplicant} /sbin/ &&
-install -v -m644 doc/docbook/wpa_supplicant.conf.5 /usr/share/man/man5/ &&
-install -v -m644 doc/docbook/wpa_{cli,passphrase,supplicant}.8 /usr/share/man/man8/ &&
-install -v -m644 systemd/*.service /lib/systemd/system/ &&
-install -v -m644 dbus/fi.w1.wpa_supplicant1.service \
+as_root install -v -m755 wpa_{cli,passphrase,supplicant} /sbin/ &&
+as_root install -v -m644 doc/docbook/wpa_supplicant.conf.5 /usr/share/man/man5/ &&
+as_root install -v -m644 doc/docbook/wpa_{cli,passphrase,supplicant}.8 /usr/share/man/man8/ &&
+as_root install -v -m644 systemd/*.service /lib/systemd/system/ &&
+as_root install -v -m644 dbus/fi.w1.wpa_supplicant1.service \
                  /usr/share/dbus-1/system-services/ &&
-install -v -d -m755 /etc/dbus-1/system.d &&
-install -v -m644 dbus/dbus-wpa_supplicant.conf \
+as_root install -v -d -m755 /etc/dbus-1/system.d &&
+as_root install -v -m644 dbus/dbus-wpa_supplicant.conf \
                  /etc/dbus-1/system.d/wpa_supplicant.conf &&
 systemctl enable wpa_supplicant &&
-install -v -m755 wpa_gui-qt4/wpa_gui /usr/bin/ &&
-install -v -m644 doc/docbook/wpa_gui.8 /usr/share/man/man8/ &&
-install -v -m644 wpa_gui-qt4/wpa_gui.desktop /usr/share/applications/ &&
-install -v -m644 wpa_gui-qt4/icons/wpa_gui.svg /usr/share/pixmaps/ &&
+as_root install -v -m755 wpa_gui-qt4/wpa_gui /usr/bin/ &&
+as_root install -v -m644 doc/docbook/wpa_gui.8 /usr/share/man/man8/ &&
+as_root install -v -m644 wpa_gui-qt4/wpa_gui.desktop /usr/share/applications/ &&
+as_root install -v -m644 wpa_gui-qt4/icons/wpa_gui.svg /usr/share/pixmaps/ &&
 update-desktop-database -q &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

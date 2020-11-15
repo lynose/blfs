@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.7.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.7.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libvorbis &&
 
@@ -32,7 +32,7 @@ if [ ${ENABLE_TEST} == true ]
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-make install &&
-install -v -m644 doc/Vorbis* /usr/share/doc/libvorbis-1.3.7 &&
+as_root make install &&
+as_root install -v -m644 doc/Vorbis* /usr/share/doc/libvorbis-1.3.7 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://download.gimp.org/pub/babl/0.1/babl-0.1.78.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://download.gimp.org/pub/babl/0.1/babl-0.1.78.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-babl &&
 
@@ -31,10 +31,10 @@ ${log} `basename "$0"` " built" blfs_all &&
 ninja test &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-ninja install &&
+as_root ninja install &&
 
-install -v -m755 -d                         /usr/share/gtk-doc/html/babl/graphics &&
-install -v -m644 docs/*.{css,html}          /usr/share/gtk-doc/html/babl          &&
-install -v -m644 docs/graphics/*.{html,svg} /usr/share/gtk-doc/html/babl/graphics &&
+as_root install -v -m755 -d                         /usr/share/gtk-doc/html/babl/graphics &&
+as_root install -v -m644 docs/*.{css,html}          /usr/share/gtk-doc/html/babl          &&
+as_root install -v -m644 docs/graphics/*.{html,svg} /usr/share/gtk-doc/html/babl/graphics &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

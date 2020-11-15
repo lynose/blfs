@@ -11,8 +11,8 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 if [ ! -f /sources/gavl-1.4.0.tar.gz ];  
  then
-  wget https://downloads.sourceforge.net/gmerlin/gavl-1.4.0.tar.gz \
-    --continue --directory-prefix=/sources
+  check_and_download https://downloads.sourceforge.net/gmerlin/gavl-1.4.0.tar.gz \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-gavl &&
@@ -29,6 +29,6 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

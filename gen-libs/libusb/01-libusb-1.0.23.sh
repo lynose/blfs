@@ -11,8 +11,8 @@ if test -d /sources/libusb-1.0.23
 fi
 
 ${log} `basename "$0"` " Downloading" blfs_all &&
-wget https://github.com//libusb/libusb/releases/download/v1.0.23/libusb-1.0.23.tar.bz2 \
---continue --directory-prefix=/sources &&
+check_and_download https://github.com//libusb/libusb/releases/download/v1.0.23/libusb-1.0.23.tar.bz2 \
+/sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libusb &&
 
@@ -31,11 +31,11 @@ ${log} `basename "$0"` " build" blfs_all &&
 make -C doc docs &&
 ${log} `basename "$0"` " build docs" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
-install -v -d -m755 /usr/share/doc/libusb-1.0.23/apidocs &&
-install -v -m644    doc/html/* \
+as_root install -v -d -m755 /usr/share/doc/libusb-1.0.23/apidocs &&
+as_root install -v -m644    doc/html/* \
                     /usr/share/doc/libusb-1.0.23/apidocs &&
 ${log} `basename "$0"` " install apidocs" blfs_all &&
 

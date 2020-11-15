@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://webkitgtk.org/releases/webkitgtk-2.28.4.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://webkitgtk.org/releases/webkitgtk-2.28.4.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-webkitgtk &&
 
@@ -39,12 +39,12 @@ ${log} `basename "$0"` " configured" blfs_all &&
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-ninja install &&
+as_root ninja install &&
 
-install -vdm755 /usr/share/gtk-doc/html/webkit{2,dom}gtk-4.0 &&
-install -vm644  ../Documentation/webkit2gtk-4.0/html/*   \
+as_root install -vdm755 /usr/share/gtk-doc/html/webkit{2,dom}gtk-4.0 &&
+as_root install -vm644  ../Documentation/webkit2gtk-4.0/html/*   \
                 /usr/share/gtk-doc/html/webkit2gtk-4.0       &&
-install -vm644  ../Documentation/webkitdomgtk-4.0/html/* \
+as_root install -vm644  ../Documentation/webkitdomgtk-4.0/html/* \
                 /usr/share/gtk-doc/html/webkitdomgtk-4.0 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -10,11 +10,11 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.1.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.1.tar.xz \
+    /sources &&
     
-wget http://www.linuxfromscratch.org/patches/blfs/10.0/ruby-2.7.1-glibc_fix-1.patch \
-    --continue --directory-prefix=/sources &&
+check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/ruby-2.7.1-glibc_fix-1.patch \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-ruby &&
 
@@ -37,6 +37,6 @@ make check &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

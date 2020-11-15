@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://ftp.de.debian.org/debian/pool/main/liba/libaio/libaio_0.3.112.orig.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://ftp.de.debian.org/debian/pool/main/liba/libaio/libaio_0.3.112.orig.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libaio &&
 
@@ -28,6 +28,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 make partcheck &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

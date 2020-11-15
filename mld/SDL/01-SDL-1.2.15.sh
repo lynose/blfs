@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://www.libsdl.org/release/SDL-1.2.15.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://www.libsdl.org/release/SDL-1.2.15.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-SDL &&
 
@@ -28,10 +28,10 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 
-install -v -m755 -d /usr/share/doc/SDL-1.2.15/html &&
-install -v -m644    docs/html/*.html \
+as_root install -v -m755 -d /usr/share/doc/SDL-1.2.15/html &&
+as_root install -v -m644    docs/html/*.html \
                     /usr/share/doc/SDL-1.2.15/html &&
 ${log} `basename "$0"` " installed" blfs_all &&                    
 ${log} `basename "$0"` " finished" blfs_all 

@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://kerberos.org/dist/krb5/1.18/krb5-1.18.2.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://kerberos.org/dist/krb5/1.18/krb5-1.18.2.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-krb5 &&
 
@@ -36,7 +36,7 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 
 for f in gssapi_krb5 gssrpc k5crypto kadm5clnt kadm5srv \
          kdb5 kdb_ldap krad krb5 krb5support verto ; do
@@ -44,19 +44,19 @@ for f in gssapi_krb5 gssrpc k5crypto kadm5clnt kadm5srv \
     find /usr/lib -type f -name "lib$f*.so*" -exec chmod -v 755 {} \;    
 done          &&
 
-mv -v /usr/lib/libkrb5.so.3*        /lib &&
-mv -v /usr/lib/libk5crypto.so.3*    /lib &&
-mv -v /usr/lib/libkrb5support.so.0* /lib &&
+as_root mv -v /usr/lib/libkrb5.so.3*        /lib &&
+as_root mv -v /usr/lib/libk5crypto.so.3*    /lib &&
+as_root mv -v /usr/lib/libkrb5support.so.0* /lib &&
 
 ln -v -sf ../../lib/libkrb5.so.3.3        /usr/lib/libkrb5.so        &&
 ln -v -sf ../../lib/libk5crypto.so.3.1    /usr/lib/libk5crypto.so    &&
 ln -v -sf ../../lib/libkrb5support.so.0.1 /usr/lib/libkrb5support.so &&
 
-mv -v /usr/bin/ksu /bin &&
+as_root mv -v /usr/bin/ksu /bin &&
 chmod -v 755 /bin/ksu   &&
 
-install -v -dm755 /usr/share/doc/krb5-1.18.2 &&
-cp -vfr ../doc/*  /usr/share/doc/krb5-1.18.2 &&
+as_root install -v -dm755 /usr/share/doc/krb5-1.18.2 &&
+as_root cp -vfr ../doc/*  /usr/share/doc/krb5-1.18.2 &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 

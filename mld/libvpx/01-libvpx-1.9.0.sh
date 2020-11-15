@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/webmproject/libvpx/archive/v1.9.0/libvpx-1.9.0.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/webmproject/libvpx/archive/v1.9.0/libvpx-1.9.0.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libvpx &&
 
@@ -36,6 +36,6 @@ make test &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

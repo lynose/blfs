@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-012.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-012.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-usbutils &&
 
@@ -25,12 +25,12 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 install -dm755 /usr/share/hwdata/ &&
-wget http://www.linux-usb.org/usb.ids -O /usr/share/hwdata/usb.ids
+check_and_download http://www.linux-usb.org/usb.ids -O /usr/share/hwdata/usb.ids
 ${log} `basename "$0"` " installed" blfs_all &&
 
-cat > /lib/systemd/system/update-usbids.service << "EOF" &&
+as_root cat > /lib/systemd/system/update-usbids.service << "EOF" &&
 [Unit]
 Description=Update usb.ids file
 Documentation=man:lsusb(8)
@@ -41,9 +41,9 @@ Before=shutdown.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/wget http://www.linux-usb.org/usb.ids -O /usr/share/hwdata/usb.ids
+ExecStart=/usr/bin/check_and_download http://www.linux-usb.org/usb.ids -O /usr/share/hwdata/usb.ids
 EOF
-cat > /lib/systemd/system/update-usbids.timer << "EOF" &&
+as_root cat > /lib/systemd/system/update-usbids.timer << "EOF" &&
 [Unit]
 Description=Update usb.ids file weekly
 

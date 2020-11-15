@@ -10,11 +10,11 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/thom311/libnl/releases/download/libnl3_5_0/libnl-3.5.0.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/thom311/libnl/releases/download/libnl3_5_0/libnl-3.5.0.tar.gz \
+    /sources &&
     
-wget https://github.com/thom311/libnl/releases/download/libnl3_5_0/libnl-doc-3.5.0.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/thom311/libnl/releases/download/libnl3_5_0/libnl-doc-3.5.0.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libnl &&
 
@@ -33,9 +33,9 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
-mkdir -vp /usr/share/doc/libnl-3.5.0 &&
-tar -xf ../libnl-doc-3.5.0.tar.gz --strip-components=1 --no-same-owner \
+as_root make install &&
+as_root mkdir -vp /usr/share/doc/libnl-3.5.0 &&
+as_root tar -xf ../libnl-doc-3.5.0.tar.gz --strip-components=1 --no-same-owner \
     -C  /usr/share/doc/libnl-3.5.0 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://archive.mozilla.org/pub/firefox/releases/78.2.0esr/source/firefox-78.2.0esr.source.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://archive.mozilla.org/pub/firefox/releases/78.2.0esr/source/firefox-78.2.0esr.source.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-firefox &&
 
@@ -19,7 +19,7 @@ tar xf /sources/firefox-78.2.0esr.source.tar.xz -C /sources/ &&
 
 cd /sources/firefox-78.2.0 &&
 
-cat > mozconfig << "EOF"
+as_root cat > mozconfig << "EOF"
 # If you have a multicore machine, all cores will be used by default.
 
 # If you have installed (or will install) wireless-tools, and you wish
@@ -117,14 +117,14 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 ./mach install                                                  &&
 
-mkdir -pv  /usr/lib/mozilla/plugins                             &&
+as_root mkdir -pv  /usr/lib/mozilla/plugins                             &&
 ln    -sfv ../../mozilla/plugins /usr/lib/firefox/browser/ &&
 unset CC CXX MOZBUILD_STATE_PATH &&
 
-mkdir -pv /usr/share/applications &&
-mkdir -pv /usr/share/pixmaps &&
+as_root mkdir -pv /usr/share/applications &&
+as_root mkdir -pv /usr/share/pixmaps &&
 
-cat > /usr/share/applications/firefox.desktop << "EOF" &&
+as_root cat > /usr/share/applications/firefox.desktop << "EOF" &&
 [Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser

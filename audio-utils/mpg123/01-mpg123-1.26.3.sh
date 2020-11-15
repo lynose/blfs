@@ -11,8 +11,8 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 if [ ! -f /sources/mpg123-1.26.3.tar.bz2 ];  
  then
-  wget https://downloads.sourceforge.net/mpg123/mpg123-1.26.3.tar.bz2 \
-    --continue --directory-prefix=/sources
+  check_and_download https://downloads.sourceforge.net/mpg123/mpg123-1.26.3.tar.bz2 \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-mpg123 &&
@@ -27,6 +27,6 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

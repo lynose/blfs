@@ -12,13 +12,13 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 if [ ! -f /sources/libmad-0.15.1b.tar.gz ];  
  then
-  wget https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz \
-    --continue --directory-prefix=/sources
+  check_and_download https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz \
+    /sources
 fi
 if [ ! -f /sources/libmad-0.15.1b-fixes-1.patch ];  
  then
-  wget http://www.linuxfromscratch.org/patches/blfs/10.0/libmad-0.15.1b-fixes-1.patch \
-    --continue --directory-prefix=/sources
+  check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/libmad-0.15.1b-fixes-1.patch \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-libmad &&
@@ -38,8 +38,8 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
-cat > /usr/lib/pkgconfig/mad.pc << "EOF"
+as_root make install &&
+as_root cat > /usr/lib/pkgconfig/mad.pc << "EOF"
 prefix=/usr
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib

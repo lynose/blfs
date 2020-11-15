@@ -11,7 +11,7 @@ if test -d /sources/pciutils-3.7.0
 fi
 
 ${log} `basename "$0"` " Downloading" blfs_all &&
-wget https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.7.0.tar.xz --continue --directory-prefix=/sources &&
+check_and_download https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.7.0.tar.xz /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-pciutils &&
 
@@ -32,7 +32,7 @@ make PREFIX=/usr                \
 chmod -v 755 /usr/lib/libpci.so &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
-cat > /lib/systemd/system/update-pciids.service << "EOF" &&
+as_root cat > /lib/systemd/system/update-pciids.service << "EOF" &&
 [Unit]
 Description=Update pci.ids file
 Documentation=man:update-pciids(8)
@@ -45,7 +45,7 @@ Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/sbin/update-pciids
 EOF
-cat > /lib/systemd/system/update-pciids.timer << "EOF" &&
+as_root cat > /lib/systemd/system/update-pciids.timer << "EOF" &&
 [Unit]
 Description=Update pci.ids file weekly
 

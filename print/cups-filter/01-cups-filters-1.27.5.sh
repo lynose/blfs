@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.openprinting.org/download/cups-filters/cups-filters-1.27.5.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.openprinting.org/download/cups-filters/cups-filters-1.27.5.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-cups-filters &&
 
@@ -36,7 +36,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
-install -v -m644 utils/cups-browsed.service /lib/systemd/system/cups-browsed.service &&
+as_root make install &&
+as_root install -v -m644 utils/cups-browsed.service /lib/systemd/system/cups-browsed.service &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

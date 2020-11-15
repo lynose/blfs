@@ -15,10 +15,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.20.tar.bz2 \
-    --continue --directory-prefix=/sources &&
-wget http://anduin.linuxfromscratch.org/BLFS/gimp/gimp-help-2020-06-08.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.20.tar.bz2 \
+    /sources &&
+check_and_download http://anduin.linuxfromscratch.org/BLFS/gimp/gimp-help-2020-06-08.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-gimp &&
 
@@ -37,7 +37,7 @@ make check &&
 ${log} `basename "$0"` " unexpected check succeed gimp" blfs_all
 ${log} `basename "$0"` " expected check fail? gimp" blfs_all &&
 
-make install &&
+as_root make install &&
 gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
 update-desktop-database -q &&
 
@@ -53,7 +53,7 @@ ${log} `basename "$0"` " configured gimp-help" blfs_all &&
 make &&
 ${log} `basename "$0"` " built gimp-help" blfs_all &&
 
-make install &&
+as_root make install &&
 chown -R root:root /usr/share/gimp/2.0/help &&
 ${log} `basename "$0"` " installed gimp-help" blfs_all &&
 

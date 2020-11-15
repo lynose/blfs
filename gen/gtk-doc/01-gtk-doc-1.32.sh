@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-gtk-doc &&
 
@@ -25,7 +25,7 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
 # TODO optional packages

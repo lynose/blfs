@@ -10,7 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download "http://files.libburnia-project.org/releases/libburn-1.5.2.tar.gz" "/sources" &&
+check_and_download http://files.libburnia-project.org/releases/libburn-1.5.2.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libburn &&
 
@@ -24,6 +25,6 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

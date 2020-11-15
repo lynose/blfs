@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.18.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.18.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-popt &&
 
@@ -30,8 +30,8 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
-install -v -m755 -d /usr/share/doc/popt-1.18 &&
-install -v -m644 doxygen/html/* /usr/share/doc/popt-1.18 &&
+as_root make install &&
+as_root install -v -m755 -d /usr/share/doc/popt-1.18 &&
+as_root install -v -m644 doxygen/html/* /usr/share/doc/popt-1.18 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

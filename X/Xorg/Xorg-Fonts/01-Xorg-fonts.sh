@@ -35,7 +35,7 @@ do
   ${log} `basename "$0"` " ======================================" blfs_all
 done
 
-install -v -d -m755 /usr/share/fonts                               &&
+as_root install -v -d -m755 /usr/share/fonts                               &&
 ln -svfn $XORG_PREFIX/share/fonts/X11/OTF /usr/share/fonts/X11-OTF &&
 ln -svfn $XORG_PREFIX/share/fonts/X11/TTF /usr/share/fonts/X11-TTF &&
 ${log} `basename "$0"` " finished" blfs_all 

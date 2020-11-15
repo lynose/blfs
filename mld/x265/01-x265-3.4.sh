@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://anduin.linuxfromscratch.org/BLFS/x265/x265_3.4.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://anduin.linuxfromscratch.org/BLFS/x265/x265_3.4.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-x265 &&
 
@@ -28,7 +28,7 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
-rm -vf /usr/lib/libx265.a &&
+as_root make install &&
+as_root rm -vf /usr/lib/libx265.a &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

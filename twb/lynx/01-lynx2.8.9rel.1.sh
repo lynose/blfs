@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2 \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-lynx &&
 
@@ -32,7 +32,7 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install-full &&
+as_root make install-full &&
 chgrp -v -R root /usr/share/doc/lynx-2.8.9rel.1/lynx_doc &&
 
 sed -e '/#LOCALE/     a LOCALE_CHARSET:TRUE'     \

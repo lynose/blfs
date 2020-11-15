@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2020.1.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2020.1.tar.bz2 \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-xorgproto &&
 
@@ -30,9 +30,9 @@ ${log} `basename "$0"` " configured" blfs_all &&
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-ninja install &&
+as_root ninja install &&
 
-install -vdm 755 $XORG_PREFIX/share/doc/xorgproto-2020.1 &&
-install -vm 644 ../[^m]*.txt ../PM_spec $XORG_PREFIX/share/doc/xorgproto-2020.1 &&
+as_root install -vdm 755 $XORG_PREFIX/share/doc/xorgproto-2020.1 &&
+as_root install -vm 644 ../[^m]*.txt ../PM_spec $XORG_PREFIX/share/doc/xorgproto-2020.1 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

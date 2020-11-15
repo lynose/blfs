@@ -9,10 +9,10 @@ fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
+
 mkdir /sources/kf5 &&
 cp -u ${SCRIPTPATH}/md5-kf5 /sources/kf5 &&
 cd /sources/kf5 &&
-
 
 url=http://download.kde.org/stable/frameworks/5.73/ &&
 wget --continue -r -nH -nd -A '*.xz' -np $url &&

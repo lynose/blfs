@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/p11-glue/p11-kit/releases/download/0.23.20/p11-kit-0.23.20.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/p11-glue/p11-kit/releases/download/0.23.20/p11-kit-0.23.20.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-p11-kit &&
 
@@ -40,7 +40,7 @@ make check &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install &&
+as_root make install &&
 ln -sfv /usr/libexec/p11-kit/trust-extract-compat \
         /usr/bin/update-ca-certificates &&
 ln -sfv ./pkcs11/p11-kit-trust.so /usr/lib/libnssckbi.so &&

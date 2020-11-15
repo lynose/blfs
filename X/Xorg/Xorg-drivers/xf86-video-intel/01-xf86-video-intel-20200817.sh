@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20200817.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20200817.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-xf86-video-intel &&
 
@@ -28,9 +28,9 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
       
-mv -v /usr/share/man/man4/intel-virtual-output.4 \
+as_root mv -v /usr/share/man/man4/intel-virtual-output.4 \
       /usr/share/man/man1/intel-virtual-output.1 &&
       
 sed -i '/\.TH/s/4/1/' /usr/share/man/man1/intel-virtual-output.1 &&

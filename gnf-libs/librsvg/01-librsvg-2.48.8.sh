@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://ftp.gnome.org/pub/gnome/sources/librsvg/2.48/librsvg-2.48.8.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://ftp.gnome.org/pub/gnome/sources/librsvg/2.48/librsvg-2.48.8.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-librsvg &&
 
@@ -32,7 +32,7 @@ make check &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install &&
+as_root make install &&
 gdk-pixbuf-query-loaders --update-cache &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

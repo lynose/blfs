@@ -10,10 +10,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://ftp.gnome.org/pub/gnome/sources/glib/2.64/glib-2.64.4.tar.xz \
-    --continue --directory-prefix=/sources &&
-wget http://www.linuxfromscratch.org/patches/blfs/10.0/glib-2.64.4-skip_warnings-1.patch \
-    --continue --directory-prefix=/sources &&
+check_and_download http://ftp.gnome.org/pub/gnome/sources/glib/2.64/glib-2.64.4.tar.xz \
+    /sources &&
+check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/glib-2.64.4-skip_warnings-1.patch \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-glib &&
 
@@ -35,9 +35,9 @@ ${log} `basename "$0"` " configured" blfs_all &&
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-ninja install &&
+as_root ninja install &&
 
 mkdir -p /usr/share/doc/glib-2.64.4 &&
-cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.64.4
+as_root cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.64.4
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

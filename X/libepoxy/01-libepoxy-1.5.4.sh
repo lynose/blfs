@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/anholt/libepoxy/releases/download/1.5.4/libepoxy-1.5.4.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/anholt/libepoxy/releases/download/1.5.4/libepoxy-1.5.4.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libepoxy &&
 
@@ -31,6 +31,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 ninja test &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-ninja install &&
+as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

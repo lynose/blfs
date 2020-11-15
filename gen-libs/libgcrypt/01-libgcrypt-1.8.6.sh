@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.6.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.6.tar.bz2 \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libgcrypt &&
 
@@ -32,17 +32,17 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
-install -v -dm755   /usr/share/doc/libgcrypt-1.8.6 &&
-install -v -m644    README doc/{README.apichanges,fips*,libgcrypt*} \
+as_root make install &&
+as_root install -v -dm755   /usr/share/doc/libgcrypt-1.8.6 &&
+as_root install -v -m644    README doc/{README.apichanges,fips*,libgcrypt*} \
                     /usr/share/doc/libgcrypt-1.8.6 &&
 
-install -v -dm755   /usr/share/doc/libgcrypt-1.8.6/html &&
-install -v -m644 doc/gcrypt.html/* \
+as_root install -v -dm755   /usr/share/doc/libgcrypt-1.8.6/html &&
+as_root install -v -m644 doc/gcrypt.html/* \
                     /usr/share/doc/libgcrypt-1.8.6/html &&
-install -v -m644 doc/gcrypt_nochunks.html \
+as_root install -v -m644 doc/gcrypt_nochunks.html \
                     /usr/share/doc/libgcrypt-1.8.6      &&
-install -v -m644 doc/gcrypt.{txt,texi} \
+as_root install -v -m644 doc/gcrypt.{txt,texi} \
                     /usr/share/doc/libgcrypt-1.8.6 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

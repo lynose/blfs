@@ -11,11 +11,11 @@ if test -d /sources/curl-7.71.1
 fi
 
 ${log} `basename "$0"` " Downloading" blfs_all &&
-wget https://curl.haxx.se/download/curl-7.71.1.tar.xz \
---continue --directory-prefix=/sources &&
+check_and_download https://curl.haxx.se/download/curl-7.71.1.tar.xz \
+/sources &&
 
-wget http://www.linuxfromscratch.org/patches/blfs/10.0/curl-7.71.1-security_fixes-1.patch \
---continue --directory-prefix=/sources &&
+check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/curl-7.71.1-security_fixes-1.patch \
+/sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-curl &&
 
@@ -38,14 +38,14 @@ make test &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install &&
+as_root make install &&
 
-rm -rf docs/examples/.deps &&
+as_root rm -rf docs/examples/.deps &&
 
-find docs \( -name Makefile\* -o -name \*.1 -o -name \*.3 \) -exec rm {} \; &&
+find docs \( -name Makefile\* -o -name \*.1 -o -name \*.3 \) -exec as_root rm {} \; &&
 
-install -v -d -m755 /usr/share/doc/curl-7.71.1 &&
-cp -v -R docs/*     /usr/share/doc/curl-7.71.1 &&
+as_root install -v -d -m755 /usr/share/doc/curl-7.71.1 &&
+as_root cp -v -R docs/*     /usr/share/doc/curl-7.71.1 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all

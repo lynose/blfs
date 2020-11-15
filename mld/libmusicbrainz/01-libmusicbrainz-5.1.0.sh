@@ -10,11 +10,11 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/metabrainz/libmusicbrainz/releases/download/release-5.1.0/libmusicbrainz-5.1.0.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/metabrainz/libmusicbrainz/releases/download/release-5.1.0/libmusicbrainz-5.1.0.tar.gz \
+    /sources &&
     
-wget http://www.linuxfromscratch.org/patches/blfs/10.0/libmusicbrainz-5.1.0-cmake_fixes-1.patch \
-    --continue --directory-prefix=/sources &&    
+check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/libmusicbrainz-5.1.0-cmake_fixes-1.patch \
+    /sources &&    
 
 md5sum -c ${SCRIPTPATH}/md5-libmusicbrainz &&
 
@@ -35,8 +35,8 @@ make &&
 doxygen ../Doxyfile &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
-rm -rf /usr/share/doc/libmusicbrainz-5.1.0 &&
-cp -vr docs/ /usr/share/doc/libmusicbrainz-5.1.0 &&
+as_root make install &&
+as_root rm -rf /usr/share/doc/libmusicbrainz-5.1.0 &&
+as_root cp -vr docs/ /usr/share/doc/libmusicbrainz-5.1.0 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

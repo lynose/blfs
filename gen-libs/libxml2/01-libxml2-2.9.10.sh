@@ -10,11 +10,11 @@ if test -d /sources/libxml2-2.9.10
   rm -rf /sources/libxml2-2.9.10
 fi
 
-wget http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz \
+    /sources &&
 
-wget http://www.w3.org/XML/Test/xmlts20130923.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://www.w3.org/XML/Test/xmlts20130923.tar.gz \
+    /sources &&
     
 md5sum -c ${SCRIPTPATH}/md5-libxml2 &&
 
@@ -38,6 +38,6 @@ ${log} `basename "$0"` " install docs" blfs_all &&
 make check > /log/xml2-check.log &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

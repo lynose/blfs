@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.gnupg.org/ftp/gcrypt/libksba/libksba-1.4.0.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.gnupg.org/ftp/gcrypt/libksba/libksba-1.4.0.tar.bz2 \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libksba &&
 
@@ -28,6 +28,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

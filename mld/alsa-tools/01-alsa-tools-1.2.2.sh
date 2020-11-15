@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.2.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.2.tar.bz2 \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-alsa-tools &&
 

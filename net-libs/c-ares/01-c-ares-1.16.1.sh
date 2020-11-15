@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://c-ares.haxx.se/download/c-ares-1.16.1.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://c-ares.haxx.se/download/c-ares-1.16.1.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-c-ares &&
 
@@ -28,6 +28,6 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

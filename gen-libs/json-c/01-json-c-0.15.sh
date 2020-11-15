@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://s3.amazonaws.com/json-c_releases/releases/json-c-0.15.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://s3.amazonaws.com/json-c_releases/releases/json-c-0.15.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-json-c &&
 
@@ -34,6 +34,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 make test &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

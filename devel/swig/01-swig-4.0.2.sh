@@ -11,8 +11,8 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 if [ ! -f /sources/swig-4.0.2.tar.gz ];  
  then
-  wget https://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz \
-    --continue --directory-prefix=/sources
+  check_and_download https://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-swig &&
@@ -31,8 +31,8 @@ ${log} `basename "$0"` " built" blfs_all &&
 PY3=1 make -k check TCL_INCLUDE=. &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
-install -v -m755 -d /usr/share/doc/swig-4.0.2 &&
-cp -v -R Doc/* /usr/share/doc/swig-4.0.2 &&
+as_root make install &&
+as_root install -v -m755 -d /usr/share/doc/swig-4.0.2 &&
+as_root cp -v -R Doc/* /usr/share/doc/swig-4.0.2 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

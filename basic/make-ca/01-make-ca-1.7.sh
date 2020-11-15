@@ -14,16 +14,16 @@ cd /sources/make-ca-1.7 &&
 
 
 
-make install &&
-install -vdm755 /etc/ssl/local && 
+as_root make install &&
+as_root install -vdm755 /etc/ssl/local && 
 ${log} `basename "$0"` " installed" blfs_basic &&
 
 /usr/sbin/make-ca -g &&
 ${log} `basename "$0"` " installed global ca" blfs_basic &&
 systemctl enable update-pki.timer &&
 ${log} `basename "$0"` " enable update pki" blfs_basic &&
-wget http://www.cacert.org/certs/root.crt &&
-wget http://www.cacert.org/certs/class3.crt &&
+check_and_download http://www.cacert.org/certs/root.crt &&
+check_and_download http://www.cacert.org/certs/class3.crt &&
 openssl x509 -in root.crt -text -fingerprint -setalias "CAcert Class 1 root" \
         -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \
         > /etc/ssl/local/CAcert_Class_1_root.pem &&

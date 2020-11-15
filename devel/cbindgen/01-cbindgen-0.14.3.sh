@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/eqrion/cbindgen/archive/v0.14.3/cbindgen-0.14.3.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/eqrion/cbindgen/archive/v0.14.3/cbindgen-0.14.3.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-cbindgen &&
 

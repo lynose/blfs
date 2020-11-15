@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.26.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.26.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-desktop-file-utils &&
 
@@ -28,8 +28,8 @@ ${log} `basename "$0"` " configured" blfs_all &&
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-ninja install &&
-install -vdm755 /usr/share/applications &&
+as_root ninja install &&
+as_root install -vdm755 /usr/share/applications &&
 update-desktop-database /usr/share/applications &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

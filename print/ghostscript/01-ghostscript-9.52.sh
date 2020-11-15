@@ -12,18 +12,18 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 if [ ! -f /sources/ghostscript-9.52.tar.xz ];  
  then
-  wget https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs952/ghostscript-9.52.tar.xz \
-    --continue --directory-prefix=/sources
+  check_and_download https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs952/ghostscript-9.52.tar.xz \
+    /sources
 fi
 if [ ! -f /sources/ghostscript-fonts-std-8.11.tar.gz ];  
  then
-  wget https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz \
-    --continue --directory-prefix=/sources
+  check_and_download https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz \
+    /sources
 fi
 if [ ! -f /sources/gnu-gs-fonts-other-6.0.tar.gz ];  
  then
-  wget https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz \
-    --continue --directory-prefix=/sources
+  check_and_download https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz \
+    /sources
 fi
     
 md5sum -c ${SCRIPTPATH}/md5-ghostscript &&
@@ -45,13 +45,13 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make so &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 make soinstall &&
-install -v -m644 base/*.h /usr/include/ghostscript &&
+as_root install -v -m644 base/*.h /usr/include/ghostscript &&
 ln -sfvn ghostscript /usr/include/ps &&
-mv -v /usr/share/doc/ghostscript/9.52 /usr/share/doc/ghostscript-9.52  &&
+as_root mv -v /usr/share/doc/ghostscript/9.52 /usr/share/doc/ghostscript-9.52  &&
 rm -rfv /usr/share/doc/ghostscript &&
-cp -r examples/ /usr/share/ghostscript/9.52/ &&
+as_root cp -r examples/ /usr/share/ghostscript/9.52/ &&
 tar -xvf ../ghostscript-fonts-std-8.11.tar.gz -C /usr/share/ghostscript --no-same-owner &&
 tar -xvf ../gnu-gs-fonts-other-6.0.tar.gz     -C /usr/share/ghostscript --no-same-owner &&
 fc-cache -v /usr/share/ghostscript/fonts/ &&

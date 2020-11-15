@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.32.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.32.tar.xz \
+    /sources &&
 
 md5sum --ignore-missing -c ${SCRIPTPATH}/md5-gtk &&
 
@@ -32,7 +32,7 @@ make check &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install &&
+as_root make install &&
 gtk-query-immodules-2.0 --update-cache &&
 
 cat > ~/.gtkrc-2.0 << "EOF"
@@ -40,7 +40,7 @@ include "/usr/share/themes/Glider/gtk-2.0/gtkrc"
 gtk-icon-theme-name = "hicolor"
 EOF
 
-cat > /etc/gtk-2.0/gtkrc << "EOF"
+as_root cat > /etc/gtk-2.0/gtkrc << "EOF"
 include "/usr/share/themes/Clearlooks/gtk-2.0/gtkrc"
 gtk-icon-theme-name = "elementary"
 EOF

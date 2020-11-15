@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://ftp.gnu.org/gnu/parted/parted-3.3.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://ftp.gnu.org/gnu/parted/parted-3.3.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-parted &&
 
@@ -34,11 +34,11 @@ sed -i '1s/python/&3/' tests/{gpt-header-move,msdos-overlap} &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
-install -v -m755 -d /usr/share/doc/parted-3.3/html &&
-install -v -m644    doc/html/* \
+as_root make install &&
+as_root install -v -m755 -d /usr/share/doc/parted-3.3/html &&
+as_root install -v -m644    doc/html/* \
                     /usr/share/doc/parted-3.3/html &&
-install -v -m644    doc/{FAT,API,parted.{txt,html}} \
+as_root install -v -m644    doc/{FAT,API,parted.{txt,html}} \
                     /usr/share/doc/parted-3.3 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

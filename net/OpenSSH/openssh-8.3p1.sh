@@ -17,13 +17,13 @@ cd /sources/openssh-8.3p1 &&
 ${log} `basename "$0"` " configured" target &&
 make &&
 ${log} `basename "$0"` " built" target &&
-make install &&
-install -v -m755    contrib/ssh-copy-id /usr/bin     &&
+as_root make install &&
+as_root install -v -m755    contrib/ssh-copy-id /usr/bin     &&
 
-install -v -m644    contrib/ssh-copy-id.1 \
+as_root install -v -m644    contrib/ssh-copy-id.1 \
                     /usr/share/man/man1              &&
-install -v -m755 -d /usr/share/doc/openssh-8.3p1     &&
-install -v -m644    INSTALL LICENCE OVERVIEW README* \
+as_root install -v -m755 -d /usr/share/doc/openssh-8.3p1     &&
+as_root install -v -m644    INSTALL LICENCE OVERVIEW README* \
                     /usr/share/doc/openssh-8.3p1 &&
 
 ${log} `basename "$0"` " installed" target &&

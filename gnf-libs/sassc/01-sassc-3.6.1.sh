@@ -10,10 +10,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/sass/sassc/archive/3.6.1/sassc-3.6.1.tar.gz \
-    --continue --directory-prefix=/sources &&#
-wget https://github.com/sass/libsass/archive/3.6.4/libsass-3.6.4.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/sass/sassc/archive/3.6.1/sassc-3.6.1.tar.gz \
+    /sources &&#
+check_and_download https://github.com/sass/libsass/archive/3.6.4/libsass-3.6.4.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-sassc &&
 
@@ -32,7 +32,7 @@ ${log} `basename "$0"` " configured libsass" blfs_all &&
 make &&
 ${log} `basename "$0"` " built libsass" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed libsass" blfs_all &&
 
 popd &&
@@ -42,7 +42,7 @@ autoreconf -fi &&
 ${log} `basename "$0"` " configured sassc" blfs_all &&
 make &&
 ${log} `basename "$0"` " built sassc" blfs_all &&
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed sassc" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all 

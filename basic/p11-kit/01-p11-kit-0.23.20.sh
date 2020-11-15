@@ -12,7 +12,7 @@ tar xf /sources/p11-kit-0.23.20.tar.xz -C /sources/ &&
 cd /sources/p11-kit-0.23.20 &&
 
 sed '20,$ d' -i trust/trust-extract-compat.in &&
-cat >> trust/trust-extract-compat.in << "EOF"
+as_root cat >> trust/trust-extract-compat.in << "EOF"
 # Copy existing anchor modifications to /etc/ssl/local
 /usr/libexec/make-ca/copy-trust-modifications
 
@@ -33,7 +33,7 @@ make check &&          #Ignoring result, not related to root user
 ${log} `basename "$0"` " Unexpected Test succeeded" blfs_basic
 ${log} `basename "$0"` " expected test fail?" blfs_basic &&
 
-make install &&
+as_root make install &&
 ln -sfv /usr/libexec/p11-kit/trust-extract-compat \
         /usr/bin/update-ca-certificates &&
 ${log} `basename "$0"` " installed" blfs_basic &&

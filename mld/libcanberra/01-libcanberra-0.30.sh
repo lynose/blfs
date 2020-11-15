@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libcanberra &&
 

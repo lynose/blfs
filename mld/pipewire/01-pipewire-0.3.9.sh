@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/PipeWire/pipewire/archive/0.3.9/pipewire-0.3.9.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/PipeWire/pipewire/archive/0.3.9/pipewire-0.3.9.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-pipewire &&
 
@@ -35,6 +35,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 ninja test &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-ninja install &&
+as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.36/gsettings-desktop-schemas-3.36.1.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.36/gsettings-desktop-schemas-3.36.1.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-gsettings-desktop-schemas &&
 
@@ -30,7 +30,7 @@ ${log} `basename "$0"` " configured" blfs_all &&
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-ninja install &&
+as_root ninja install &&
 glib-compile-schemas /usr/share/glib-2.0/schemas &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -12,8 +12,8 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 if [ ! -f /sources/lcms2-2.11.tar.gz ];  
  then
-  wget https://downloads.sourceforge.net/lcms/lcms2-2.11.tar.gz \
-    --continue --directory-prefix=/sources
+  check_and_download https://downloads.sourceforge.net/lcms/lcms2-2.11.tar.gz \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-lcms2 &&
@@ -31,6 +31,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

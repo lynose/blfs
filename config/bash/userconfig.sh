@@ -116,5 +116,5 @@ dircolors -p > /etc/dircolors &&
 
 mkdir /etc/skel &&
 
-cp ~/.bashrc ~/.bash_profile ~/.profile ~/.bash_logout /etc/skel
+as_root cp ~/.bashrc ~/.bash_profile ~/.profile ~/.bash_logout /etc/skel
 ${log} `basename "$0"` " end" config

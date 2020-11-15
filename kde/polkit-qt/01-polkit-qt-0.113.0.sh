@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://download.kde.org/stable/polkit-qt-1/polkit-qt-1-0.113.0.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://download.kde.org/stable/polkit-qt-1/polkit-qt-1-0.113.0.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-polkit-qt &&
 
@@ -30,6 +30,6 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

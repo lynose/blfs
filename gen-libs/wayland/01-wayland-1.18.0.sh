@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://wayland.freedesktop.org/releases/wayland-1.18.0.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://wayland.freedesktop.org/releases/wayland-1.18.0.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-wayland &&
 
@@ -31,6 +31,6 @@ make check &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

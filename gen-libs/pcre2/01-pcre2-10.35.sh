@@ -11,8 +11,8 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 if [ ! -f /sources/pcre2-10.35.tar.bz2 ];  
  then
-  wget https://downloads.sourceforge.net/pcre/pcre2-10.35.tar.bz2 \
-    --continue --directory-prefix=/sources
+  check_and_download https://downloads.sourceforge.net/pcre/pcre2-10.35.tar.bz2 \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-pcre2 &&
@@ -39,6 +39,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

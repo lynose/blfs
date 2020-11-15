@@ -10,10 +10,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://www.mupdf.com/downloads/archive/mupdf-1.17.0-source.tar.gz \
-    --continue --directory-prefix=/sources &&
-wget http://www.linuxfromscratch.org/patches/blfs/10.0/mupdf-1.17.0-shared_libs-1.patch \
-    --continue --directory-prefix=/sources &&
+check_and_download http://www.mupdf.com/downloads/archive/mupdf-1.17.0-source.tar.gz \
+    /sources &&
+check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/mupdf-1.17.0-shared_libs-1.patch \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-mupdf &&
 

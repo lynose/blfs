@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.20.0.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.20.0.tar.bz2 \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-v4l-utils &&
 
@@ -27,6 +27,6 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

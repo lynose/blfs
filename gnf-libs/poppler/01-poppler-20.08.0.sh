@@ -10,10 +10,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://poppler.freedesktop.org/poppler-20.08.0.tar.xz \
-    --continue --directory-prefix=/sources &&
-wget https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://poppler.freedesktop.org/poppler-20.08.0.tar.xz \
+    /sources &&
+check_and_download https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-poppler &&
 
@@ -39,9 +39,9 @@ git clone git://git.freedesktop.org/git/poppler/test testfiles &&
 LC_ALL=en_US.UTF-8 make test &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
-install -v -m755 -d           /usr/share/doc/poppler-20.08.0 &&
-cp -vr ../glib/reference/html /usr/share/doc/poppler-20.08.0 &&
+as_root make install &&
+as_root install -v -m755 -d           /usr/share/doc/poppler-20.08.0 &&
+as_root cp -vr ../glib/reference/html /usr/share/doc/poppler-20.08.0 &&
 tar -xf ../../poppler-data-0.4.9.tar.gz &&
 cd poppler-data-0.4.9 &&
 make prefix=/usr install &&

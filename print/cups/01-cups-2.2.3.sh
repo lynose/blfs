@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/apple/cups/releases/download/v2.3.3/cups-2.3.3-source.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/apple/cups/releases/download/v2.3.3/cups-2.3.3-source.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-cups &&
 
@@ -39,12 +39,12 @@ ${log} `basename "$0"` " built" blfs_all &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install &&
+as_root make install &&
 rm -rf /tmp/cupsinit &&
 ln -svnf ../cups/doc-2.3.3 /usr/share/doc/cups-2.3.3 &&
 echo "ServerName /run/cups/cups.sock" > /etc/cups/client.conf &&
 gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
-cat > /etc/pam.d/cups << "EOF"
+as_root cat > /etc/pam.d/cups << "EOF"
 # Begin /etc/pam.d/cups
 
 auth    include system-auth

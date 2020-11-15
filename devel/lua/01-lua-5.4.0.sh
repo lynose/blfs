@@ -10,12 +10,12 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://www.lua.org/ftp/lua-5.4.0.tar.gz \
-    --continue --directory-prefix=/sources &&
-wget http://www.linuxfromscratch.org/patches/blfs/10.0/lua-5.4.0-shared_library-1.patch \
-    --continue --directory-prefix=/sources &&
-wget http://www.lua.org/tests/lua-5.4.0-tests.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://www.lua.org/ftp/lua-5.4.0.tar.gz \
+    /sources &&
+check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/lua-5.4.0-shared_library-1.patch \
+    /sources &&
+check_and_download http://www.lua.org/tests/lua-5.4.0-tests.tar.gz \
+    /sources &&
 
 
     
@@ -57,15 +57,15 @@ ${log} `basename "$0"` " built" blfs_all &&
 make test &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make INSTALL_TOP=/usr                \
+as_root make INSTALL_TOP=/usr                \
      INSTALL_DATA="cp -d"            \
      INSTALL_MAN=/usr/share/man/man1 \
      TO_LIB="liblua.so liblua.so.5.4 liblua.so.5.4.0" \
      install &&
 
-mkdir -pv                      /usr/share/doc/lua-5.4.0 &&
-cp -v doc/*.{html,css,gif,png} /usr/share/doc/lua-5.4.0 &&
+as_root mkdir -pv                      /usr/share/doc/lua-5.4.0 &&
+as_root cp -v doc/*.{html,css,gif,png} /usr/share/doc/lua-5.4.0 &&
 
-install -v -m644 -D lua.pc /usr/lib/pkgconfig/lua.pc &&
+as_root install -v -m644 -D lua.pc /usr/lib/pkgconfig/lua.pc &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

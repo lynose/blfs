@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz \
+    /sources &&
 
 tar xf /sources/install-tl-unx.tar.gz -C /sources/ &&
 

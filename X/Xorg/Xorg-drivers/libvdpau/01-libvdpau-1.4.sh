@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://gitlab.freedesktop.org/vdpau/libvdpau/-/archive/1.4/libvdpau-1.4.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download https://gitlab.freedesktop.org/vdpau/libvdpau/-/archive/1.4/libvdpau-1.4.tar.bz2 \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libvdpau &&
 
@@ -31,6 +31,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 ninja test &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-ninja install &&
+as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

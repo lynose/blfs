@@ -11,8 +11,8 @@ if test -d /sources/cmake-3.18.1
 fi
 
 ${log} `basename "$0"` " Downloading" blfs_all &&
-wget https://cmake.org/files/v3.18/cmake-3.18.1.tar.gz \
---continue --directory-prefix=/sources &&
+check_and_download https://cmake.org/files/v3.18/cmake-3.18.1.tar.gz \
+/sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-cmake &&
 
@@ -38,7 +38,7 @@ ${log} `basename "$0"` " build" blfs_all &&
 bin/ctest -j8 -O cmake-3.18.1-test.log && 
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all

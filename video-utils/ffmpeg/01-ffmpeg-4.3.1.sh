@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://ffmpeg.org/releases/ffmpeg-4.3.1.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://ffmpeg.org/releases/ffmpeg-4.3.1.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-ffmpeg &&
 
@@ -48,13 +48,13 @@ gcc tools/qt-faststart.c -o tools/qt-faststart &&
 doxygen doc/Doxyfile &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 
-install -v -m755    tools/qt-faststart /usr/bin &&
-install -v -m755 -d           /usr/share/doc/ffmpeg-4.3.1 &&
-install -v -m644    doc/*.txt /usr/share/doc/ffmpeg-4.3.1 &&
-install -v -m755 -d /usr/share/doc/ffmpeg-4.3.1/api                     &&
-cp -vr doc/doxy/html/* /usr/share/doc/ffmpeg-4.3.1/api                  &&
+as_root install -v -m755    tools/qt-faststart /usr/bin &&
+as_root install -v -m755 -d           /usr/share/doc/ffmpeg-4.3.1 &&
+as_root install -v -m644    doc/*.txt /usr/share/doc/ffmpeg-4.3.1 &&
+as_root install -v -m755 -d /usr/share/doc/ffmpeg-4.3.1/api                     &&
+as_root cp -vr doc/doxy/html/* /usr/share/doc/ffmpeg-4.3.1/api                  &&
 find /usr/share/doc/ffmpeg-4.3.1/api -type f -exec chmod -c 0644 \{} \; &&
 find /usr/share/doc/ffmpeg-4.3.1/api -type d -exec chmod -c 0755 \{} \; &&
 ${log} `basename "$0"` " installed" blfs_all &&

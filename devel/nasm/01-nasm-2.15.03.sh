@@ -10,10 +10,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://www.nasm.us/pub/nasm/releasebuilds/2.15.03/nasm-2.15.03.tar.xz \
-    --continue --directory-prefix=/sources &&
-wget http://www.nasm.us/pub/nasm/releasebuilds/2.15.03/nasm-2.15.03-xdoc.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://www.nasm.us/pub/nasm/releasebuilds/2.15.03/nasm-2.15.03.tar.xz \
+    /sources &&
+check_and_download http://www.nasm.us/pub/nasm/releasebuilds/2.15.03/nasm-2.15.03-xdoc.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-nasm &&
 
@@ -29,11 +29,11 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 
 
-install -m755 -d         /usr/share/doc/nasm-2.15.03/html  &&
-cp -v doc/html/*.html    /usr/share/doc/nasm-2.15.03/html  &&
-cp -v doc/*.{txt,ps,pdf} /usr/share/doc/nasm-2.15.03 &&
+as_root install -m755 -d         /usr/share/doc/nasm-2.15.03/html  &&
+as_root cp -v doc/html/*.html    /usr/share/doc/nasm-2.15.03/html  &&
+as_root cp -v doc/*.{txt,ps,pdf} /usr/share/doc/nasm-2.15.03 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

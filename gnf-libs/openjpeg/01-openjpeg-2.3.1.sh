@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/uclouvain/openjpeg/archive/v2.3.1/openjpeg-2.3.1.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/uclouvain/openjpeg/archive/v2.3.1/openjpeg-2.3.1.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-openjpeg &&
 
@@ -30,10 +30,10 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 pushd ../doc &&
   for man in man/man?/* ; do
-      install -v -D -m 644 $man /usr/share/$man
+      as_root install -v -D -m 644 $man /usr/share/$man
   done 
 popd
 ${log} `basename "$0"` " installed" blfs_all &&

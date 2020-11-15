@@ -12,8 +12,8 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 if [ ! -f /sources/a52dec-0.7.4.tar.gz ];  
  then
-  wget http://liba52.sourceforge.net/files/a52dec-0.7.4.tar.gz \
-    --continue --directory-prefix=/sources
+  check_and_download http://liba52.sourceforge.net/files/a52dec-0.7.4.tar.gz \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-a52dec &&
@@ -35,9 +35,9 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
-cp liba52/a52_internal.h /usr/include/a52dec &&
-install -v -m644 -D doc/liba52.txt \
+as_root make install &&
+as_root cp liba52/a52_internal.h /usr/include/a52dec &&
+as_root install -v -m644 -D doc/liba52.txt \
     /usr/share/doc/liba52-0.7.4/liba52.txt &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

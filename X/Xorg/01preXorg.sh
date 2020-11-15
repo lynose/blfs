@@ -5,7 +5,7 @@ export XORG_PREFIX="/usr" &&
 export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
     --localstatedir=/var --disable-static" &&
 
-cat > /etc/profile.d/xorg.sh << EOF
+as_root cat > /etc/profile.d/xorg.sh << EOF
 XORG_PREFIX="$XORG_PREFIX"
 XORG_CONFIG="--prefix=\$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
 export XORG_PREFIX XORG_CONFIG

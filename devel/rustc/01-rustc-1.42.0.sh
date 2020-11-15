@@ -11,8 +11,8 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 if [ ! -f /sources/rustc-1.42.0-src.tar.gz ] 
  then
-  wget https://static.rust-lang.org/dist/rustc-1.42.0-src.tar.gz \
-    --continue --directory-prefix=/sources
+  check_and_download https://static.rust-lang.org/dist/rustc-1.42.0-src.tar.gz \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-rustc &&
@@ -83,10 +83,10 @@ export LIBSSH2_SYS_USE_PKG_CONFIG=1 &&
 DESTDIR=${PWD}/install python3 ./x.py install &&
 unset LIBSSH2_SYS_USE_PKG_CONFIG &&
 chown -R root:root install &&
-cp -a install/* / &&
+as_root cp -a install/* / &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
-cat >> /etc/ld.so.conf << EOF
+as_root cat >> /etc/ld.so.conf << EOF
 # Begin rustc addition
 
 /opt/rustc/lib
@@ -97,7 +97,7 @@ EOF
 ldconfig &&
 ${log} `basename "$0"` " ld path configured" blfs_all &&
 
-cat > /etc/profile.d/rustc.sh << "EOF"
+as_root cat > /etc/profile.d/rustc.sh << "EOF"
 # Begin /etc/profile.d/rustc.sh
 
 pathprepend /opt/rustc/bin           PATH

@@ -10,12 +10,12 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget ftp://tug.org/texlive/historic/2020/texlive-20200406-source.tar.xz \
-    --continue --directory-prefix=/sources &&
-wget ftp://tug.org/texlive/historic/2020/texlive-20200406-texmf.tar.xz \
-    --continue --directory-prefix=/sources &&
-wget ftp://tug.org/texlive/historic/2020/texlive-20200406-tlpdb-full.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download ftp://tug.org/texlive/historic/2020/texlive-20200406-source.tar.xz \
+    /sources &&
+check_and_download ftp://tug.org/texlive/historic/2020/texlive-20200406-texmf.tar.xz \
+    /sources &&
+check_and_download ftp://tug.org/texlive/historic/2020/texlive-20200406-tlpdb-full.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-texlive &&
 
@@ -23,7 +23,7 @@ tar xf /sources/texlive-20200406-source.tar.xz -C /sources/ &&
 
 cd /sources/texlive-20200406-source &&
 
-cat >> /etc/ld.so.conf << EOF
+as_root cat >> /etc/ld.so.conf << EOF
 # Begin texlive 2020 addition
 
 /opt/texlive/2020/lib
@@ -100,11 +100,11 @@ make -k check &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install-strip &&
+as_root make install-strip &&
 /sbin/ldconfig &&
 make texlinks &&
-mkdir -pv /opt/texlive/2020/tlpkg/TeXLive/ &&
-install -v -m644 ../texk/tests/TeXLive/* /opt/texlive/2020/tlpkg/TeXLive/ &&
+as_root mkdir -pv /opt/texlive/2020/tlpkg/TeXLive/ &&
+as_root install -v -m644 ../texk/tests/TeXLive/* /opt/texlive/2020/tlpkg/TeXLive/ &&
 tar -xf ../../texlive-20200406-tlpdb-full.tar.gz -C /opt/texlive/2020/tlpkg &&
 tar -xf ../../texlive-20200406-texmf.tar.xz -C /opt/texlive/2020 --strip-components=1 &&
 source /etc/profile.d/extrapaths.sh &&

@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.3.2.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.3.2.tar.bz2 \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-alsa-lib &&
 
@@ -26,11 +26,11 @@ make &&
 make doc &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
-install -v -d -m755 /usr/share/doc/alsa-lib-1.2.3.2/html/search &&
-install -v -m644 doc/doxygen/html/*.* \
+as_root make install &&
+as_root install -v -d -m755 /usr/share/doc/alsa-lib-1.2.3.2/html/search &&
+as_root install -v -m644 doc/doxygen/html/*.* \
                 /usr/share/doc/alsa-lib-1.2.3.2/html &&
-install -v -m644 doc/doxygen/html/search/* \
+as_root install -v -m644 doc/doxygen/html/search/* \
                 /usr/share/doc/alsa-lib-1.2.3.2/html/search &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -12,14 +12,14 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 if [ ! -f /sources/gptfdisk-1.0.5.tar.gz ];  
  then
-  wget https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.5.tar.gz \
-    --continue --directory-prefix=/sources
+  check_and_download https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.5.tar.gz \
+    /sources
 fi
 
 if [ ! -f /sources/gptfdisk-1.0.5-convenience-1.patch ];  
  then
-  wget http://www.linuxfromscratch.org/patches/blfs/10.0/gptfdisk-1.0.5-convenience-1.patch \
-    --continue --directory-prefix=/sources
+  check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/gptfdisk-1.0.5-convenience-1.patch \
+    /sources
 fi
 md5sum -c ${SCRIPTPATH}/md5-gptfdisk &&
 
@@ -37,6 +37,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 make test &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

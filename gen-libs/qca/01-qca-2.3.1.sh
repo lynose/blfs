@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://download.kde.org/stable/qca/2.3.1/qca-2.3.1.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://download.kde.org/stable/qca/2.3.1/qca-2.3.1.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-qca &&
 
@@ -36,6 +36,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 make test &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

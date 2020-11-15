@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.kernel.org/pub/linux/bluetooth/bluez-5.54.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.kernel.org/pub/linux/bluetooth/bluez-5.54.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-bluez &&
 
@@ -32,11 +32,11 @@ ${log} `basename "$0"` " built" blfs_all &&
 # ${log} `basename "$0"` " unexpected check succeed" blfs_all
 # ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install &&
+as_root make install &&
 ln -svf ../libexec/bluetooth/bluetoothd /usr/sbin &&
-install -v -dm755 /etc/bluetooth &&
-install -v -m644 src/main.conf /etc/bluetooth/main.conf &&
-install -v -dm755 /usr/share/doc/bluez-5.54 &&
-install -v -m644 doc/*.txt /usr/share/doc/bluez-5.54 &&
+as_root install -v -dm755 /etc/bluetooth &&
+as_root install -v -m644 src/main.conf /etc/bluetooth/main.conf &&
+as_root install -v -dm755 /usr/share/doc/bluez-5.54 &&
+as_root install -v -m644 doc/*.txt /usr/share/doc/bluez-5.54 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/lm-sensors/lm-sensors/archive/V3-6-0/lm-sensors-3-6-0.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/lm-sensors/lm-sensors/archive/V3-6-0/lm-sensors-3-6-0.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-lm-sensors &&
 
@@ -25,15 +25,15 @@ make PREFIX=/usr        \
      MANDIR=/usr/share/man &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make PREFIX=/usr        \
+as_root make PREFIX=/usr        \
      BUILD_STATIC_LIB=0 \
      MANDIR=/usr/share/man install &&
 
-install -v -m755 -d /usr/share/doc/lm_sensors-3-6-0 &&
-cp -rv              README INSTALL doc/* \
+as_root install -v -m755 -d /usr/share/doc/lm_sensors-3-6-0 &&
+as_root cp -rv              README INSTALL doc/* \
                     /usr/share/doc/lm_sensors-3-6-0 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
-sensors-detect &&
+as_root sensors-detect &&
 ${log} `basename "$0"` " sensors dectected" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

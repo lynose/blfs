@@ -10,10 +10,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://mesa.freedesktop.org/archive/mesa-20.1.5.tar.xz \
-    --continue --directory-prefix=/sources &&
-wget http://www.linuxfromscratch.org/patches/blfs/10.0/mesa-20.1.5-add_xdemos-1.patch \
-    --continue --directory-prefix=/sources &&
+check_and_download https://mesa.freedesktop.org/archive/mesa-20.1.5.tar.xz \
+    /sources &&
+check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/mesa-20.1.5-add_xdemos-1.patch \
+    /sources &&
     
 md5sum -c ${SCRIPTPATH}/md5-mesa &&
 
@@ -51,9 +51,9 @@ ${log} `basename "$0"` " built" blfs_all &&
 ninja test &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-ninja install &&
+as_root ninja install &&
 
-install -v -dm755 /usr/share/doc/mesa-20.1.5 &&
-cp -rfv ../docs/* /usr/share/doc/mesa-20.1.5 &&
+as_root install -v -dm755 /usr/share/doc/mesa-20.1.5 &&
+as_root cp -rfv ../docs/* /usr/share/doc/mesa-20.1.5 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

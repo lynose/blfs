@@ -23,6 +23,6 @@ make check &&          #Ignoring result, not related to multithread
 ${log} `basename "$0"` " Unexpected Test succeeded" blfs_basic
 ${log} `basename "$0"` " expected test fail?" blfs_basic &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_basic &&
 ${log} `basename "$0"` " finished" blfs_basic

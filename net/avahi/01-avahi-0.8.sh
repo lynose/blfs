@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/lathiat/avahi/releases/download/v0.8/avahi-0.8.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/lathiat/avahi/releases/download/v0.8/avahi-0.8.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-avahi &&
 
@@ -44,7 +44,7 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 
 systemctl enable avahi-daemon &&
 systemctl enable avahi-dnsconfd &&

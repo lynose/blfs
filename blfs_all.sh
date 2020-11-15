@@ -10,6 +10,20 @@ as_root()
 
 export -f as_root
 
+as_root_mkdir ()
+{
+  if [ -d $1 ];
+    then return
+  fi
+  
+  if   [ $EUID = 0 ];        then mkdir $1
+  elif [ -x /usr/bin/sudo ]; then sudo mkdir $1
+  else                            su -c \\"mkdir $1\\"
+  fi
+}
+
+export -f as_root_mkdir
+
 check_and_download ()
 {
   declare url=$1
@@ -42,6 +56,8 @@ source /etc/profile.d/xorg.sh && # Do not uncomment
 source /etc/profile.d/extrapaths.sh &&
 source /etc/profile.d/kf5.sh &&
 source /etc/profile.d/qt5.sh &&
+
+export KF5_PREFIX=/opt/kf5-5.73.0 &&
 
 ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -582,6 +598,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/gst-plugins-bad/01-gst-plugins-bad-1.16.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/qt5/01-qt5-5.15.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gen/graphviz/01-graphviz-2.44.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./icons/oxygen-icons5/01-oxygen-icons5-5.73.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

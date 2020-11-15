@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-python3 &&
 
@@ -33,7 +33,7 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 
-make install &&
+as_root make install &&
 
 chmod -v 755 /usr/lib/libpython3.8.so &&
 chmod -v 755 /usr/lib/libpython3.so &&

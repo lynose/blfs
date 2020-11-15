@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.7.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.7.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-btrfs-progs &&
 
@@ -46,11 +46,11 @@ pushd tests &&
 popd
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 
-ln -sfv ../../lib/$(readlink /lib/libbtrfs.so) /usr/lib/libbtrfs.so &&
-ln -sfv ../../lib/$(readlink /lib/libbtrfsutil.so) /usr/lib/libbtrfsutil.so &&
-rm -fv /lib/libbtrfs.{a,so} /lib/libbtrfsutil.{a,so} &&
-mv -v /bin/{mkfs,fsck}.btrfs /sbin &&
+as_root ln -sfv ../../lib/$(readlink /lib/libbtrfs.so) /usr/lib/libbtrfs.so &&
+as_root ln -sfv ../../lib/$(readlink /lib/libbtrfsutil.so) /usr/lib/libbtrfsutil.so &&
+as_root rm -fv /lib/libbtrfs.{a,so} /lib/libbtrfsutil.{a,so} &&
+as_root mv -v /bin/{mkfs,fsck}.btrfs /sbin &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_4.91.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_4.91.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-lsof &&
 
@@ -27,7 +27,7 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make CFGL="-L./lib -ltirpc" &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-install -v -m0755 -o root -g root lsof /usr/bin &&
-install -v lsof.8 /usr/share/man/man8 &&
+as_root install -v -m0755 -o root -g root lsof /usr/bin &&
+as_root install -v lsof.8 /usr/share/man/man8 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

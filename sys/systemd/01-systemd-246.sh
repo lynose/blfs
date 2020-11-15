@@ -11,8 +11,8 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 if [ ! -f /sources/systemd-246.tar.gz ] 
  then
-  wget https://github.com/systemd/systemd/archive/v246/systemd-246.tar.gz \
-    --continue --directory-prefix=/sources
+  check_and_download https://github.com/systemd/systemd/archive/v246/systemd-246.tar.gz \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-systemd &&
@@ -53,8 +53,8 @@ ${log} `basename "$0"` " built" blfs_all &&
 ninja test &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-ninja install &&
-cat >> /etc/pam.d/system-session << "EOF"
+as_root ninja install &&
+as_root cat >> /etc/pam.d/system-session << "EOF"
 # Begin Systemd addition
     
 session  required    pam_loginuid.so
@@ -63,7 +63,7 @@ session  optional    pam_systemd.so
 # End Systemd addition
 EOF
 
-cat > /etc/pam.d/systemd-user << "EOF"
+as_root cat > /etc/pam.d/systemd-user << "EOF"
 # Begin /etc/pam.d/systemd-user
 
 account  required    pam_access.so

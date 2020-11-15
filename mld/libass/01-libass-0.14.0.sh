@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/libass/libass/releases/download/0.14.0/libass-0.14.0.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/libass/libass/releases/download/0.14.0/libass-0.14.0.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libass &&
 
@@ -25,6 +25,6 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

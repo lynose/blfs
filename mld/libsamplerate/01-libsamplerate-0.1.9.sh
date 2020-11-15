@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://www.mega-nerd.com/SRC/libsamplerate-0.1.9.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://www.mega-nerd.com/SRC/libsamplerate-0.1.9.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libsamplerate &&
 

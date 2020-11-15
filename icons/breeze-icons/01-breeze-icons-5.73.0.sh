@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://download.kde.org/stable/frameworks/5.73/breeze-icons-5.73.0.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://download.kde.org/stable/frameworks/5.73/breeze-icons-5.73.0.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-breeze-icons &&
 
@@ -27,6 +27,6 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -Wno-dev .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

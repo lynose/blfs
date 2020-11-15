@@ -11,8 +11,8 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 if [ ! -f /sources/libjpeg-turbo-2.0.5.tar.gz ];  
  then
-  wget https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.0.5.tar.gz \
-    --continue --directory-prefix=/sources
+  check_and_download https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.0.5.tar.gz \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-libjpeg-turbo  &&
@@ -38,6 +38,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 make test &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

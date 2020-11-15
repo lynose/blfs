@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-lzo &&
 
@@ -32,6 +32,6 @@ make check &&
 make test &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

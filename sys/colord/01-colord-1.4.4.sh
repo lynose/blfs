@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.freedesktop.org/software/colord/releases/colord-1.4.4.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.freedesktop.org/software/colord/releases/colord-1.4.4.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-colord &&
 
@@ -45,7 +45,7 @@ ${log} `basename "$0"` " configured" blfs_all &&
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-ninja install &&
+as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
 ninja -k 2 test &&

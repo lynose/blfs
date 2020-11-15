@@ -10,10 +10,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://downloads.xiph.org/releases/speex/speex-1.2.0.tar.gz \
-    --continue --directory-prefix=/sources &&
-wget https://downloads.xiph.org/releases/speex/speexdsp-1.2.0.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://downloads.xiph.org/releases/speex/speex-1.2.0.tar.gz \
+    /sources &&
+check_and_download https://downloads.xiph.org/releases/speex/speexdsp-1.2.0.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-speex &&
 
@@ -29,7 +29,7 @@ ${log} `basename "$0"` " configured speex" blfs_all &&
 make &&
 ${log} `basename "$0"` " built speex" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed speex" blfs_all &&
 
 cd ..                          &&
@@ -42,6 +42,6 @@ cd speexdsp-1.2.0             &&
 ${log} `basename "$0"` " configured speexdsp" blfs_all &&
 make &&
 ${log} `basename "$0"` " built speexdsp" blfs_all &&
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed speexdsp" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

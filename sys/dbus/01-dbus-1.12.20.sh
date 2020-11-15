@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://dbus.freedesktop.org/releases/dbus/dbus-1.12.20.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://dbus.freedesktop.org/releases/dbus/dbus-1.12.20.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-dbus &&
 
@@ -34,8 +34,8 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
-mv -v /usr/lib/libdbus-1.so.* /lib &&
+as_root make install &&
+as_root mv -v /usr/lib/libdbus-1.so.* /lib &&
 ln -sfv ../../lib/$(readlink /usr/lib/libdbus-1.so) /usr/lib/libdbus-1.so &&
 chown -v root:messagebus /usr/libexec/dbus-daemon-launch-helper &&
 chmod -v      4750       /usr/libexec/dbus-daemon-launch-helper &&

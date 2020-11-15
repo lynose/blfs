@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.26/NetworkManager-1.26.0.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.26/NetworkManager-1.26.0.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-NetworkManager &&
 
@@ -50,25 +50,25 @@ ${log} `basename "$0"` " configured" blfs_all &&
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-ninja install &&
-mv -v /usr/share/doc/NetworkManager{,-1.26.0} &&
+as_root ninja install &&
+as_root mv -v /usr/share/doc/NetworkManager{,-1.26.0} &&
 
-cat >> /etc/NetworkManager/NetworkManager.conf << "EOF"
+as_root cat >> /etc/NetworkManager/NetworkManager.conf << "EOF"
 [main]
 plugins=keyfile
 EOF
 
-cat > /etc/NetworkManager/conf.d/polkit.conf << "EOF"
+as_root cat > /etc/NetworkManager/conf.d/polkit.conf << "EOF"
 [main]
 auth-polkit=true
 EOF
 
-cat > /etc/NetworkManager/conf.d/dhcp.conf << "EOF"
+as_root cat > /etc/NetworkManager/conf.d/dhcp.conf << "EOF"
 [main]
 dhcp=dhclient
 EOF
 
-cat > /etc/NetworkManager/conf.d/no-dns-update.conf << "EOF"
+as_root cat > /etc/NetworkManager/conf.d/no-dns-update.conf << "EOF"
 [main]
 dns=none
 EOF
@@ -76,7 +76,7 @@ EOF
 groupadd -fg 86 netdev &&
 /usr/sbin/usermod -a -G netdev lynose
 
-cat > /usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules << "EOF"
+as_root cat > /usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules << "EOF"
 polkit.addRule(function(action, subject) {
     if (action.id.indexOf("org.freedesktop.NetworkManager.") == 0 && subject.isInGroup("netdev")) {
         return polkit.Result.YES;

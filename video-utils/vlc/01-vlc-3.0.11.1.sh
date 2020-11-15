@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://download.videolan.org/vlc/3.0.11.1/vlc-3.0.11.1.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://download.videolan.org/vlc/3.0.11.1/vlc-3.0.11.1.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-vlc &&
 

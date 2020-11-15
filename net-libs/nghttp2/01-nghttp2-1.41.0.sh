@@ -10,8 +10,8 @@ if test -d /sources/nghttp2-1.41.0
 fi
 
 ${log} `basename "$0"` " Downloading" blfs_all &&
-wget https://github.com/nghttp2/nghttp2/releases/download/v1.41.0/nghttp2-1.41.0.tar.xz \
---continue --directory-prefix=/sources &&
+check_and_download https://github.com/nghttp2/nghttp2/releases/download/v1.41.0/nghttp2-1.41.0.tar.xz \
+/sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-nghttp2 &&
 
@@ -28,7 +28,7 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make && 
 ${log} `basename "$0"` " build" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all

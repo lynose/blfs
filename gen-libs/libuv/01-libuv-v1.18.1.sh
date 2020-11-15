@@ -10,12 +10,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://dist.libuv.org/dist/v1.38.1/libuv-v1.38.1.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://dist.libuv.org/dist/v1.38.1/libuv-v1.38.1.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libuv &&
-
-
 
 tar xf /sources/libuv-v1.38.1.tar.gz -C /sources/ &&
 
@@ -32,6 +30,6 @@ make check &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

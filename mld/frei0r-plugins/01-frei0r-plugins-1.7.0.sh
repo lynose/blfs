@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://files.dyne.org/frei0r/releases/frei0r-plugins-1.7.0.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://files.dyne.org/frei0r/releases/frei0r-plugins-1.7.0.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-frei0r-plugins &&
 
@@ -31,6 +31,6 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

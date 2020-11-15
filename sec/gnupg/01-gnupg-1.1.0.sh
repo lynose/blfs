@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.21.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.21.tar.bz2 \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-gnupg &&
 
@@ -40,14 +40,14 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 
-install -v -m755 -d /usr/share/doc/gnupg-2.2.21/html            &&
-install -v -m644    doc/gnupg_nochunks.html \
+as_root install -v -m755 -d /usr/share/doc/gnupg-2.2.21/html            &&
+as_root install -v -m644    doc/gnupg_nochunks.html \
                     /usr/share/doc/gnupg-2.2.21/html/gnupg.html &&
-install -v -m644    doc/*.texi doc/gnupg.txt \
+as_root install -v -m644    doc/*.texi doc/gnupg.txt \
                     /usr/share/doc/gnupg-2.2.21 &&
-install -v -m644    doc/gnupg.html/* \
+as_root install -v -m644    doc/gnupg.html/* \
                     /usr/share/doc/gnupg-2.2.21/html &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

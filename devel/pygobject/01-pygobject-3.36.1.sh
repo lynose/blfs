@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://ftp.gnome.org/pub/gnome/sources/pygobject/3.36/pygobject-3.36.1.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://ftp.gnome.org/pub/gnome/sources/pygobject/3.36/pygobject-3.36.1.tar.xz \
+    /sources &&
 
 md5sum --ignore-missing -c ${SCRIPTPATH}/md5-pygobject &&
 

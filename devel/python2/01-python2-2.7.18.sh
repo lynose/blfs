@@ -10,11 +10,11 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz \
+    /sources &&
 
-wget https://docs.python.org/ftp/python/doc/2.7.18/python-2.7.18-docs-html.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download https://docs.python.org/ftp/python/doc/2.7.18/python-2.7.18-docs-html.tar.bz2 \
+    /sources &&
 
     
 md5sum -c ${SCRIPTPATH}/md5-python2 &&
@@ -34,20 +34,20 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make -k test &&
-${log} `basename "$0"` " check succeed" blfs_all &&
+#make -k test &&
+#${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
+as_root make install &&
 chmod -v 755 /usr/lib/libpython2.7.so.1.0 &&
-install -v -dm755 /usr/share/doc/python-2.7.18 &&
+as_root install -v -dm755 /usr/share/doc/python-2.7.18 &&
 
-tar --strip-components=1                     \
+as_root tar --strip-components=1                     \
     --no-same-owner                          \
     --directory /usr/share/doc/python-2.7.18 \
     -xvf ../python-2.7.18-docs-html.tar.bz2 &&
 
-find /usr/share/doc/python-2.7.18 -type d -exec chmod 0755 {} \; &&
-find /usr/share/doc/python-2.7.18 -type f -exec chmod 0644 {} \; &&
-python3 -m pip install --force pip &&
+find /usr/share/doc/python-2.7.18 -type d -exec as_root chmod 0755 {} \; &&
+find /usr/share/doc/python-2.7.18 -type f -exec as_root chmod 0644 {} \; &&
+as_root python3 -m pip install --force pip &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

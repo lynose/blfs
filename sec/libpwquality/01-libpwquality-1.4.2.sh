@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.2/libpwquality-1.4.2.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.2/libpwquality-1.4.2.tar.bz2 \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libpwquality &&
 
@@ -28,11 +28,11 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
-mv -v /usr/lib/libpwquality.so.* /lib &&
+as_root make install &&
+as_root mv -v /usr/lib/libpwquality.so.* /lib &&
 ln -sfv ../../lib/$(readlink /usr/lib/libpwquality.so) /usr/lib/libpwquality.so &&
-mv /etc/pam.d/system-password{,.orig} &&
-cat > /etc/pam.d/system-password << "EOF"
+as_root mv /etc/pam.d/system-password{,.orig} &&
+as_root cat > /etc/pam.d/system-password << "EOF"
 # Begin /etc/pam.d/system-password
 
 # check new passwords for strength (man pam_pwquality)

@@ -11,8 +11,8 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 if [ ! -f /sources/acpid-2.0.32.tar.xz ];  
  then
-  wget https://downloads.sourceforge.net/acpid2/acpid-2.0.32.tar.xz \
-    --continue --directory-prefix=/sources
+  check_and_download https://downloads.sourceforge.net/acpid2/acpid-2.0.32.tar.xz \
+    /sources
 fi
 
 md5sum -c ${SCRIPTPATH}/md5-acpid &&
@@ -28,8 +28,8 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install                         &&
-install -v -m755 -d /etc/acpi/events &&
-cp -r samples /usr/share/doc/acpid-2.0.32 &&
+as_root make install                         &&
+as_root install -v -m755 -d /etc/acpi/events &&
+as_root cp -r samples /usr/share/doc/acpid-2.0.32 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

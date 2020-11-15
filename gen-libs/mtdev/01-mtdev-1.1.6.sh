@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://bitmath.org/code/mtdev/mtdev-1.1.6.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download http://bitmath.org/code/mtdev/mtdev-1.1.6.tar.bz2 \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-mtdev &&
 
@@ -26,6 +26,6 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2 \
-    --continue --directory-prefix=/sources &&
+check_and_download https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2 \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libassuan &&
 
@@ -31,13 +31,13 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make install &&
-install -v -dm755   /usr/share/doc/libassuan-2.5.3/html &&
-install -v -m644 doc/assuan.html/* \
+as_root make install &&
+as_root install -v -dm755   /usr/share/doc/libassuan-2.5.3/html &&
+as_root install -v -m644 doc/assuan.html/* \
                     /usr/share/doc/libassuan-2.5.3/html &&
-install -v -m644 doc/assuan_nochunks.html \
+as_root install -v -m644 doc/assuan_nochunks.html \
                     /usr/share/doc/libassuan-2.5.3      &&
-install -v -m644 doc/assuan.{txt,texi} \
+as_root install -v -m644 doc/assuan.{txt,texi} \
                     /usr/share/doc/libassuan-2.5.3 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

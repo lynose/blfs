@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/silnrsi/graphite/releases/download/1.3.14/graphite2-1.3.14.tgz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/silnrsi/graphite/releases/download/1.3.14/graphite2-1.3.14.tgz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-graphite2 &&
 
@@ -35,12 +35,12 @@ make test &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install &&
-install -v -d -m755 /usr/share/doc/graphite2-1.3.14 &&
+as_root make install &&
+as_root install -v -d -m755 /usr/share/doc/graphite2-1.3.14 &&
 
-cp      -v -f    doc/{GTF,manual}.html \
+as_root cp      -v -f    doc/{GTF,manual}.html \
                     /usr/share/doc/graphite2-1.3.14 &&
-cp      -v -f    doc/{GTF,manual}.pdf \
+as_root cp      -v -f    doc/{GTF,manual}.pdf \
                     /usr/share/doc/graphite2-1.3.14 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

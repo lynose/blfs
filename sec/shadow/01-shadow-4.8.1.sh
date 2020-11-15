@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/shadow-maint/shadow/releases/download/4.8.1/shadow-4.8.1.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/shadow-maint/shadow/releases/download/4.8.1/shadow-4.8.1.tar.xz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-shadow &&
 
@@ -37,11 +37,11 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
 sed -i 's/yes/no/' /etc/default/useradd &&
-install -v -m644 /etc/login.defs /etc/login.defs.orig &&
+as_root install -v -m644 /etc/login.defs /etc/login.defs.orig &&
 for FUNCTION in FAIL_DELAY               \
                 FAILLOG_ENAB             \
                 LASTLOG_ENAB             \
@@ -62,7 +62,7 @@ do
     sed -i "s/^${FUNCTION}/# &/" /etc/login.defs
 done
 
-cat > /etc/pam.d/login << "EOF"
+as_root cat > /etc/pam.d/login << "EOF"
 # Begin /etc/pam.d/login
 
 # Set failure delay before next prompt to 3 seconds
@@ -110,7 +110,7 @@ password  include     system-password
 # End /etc/pam.d/login
 EOF
 
-cat > /etc/pam.d/passwd << "EOF"
+as_root cat > /etc/pam.d/passwd << "EOF"
 # Begin /etc/pam.d/passwd
 
 password  include     system-password
@@ -118,7 +118,7 @@ password  include     system-password
 # End /etc/pam.d/passwd
 EOF
 
-cat > /etc/pam.d/su << "EOF"
+as_root cat > /etc/pam.d/su << "EOF"
 # Begin /etc/pam.d/su
 
 # always allow root
@@ -146,7 +146,7 @@ session   include     system-session
 # End /etc/pam.d/su
 EOF
 
-cat > /etc/pam.d/chage << "EOF"
+as_root cat > /etc/pam.d/chage << "EOF"
 # Begin /etc/pam.d/chage
 
 # always allow root

@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.22.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.22.tar.xz \
+    /sources &&
 
 md5sum --ignore-missing -c ${SCRIPTPATH}/md5-gtk &&
 
@@ -37,7 +37,7 @@ make check &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make install &&
+as_root make install &&
 gtk-query-immodules-3.0 --update-cache &&
 glib-compile-schemas /usr/share/glib-2.0/schemas &&
 

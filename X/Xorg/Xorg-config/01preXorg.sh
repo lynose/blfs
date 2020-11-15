@@ -2,7 +2,7 @@
 
 ${log} `basename "$0"` " started" xorg &&
 
-cat > /etc/X11/xorg.conf.d/xkb-defaults.conf << "EOF"
+as_root cat > /etc/X11/xorg.conf.d/xkb-defaults.conf << "EOF"
 Section "InputClass"
     Identifier "XKB Defaults"
     MatchIsKeyboard "yes"
@@ -11,7 +11,7 @@ Section "InputClass"
 EndSection
 EOF
 
-cat > /etc/X11/xorg.conf.d/videocard-0.conf << "EOF"
+as_root cat > /etc/X11/xorg.conf.d/videocard-0.conf << "EOF"
 Section "Device"
     Identifier  "Videocard0"
     Driver      "amdgpu"
@@ -21,7 +21,7 @@ Section "Device"
 EndSection
 EOF
 
-cat > /etc/X11/xorg.conf.d/server-layout.conf << "EOF"
+as_root cat > /etc/X11/xorg.conf.d/server-layout.conf << "EOF"
 Section "ServerLayout"
     Identifier     "DefaultLayout"
     Screen      0  "Screen0" 0 0

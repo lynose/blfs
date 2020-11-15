@@ -81,7 +81,7 @@ as_root ln -sfv $KF5_PREFIX/share/wayland-sessions/plasmawayland.desktop
 
 as_root rm -f $XORG_PREFIX/bin/xkeystone &&
 
-cat > /etc/pam.d/kde << "EOF" 
+as_root cat > /etc/pam.d/kde << "EOF" 
 # Begin /etc/pam.d/kde
 
 auth     requisite      pam_nologin.so
@@ -97,7 +97,7 @@ session  include        system-session
 # End /etc/pam.d/kde
 EOF
 
-cat > /etc/pam.d/kde-np << "EOF" 
+as_root cat > /etc/pam.d/kde-np << "EOF" 
 # Begin /etc/pam.d/kde-np
 
 auth     requisite      pam_nologin.so
@@ -113,7 +113,7 @@ session  include        system-session
 # End /etc/pam.d/kde-np
 EOF
 
-cat > /etc/pam.d/kscreensaver << "EOF"
+as_root cat > /etc/pam.d/kscreensaver << "EOF"
 # Begin /etc/pam.d/kscreensaver
 
 auth    include system-auth
@@ -122,7 +122,7 @@ account include system-account
 # End /etc/pam.d/kscreensaver
 EOF
 
-cat > ~/.xinitrc << "EOF"
+as_root cat > ~/.xinitrc << "EOF"
 dbus-launch --exit-with-session $KF5_PREFIX/bin/startplasma-x11
 EOF
 

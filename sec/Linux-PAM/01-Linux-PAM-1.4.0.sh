@@ -10,10 +10,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget https://github.com/linux-pam/linux-pam/releases/download/v1.4.0/Linux-PAM-1.4.0.tar.xz \
-    --continue --directory-prefix=/sources &&
-wget https://github.com/linux-pam/linux-pam/releases/download/v1.4.0/Linux-PAM-1.4.0-docs.tar.xz \
-    --continue --directory-prefix=/sources &&
+check_and_download https://github.com/linux-pam/linux-pam/releases/download/v1.4.0/Linux-PAM-1.4.0.tar.xz \
+    /sources &&
+check_and_download https://github.com/linux-pam/linux-pam/releases/download/v1.4.0/Linux-PAM-1.4.0-docs.tar.xz \
+    /sources &&
     
     
 md5sum -c ${SCRIPTPATH}/md5-Linux-PAM &&
@@ -34,9 +34,9 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-install -v -m755 -d /etc/pam.d &&
+as_root install -v -m755 -d /etc/pam.d &&
 
-cat > /etc/pam.d/other << "EOF"
+as_root cat > /etc/pam.d/other << "EOF"
 auth     required       pam_deny.so
 account  required       pam_deny.so
 password required       pam_deny.so
@@ -48,17 +48,17 @@ ${log} `basename "$0"` " check succeed" blfs_all &&
 rm -fv /etc/pam.d/other &&
 
 
-make install &&
+as_root make install &&
 chmod -v 4755 /sbin/unix_chkpwd &&
 
 for file in pam pam_misc pamc
 do
-  mv -v /usr/lib/lib${file}.so.* /lib &&
+  as_root mv -v /usr/lib/lib${file}.so.* /lib &&
   ln -sfv ../../lib/$(readlink /usr/lib/lib${file}.so) /usr/lib/lib${file}.so
 done
 
-install -vdm755 /etc/pam.d &&
-cat > /etc/pam.d/system-account << "EOF" &&
+as_root install -vdm755 /etc/pam.d &&
+as_root cat > /etc/pam.d/system-account << "EOF" &&
 # Begin /etc/pam.d/system-account
 
 account   required    pam_unix.so
@@ -66,7 +66,7 @@ account   required    pam_unix.so
 # End /etc/pam.d/system-account
 EOF
 
-cat > /etc/pam.d/system-auth << "EOF" &&
+as_root cat > /etc/pam.d/system-auth << "EOF" &&
 # Begin /etc/pam.d/system-auth
 
 auth      required    pam_unix.so
@@ -74,14 +74,14 @@ auth      required    pam_unix.so
 # End /etc/pam.d/system-auth
 EOF
 
-cat > /etc/pam.d/system-session << "EOF"
+as_root cat > /etc/pam.d/system-session << "EOF"
 # Begin /etc/pam.d/system-session
 
 session   required    pam_unix.so
 
 # End /etc/pam.d/system-session
 EOF
-cat > /etc/pam.d/system-password << "EOF"
+as_root cat > /etc/pam.d/system-password << "EOF"
 # Begin /etc/pam.d/system-password
 
 # use sha512 hash for encryption, use shadow, and try to use any previously
@@ -91,7 +91,7 @@ password  required    pam_unix.so       sha512 shadow try_first_pass
 # End /etc/pam.d/system-password
 EOF
 
-cat > /etc/pam.d/other << "EOF"
+as_root cat > /etc/pam.d/other << "EOF"
 # Begin /etc/pam.d/other
 
 auth        required        pam_warn.so

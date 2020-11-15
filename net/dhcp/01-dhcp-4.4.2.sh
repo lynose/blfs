@@ -10,8 +10,8 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-wget ftp://ftp.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2.tar.gz \
-    --continue --directory-prefix=/sources &&
+check_and_download ftp://ftp.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2.tar.gz \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-dhcp &&
 
@@ -43,10 +43,10 @@ make -j1 &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 make -C client install         &&
-mv -v /usr/sbin/dhclient /sbin &&
-install -v -m755 client/scripts/linux /sbin/dhclient-script &&
-install -vdm755 /etc/dhcp &&
-cat > /etc/dhcp/dhclient.conf << "EOF"
+as_root mv -v /usr/sbin/dhclient /sbin &&
+as_root install -v -m755 client/scripts/linux /sbin/dhclient-script &&
+as_root install -vdm755 /etc/dhcp &&
+as_root cat > /etc/dhcp/dhclient.conf << "EOF"
 # Begin /etc/dhcp/dhclient.conf
 #
 # Basic dhclient.conf(5)
@@ -65,6 +65,6 @@ require subnet-mask, domain-name-servers;
 
 # End /etc/dhcp/dhclient.conf
 EOF
-install -v -dm 755 /var/lib/dhclient &&
+as_root install -v -dm 755 /var/lib/dhclient &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -11,8 +11,8 @@ if test -d /sources/doxygen-1.8.19
 fi
 
 ${log} `basename "$0"` " Downloading" blfs_all &&
-wget http://doxygen.nl/files/doxygen-1.8.19.src.tar.gz \
---continue --directory-prefix=/sources &&
+check_and_download http://doxygen.nl/files/doxygen-1.8.19.src.tar.gz \
+/sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-doxygen &&
 
@@ -32,8 +32,8 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " build" blfs_all &&
 
-make install &&
-install -vm644 ../doc/*.1 /usr/share/man/man1 &&
+as_root make install &&
+as_root install -vm644 ../doc/*.1 /usr/share/man/man1 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all
