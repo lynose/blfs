@@ -38,10 +38,10 @@ pushd python3                             &&
   ${log} `basename "$0"` " built python3" blfs_all &&
   ninja -C python3 test &&
   ${log} `basename "$0"` " unexpected check succeed python3" blfs_all
-${log} `basename "$0"` " expected check fail? python3" blfs_all &&
+  ${log} `basename "$0"` " expected check fail? python3" blfs_all &&
 popd
 
-ninja -C python2 install &&
-ninja -C python3 install &&
+as_root ninja -C python2 install &&
+as_root ninja -C python3 install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

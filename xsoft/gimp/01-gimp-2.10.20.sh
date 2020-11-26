@@ -38,8 +38,8 @@ ${log} `basename "$0"` " unexpected check succeed gimp" blfs_all
 ${log} `basename "$0"` " expected check fail? gimp" blfs_all &&
 
 as_root make install &&
-gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
-update-desktop-database -q &&
+as_root gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
+as_root update-desktop-database -q &&
 
 
 ${log} `basename "$0"` " installed gimp" blfs_all &&
@@ -54,7 +54,7 @@ make &&
 ${log} `basename "$0"` " built gimp-help" blfs_all &&
 
 as_root make install &&
-chown -R root:root /usr/share/gimp/2.0/help &&
+as_root chown -R root:root /usr/share/gimp/2.0/help &&
 ${log} `basename "$0"` " installed gimp-help" blfs_all &&
 
 

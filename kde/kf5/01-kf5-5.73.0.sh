@@ -2,10 +2,10 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/kf5
- then
-  rm -rf /sources/kf5
-fi
+# if test -d /sources/kf5
+#  then
+#   rm -rf /sources/kf5
+# fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
@@ -28,7 +28,10 @@ while read -r line; do
     ${log} `basename "$0"` " ======================================" blfs_all &&
     pkg=$(echo $file|sed 's|^.*/||') &&          # Remove directory
     packagedir=$(echo $pkg|sed 's|\.tar.*||') && # Package directory
-
+    if test -d $packagedir
+     then
+      rm -rf $packagedir
+    fi
     name=$(echo $pkg|sed 's|-5.*$||') && # Isolate package name
 
     tar -xf $file &&

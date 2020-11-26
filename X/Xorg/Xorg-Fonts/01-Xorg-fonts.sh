@@ -36,6 +36,6 @@ do
 done
 
 as_root install -v -d -m755 /usr/share/fonts                               &&
-ln -svfn $XORG_PREFIX/share/fonts/X11/OTF /usr/share/fonts/X11-OTF &&
-ln -svfn $XORG_PREFIX/share/fonts/X11/TTF /usr/share/fonts/X11-TTF &&
+as_root ln -svfn $XORG_PREFIX/share/fonts/X11/OTF /usr/share/fonts/X11-OTF &&
+as_root ln -svfn $XORG_PREFIX/share/fonts/X11/TTF /usr/share/fonts/X11-TTF &&
 ${log} `basename "$0"` " finished" blfs_all 

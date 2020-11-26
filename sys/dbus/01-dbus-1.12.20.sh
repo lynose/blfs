@@ -36,8 +36,8 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
 as_root mv -v /usr/lib/libdbus-1.so.* /lib &&
-ln -sfv ../../lib/$(readlink /usr/lib/libdbus-1.so) /usr/lib/libdbus-1.so &&
-chown -v root:messagebus /usr/libexec/dbus-daemon-launch-helper &&
-chmod -v      4750       /usr/libexec/dbus-daemon-launch-helper &&
+as_root ln -sfv ../../lib/$(readlink /usr/lib/libdbus-1.so) /usr/lib/libdbus-1.so &&
+as_root chown -v root:messagebus /usr/libexec/dbus-daemon-launch-helper &&
+as_root chmod -v      4750       /usr/libexec/dbus-daemon-launch-helper &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

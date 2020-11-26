@@ -28,7 +28,10 @@ while read -r line; do
     ${log} `basename "$0"` " ======================================" blfs_all &&
     pkg=$(echo $file|sed 's|^.*/||')          # Remove directory
     packagedir=$(echo $pkg|sed 's|\.tar.*||') # Package directory
-
+    if test -d $packagedir
+     then
+      rm -rf $packagedir
+    fi
 
     tar -xf $file &&
     pushd $packagedir &&

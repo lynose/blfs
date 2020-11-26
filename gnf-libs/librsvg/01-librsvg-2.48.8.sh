@@ -33,6 +33,6 @@ ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
 as_root make install &&
-gdk-pixbuf-query-loaders --update-cache &&
+as_root gdk-pixbuf-query-loaders --update-cache &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

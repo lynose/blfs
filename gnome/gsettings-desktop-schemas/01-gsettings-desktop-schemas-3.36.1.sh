@@ -31,6 +31,6 @@ ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root ninja install &&
-glib-compile-schemas /usr/share/glib-2.0/schemas &&
+as_root glib-compile-schemas /usr/share/glib-2.0/schemas &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

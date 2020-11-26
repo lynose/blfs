@@ -30,6 +30,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 as_root ninja install &&
 as_root install -vdm755 /usr/share/applications &&
-update-desktop-database /usr/share/applications &&
+as_root update-desktop-database /usr/share/applications &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

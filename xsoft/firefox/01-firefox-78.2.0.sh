@@ -19,7 +19,7 @@ tar xf /sources/firefox-78.2.0esr.source.tar.xz -C /sources/ &&
 
 cd /sources/firefox-78.2.0 &&
 
-as_root cat > mozconfig << "EOF"
+cat > mozconfig << "EOF"
 # If you have a multicore machine, all cores will be used by default.
 
 # If you have installed (or will install) wireless-tools, and you wish
@@ -115,10 +115,10 @@ export MOZBUILD_STATE_PATH=${PWD}/mozbuild &&
 ./mach build &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-./mach install                                                  &&
+as_root ./mach install                                                  &&
 
 as_root mkdir -pv  /usr/lib/mozilla/plugins                             &&
-ln    -sfv ../../mozilla/plugins /usr/lib/firefox/browser/ &&
+as_root ln    -sfv ../../mozilla/plugins /usr/lib/firefox/browser/ &&
 unset CC CXX MOZBUILD_STATE_PATH &&
 
 as_root mkdir -pv /usr/share/applications &&
@@ -139,7 +139,7 @@ MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mo
 StartupNotify=true
 EOF
 
-ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \
+as_root ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \
         /usr/share/pixmaps/firefox.png &&
 
 ${log} `basename "$0"` " installed" blfs_all &&

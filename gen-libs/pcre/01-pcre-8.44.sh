@@ -40,6 +40,6 @@ ${log} `basename "$0"` " check succeed" blfs_all &&
 
 as_root make install                     &&
 as_root mv -v /usr/lib/libpcre.so.* /lib &&
-ln -sfv ../../lib/$(readlink /usr/lib/libpcre.so) /usr/lib/libpcre.so &&
+as_root ln -sfv ../../lib/$(readlink /usr/lib/libpcre.so) /usr/lib/libpcre.so &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

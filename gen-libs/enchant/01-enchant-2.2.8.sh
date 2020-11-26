@@ -26,11 +26,11 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install                                   &&
-rm -rf /usr/include/enchant                    &&
-ln -sfv enchant-2       /usr/include/enchant   &&
-ln -sfv enchant-2       /usr/bin/enchant       &&
-ln -sfv libenchant-2.so /usr/lib/libenchant.so &&
-ln -sfv enchant-2.pc    /usr/lib/pkgconfig/enchant.pc &&
+as_root rm -rf /usr/include/enchant                    &&
+as_root ln -sfv enchant-2       /usr/include/enchant   &&
+as_root ln -sfv enchant-2       /usr/bin/enchant       &&
+as_root ln -sfv libenchant-2.so /usr/lib/libenchant.so &&
+as_root ln -sfv enchant-2.pc    /usr/lib/pkgconfig/enchant.pc &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

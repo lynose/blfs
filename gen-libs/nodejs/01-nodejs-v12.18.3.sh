@@ -35,6 +35,6 @@ make test-only &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
 as_root make install &&
-ln -sf node /usr/share/doc/node-12.18.3 &&
+as_root ln -sf node /usr/share/doc/node-12.18.3 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

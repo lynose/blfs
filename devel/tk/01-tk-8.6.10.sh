@@ -36,7 +36,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
 as_root make install-private-headers &&
-ln -v -sf wish8.6 /usr/bin/wish &&
-chmod -v 755 /usr/lib/libtk8.6.so &&
+as_root ln -v -sf wish8.6 /usr/bin/wish &&
+as_root chmod -v 755 /usr/lib/libtk8.6.so &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

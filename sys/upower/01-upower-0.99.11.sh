@@ -31,6 +31,6 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
-systemctl enable upower &&
+as_root systemctl enable upower &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

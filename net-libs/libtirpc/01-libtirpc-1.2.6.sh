@@ -31,7 +31,7 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
-as_root as_root mv -v /usr/lib/libtirpc.so.* /lib &&
+as_root mv -v /usr/lib/libtirpc.so.* /lib &&
 as_root ln -sfv ../../lib/libtirpc.so.3.0.0 /usr/lib/libtirpc.so &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

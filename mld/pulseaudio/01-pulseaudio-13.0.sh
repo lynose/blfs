@@ -33,6 +33,6 @@ make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
 as_root make install &&
-rm -fv /etc/dbus-1/system.d/pulseaudio-system.conf &&
+as_root rm -fv /etc/dbus-1/system.d/pulseaudio-system.conf &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

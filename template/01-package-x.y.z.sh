@@ -10,11 +10,9 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-if [ ! -f /sources/<tarball> ] 
- then
-  wget <link> \
+check_and_download <link> \
         /sources
-fi
+
 
 md5sum -c ${SCRIPTPATH}/md5-<basepack> &&
 

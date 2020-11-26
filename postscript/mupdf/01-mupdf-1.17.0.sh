@@ -27,13 +27,13 @@ ${log} `basename "$0"` " configured" blfs_all &&
 USE_SYSTEM_LIBS=yes make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-USE_SYSTEM_LIBS=yes                     \
+as_root USE_SYSTEM_LIBS=yes                     \
 make prefix=/usr                        \
      build=release                      \
      docdir=/usr/share/doc/mupdf-1.17.0 \
      install                            &&
 
-ln -sfv mupdf-x11 /usr/bin/mupdf        &&
-ldconfig &&
+as_root ln -sfv mupdf-x11 /usr/bin/mupdf        &&
+as_root ldconfig &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

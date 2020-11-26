@@ -33,6 +33,6 @@ as_root make install &&
 as_root mv -v /usr/share/man/man4/intel-virtual-output.4 \
       /usr/share/man/man1/intel-virtual-output.1 &&
       
-sed -i '/\.TH/s/4/1/' /usr/share/man/man1/intel-virtual-output.1 &&
+as_root sed -i '/\.TH/s/4/1/' /usr/share/man/man1/intel-virtual-output.1 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

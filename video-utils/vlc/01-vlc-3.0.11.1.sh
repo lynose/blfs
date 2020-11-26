@@ -39,8 +39,8 @@ make check &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-make docdir=/usr/share/doc/vlc-3.0.11.1 install &&
-gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
-update-desktop-database -q &&
+as_root make docdir=/usr/share/doc/vlc-3.0.11.1 install &&
+as_root gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
+as_root update-desktop-database -q &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

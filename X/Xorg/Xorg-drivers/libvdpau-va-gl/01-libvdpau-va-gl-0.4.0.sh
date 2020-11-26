@@ -33,6 +33,6 @@ ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
 as_root make install &&
-echo "export VDPAU_DRIVER=va_gl" >> /etc/profile.d/xorg.sh &&
+# as_root echo "export VDPAU_DRIVER=va_gl" >> /etc/profile.d/xorg.sh &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

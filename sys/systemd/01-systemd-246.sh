@@ -50,8 +50,8 @@ ${log} `basename "$0"` " configured" blfs_all &&
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-ninja test &&
-${log} `basename "$0"` " check succeed" blfs_all &&
+# ninja test &&
+# ${log} `basename "$0"` " check succeed" blfs_all &&
 
 as_root ninja install &&
 as_root cat >> /etc/pam.d/system-session << "EOF"
@@ -81,5 +81,6 @@ password required    pam_deny.so
 
 # End /etc/pam.d/systemd-user
 EOF
+
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

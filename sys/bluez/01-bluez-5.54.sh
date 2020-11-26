@@ -33,7 +33,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 # ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
 as_root make install &&
-ln -svf ../libexec/bluetooth/bluetoothd /usr/sbin &&
+as_root ln -svf ../libexec/bluetooth/bluetoothd /usr/sbin &&
 as_root install -v -dm755 /etc/bluetooth &&
 as_root install -v -m644 src/main.conf /etc/bluetooth/main.conf &&
 as_root install -v -dm755 /usr/share/doc/bluez-5.54 &&

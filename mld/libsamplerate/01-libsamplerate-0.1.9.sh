@@ -28,6 +28,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 make check &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
-make htmldocdir=/usr/share/doc/libsamplerate-0.1.9 install &&
+as_root make htmldocdir=/usr/share/doc/libsamplerate-0.1.9 install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

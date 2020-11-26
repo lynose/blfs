@@ -34,11 +34,15 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-#make -k test &&
-#${log} `basename "$0"` " check succeed" blfs_all &&
+if [ ${ENABLE_TEST} == true ]
+ then
+  make -k test &&
+  ${log} `basename "$0"` " unexpected check succeed" blfs_all
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 as_root make install &&
-chmod -v 755 /usr/lib/libpython2.7.so.1.0 &&
+as_root chmod -v 755 /usr/lib/libpython2.7.so.1.0 &&
 as_root install -v -dm755 /usr/share/doc/python-2.7.18 &&
 
 as_root tar --strip-components=1                     \
@@ -46,8 +50,9 @@ as_root tar --strip-components=1                     \
     --directory /usr/share/doc/python-2.7.18 \
     -xvf ../python-2.7.18-docs-html.tar.bz2 &&
 
-find /usr/share/doc/python-2.7.18 -type d -exec as_root chmod 0755 {} \; &&
-find /usr/share/doc/python-2.7.18 -type f -exec as_root chmod 0644 {} \; &&
+as_root find /usr/share/doc/python-2.7.18 -type d -exec  chmod 0755 {} \; &&
+as_root find /usr/share/doc/python-2.7.18 -type f -exec chmod 0644 {} \; &&
+as_root ln -svf /usr/bin/python python3 &&
 as_root python3 -m pip install --force pip &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -35,8 +35,14 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " build" blfs_all &&
 
-bin/ctest -j8 -O cmake-3.18.1-test.log && 
-${log} `basename "$0"` " check succeed" blfs_all &&
+ 
+if [ ${ENABLE_TEST} == true ]
+ then
+  bin/ctest -j4 -O cmake-3.18.1-test.log &&
+  ${log} `basename "$0"` " unexpected check succeed" blfs_all
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
+
 
 as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&

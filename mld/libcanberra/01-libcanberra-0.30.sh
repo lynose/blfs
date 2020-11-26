@@ -25,6 +25,6 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make docdir=/usr/share/doc/libcanberra-0.30 install &&
+as_root make docdir=/usr/share/doc/libcanberra-0.30 install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

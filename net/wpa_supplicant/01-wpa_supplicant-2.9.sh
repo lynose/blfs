@@ -72,11 +72,11 @@ as_root install -v -m644 dbus/fi.w1.wpa_supplicant1.service \
 as_root install -v -d -m755 /etc/dbus-1/system.d &&
 as_root install -v -m644 dbus/dbus-wpa_supplicant.conf \
                  /etc/dbus-1/system.d/wpa_supplicant.conf &&
-systemctl enable wpa_supplicant &&
+as_root systemctl enable wpa_supplicant &&
 as_root install -v -m755 wpa_gui-qt4/wpa_gui /usr/bin/ &&
 as_root install -v -m644 doc/docbook/wpa_gui.8 /usr/share/man/man8/ &&
 as_root install -v -m644 wpa_gui-qt4/wpa_gui.desktop /usr/share/applications/ &&
 as_root install -v -m644 wpa_gui-qt4/icons/wpa_gui.svg /usr/share/pixmaps/ &&
-update-desktop-database -q &&
+as_root update-desktop-database -q &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

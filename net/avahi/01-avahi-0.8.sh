@@ -19,11 +19,10 @@ tar xf /sources/avahi-0.8.tar.gz -C /sources/ &&
 
 cd /sources/avahi-0.8 &&
 
-# groupadd -fg 84 avahi &&
-# useradd -c "Avahi Daemon Owner" -d /var/run/avahi-daemon -u 84 \
-#         -g avahi -s /bin/false avahi &&
+# as_root groupadd -fg 84 avahi &&
+# as_root useradd -c "Avahi Daemon Owner" -d /var/run/avahi-daemon -u 84 -g avahi -s /bin/false avahi &&
 # 
-# groupadd -fg 86 netdev &&
+# as_root groupadd -fg 86 netdev &&
 
 
 ./configure --prefix=/usr        \
@@ -46,8 +45,8 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
 
-systemctl enable avahi-daemon &&
-systemctl enable avahi-dnsconfd &&
+as_root systemctl enable avahi-daemon &&
+as_root systemctl enable avahi-dnsconfd &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

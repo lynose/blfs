@@ -35,7 +35,7 @@ popd
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install              &&
-rm -v /usr/lib/libSDL2*.a &&
+as_root rm -v /usr/lib/libSDL2*.a &&
 as_root install -v -m755 -d        /usr/share/doc/SDL2-2.0.12/html &&
 as_root cp -Rv  docs/output/html/* /usr/share/doc/SDL2-2.0.12/html &&
 ${log} `basename "$0"` " installed" blfs_all &&

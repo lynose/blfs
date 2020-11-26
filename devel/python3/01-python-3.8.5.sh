@@ -35,9 +35,9 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
 
-chmod -v 755 /usr/lib/libpython3.8.so &&
-chmod -v 755 /usr/lib/libpython3.so &&
-ln -svfn python-3.8.5 /usr/share/doc/python-3 &&
+as_root chmod -v 755 /usr/lib/libpython3.8.so &&
+as_root chmod -v 755 /usr/lib/libpython3.so &&
+as_root ln -svfn python-3.8.5 /usr/share/doc/python-3 &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

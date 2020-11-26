@@ -72,12 +72,14 @@ ${log} `basename "$0"` " configured" blfs_all &&
 export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &&
 python3 ./x.py build --exclude src/tools/miri &&
 ${log} `basename "$0"` " built" blfs_all &&
-
-python3 ./x.py test --verbose --no-fail-fast | tee rustc-testlog &&
-egrep 'running [[:digit:]]+ test' rustc-testlog | awk '{ sum += $2 } END { print sum }' > /log/rust-summary.log &&
-grep '^test result:' rustc-testlog | awk  '{ sum += $6 } END { print sum }' > /log/rust-failure.log &&
-${log} `basename "$0"` " check succeed" blfs_all &&
-
+if [ ${ENABLE_TEST} == true ]
+ then
+    python3 ./x.py test --verbose --no-fail-fast | tee rustc-testlog &&
+    egrep 'running [[:digit:]]+ test' rustc-testlog | awk '{ sum += $2 } END { print sum }' > /log/rust-summary.log &&
+    grep '^test result:' rustc-testlog | awk  '{ sum += $6 } END { print sum }' > /log/rust-failure.log &&
+    ${log} `basename "$0"` " unexpected check succeed" blfs_all
+    ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 export LIBSSH2_SYS_USE_PKG_CONFIG=1 &&
 DESTDIR=${PWD}/install python3 ./x.py install &&
@@ -94,7 +96,7 @@ as_root cat >> /etc/ld.so.conf << EOF
 # End rustc addition
 EOF
 
-ldconfig &&
+as_root ldconfig &&
 ${log} `basename "$0"` " ld path configured" blfs_all &&
 
 as_root cat > /etc/profile.d/rustc.sh << "EOF"

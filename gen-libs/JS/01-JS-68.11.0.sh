@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/firefox-68.11.0
  then
-  rm -rf /sources/firefox-68.11.0
+  as_root rm -rf /sources/firefox-68.11.0
 fi
 
 SCRIPT=`realpath $0`
@@ -15,7 +15,8 @@ check_and_download https://archive.mozilla.org/pub/firefox/releases/68.11.0esr/s
 
 md5sum -c ${SCRIPTPATH}/md5-JS &&
 
-tar xf /sources/firefox-68.11.0esr.source.tar.xz -C /sources/ &&
+as_root tar xf /sources/firefox-68.11.0esr.source.tar.xz -C /sources/ &&
+as_root chown -R $USER:users /sources/firefox-68.11.0 &&
 
 cd /sources/firefox-68.11.0 &&
 
@@ -39,6 +40,6 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
-rm -v /usr/lib/libjs_static.ajs &&
+as_root rm -v /usr/lib/libjs_static.ajs &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

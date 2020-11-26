@@ -44,6 +44,6 @@ as_root install -v -m755 -d           /usr/share/doc/poppler-20.08.0 &&
 as_root cp -vr ../glib/reference/html /usr/share/doc/poppler-20.08.0 &&
 tar -xf ../../poppler-data-0.4.9.tar.gz &&
 cd poppler-data-0.4.9 &&
-make prefix=/usr install &&
+as_root make prefix=/usr install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

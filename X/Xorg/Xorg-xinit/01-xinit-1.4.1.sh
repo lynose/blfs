@@ -26,6 +26,6 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
-ldconfig &&
+as_root ldconfig &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -61,7 +61,7 @@ as_root install -v -Dm644 qttools/src/linguist/linguist/images/icons/linguist-12
 as_root install -v -Dm644 qttools/src/qdbus/qdbusviewer/images/qdbusviewer-128.png \
                   /usr/share/pixmaps/qdbusviewer-qt5.png &&
 
-install -dm755 /usr/share/applications &&
+as_root install -dm755 /usr/share/applications &&
 
 as_root cat > /usr/share/applications/assistant-qt5.desktop << EOF
 [Desktop Entry]
@@ -116,7 +116,7 @@ Categories=Qt;Development;Debugger;
 EOF
 
 for file in moc uic rcc qmake lconvert lrelease lupdate; do
-  ln -sfrvn $QT5BINDIR/$file /usr/bin/$file-qt5
+  as_root ln -sfrvn $QT5BINDIR/$file /usr/bin/$file-qt5
 done
 
 as_root cat >> /etc/ld.so.conf << EOF

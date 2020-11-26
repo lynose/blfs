@@ -46,14 +46,14 @@ make so &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
-make soinstall &&
+as_root make soinstall &&
 as_root install -v -m644 base/*.h /usr/include/ghostscript &&
-ln -sfvn ghostscript /usr/include/ps &&
+as_root ln -sfvn ghostscript /usr/include/ps &&
 as_root mv -v /usr/share/doc/ghostscript/9.52 /usr/share/doc/ghostscript-9.52  &&
-rm -rfv /usr/share/doc/ghostscript &&
+as_root rm -rfv /usr/share/doc/ghostscript &&
 as_root cp -r examples/ /usr/share/ghostscript/9.52/ &&
-tar -xvf ../ghostscript-fonts-std-8.11.tar.gz -C /usr/share/ghostscript --no-same-owner &&
-tar -xvf ../gnu-gs-fonts-other-6.0.tar.gz     -C /usr/share/ghostscript --no-same-owner &&
-fc-cache -v /usr/share/ghostscript/fonts/ &&
+as_root tar -xvf ../ghostscript-fonts-std-8.11.tar.gz -C /usr/share/ghostscript --no-same-owner &&
+as_root tar -xvf ../gnu-gs-fonts-other-6.0.tar.gz     -C /usr/share/ghostscript --no-same-owner &&
+as_root fc-cache -v /usr/share/ghostscript/fonts/ &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
