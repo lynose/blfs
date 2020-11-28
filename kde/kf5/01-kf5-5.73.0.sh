@@ -2,16 +2,16 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-# if test -d /sources/kf5
-#  then
-#   rm -rf /sources/kf5
-# fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-mkdir /sources/kf5 &&
-cp -u ${SCRIPTPATH}/md5-kf5 /sources/kf5 &&
+if [ ! -d /sources/kf5 ]
+ then
+  mkdir /sources/kf5
+fi
+
+cp -uf ${SCRIPTPATH}/md5-kf5 /sources/kf5 &&
 cd /sources/kf5 &&
 
 url=http://download.kde.org/stable/frameworks/5.73/ &&

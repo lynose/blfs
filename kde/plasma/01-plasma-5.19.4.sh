@@ -2,14 +2,15 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-# if test -d /sources/plasma
-#  then
-#   rm -rf /sources/plasma
-# fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-mkdir /sources/plasma &&
+if [ ! -d /sources/plasma ]
+ then
+  mkdir /sources/plasma
+fi
+
+
 cp -u ${SCRIPTPATH}/md5-plasma /sources/plasma &&
 cd /sources/plasma &&
 
