@@ -261,12 +261,12 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen/asciidoc/01-asciidoc-9.0.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/btrfs-progs/01-btrfs-progs-5.7.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/pciutils/01-pciutils-3.7.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/curl/01-curl-7.71.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./fsndm/btrfs-progs/01-btrfs-progs-5.7.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/pciutils/01-pciutils-3.7.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/curl/01-curl-7.71.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/git/01-git-2.28.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libidn2/01-libidn2-2.3.0.sh &&
