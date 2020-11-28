@@ -72,70 +72,70 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 #############################################################################
 # ./sec/sudo/01-sudo-1.9.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libxml2/01-libxml2-2.9.10.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/unzip/01-unzip60.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sgml/sgml-common/01-sgml-common-0.6.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libuv/01-libuv-v1.18.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libarchive/01-libarchive-3.4.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/which/01-which-2.21.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libssh2/01-libssh2-1.9.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/libtirpc/01-libtirpc-1.2.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/libpng/01-libpng-1.6.37.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/acpid/01-acpid-2.0.32.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/LSB-Tools/01-LSB-Tools-0.7.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/autoconf-old/01-autoconf-2.13.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/python2/01-python2-2.7.18.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/util-macros/01-util-macros-1.19.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/mtdev/01-mtdev-1.1.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/yasm/01-yasm-1.3.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/nasm/01-nasm-2.15.03.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/fdk-aac/01-fdk-aac-2.0.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/cracklib/01-cracklib-2.9.7.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-# ./sec/Linux-PAM/01-Linux-PAM-1.4.0.sh &&
+# ./gen-libs/libxml2/01-libxml2-2.9.10.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/libcap/01-libcap-2.42.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/libogg/01-libogg-1.3.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/speex/01-speex-1.2.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./audio-utils/lame/01-lame-3.100.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/frididi/01-fribidi-1.0.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/nspr/01-nspr-4.27.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./db/sqlite/01-sqlite-3.33.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/graphviz/01-graphviz-2.44.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/Pygments/01-Pygments-2.6.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./icons/hicolor-icon-theme/01-hicolor-icon-theme-0.17.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/nettle/01-nettle-3.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libunistring/01-libunistring-0.9.10.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/unzip/01-unzip60.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sgml/sgml-common/01-sgml-common-0.6.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libuv/01-libuv-v1.18.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libarchive/01-libarchive-3.4.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/which/01-which-2.21.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libssh2/01-libssh2-1.9.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/libtirpc/01-libtirpc-1.2.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/libpng/01-libpng-1.6.37.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/acpid/01-acpid-2.0.32.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/LSB-Tools/01-LSB-Tools-0.7.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/autoconf-old/01-autoconf-2.13.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/python2/01-python2-2.7.18.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/util-macros/01-util-macros-1.19.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/mtdev/01-mtdev-1.1.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/yasm/01-yasm-1.3.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/nasm/01-nasm-2.15.03.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/fdk-aac/01-fdk-aac-2.0.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/cracklib/01-cracklib-2.9.7.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# # ./sec/Linux-PAM/01-Linux-PAM-1.4.0.sh &&
+# # ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/libcap/01-libcap-2.42.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/libogg/01-libogg-1.3.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/speex/01-speex-1.2.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./audio-utils/lame/01-lame-3.100.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/frididi/01-fribidi-1.0.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/nspr/01-nspr-4.27.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./db/sqlite/01-sqlite-3.33.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/graphviz/01-graphviz-2.44.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/Pygments/01-Pygments-2.6.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./icons/hicolor-icon-theme/01-hicolor-icon-theme-0.17.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/nettle/01-nettle-3.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libunistring/01-libunistring-0.9.10.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/iso-codes/01-iso-codes-4.5.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libgpg-error/01-libgpg-error-1.38.sh &&
