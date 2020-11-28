@@ -136,40 +136,40 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/libunistring/01-libunistring-0.9.10.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/iso-codes/01-iso-codes-4.5.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libgpg-error/01-libgpg-error-1.38.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/sassc/01-sassc-3.6.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/pcre2/01-pcre2-10.35.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libaio/01-libaio-0.3.112.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libatasmart/01-libatasmart-0.19.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/xfsprogs/01-xfsprogs-5.7.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/lzo/01-lzo-2.10.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/dosfstools/01-dosfstools-4.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/mdadm/01-mdadm-4.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./audio-utils/cdparanoia/01-cdparanoia-10.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/soundtouch/01-soundtouch-2.1.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/libdvdread/01-libdvdread-6.1.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/krb5/01-krb5-1.18.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/libcdio/01-libcdio-2.1.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/npth/01-npth-1.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/lua/01-lua-5.4.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/iso-codes/01-iso-codes-4.5.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libgpg-error/01-libgpg-error-1.38.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/sassc/01-sassc-3.6.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/pcre2/01-pcre2-10.35.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libaio/01-libaio-0.3.112.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libatasmart/01-libatasmart-0.19.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./fsndm/xfsprogs/01-xfsprogs-5.7.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/lzo/01-lzo-2.10.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./fsndm/dosfstools/01-dosfstools-4.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./fsndm/mdadm/01-mdadm-4.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./audio-utils/cdparanoia/01-cdparanoia-10.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/soundtouch/01-soundtouch-2.1.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/libdvdread/01-libdvdread-6.1.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/krb5/01-krb5-1.18.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/libcdio/01-libcdio-2.1.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/npth/01-npth-1.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/lua/01-lua-5.4.0.sh && #don't know how to fix
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/libmad/01-libmad-0.15.1b.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/a52dec/01-a52dev-0.7.4.sh &&
