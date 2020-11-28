@@ -63,8 +63,8 @@ as_root mkdir -vp /usr/share/doc/git-2.28.0/howto/{html,text}             &&
 as_root mv        /usr/share/doc/git-2.28.0/howto/{*.txt,text}            &&
 as_root mv        /usr/share/doc/git-2.28.0/howto/{*.,}html               &&
 echo "SED"
-as_root sed -i '/^<a href=/s|howto/|&html/|' /usr/share/doc/git-2.28.0/howto-index.html &&
-as_root sed -i '/^\* link:/s|howto/|&html/|' /usr/share/doc/git-2.28.0/howto-index.txt &&
+sudo sed -i '/^<a href=/s|howto/|&html/|' /usr/share/doc/git-2.28.0/howto-index.html &&
+sudo sed -i '/^\* link:/s|howto/|&html/|' /usr/share/doc/git-2.28.0/howto-index.txt &&
 ${log} `basename "$0"` " installed docs and manpages" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all

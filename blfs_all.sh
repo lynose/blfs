@@ -267,24 +267,24 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net-libs/curl/01-curl-7.71.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/git/01-git-2.28.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libidn2/01-libidn2-2.3.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/libpsl/01-libpsl-0.21.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/nghttp2/01-nghttp2-1.41.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/cmake/01-cmake-3.18.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/extra-cmake-modules/01-extra-cmake-modules-5.73.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/plasma-wayland-protocols/01-plasma-wayland-protocols-1.1.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/c-ares/01-c-ares-1.16.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/libjpeg-turbo/01-libjpeg-turbo-2.0.5.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/git/01-git-2.28.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libidn2/01-libidn2-2.3.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/libpsl/01-libpsl-0.21.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/nghttp2/01-nghttp2-1.41.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/cmake/01-cmake-3.18.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/extra-cmake-modules/01-extra-cmake-modules-5.73.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/plasma-wayland-protocols/01-plasma-wayland-protocols-1.1.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/c-ares/01-c-ares-1.16.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/libjpeg-turbo/01-libjpeg-turbo-2.0.5.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/qpdf/01-qpdf-10.0.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/jasper/01-jasper-2.0.14.sh &&
