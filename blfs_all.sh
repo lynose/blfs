@@ -170,16 +170,16 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/lua/01-lua-5.4.0.sh && #don't know how to fix
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/libmad/01-libmad-0.15.1b.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/a52dec/01-a52dev-0.7.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libatomic_ops/01-libatomic_ops-7.6.10.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libpaper/01-libpaper-1.1.24+nmu5.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/zip/01-zip-3.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/libmad/01-libmad-0.15.1b.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/a52dec/01-a52dev-0.7.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libatomic_ops/01-libatomic_ops-7.6.10.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libpaper/01-libpaper-1.1.24+nmu5.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/zip/01-zip-3.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/perl-test-needs/01-Test-Needs-0.002006.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./db/lmdb/01-LMDB_0.9.24.sh &&
