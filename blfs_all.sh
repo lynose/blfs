@@ -204,7 +204,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/fftw/01-fftw-3.3.8.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./net/wireless_tools/01-wireless_tools-29.sh
+./net/wireless_tools/01-wireless_tools-29.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 # #############################################################################
 # #
@@ -736,7 +736,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/libkdcraw/01-libkdcraw-20.08.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/gwenview/01-gwenview-20.08.0.sh &&/sources/plasma
+./kde/gwenview/01-gwenview-20.08.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/plasma/01-plasma-5.19.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
