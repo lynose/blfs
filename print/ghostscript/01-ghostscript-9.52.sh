@@ -49,9 +49,14 @@ as_root make install &&
 as_root make soinstall &&
 as_root install -v -m644 base/*.h /usr/include/ghostscript &&
 as_root ln -sfvn ghostscript /usr/include/ps &&
-as_root mv -v /usr/share/doc/ghostscript/9.52 /usr/share/doc/ghostscript-9.52  &&
+
+if [  ! -d /usr/share/doc/ghostscript/9.52 ]
+ then
+  as_root mv -v /usr/share/doc/ghostscript/9.52 /usr/share/doc/ghostscript-9.52  &&
+  as_root cp -r examples/ /usr/share/ghostscript/9.52/
+fi
+
 as_root rm -rfv /usr/share/doc/ghostscript &&
-as_root cp -r examples/ /usr/share/ghostscript/9.52/ &&
 as_root tar -xvf ../ghostscript-fonts-std-8.11.tar.gz -C /usr/share/ghostscript --no-same-owner &&
 as_root tar -xvf ../gnu-gs-fonts-other-6.0.tar.gz     -C /usr/share/ghostscript --no-same-owner &&
 as_root fc-cache -v /usr/share/ghostscript/fonts/ &&
