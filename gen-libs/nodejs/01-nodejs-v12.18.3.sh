@@ -19,7 +19,7 @@ as_root tar xf /sources/node-v12.18.3.tar.xz -C /sources/ &&
 
 cd /sources/node-v12.18.3 &&
 
-./configure --prefix=/usr                  \
+as_root ./configure --prefix=/usr                  \
             --shared-cares                 \
             --shared-libuv                 \
             --shared-openssl               \
@@ -28,10 +28,10 @@ cd /sources/node-v12.18.3 &&
             --with-intl=system-icu    &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make &&
+as_root make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make test-only &&
+as_root make test-only &&
 ${log} `basename "$0"` " check succeed" blfs_all &&
 
 as_root make install &&
