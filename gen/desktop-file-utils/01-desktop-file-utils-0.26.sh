@@ -28,7 +28,10 @@ ${log} `basename "$0"` " configured" blfs_all &&
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-as_root rm -fv /usr/bin/desktop-file-edit &&
+if [ -f /usr/bin/desktop-file-edit ]
+ then
+  as_root rm -fv /usr/bin/desktop-file-edit
+fi
 as_root ninja install &&
 as_root install -vdm755 /usr/share/applications &&
 as_root update-desktop-database /usr/share/applications &&

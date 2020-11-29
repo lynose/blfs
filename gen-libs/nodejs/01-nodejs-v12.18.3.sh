@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/node-v12.18.3
  then
-  rm -rf /sources/node-v12.18.3
+  as_root rm -rf /sources/node-v12.18.3
 fi
 
 SCRIPT=`realpath $0`
@@ -15,7 +15,7 @@ check_and_download https://nodejs.org/dist/v12.18.3/node-v12.18.3.tar.xz \
 
 md5sum -c ${SCRIPTPATH}/md5-nodejs &&
 
-tar xf /sources/node-v12.18.3.tar.xz -C /sources/ &&
+as_root tar xf /sources/node-v12.18.3.tar.xz -C /sources/ &&
 
 cd /sources/node-v12.18.3 &&
 
