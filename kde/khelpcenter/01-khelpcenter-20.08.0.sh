@@ -34,6 +34,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 as_root make install  &&
 
 as_root mv -v $KF5_PREFIX/share/kde4/services/khelpcenter.desktop /usr/share/applications/ &&
-rm -rv $KF5_PREFIX/share/kde4 &&
+as_root rm -rv $KF5_PREFIX/share/kde4 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
