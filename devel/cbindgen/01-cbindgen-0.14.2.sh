@@ -13,7 +13,7 @@ cd /sources/cbindgen-0.14.2 &&
 cargo build --release
 ${log} `basename "$0"` " built" devtools &&
 
-install -Dm755 target/release/cbindgen /usr/bin/
+as_root install -Dm755 target/release/cbindgen /usr/bin/
 ${log} `basename "$0"` " installed" devtools &&
 
 ${log} `basename "$0"` " finished" devtools 

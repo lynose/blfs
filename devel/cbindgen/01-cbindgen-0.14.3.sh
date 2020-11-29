@@ -26,6 +26,6 @@ cargo test &&
 ${log} `basename "$0"` " unexpected check succeed" blfs_all
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
-install -Dm755 target/release/cbindgen /usr/bin/ &&
+as_root install -Dm755 target/release/cbindgen /usr/bin/ &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
