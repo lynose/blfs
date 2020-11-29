@@ -21,8 +21,8 @@ tar xf /sources/polkit-0.117.tar.gz -C /sources/ &&
 
 cd /sources/polkit-0.117 &&
 
-as_root groupadd -fg 27 polkitd &&
-as_root useradd -c "PolicyKit Daemon Owner" -d /etc/polkit-1 -u 27 \
+sudo groupadd -fg 27 polkitd &&
+sudo useradd -c "PolicyKit Daemon Owner" -d /etc/polkit-1 -u 27 \
         -g polkitd -s /bin/false polkitd &&
 
 ./configure --prefix=/usr        \
