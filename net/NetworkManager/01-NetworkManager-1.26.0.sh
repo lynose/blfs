@@ -73,8 +73,8 @@ as_root cat > /etc/NetworkManager/conf.d/no-dns-update.conf << "EOF"
 dns=none
 EOF
 
-groupadd -fg 86 netdev &&
-/usr/sbin/usermod -a -G netdev lynose
+as_root groupadd -fg 86 netdev &&
+as_root /usr/sbin/usermod -a -G netdev lynose &&
 
 as_root cat > /usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules << "EOF"
 polkit.addRule(function(action, subject) {
@@ -86,9 +86,9 @@ EOF
 
 
 
-systemctl enable NetworkManager &&
+as_root systemctl enable NetworkManager &&
 
-systemctl disable NetworkManager-wait-online &&
+as_root systemctl disable NetworkManager-wait-online &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
