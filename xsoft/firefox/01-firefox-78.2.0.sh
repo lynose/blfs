@@ -124,7 +124,7 @@ unset CC CXX MOZBUILD_STATE_PATH &&
 as_root mkdir -pv /usr/share/applications &&
 as_root mkdir -pv /usr/share/pixmaps &&
 
-as_root cat > /usr/share/applications/firefox.desktop << "EOF" &&
+sudo cat > /usr/share/applications/firefox.desktop << "EOF" &&
 [Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser

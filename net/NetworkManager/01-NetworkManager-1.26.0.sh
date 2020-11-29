@@ -53,22 +53,22 @@ ${log} `basename "$0"` " built" blfs_all &&
 as_root ninja install &&
 as_root mv -v /usr/share/doc/NetworkManager{,-1.26.0} &&
 
-as_root cat >> /etc/NetworkManager/NetworkManager.conf << "EOF"
+sudo cat >> /etc/NetworkManager/NetworkManager.conf << "EOF"
 [main]
 plugins=keyfile
 EOF
 
-as_root cat > /etc/NetworkManager/conf.d/polkit.conf << "EOF"
+sudo cat > /etc/NetworkManager/conf.d/polkit.conf << "EOF"
 [main]
 auth-polkit=true
 EOF
 
-as_root cat > /etc/NetworkManager/conf.d/dhcp.conf << "EOF"
+sudo cat > /etc/NetworkManager/conf.d/dhcp.conf << "EOF"
 [main]
 dhcp=dhclient
 EOF
 
-as_root cat > /etc/NetworkManager/conf.d/no-dns-update.conf << "EOF"
+sudo cat > /etc/NetworkManager/conf.d/no-dns-update.conf << "EOF"
 [main]
 dns=none
 EOF
@@ -76,7 +76,7 @@ EOF
 as_root groupadd -fg 86 netdev &&
 as_root /usr/sbin/usermod -a -G netdev lynose &&
 
-as_root cat > /usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules << "EOF"
+sudo cat > /usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules << "EOF"
 polkit.addRule(function(action, subject) {
     if (action.id.indexOf("org.freedesktop.NetworkManager.") == 0 && subject.isInGroup("netdev")) {
         return polkit.Result.YES;
