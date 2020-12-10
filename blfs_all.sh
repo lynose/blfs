@@ -204,8 +204,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/fftw/01-fftw-3.3.8.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/perl-net-SSLeay/01-perl-net-SSLeay-1.88.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/perl-net-SSLeay/01-perl-net-SSLeay-1.88.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 
 
 # #############################################################################
@@ -215,7 +215,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # #############################################################################
 # #./sec/sudo/01-sudo-1.9.2.sh && # better to build sudo seperate
 # #${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/perl-IO-Socket-SSL/md5-perl-IO-Socket-SSL &&
+./devel/perl-IO-Socket-SSL/01-perl-IO-Socket-SSL-2.068.sh &&
 #${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/perl-URI/01-URI-1.76.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
