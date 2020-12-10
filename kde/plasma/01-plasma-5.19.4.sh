@@ -10,7 +10,6 @@ if [ ! -d /sources/plasma ]
   mkdir /sources/plasma
 fi
 
-
 cp -u ${SCRIPTPATH}/md5-plasma /sources/plasma &&
 cd /sources/plasma &&
 
