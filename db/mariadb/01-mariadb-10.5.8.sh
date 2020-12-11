@@ -60,7 +60,7 @@ fi
 
 as_root make install &&
 
-install -v -dm 755 /etc/mysql &&
+as_root install -v -dm 755 /etc/mysql &&
 sudo cat > /etc/mysql/my.cnf << "EOF" &&
 # Begin /etc/mysql/my.cnf
 
@@ -132,11 +132,11 @@ interactive-timeout
 # End /etc/mysql/my.cnf
 EOF
 
-mysql_install_db --basedir=/usr --datadir=/srv/mysql --user=mysql &&
-chown -R mysql:mysql /srv/mysql &&
+as_root mysql_install_db --basedir=/usr --datadir=/srv/mysql --user=mysql &&
+as_root chown -R mysql:mysql /srv/mysql &&
 
-mysqladmin -u root password &&
-mysqladmin -p shutdown &&
+as_root mysqladmin -u root password &&
+as_root mysqladmin -p shutdown &&
 
 cd blfs-systemd-units &&
 as_root make install-mysqld &&
