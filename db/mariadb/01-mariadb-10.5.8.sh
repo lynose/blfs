@@ -20,8 +20,8 @@ tar xf /sources/mariadb-10.5.8.tar.gz -C /sources/ &&
 
 cd /sources/mariadb-10.5.8 &&
 
-as_root groupadd -g 40 mysql &&
-as_root useradd -c "MySQL Server" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql &&
+sudo groupadd -g 40 mysql &&
+sudo useradd -c "MySQL Server" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql &&
 
 mkdir build &&
 cd    build &&
@@ -44,6 +44,7 @@ cmake -DCMAKE_BUILD_TYPE=Release                      \
       -DWITH_EMBEDDED_SERVER=ON                       \
       -DSKIP_TESTS=ON                                 \
       -DTOKUDB_OK=0                                   \
+      -PLUGIN_AUTH_GSSAPI=NO                          \
       .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
@@ -136,6 +137,9 @@ chown -R mysql:mysql /srv/mysql &&
 
 mysqladmin -u root password &&
 mysqladmin -p shutdown &&
+
+cd blfs-systemd-units &&
+as_root make install-mysqld &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

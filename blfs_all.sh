@@ -206,7 +206,10 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/perl-net-SSLeay/01-perl-net-SSLeay-1.88.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-
+./gen/unixODBC/01-unixODBC-2.3.7.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/apr/01-apr-1.7.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 
 # #############################################################################
 # #
@@ -369,7 +372,11 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./gen-libs/pcre/01-pcre-8.44.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 ./db/mariadb/01-mariadb-10.5.8.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/apr-util/01-apr-util-1.6.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./server/apache/01-apache-2.4.46.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ## ./devel/slang/01-slang-2.3.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnf-libs/newt/01-newt-0.52.21.sh &&
