@@ -218,8 +218,10 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #############################################################################
 # #./sec/sudo/01-sudo-1.9.2.sh && # better to build sudo seperate
 # #${log} `basename "$0"` " ======================================" blfs_all &&
+./gnf-libs/qrencode/01-qrencode-4.1.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/perl-IO-Socket-SSL/01-perl-IO-Socket-SSL-2.068.sh &&
-#${log} `basename "$0"` " ======================================" blfs_all &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/perl-URI/01-URI-1.76.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/gc/01-gc-8.0.4.sh &&
@@ -371,8 +373,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/pcre/01-pcre-8.44.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./db/mariadb/01-mariadb-10.5.8.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./db/mariadb/01-mariadb-10.5.8.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/apr-util/01-apr-util-1.6.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./server/apache/01-apache-2.4.46.sh &&

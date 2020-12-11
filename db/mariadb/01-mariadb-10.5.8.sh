@@ -137,8 +137,8 @@ as_root mv ./my.cnf /etc/mysql/my.cnf &&
 as_root mysql_install_db --basedir=/usr --datadir=/srv/mysql --user=mysql &&
 as_root chown -R mysql:mysql /srv/mysql &&
 
-as_root mysqladmin -u root password &&
-as_root mysqladmin -p shutdown &&
+#as_root mysqladmin -u root password &&
+#as_root mysqladmin -p shutdown &&
 
 cd /usr/src/blfs-systemd-units &&
 as_root make install-mysqld &&
