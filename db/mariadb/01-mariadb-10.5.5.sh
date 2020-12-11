@@ -10,7 +10,7 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://downloads.mariadb.org/interstitial/mariadb-10.5.5/source/mariadb-10.5.5.tar.gz \
+check_and_download ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.5.5/source/mariadb-10.5.5.tar.gz \
         /sources
 
 
