@@ -2,34 +2,34 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/mariadb-10.5.5
+if test -d /sources/mariadb-10.5.8
  then
-  rm -rf /sources/mariadb-10.5.5
+  rm -rf /sources/mariadb-10.5.8
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.5.5/source/mariadb-10.5.5.tar.gz \
+check_and_download ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.5.8/source/mariadb-10.5.8.tar.gz \
         /sources
 
 
 md5sum -c ${SCRIPTPATH}/md5-mariadb &&
 
-tar xf /sources/mariadb-10.5.5.tar.gz -C /sources/ &&
+tar xf /sources/mariadb-10.5.8.tar.gz -C /sources/ &&
 
-cd /sources/mariadb-10.5.5 &&
+cd /sources/mariadb-10.5.8 &&
 
 as_root groupadd -g 40 mysql &&
-as_root useradd -c "MySQL Server" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql
+as_root useradd -c "MySQL Server" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql &&
 
 mkdir build &&
 cd    build &&
 
 cmake -DCMAKE_BUILD_TYPE=Release                      \
       -DCMAKE_INSTALL_PREFIX=/usr                     \
-      -DINSTALL_DOCDIR=share/doc/mariadb-10.5.5       \
-      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.5.5 \
+      -DINSTALL_DOCDIR=share/doc/mariadb-10.5.8       \
+      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.5.8 \
       -DINSTALL_MANDIR=share/man                      \
       -DINSTALL_MYSQLSHAREDIR=share/mysql             \
       -DINSTALL_MYSQLTESTDIR=share/mysql/test         \

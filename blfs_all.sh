@@ -368,7 +368,7 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/pcre/01-pcre-8.44.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./db/mariadb/01-mariadb-10.5.5.sh &&
+./db/mariadb/01-mariadb-10.5.8.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 ## ./devel/slang/01-slang-2.3.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
