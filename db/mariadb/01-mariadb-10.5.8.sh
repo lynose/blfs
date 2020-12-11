@@ -28,6 +28,7 @@ cd    build &&
 
 cmake -DCMAKE_BUILD_TYPE=Release                      \
       -DCMAKE_INSTALL_PREFIX=/usr                     \
+      -DPLUGIN_AUTH_GSSAPI=DYNAMIC       \
       -DINSTALL_DOCDIR=share/doc/mariadb-10.5.8       \
       -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.5.8 \
       -DINSTALL_MANDIR=share/man                      \
@@ -44,7 +45,6 @@ cmake -DCMAKE_BUILD_TYPE=Release                      \
       -DWITH_EMBEDDED_SERVER=ON                       \
       -DSKIP_TESTS=ON                                 \
       -DTOKUDB_OK=0                                   \
-      -PLUGIN_AUTH_GSSAPI=NO                          \
       .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
