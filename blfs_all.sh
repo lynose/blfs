@@ -162,8 +162,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/libdvdread/01-libdvdread-6.1.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/krb5/01-krb5-1.18.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/krb5/01-krb5-1.18.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/libcdio/01-libcdio-2.1.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/npth/01-npth-1.6.sh &&

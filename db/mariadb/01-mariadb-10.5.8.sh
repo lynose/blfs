@@ -61,7 +61,7 @@ fi
 as_root make install &&
 
 as_root install -v -dm 755 /etc/mysql &&
-sudo cat > /etc/mysql/my.cnf << "EOF" &&
+as_root cat > ./my.cnf << "EOF"
 # Begin /etc/mysql/my.cnf
 
 # The following options will be passed to all MySQL clients
@@ -132,13 +132,15 @@ interactive-timeout
 # End /etc/mysql/my.cnf
 EOF
 
+as_root mv ./my.cnf /etc/mysql/my.cnf &&
+
 as_root mysql_install_db --basedir=/usr --datadir=/srv/mysql --user=mysql &&
 as_root chown -R mysql:mysql /srv/mysql &&
 
 as_root mysqladmin -u root password &&
 as_root mysqladmin -p shutdown &&
 
-cd blfs-systemd-units &&
+cd /usr/src/blfs-systemd-units &&
 as_root make install-mysqld &&
 
 ${log} `basename "$0"` " installed" blfs_all &&

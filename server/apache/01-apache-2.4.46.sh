@@ -56,7 +56,7 @@ as_root chmod 4754             /usr/lib/httpd/suexec &&
 
 as_root chown -v -R apache:apache /srv/www &&
 
-cd blfs-systemd-units &&
+cd /usr/src/blfs-systemd-units &&
 as_root make install-httpd &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
