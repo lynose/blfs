@@ -21,7 +21,7 @@ tar xf /sources/unixODBC-2.3.7.tar.gz -C /sources/ &&
 cd /sources/unixODBC-2.3.7 &&
 
 ./configure --prefix=/usr \
-            --sysconfdir=/etc/unixODBC && &&
+            --sysconfdir=/etc/unixODBC &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
