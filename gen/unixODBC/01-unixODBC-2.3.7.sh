@@ -14,7 +14,7 @@ check_and_download ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.7.tar.gz \
         /sources
 
 
-md5sum -c ${SCRIPTPATH}/md5-unixODBC-2.3.7 &&
+md5sum -c ${SCRIPTPATH}/md5-unixODBC &&
 
 tar xf /sources/unixODBC-2.3.7.tar.gz -C /sources/ &&
 
