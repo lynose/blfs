@@ -206,10 +206,10 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/perl-net-SSLeay/01-perl-net-SSLeay-1.88.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/unixODBC/01-unixODBC-2.3.7.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/apr/01-apr-1.7.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/unixODBC/01-unixODBC-2.3.7.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/apr/01-apr-1.7.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 
 # #############################################################################
 # #
