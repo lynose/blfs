@@ -10,7 +10,7 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.51.tgz \
+check_and_download https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.51.tgz \
         /sources
 
 check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/openldap-2.4.51-consolidated-2.patch \

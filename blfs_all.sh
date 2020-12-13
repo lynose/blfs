@@ -49,9 +49,12 @@ export ENABLE_TEST=true
 #   Global Xorg configuration
 #
 #############################################################################
+# as_root chown root:root / #fixes problems with systemd installtion
+
 # as_root ./X/Xorg/01preXorg.sh &&
 # as_root ./typesetting/01preTeX.sh &&
 # as_root ./kde/01preKDE.sh &&
+
 source /etc/profile.d/xorg.sh && # Do not uncomment
 source /etc/profile.d/extrapaths.sh &&
 source /etc/profile.d/kf5.sh &&
@@ -218,8 +221,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #############################################################################
 # #./sec/sudo/01-sudo-1.9.2.sh && # better to build sudo seperate
 # #${log} `basename "$0"` " ======================================" blfs_all &&
-./db/BerkeleyDB/01-db-5.3.28.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./db/BerkeleyDB/01-db-5.3.28.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnf-libs/qrencode/01-qrencode-4.1.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/perl-IO-Socket-SSL/01-perl-IO-Socket-SSL-2.068.sh &&
@@ -377,8 +380,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./db/mariadb/01-mariadb-10.5.8.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/cyrus-sasl/01-cyrus-sasl-2.1.27.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/cyrus-sasl/01-cyrus-sasl-2.1.27.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./server/openldap/01-openldap-2.4.51.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/apr-util/01-apr-util-1.6.1.sh &&
