@@ -213,6 +213,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/apr/01-apr-1.7.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/gsl/01-gsl-2.6.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 
 # #############################################################################
 # #
@@ -698,8 +700,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnf-libs/poppler/01-poppler-20.08.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/qtwebengine/01-qtwebengine-5.15.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/qtwebengine/01-qtwebengine-5.15.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./typesetting/texlive/01-texlive-20200406.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/dejavu-fonts/01-dejavu-fonts-2.37.sh &&
