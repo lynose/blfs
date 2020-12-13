@@ -22,8 +22,8 @@ tar xf /sources/openldap-2.4.51.tgz -C /sources/ &&
 
 cd /sources/openldap-2.4.51 &&
 
-as_root groupadd -g 83 ldap &&
-as_root useradd  -c "OpenLDAP Daemon Owner" -d /var/lib/openldap -u 83 -g ldap -s /bin/false ldap &&
+sudo groupadd -g 83 ldap &&
+sudo useradd  -c "OpenLDAP Daemon Owner" -d /var/lib/openldap -u 83 -g ldap -s /bin/false ldap &&
 
 patch -Np1 -i ../openldap-2.4.51-consolidated-2.patch &&
 autoconf &&
@@ -63,7 +63,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 #   ${log} `basename "$0"` " expected check fail?" blfs_all
 # fi
 
-make install &&
+as_root make install &&
 
 as_root sed -e "s/\.la/.so/" -i /etc/openldap/slapd.{conf,ldif}{,.default} &&
 

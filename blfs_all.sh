@@ -382,8 +382,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/cyrus-sasl/01-cyrus-sasl-2.1.27.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./server/openldap/01-openldap-2.4.51.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./server/openldap/01-openldap-2.4.51.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/apr-util/01-apr-util-1.6.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./server/apache/01-apache-2.4.46.sh &&
@@ -698,6 +698,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnf-libs/poppler/01-poppler-20.08.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./X/qtwebengine/01-qtwebengine-5.15.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./typesetting/texlive/01-texlive-20200406.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/dejavu-fonts/01-dejavu-fonts-2.37.sh &&
