@@ -546,8 +546,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/gobject-introspection/01-gobject-introspection-1.64.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/telepathy-glib/01-telepathy-glib-0.24.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/telepathy-glib/01-telepathy-glib-0.24.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/libical/01-libical-3.0.8.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sys/bluez/01-bluez-5.54.sh &&
@@ -644,6 +644,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net/NetworkManager/01-NetworkManager-1.26.0.sh && #TODO Fix rebuild
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./gen/telepathy-mission-control/01-telepathy-mission-control-5.16.5.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/polkit-qt/01-polkit-qt-0.113.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/libdbusmenu-qt/01-libdbusmenu-qt-0.9.3.sh &&
