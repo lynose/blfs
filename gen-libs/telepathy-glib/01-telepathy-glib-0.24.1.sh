@@ -14,7 +14,7 @@ check_and_download https://telepathy.freedesktop.org/releases/telepathy-glib/tel
         /sources
 
 
-md5sum -c ${SCRIPTPATH}/md5-<basepack> &&
+md5sum -c ${SCRIPTPATH}/md5-telepathy-glib &&
 
 tar xf /sources/telepathy-glib-0.24.1.tar.gz -C /sources/ &&
 
