@@ -644,8 +644,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net/NetworkManager/01-NetworkManager-1.26.0.sh && #TODO Fix rebuild
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/telepathy-mission-control/01-telepathy-mission-control-5.16.5.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/telepathy-mission-control/01-telepathy-mission-control-5.16.5.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/polkit-qt/01-polkit-qt-0.113.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/libdbusmenu-qt/01-libdbusmenu-qt-0.9.3.sh &&
@@ -748,6 +748,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/Xorg/Xorg-xinit/01-xinit-1.4.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./scan/sane/01-sane-1.0.29.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/kf5/01-kf5-5.73.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/ark/01-ark-20.08.0.sh &&
