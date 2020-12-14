@@ -2,9 +2,9 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/sane-backends-1.0.29.tar.gz
+if test -d /sources/sane-backends-1.0.29
  then
-  rm -rf /sources/sane-backends-1.0.29.tar.gz
+  rm -rf /sources/sane-backends-1.0.29
 fi
 
 SCRIPT=`realpath $0`
@@ -19,7 +19,7 @@ md5sum -c ${SCRIPTPATH}/md5-sane &&
 
 tar xf /sources/sane-backends-1.0.29.tar.gz -C /sources/ &&
 
-cd /sources/sane-backends-1.0.29.tar.gz &&
+cd /sources/sane-backends-1.0.29 &&
 
 as_root groupadd -g 70 scanner &&
 
