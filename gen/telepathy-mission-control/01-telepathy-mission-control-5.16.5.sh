@@ -14,7 +14,7 @@ check_and_download https://telepathy.freedesktop.org/releases/telepathy-mission-
         /sources
 
 
-md5sum -c ${SCRIPTPATH}/md5-telepathy-mission-control-5.16.5.tar.gz &&
+md5sum -c ${SCRIPTPATH}/md5-telepathy-mission-control &&
 
 tar xf /sources/telepathy-mission-control-5.16.5.tar.gz -C /sources/ &&
 
