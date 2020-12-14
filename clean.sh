@@ -9,8 +9,8 @@ for D in /sources/*; do
         && [[ "${D}" != *"/sources/games"*  ]]     \
         && [[ "${D}" != *"/sources/kdeapps"*  ]]   \
         && [[ "${D}" != *"/sources/git"*  ]]       \
-        && [[ "${D}" != *"/sources/kde"*  ]]
-        && [[ "${D}" != *"/sources/kdesrc-build"*  ]]
+        && [[ "${D}" != *"/sources/kde"*  ]]       \
+        && [[ "${D}" != *"/sources/kdesrc-build"*  ]] \
         && [[ "${D}" != *"*.git"*  ]]; 
           then
               echo "${D}"  # your processing here
