@@ -215,6 +215,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/gsl/01-gsl-2.6.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/id3lib/01-id3lib-3.8.3.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 
 # #############################################################################
 # #
@@ -438,8 +440,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/alsa-lib/01-alsa-lib-1.2.3.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/audiofile/01-audiofile-0.3.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/audiofile/01-audiofile-0.3.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/libsndfile/01-libsndfile-1.0.28.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/sbc/01-sbc-1.4.sh &&
