@@ -25,7 +25,7 @@ python2 setup.py build &&
 python3 setup.py build &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-python2 setup.py install --optimize=1 &&
-python3 setup.py install --optimize=1 &&
+as_root python2 setup.py install --optimize=1 &&
+as_root python3 setup.py install --optimize=1 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
