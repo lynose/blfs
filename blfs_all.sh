@@ -217,8 +217,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/id3lib/01-id3lib-3.8.3.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/rpcsvc-proto/01-rpcsvc-proto-1.4.2.sh
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/rpcsvc-proto/01-rpcsvc-proto-1.4.2.sh
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 
 # #############################################################################
 # #
