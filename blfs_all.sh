@@ -438,6 +438,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/alsa-lib/01-alsa-lib-1.2.3.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/audiofile/01-audiofile-0.3.6.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/libsndfile/01-libsndfile-1.0.28.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/sbc/01-sbc-1.4.sh &&
@@ -748,8 +750,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/Xorg/Xorg-xinit/01-xinit-1.4.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./scan/sane/01-sane-1.0.29.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./scan/sane/01-sane-1.0.29.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/kf5/01-kf5-5.73.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/ark/01-ark-20.08.0.sh &&
