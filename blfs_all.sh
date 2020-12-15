@@ -786,5 +786,6 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/plasma/01-plasma-5.19.4.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./virt/qemu/01-qemu-5.1.0.sh &&
 
 ${log} `basename "$0"` " finished" blfs_all
