@@ -23,7 +23,7 @@ cd /sources/valgrind-3.16.1 &&
 sed -i 's|/doc/valgrind||' docs/Makefile.in &&
 
 ./configure --prefix=/usr \
-            --datadir=/usr/share/doc/valgrind-3.16.1 && &&
+            --datadir=/usr/share/doc/valgrind-3.16.1 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

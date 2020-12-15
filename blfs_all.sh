@@ -484,8 +484,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/six/01-six-1.15.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/gdb/01-gdb-9.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/gdb/01-gdb-9.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/valgrind/01-valgrind-3.16.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/SDL/01-SDL-1.2.15.sh &&
