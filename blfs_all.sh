@@ -245,8 +245,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/perl-IO-Socket-SSL/01-perl-IO-Socket-SSL-2.068.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./net/ntp/01-ntp-4.2.8p15.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/ntp/01-ntp-4.2.8p15.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/perl-URI/01-URI-1.76.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/gc/01-gc-8.0.4.sh &&
@@ -267,8 +267,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/nss/01-nss-3.55.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/make-ca/01-make-ca-1.7.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/make-ca/01-make-ca-1.7.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/libgcrypt/01-libgcrypt-1.8.6.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/MarkupSafe/01-MarkupSafe-1.1.1.sh &&

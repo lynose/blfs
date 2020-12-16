@@ -30,6 +30,6 @@ as_root openssl x509 -in root.crt -text -fingerprint -setalias "CAcert Class 1 r
 as_root openssl x509 -in class3.crt -text -fingerprint -setalias "CAcert Class 3 root" \
         -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \
         > /etc/ssl/local/CAcert_Class_3_root.pem &&
-as_root /usr/sbin/make-ca -r -f
+as_root /usr/sbin/make-ca -r -f &&
 ${log} `basename "$0"` " add additionl ca certs" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all

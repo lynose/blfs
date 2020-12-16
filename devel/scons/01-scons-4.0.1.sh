@@ -2,9 +2,9 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/scons-4.0.1
+if test -d /sources/SCons-4.0.1
  then
-  rm -rf /sources/scons-4.0.1
+  rm -rf /sources/SCons-4.0.1
 fi
 
 SCRIPT=`realpath $0`
@@ -18,7 +18,7 @@ md5sum -c ${SCRIPTPATH}/md5-scons &&
 
 tar xf /sources/scons-4.0.1.tar.gz -C /sources/ &&
 
-cd /sources/scons-4.0.1 &&
+cd /sources/SCons-4.0.1 &&
 
 sed -i 's/env python/&3/' SCons/Utilities/*.py     &&
 ${log} `basename "$0"` " configured" blfs_all &&
