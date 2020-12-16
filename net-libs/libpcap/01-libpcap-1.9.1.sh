@@ -16,7 +16,7 @@ check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/libpcap-1.9
         /sources
 
 
-md5sum -c ${SCRIPTPATH}/md5-libpcap-1.9.1 &&
+md5sum -c ${SCRIPTPATH}/md5-libpcap &&
 
 tar xf /sources/libpcap-1.9.1.tar.gz -C /sources/ &&
 

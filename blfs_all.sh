@@ -414,12 +414,12 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/libnfsidmap/01-libnfsidmap-0.26.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./net/nfsutils/01-nfsutils-2.5.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/nfsutils/01-nfsutils-2.5.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/apr-util/01-apr-util-1.6.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/serf/01-serf-1.3.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/serf/01-serf-1.3.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./server/apache/01-apache-2.4.46.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 ## ./devel/slang/01-slang-2.3.2.sh &&
@@ -518,8 +518,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/valgrind/01-valgrind-3.16.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/gcc/01-gcc-10.2.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/gcc/01-gcc-10.2.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/SDL/01-SDL-1.2.15.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnf-libs/libwebp/01-libwebp-1.1.0.sh &&
@@ -622,6 +622,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./print/cups/01-cups-2.2.3.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/openjdk-bin/01-openjdk-14.0.1-bin.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/libmbim/01-libmbim-1.24.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/libqmi/01-libqmi-1.26.2.sh &&
@@ -758,6 +760,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./typesetting/texlive/01-texlive-20200406.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./sys/cpio/01-cpio-2.13.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/bind/01-bind-9.16.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/dejavu-fonts/01-dejavu-fonts-2.37.sh &&
