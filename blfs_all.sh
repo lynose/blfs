@@ -54,11 +54,13 @@ export ENABLE_TEST=true
 # as_root ./X/Xorg/01preXorg.sh &&
 # as_root ./typesetting/01preTeX.sh &&
 # as_root ./kde/01preKDE.sh &&
+as_root ./devel/java/01-java.sh &&
 
 source /etc/profile.d/xorg.sh && # Do not uncomment
 source /etc/profile.d/extrapaths.sh &&
 source /etc/profile.d/kf5.sh &&
 source /etc/profile.d/qt5.sh &&
+source /etc/profile.d/openjdk.sh &&
 
 export KF5_PREFIX=/opt/kf5-5.73.0 &&
 
@@ -622,8 +624,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./print/cups/01-cups-2.2.3.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/openjdk-bin/01-openjdk-14.0.1-bin.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/openjdk-bin/01-openjdk-14.0.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/libmbim/01-libmbim-1.24.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/libqmi/01-libqmi-1.26.2.sh &&
@@ -742,10 +744,10 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnome/gnome-keyring/01-gnome-keyring-3.36.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/subversion/01-subversion-1.14.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/nmap/01-nmap-7.80.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/subversion/01-subversion-1.14.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/nmap/01-nmap-7.80.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnf-libs/babl/01-babl-0.1.78.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen/gegl/01-gegl-0.4.26.sh &&
@@ -760,10 +762,12 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./typesetting/texlive/01-texlive-20200406.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/cpio/01-cpio-2.13.sh &&
+# ./sys/cpio/01-cpio-2.13.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/openjdk/01-jdk-14.0.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./net/bind/01-bind-9.16.5.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/bind/01-bind-9.16.5.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/dejavu-fonts/01-dejavu-fonts-2.37.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./print/cups-filter/01-cups-filters-1.27.5.sh &&

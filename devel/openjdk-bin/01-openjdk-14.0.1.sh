@@ -1,7 +1,9 @@
 #!/bin/bash
+
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
+
 if test -d /sources/openjdk-14.0.1
  then
   rm -rf /sources/openjdk-14.0.1
@@ -19,10 +21,11 @@ tar xf /sources/openjdk-14.0.1_linux-x64_bin.tar.gz -C /sources/ &&
 
 cd /sources/openjdk-14.0.1 &&
 
-as_root install -vdm755 /opt/openjdk-14.0.1 &&
-as_root mv -v * /opt/openjdk-14.0.1         &&
-as_root chown -R root:root /opt/openjdk-14.0.1
+as_root install -vdm755 /opt/jdk-14.0.1 &&
+as_root mv -v * /opt/jdk-14.0.1         &&
+as_root chown -R root:root /opt/jdk-14.0.1
 
-as_root ln -sfn /opt/openjdk-14.0.1 /opt/jdk &&
+as_root ln -sfn /opt/jdk-14.0.1 /opt/jdk &&
+
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
