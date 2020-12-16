@@ -231,11 +231,11 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/libcap/01-libcap-2.42.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-# # ./net/bridge-utils/01-bridge-utils-1.6.sh && # Need to be reviewed
+# # ./net/bridge-utils/01-bridge-utils-1.6.sh && #!!! Need to be reviewed, kernel headers!!!
 # # ${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/libnsl/01-libnsl-1.2.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/iw/01-iw-5.4.sh &&
+# ./net-libs/libnsl/01-libnsl-1.2.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/iw/01-iw-5.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/rpcbind/01-rpcbind-1.2.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
