@@ -71,7 +71,7 @@ EOF
 as_root mv -v ./ntp.conf /etc/ntp.conf &&
 
 cd /usr/src/blfs-systemd-units &&
-make install-ntpd &&
+as_root make install-ntpd &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

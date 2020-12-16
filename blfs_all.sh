@@ -236,9 +236,9 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./net-libs/libnsl/01-libnsl-1.2.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net/iw/01-iw-5.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/rpcbind/01-rpcbind-1.2.5.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/rpcbind/01-rpcbind-1.2.5.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./db/BerkeleyDB/01-db-5.3.28.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnf-libs/qrencode/01-qrencode-4.1.1.sh &&
