@@ -45,12 +45,12 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root make install &&
-install -v -m755 -d /usr/share/doc/cpio-2.13/html &&
-install -v -m644    doc/html/* \
+as_root install -v -m755 -d /usr/share/doc/cpio-2.13/html &&
+as_root install -v -m644    doc/html/* \
                     /usr/share/doc/cpio-2.13/html &&
-install -v -m644    doc/cpio.{html,txt} \
+as_root install -v -m644    doc/cpio.{html,txt} \
                     /usr/share/doc/cpio-2.13 &&
-install -v -m644 doc/cpio.{pdf,ps,dvi} \
+as_root install -v -m644 doc/cpio.{pdf,ps,dvi} \
                  /usr/share/doc/cpio-2.13 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
