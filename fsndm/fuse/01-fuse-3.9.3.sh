@@ -29,7 +29,7 @@ meson --prefix=/usr .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&
-doxygen doc/Doxyfile &&
+doxygen ../doc/Doxyfile &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 # if [ ${ENABLE_TEST} == true ]

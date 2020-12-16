@@ -283,8 +283,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./xml/docbook-xsl-nons/01-docbook-xsl-nons-1.79.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/scons/01-scons-4.0.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/scons/01-scons-4.0.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./xml/docbook-xml/01-docbook-xml-4.5.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./xml/itstool/01-itstool-2.0.6.sh &&
