@@ -16,7 +16,7 @@ check_and_download https://archive.apache.org/dist/subversion/subversion-1.14.0.
 
 md5sum -c ${SCRIPTPATH}/md5-subversion &&
 
-tar xf /sources/subversion-1.14.0.tar.bz -C /sources &&
+tar xf /sources/subversion-1.14.0.tar.bz2 -C /sources &&
 
 cd /sources/subversion-1.14.0 &&
 
