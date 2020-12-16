@@ -1,0 +1,58 @@
+#!/bin/bash
+${log} `basename "$0"` " started" blfs_all &&
+
+${log} `basename "$0"` " download" blfs_all &&
+if test -d /sources/subversion-1.14.0
+ then
+  rm -rf /sources/subversion-1.14.0
+fi
+
+SCRIPT=`realpath $0`
+SCRIPTPATH=`dirname $SCRIPT`
+
+check_and_download https://archive.apache.org/dist/subversion/subversion-1.14.0.tar.bz2 \
+        /sources
+
+
+md5sum -c ${SCRIPTPATH}/md5-subversion &&
+
+tar xf /sources/subversion-1.14.0.tar.bz -C /sources &&
+
+cd /sources/subversion-1.14.0 &&
+
+PYTHON=python3 ./configure --prefix=/usr             \
+            --disable-static          \
+            --with-apache-libexecdir  \
+            --with-lz4=internal       \
+            --with-utf8proc=internal &&
+${log} `basename "$0"` " configured" blfs_all &&
+
+make &&
+doxygen doc/doxygen.conf &&
+make swig-pl && # for Perl
+make swig-py \
+     swig_pydir=/usr/lib/python3.8/site-packages/libsvn \
+     swig_pydir_extra=/usr/lib/python3.8/site-packages/svn && # for Python
+make swig-rb && # for Ruby 
+${log} `basename "$0"` " built" blfs_all &&
+
+if [ ${ENABLE_TEST} == true ]
+ then
+  make check &&
+  make check-swig-pl &&
+  make check-swig-py &&
+  make check-swig-rb &&
+  ${log} `basename "$0"` " unexpected check succeed" blfs_all
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
+
+as_root make install &&
+as_root install -v -m755 -d /usr/share/doc/subversion-1.14.0 &&
+as_root cp      -v -R doc/* /usr/share/doc/subversion-1.14.0 &&
+as_root make install-swig-pl
+as_root make install-swig-py \
+      swig_pydir=/usr/lib/python3.8/site-packages/libsvn \
+      swig_pydir_extra=/usr/lib/python3.8/site-packages/svn
+as_root make install-swig-rb
+${log} `basename "$0"` " installed" blfs_all &&
+${log} `basename "$0"` " finished" blfs_all 
