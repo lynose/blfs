@@ -38,7 +38,7 @@ as_root mv -v /sbin/start-statd /usr/sbin &&
 as_root chmod u+w,go+r /sbin/mount.nfs    &&
 as_root chown nobody.nogroup /var/lib/nfs &&
 cd /usr/src/blfs-systemd-units &&
-make install-nfsv4-server &&
-make install-nfs-client &&
+as_root make install-nfsv4-server &&
+as_root make install-nfs-client &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

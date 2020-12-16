@@ -345,8 +345,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/doxygen/01-doxygen-1.8.19.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/fuse/01-fuse-3.9.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./fsndm/fuse/01-fuse-3.9.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/gavl/01-gavl-1.4.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/frei0r-plugins/01-frei0r-plugins-1.7.0.sh &&
@@ -357,8 +357,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/popt/01-popt-1.18.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./net/rsync/01-rsync-3.2.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/rsync/01-rsync-3.2.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/gpgme/01-gpgme-1.14.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/libyaml/01-libyaml-0.2.4.sh &&
@@ -412,8 +412,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./server/openldap/01-openldap-2.4.51.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libnfsidmap/01-libnfsidmap-0.26.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libnfsidmap/01-libnfsidmap-0.26.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/nfsutils/01-nfsutils-2.5.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/apr-util/01-apr-util-1.6.1.sh &&
