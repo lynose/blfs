@@ -2,9 +2,9 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/iw-5.4.tar.xz
+if test -d /sources/iw-5.4
  then
-  rm -rf /sources/iw-5.4.tar.xz
+  rm -rf /sources/iw-5.4
 fi
 
 SCRIPT=`realpath $0`
@@ -18,7 +18,7 @@ md5sum -c ${SCRIPTPATH}/md5-iw &&
 
 tar xf /sources/iw-5.4.tar.xz -C /sources/ &&
 
-cd /sources/iw-5.4.tar.xz &&
+cd /sources/iw-5.4 &&
 
 sed -i "/INSTALL.*gz/s/.gz//" Makefile &&
 ${log} `basename "$0"` " configured" blfs_all &&
