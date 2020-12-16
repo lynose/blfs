@@ -19,7 +19,7 @@ md5sum -c ${SCRIPTPATH}/md5-ntp &&
 tar xf /sources/ntp-4.2.8p15.tar.gz -C /sources/ &&
 
 as_root groupadd -g 87 ntp &&
-as_root useradd -c "Network Time Protocol" -d /var/lib/ntp -u 87 -g ntp -s /bin/false ntp &&
+as_root useradd -c \"Network Time Protocol\" -d /var/lib/ntp -u 87 -g ntp -s /bin/false ntp &&
 
 cd /sources/ntp-4.2.8p15 &&
 

@@ -21,7 +21,7 @@ tar xf /sources/nfs-utils-2.5.1.tar.xz -C /sources/ &&
 cd /sources/nfs-utils-2.5.1 &&
 
 as_root groupadd -g 99 nogroup &&
-as_root useradd -c "Unprivileged Nobody" -d /dev/null -g nogroup -s /bin/false -u 99 nobody &&
+as_root useradd -c \"Unprivileged Nobody\" -d /dev/null -g nogroup -s /bin/false -u 99 nobody &&
 
 ./configure --prefix=/usr          \
             --sysconfdir=/etc      \
