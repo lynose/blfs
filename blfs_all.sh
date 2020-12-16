@@ -217,10 +217,10 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net-libs/rpcsvc-proto/01-rpcsvc-proto-1.4.2.sh
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./net/net-tools/01-net-tools-CVS_20101030.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/liblinear/01-liblinear-241.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/net-tools/01-net-tools-CVS_20101030.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/liblinear/01-liblinear-241.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 
 # #############################################################################
 # #
@@ -231,8 +231,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # #${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/libcap/01-libcap-2.42.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./net/bridge-utils/01-bridge-utils-1.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# # ./net/bridge-utils/01-bridge-utils-1.6.sh && # Need to be reviewed
+# # ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/libnsl/01-libnsl-1.2.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/iw/01-iw-5.4.sh &&
@@ -594,7 +594,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sys/bluez/01-bluez-5.54.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/libpcap/01-libpcap-1.9.1.sh
+./net-libs/libpcap/01-libpcap-1.9.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/ldns/01-ldns-1.7.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
