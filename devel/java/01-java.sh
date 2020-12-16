@@ -1,9 +1,6 @@
 #!/bin/bash
 ${log} `basename "$0"` " started" blfs_all &&
 
-SCRIPT=`realpath $0`
-SCRIPTPATH=`dirname $SCRIPT`
-
 cat > ./openjdk.sh << "EOF" &&
 # Begin /etc/profile.d/openjdk.sh
 
