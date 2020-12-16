@@ -39,20 +39,26 @@ ${log} `basename "$0"` " built" blfs_all &&
 if [ ${ENABLE_TEST} == true ]
  then
   make check &&
-  make check-swig-pl &&
-  make check-swig-py &&
-  make check-swig-rb &&
   ${log} `basename "$0"` " unexpected check succeed" blfs_all
   ${log} `basename "$0"` " expected check fail?" blfs_all
+  make check-swig-pl &&
+  ${log} `basename "$0"` " unexpected check-swig-pl succeed" blfs_all
+  ${log} `basename "$0"` " expected check-swig-pl fail?" blfs_all
+  make check-swig-py &&
+  ${log} `basename "$0"` " unexpected check-swig-py succeed" blfs_all
+  ${log} `basename "$0"` " expected check-swig-py fail?" blfs_all
+  make check-swig-rb &&
+  ${log} `basename "$0"` " unexpected check-swig-rb succeed" blfs_all
+  ${log} `basename "$0"` " expected check-swig-rb fail?" blfs_all
 fi
 
 as_root make install &&
 as_root install -v -m755 -d /usr/share/doc/subversion-1.14.0 &&
 as_root cp      -v -R doc/* /usr/share/doc/subversion-1.14.0 &&
-as_root make install-swig-pl
+as_root make install-swig-pl &&
 as_root make install-swig-py \
       swig_pydir=/usr/lib/python3.8/site-packages/libsvn \
-      swig_pydir_extra=/usr/lib/python3.8/site-packages/svn
-as_root make install-swig-rb
+      swig_pydir_extra=/usr/lib/python3.8/site-packages/svn &&
+as_root make install-swig-rb &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
