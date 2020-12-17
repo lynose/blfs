@@ -49,7 +49,7 @@ as_root install -v -m644    ../README.linux ../doc/README.* ../doc/{*.pod,randpk
 
 pushd /usr/share/doc/wireshark-3.2.6 &&
    for FILENAME in ../../wireshark/*.html; do
-       as_root ln -s -v -f $FILENAME . &&
+       as_root ln -s -v -f $FILENAME .
    done
 popd
 unset FILENAME &&

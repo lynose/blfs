@@ -774,8 +774,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/openjdk/01-jdk-14.0.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/apache-ant/01-apache-ant-1.10.8.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/apache-ant/01-apache-ant-1.10.8.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net/bind/01-bind-9.16.5.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/dejavu-fonts/01-dejavu-fonts-2.37.sh &&
