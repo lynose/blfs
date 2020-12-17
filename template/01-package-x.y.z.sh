@@ -11,7 +11,7 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
 check_and_download <link> \
-        /sources
+        /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-<basepack> &&

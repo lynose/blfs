@@ -11,11 +11,11 @@ SCRIPT= $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
 check_and_download http://hg.openjdk.java.net/jdk-updates/jdk14u/archive/jdk-14.0.1+7.tar.bz2 \
-        /sources
+        /sources &&
 check_and_download http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-14.0.1/jtreg-4.2-b13-517.tar.gz \
-        /sources
+        /sources &&
 check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/openjdk-14.0.1-make_4.3_fix-1.patch \
-        /sources
+        /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-jdk &&
@@ -100,6 +100,7 @@ as_root mv -v ./openjdk-jconsole.desktop /usr/share/applications/openjdk-jconsol
 as_root ln -sfv /etc/pki/tls/java/cacerts /opt/jdk/lib/security/cacerts &&
 cd /opt/jdk &&
 as_root bin/keytool -list -cacerts &&
+
 cat >> ./man_db.conf << "EOF" &&
 # Begin Java addition
 MANDATORY_MANPATH     /opt/jdk/man
