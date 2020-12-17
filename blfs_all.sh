@@ -223,10 +223,10 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/liblinear/01-liblinear-241.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-.//net/wireless_tools/01-wireless_tools-29.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/hdparm/01-hdparm-9.58.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/wireless_tools/01-wireless_tools-29.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/hdparm/01-hdparm-9.58.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 
 # #############################################################################
 # #
@@ -239,8 +239,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # # ./net/bridge-utils/01-bridge-utils-1.6.sh && #!!! Need to be reviewed, kernel headers!!!
 # # ${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/pm-utils/01-pm-utils-1.4.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/pm-utils/01-pm-utils-1.4.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net-libs/libnsl/01-libnsl-1.2.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net/iw/01-iw-5.4.sh &&
