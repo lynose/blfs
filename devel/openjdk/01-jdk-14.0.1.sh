@@ -2,9 +2,9 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/jdk-14.0.1
+if test -d /sources/jdk14u-jdk-14.0.1+7
  then
-  rm -rf /sources/jdk-14.0.1
+  rm -rf /sources/jdk14u-jdk-14.0.1+7
 fi
 
 SCRIPT=`realpath $0`
@@ -22,7 +22,7 @@ md5sum -c ${SCRIPTPATH}/md5-jdk &&
 
 tar xf /sources/jdk-14.0.1+7.tar.bz2 -C /sources/ &&
 
-cd /sources/jdk-14.0.1 &&
+cd /sources/jdk14u-jdk-14.0.1+7 &&
 
 tar -xf ../jtreg-4.2-b13-517.tar.gz &&
 patch -p1 -i ../openjdk-14.0.1-make_4.3_fix-1.patch &&
