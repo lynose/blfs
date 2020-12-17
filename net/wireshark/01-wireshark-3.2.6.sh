@@ -54,9 +54,9 @@ pushd /usr/share/doc/wireshark-3.2.6 &&
 popd
 unset FILENAME &&
 
-as_root install -v -m644 ../wsdg_html.zip \
+as_root install -v -m644 /sources/wsdg_html.zip \
                  /usr/share/doc/wireshark-3.2.6 &&
-as_root install -v -m644 ../wsug_html.zip \
+as_root install -v -m644 /sources/wsug_html.zip \
                  /usr/share/doc/wireshark-3.2.6 &&
 as_root chown -v root:wireshark /usr/bin/{tshark,dumpcap} &&
 as_root chmod -v 6550 /usr/bin/{tshark,dumpcap} &&
