@@ -223,6 +223,10 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/liblinear/01-liblinear-241.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+.//net/wireless_tools/01-wireless_tools-29.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./sys/hdparm/01-hdparm-9.58.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 
 # #############################################################################
 # #
@@ -235,6 +239,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # # ./net/bridge-utils/01-bridge-utils-1.6.sh && #!!! Need to be reviewed, kernel headers!!!
 # # ${log} `basename "$0"` " ======================================" blfs_all &&
+./sys/pm-utils/01-pm-utils-1.4.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net-libs/libnsl/01-libnsl-1.2.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net/iw/01-iw-5.4.sh &&
@@ -359,6 +365,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/popt/01-popt-1.18.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./sys/logrotate/01-logrotate-3.17.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net/rsync/01-rsync-3.2.3.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/gpgme/01-gpgme-1.14.0.sh &&
@@ -766,6 +774,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/openjdk/01-jdk-14.0.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/apache-ant/01-apache-ant-1.10.8.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net/bind/01-bind-9.16.5.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/dejavu-fonts/01-dejavu-fonts-2.37.sh &&
@@ -834,7 +844,10 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/plasma/01-plasma-5.19.4.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+./net/wireshark/01-wireshark-3.2.6.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./virt/qemu/01-qemu-5.1.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+
 
 ${log} `basename "$0"` " finished" blfs_all

@@ -49,22 +49,22 @@ unset MAKEFLAGS &&
 make images &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-if [ ${ENABLE_TEST} == true ]
- then
-  export JT_JAVA=$(echo $PWD/build/*/jdk) &&
-  jtreg/bin/jtreg -jdk:$JT_JAVA -automatic -ignore:quiet -v1 \
-    test/jdk:tier1 test/langtools:tier1 &&
-  unset JT_JAVA &&
-  ${log} `basename "$0"` " unexpected check succeed" blfs_all
-  ${log} `basename "$0"` " expected check fail?" blfs_all
-fi
+# if [ ${ENABLE_TEST} == true ]
+#  then
+#   export JT_JAVA=$(echo $PWD/build/*/jdk) &&
+#   jtreg/bin/jtreg -jdk:$JT_JAVA -automatic -ignore:quiet -v1 \
+#     test/jdk:tier1 test/langtools:tier1 &&
+#   unset JT_JAVA &&
+#   ${log} `basename "$0"` " unexpected check succeed" blfs_all
+#   ${log} `basename "$0"` " expected check fail?" blfs_all
+# fi
 
 as_root install -vdm755 /opt/jdk-14.0.1+7             &&
 as_root cp -Rv build/*/images/jdk/* /opt/jdk-14.0.1+7 &&
 as_root chown -R root:root /opt/jdk-14.0.1+7          &&
 for s in 16 24 32 48; do
   as_root install -vDm644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \
-                  /usr/share/icons/hicolor/${s}x${s}/apps/java.png &&
+                  /usr/share/icons/hicolor/${s}x${s}/apps/java.png
 done
 
 as_root ln -v -nsf /opt/jdk-14.0.1+7 /opt/jdk &&
@@ -96,7 +96,10 @@ Categories=Application;System;
 EOF
 
 as_root mv -v ./openjdk-java.desktop /usr/share/applications/openjdk-java.desktop &&
+as_root chown root:root /usr/share/applications/openjdk-java.desktop &&
+
 as_root mv -v ./openjdk-jconsole.desktop /usr/share/applications/openjdk-jconsole.desktop &&
+as_root chown root:root /usr/share/applications/openjdk-jconsole.desktop &&
 
 as_root ln -sfv /etc/pki/tls/java/cacerts /opt/jdk/lib/security/cacerts &&
 cd /opt/jdk &&
@@ -111,9 +114,10 @@ MANDB_MAP             /opt/jdk/man     /var/cache/man/jdk
 EOF
 
 as_root mv -v ./man_db.conf /etc/man_db.conf &&
+as_root chown root:root /etc/man_db.conf &&
 
-mkdir -p /var/cache/man &&
-mandb -c /opt/jdk/man &&
+as_root mkdir -p /var/cache/man &&
+as_root mandb -c /opt/jdk/man &&
 
 as_root ln -sfv /etc/pki/tls/java/cacerts /opt/jdk/lib/security/cacerts &&
 as_root /opt/jdk/bin/keytool -list -cacerts &&
