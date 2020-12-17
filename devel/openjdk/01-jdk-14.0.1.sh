@@ -45,8 +45,9 @@ bash configure --enable-unlimited-crypto              \
                --with-version-opt=""                  \
                --with-cacerts-file=/etc/pki/tls/java/cacerts &&
 ${log} `basename "$0"` " configured" blfs_all &&
-
-make images &&
+J=$MAKEFLAGS &&
+unset MAKEFLAGS &&
+make JOBS=$J images &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
