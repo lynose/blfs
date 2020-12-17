@@ -7,7 +7,7 @@ if test -d /sources/jdk-14.0.1
   rm -rf /sources/jdk-14.0.1
 fi
 
-SCRIPT= $0`
+SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
 check_and_download http://hg.openjdk.java.net/jdk-updates/jdk14u/archive/jdk-14.0.1+7.tar.bz2 \
