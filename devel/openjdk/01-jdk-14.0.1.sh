@@ -45,9 +45,8 @@ bash configure --enable-unlimited-crypto              \
                --with-version-opt=""                  \
                --with-cacerts-file=/etc/pki/tls/java/cacerts &&
 ${log} `basename "$0"` " configured" blfs_all &&
-J=$MAKEFLAGS &&
 unset MAKEFLAGS &&
-make JOBS=$J images &&
+make Jimages &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
@@ -65,7 +64,7 @@ as_root cp -Rv build/*/images/jdk/* /opt/jdk-14.0.1+7 &&
 as_root chown -R root:root /opt/jdk-14.0.1+7          &&
 for s in 16 24 32 48; do
   as_root install -vDm644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \
-                  /usr/share/icons/hicolor/${s}x${s}/apps/java.png
+                  /usr/share/icons/hicolor/${s}x${s}/apps/java.png &&
 done
 
 as_root ln -v -nsf /opt/jdk-14.0.1+7 /opt/jdk &&
