@@ -82,6 +82,7 @@ Icon=java
 MimeType=application/x-java-archive;application/java-archive;application/x-jar;
 NoDisplay=true
 EOF
+
 cat > ./openjdk-jconsole.desktop << "EOF" &&
 [Desktop Entry]
 Name=OpenJDK Java 14.0.1 Console

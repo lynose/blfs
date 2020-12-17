@@ -624,8 +624,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./print/cups/01-cups-2.2.3.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/openjdk-bin/01-openjdk-14.0.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/openjdk-bin/01-openjdk-14.0.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/libmbim/01-libmbim-1.24.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/libqmi/01-libqmi-1.26.2.sh &&
