@@ -674,8 +674,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./icons/adwaita-icon-theme/01-adwaita-icon-theme-3.36.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./X/gtk+/01-gtk+-3.24.22.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./gnome/vte/01-vte-0.60.3.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnome/GConf/01-GConf-3.2.6.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./print/ghostscript/01-ghostscript-9.52.sh &&
@@ -844,8 +844,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/plasma/01-plasma-5.19.4.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./net/wireshark/01-wireshark-3.2.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/wireshark/01-wireshark-3.2.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./virt/qemu/01-qemu-5.1.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 
