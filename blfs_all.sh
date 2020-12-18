@@ -674,7 +674,9 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./icons/adwaita-icon-theme/01-adwaita-icon-theme-3.36.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/vte/01-vte-0.60.3.sh &&
+# ./gnome/vte/01-vte-0.60.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+./X/gtk-vnc/01-gtk-vnc-1.0.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnome/GConf/01-GConf-3.2.6.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
