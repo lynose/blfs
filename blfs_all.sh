@@ -237,8 +237,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/libcap/01-libcap-2.42.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-# # ./net/bridge-utils/01-bridge-utils-1.6.sh && #!!! Need to be reviewed, kernel headers!!!
-# # ${log} `basename "$0"` " ======================================" blfs_all &&
+./net/bridge-utils/01-bridge-utils-1.6.sh && #!!! Need to be reviewed, kernel headers!!!
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sys/pm-utils/01-pm-utils-1.4.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net-libs/libnsl/01-libnsl-1.2.0.sh &&
@@ -676,8 +676,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnome/vte/01-vte-0.60.3.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/gtk-vnc/01-gtk-vnc-1.0.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/gtk-vnc/01-gtk-vnc-1.0.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnome/GConf/01-GConf-3.2.6.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./print/ghostscript/01-ghostscript-9.52.sh &&
