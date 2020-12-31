@@ -18,8 +18,8 @@ md5sum -c ${SCRIPTPATH}/md5-rsync &&
 
 tar xf /sources/rsync-3.2.3.tar.gz -C /sources/ &&
 
-# as_root groupadd -g 48 rsyncd &&
-# as_root useradd -c "rsyncd Daemon" -d /home/rsync -g rsyncd -s /bin/false -u 48 rsyncd &&
+as_root_groupadd groupadd -g 48 rsyncd &&
+as_root_useradd useradd -c \"rsyncd_Daemon\" -d /home/rsync -g rsyncd -s /bin/false -u 48 rsyncd &&
 
 cd /sources/rsync-3.2.3 &&
 

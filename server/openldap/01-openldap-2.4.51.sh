@@ -22,8 +22,8 @@ tar xf /sources/openldap-2.4.51.tgz -C /sources/ &&
 
 cd /sources/openldap-2.4.51 &&
 
-sudo groupadd -g 83 ldap &&
-sudo useradd  -c "OpenLDAP Daemon Owner" -d /var/lib/openldap -u 83 -g ldap -s /bin/false ldap &&
+as_root_groupadd groupadd -g 83 ldap &&
+as_root_useradd useradd  -c  \"OpenLDAP_Daemon_Owner\" -d /var/lib/openldap -u 83 -g ldap -s /bin/false ldap &&
 
 patch -Np1 -i ../openldap-2.4.51-consolidated-2.patch &&
 autoconf &&

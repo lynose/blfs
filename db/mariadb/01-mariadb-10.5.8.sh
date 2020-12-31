@@ -20,8 +20,8 @@ tar xf /sources/mariadb-10.5.8.tar.gz -C /sources/ &&
 
 cd /sources/mariadb-10.5.8 &&
 
-#sudo groupadd -g 40 mysql &&
-#sudo useradd -c "MySQL Server" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql &&
+as_root_groupadd groupadd -g 40 mysql &&
+as_root_useradd useradd -c \"MySQL_Server\" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql &&
 
 mkdir build &&
 cd    build &&

@@ -19,9 +19,9 @@ tar xf /sources/cups-2.3.3-source.tar.gz -C /sources/ &&
 
 cd /sources/cups-2.3.3 &&
 
-useradd -c "Print Service User" -d /var/spool/cups -g lp -s /bin/false -u 9 lp &&
+as_root_useradd useradd -c \"Print_Service_User\" -d /var/spool/cups -g lp -s /bin/false -u 9 lp &&
 
-groupadd -g 19 lpadmin &&
+as_root_groupadd groupadd -g 19 lpadmin &&
 
 sed -i '/stat.h/a #include <asm-generic/ioctls.h>' tools/ipptool.c   &&
 

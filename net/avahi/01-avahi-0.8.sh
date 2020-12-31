@@ -19,10 +19,10 @@ tar xf /sources/avahi-0.8.tar.gz -C /sources/ &&
 
 cd /sources/avahi-0.8 &&
 
-sudo groupadd -fg 84 avahi &&
-sudo useradd -c "Avahi Daemon Owner" -d /var/run/avahi-daemon -u 84 -g avahi -s /bin/false avahi &&
+as_root_groupadd groupadd -fg 84 avahi &&
+as_root_useradd useradd -c \"Avahi_Daemon_Owner\" -d /var/run/avahi-daemon -u 84 -g avahi -s /bin/false avahi &&
 
-sudo groupadd -fg 86 netdev &&
+as_root_groupadd groupadd -fg 86 netdev &&
 
 
 ./configure --prefix=/usr        \

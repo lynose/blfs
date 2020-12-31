@@ -22,8 +22,8 @@ tar xf /sources/httpd-2.4.46.tar.bz2 -C /sources/ &&
 
 cd /sources/httpd-2.4.46 &&
 
-sudo groupadd -g 25 apache &&
-sudo useradd -c "Apache Server" -d /srv/www -g apache -s /bin/false -u 25 apache &&
+as_root_groupadd groupadd -g 25 apache &&
+as_root_useradd useradd -c \"Apache_Server\" -d /srv/www -g apache -s /bin/false -u 25 apache &&
 
 sed -i 's/lua_resume(a, NULL, b)/lua_resume(a, NULL, b, NULL)/' modules/lua/mod_lua.h &&
 patch -Np1 -i ../httpd-2.4.46-blfs_layout-1.patch             &&

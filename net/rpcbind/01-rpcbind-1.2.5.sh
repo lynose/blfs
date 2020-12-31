@@ -20,8 +20,8 @@ md5sum -c ${SCRIPTPATH}/md5-rpcbind &&
 
 tar xf /sources/rpcbind-1.2.5.tar.bz2 -C /sources/ &&
 
-# as_root groupadd -g 28 rpc &&
-# as_root useradd -c "RPC Bind Daemon Owner" -d /dev/null -g rpc -s /bin/false -u 28 rpc &&
+as_root_groupadd groupadd -g 28 rpc &&
+as_root_useradd useradd -c \"RPC_Bind_Daemon_Owner\" -d /dev/null -g rpc -s /bin/false -u 28 rpc &&
 
 cd /sources/rpcbind-1.2.5 &&
 

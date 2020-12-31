@@ -19,8 +19,8 @@ tar xf /sources/colord-1.4.4.tar.xz -C /sources/ &&
 
 cd /sources/colord-1.4.4 &&
 
-groupadd -g 71 colord &&
-useradd -c "Color Daemon Owner" -d /var/lib/colord -u 71 \
+as_root_groupadd groupadd -g 71 colord &&
+as_root_useradd useradd -c \"Color_Daemon_Owner\" -d /var/lib/colord -u 71 \
         -g colord -s /bin/false colord &&
 
 mv po/fur.po po/ur.po &&

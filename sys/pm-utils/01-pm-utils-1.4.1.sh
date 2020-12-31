@@ -28,6 +28,18 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
+if [ -f /usr/share/man/man8/pm-suspend-hybrid.8 ]; then
+    as_root rm /usr/share/man/man8/pm-suspend-hybrid.8
+fi
+
+if [ -f /usr/share/man/man8/pm-suspend.8 ]; then
+    as_root rm /usr/share/man/man8/pm-suspend.8
+fi
+
+if [ -f /usr/share/man/man8/pm-hibernate.8 ]; then
+    as_root rm /usr/share/man/man8/pm-hibernate.8
+fi
+
 
 as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
