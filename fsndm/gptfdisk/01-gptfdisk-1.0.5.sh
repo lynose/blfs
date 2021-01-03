@@ -24,7 +24,7 @@ fi
 md5sum -c ${SCRIPTPATH}/md5-gptfdisk &&
 
 tar xf /sources/gptfdisk-1.0.5.tar.gz -C /sources/ &&
-
+ 
 cd /sources/gptfdisk-1.0.5 &&
 
 patch -Np1 -i ../gptfdisk-1.0.5-convenience-1.patch &&

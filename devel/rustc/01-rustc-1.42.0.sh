@@ -84,29 +84,33 @@ fi
 export LIBSSH2_SYS_USE_PKG_CONFIG=1 &&
 DESTDIR=${PWD}/install python3 ./x.py install &&
 unset LIBSSH2_SYS_USE_PKG_CONFIG &&
-chown -R root:root install &&
+as_root chown -R root:root install &&
 as_root cp -a install/* / &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
-as_root cat >> /etc/ld.so.conf << EOF
+cat >> ./rust.conf << EOF &&
 # Begin rustc addition
 
 /opt/rustc/lib
 
 # End rustc addition
 EOF
+    
+as_root mv -v ./rust.conf /etc/ld.so.conf.d/
+
 
 as_root ldconfig &&
 ${log} `basename "$0"` " ld path configured" blfs_all &&
 
-as_root cat > /etc/profile.d/rustc.sh << "EOF"
+cat > ./rustc.sh << "EOF" &&
 # Begin /etc/profile.d/rustc.sh
 
 pathprepend /opt/rustc/bin           PATH
 
 # End /etc/profile.d/rustc.sh
 EOF
+
+as_root mv -v ./rustc.sh /etc/profile.d/rustc.sh 
 ${log} `basename "$0"` " profile configured" blfs_all &&
 
-source /etc/profile.d/rustc.sh &&
 ${log} `basename "$0"` " finished" blfs_all 

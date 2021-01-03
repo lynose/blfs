@@ -31,6 +31,6 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
-as_root ln -s gconf.xml.defaults /etc/gconf/gconf.xml.system &&
+as_root ln -sf gconf.xml.defaults /etc/gconf/gconf.xml.system &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
