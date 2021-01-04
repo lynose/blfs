@@ -125,7 +125,7 @@ unset CC CXX MOZBUILD_STATE_PATH &&
 as_root mkdir -pv /usr/share/applications &&
 as_root mkdir -pv /usr/share/pixmaps &&
 
-sudo cat > /usr/share/applications/firefox.desktop << "EOF" &&
+cat > ./firefox.desktop << "EOF" &&
 [Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser
@@ -139,6 +139,8 @@ Categories=GNOME;GTK;Network;WebBrowser;
 MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
 StartupNotify=true
 EOF
+
+as_root mv -v ./firefox.desktop /usr/share/applications/firefox.desktop &&
 
 as_root ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \
         /usr/share/pixmaps/firefox.png &&

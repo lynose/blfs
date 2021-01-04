@@ -21,13 +21,14 @@ tar xf /sources/sane-backends-1.0.29.tar.gz -C /sources/ &&
 
 cd /sources/sane-backends-1.0.29 &&
 
-as_root groupadd -g 70 scanner &&
+as_root_groupadd groupadd -g 70 scanner &&
 
 
-sg scanner -c "                  \
+sudo sg scanner -c "                  \
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \
+            --enable-libusb_1_0  \
             --with-group=scanner \
             --with-docdir=/usr/share/doc/sane-backends-1.0.29" &&
 ${log} `basename "$0"` " configured" blfs_all &&

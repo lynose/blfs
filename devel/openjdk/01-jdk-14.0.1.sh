@@ -105,7 +105,9 @@ as_root ln -sfv /etc/pki/tls/java/cacerts /opt/jdk/lib/security/cacerts &&
 cd /opt/jdk &&
 as_root bin/keytool -list -cacerts &&
 
-cat >> ./man_db.conf << "EOF" &&
+cp /etc/man_db.conf /tmp &&
+
+cat >> /tmp/man_db.conf << "EOF" &&
 # Begin Java addition
 MANDATORY_MANPATH     /opt/jdk/man
 MANPATH_MAP           /opt/jdk/bin     /opt/jdk/man
@@ -113,8 +115,7 @@ MANDB_MAP             /opt/jdk/man     /var/cache/man/jdk
 # End Java addition
 EOF
 
-as_root mv -v ./man_db.conf /etc/man_db.conf &&
-as_root chown root:root /etc/man_db.conf &&
+as_root mv -v /tmp/man_db.conf /etc/man_db.conf &&
 
 as_root mkdir -p /var/cache/man &&
 as_root mandb -c /opt/jdk/man &&
