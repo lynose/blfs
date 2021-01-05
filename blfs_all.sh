@@ -186,13 +186,17 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sys/hdparm/01-hdparm-9.58.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./fsndm/ntfs-3g/01-ntfs-3g-2017.3.23.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/docutils/01-docutils-0.16.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 
 # #############################################################################
 # #
 # #   Packages with required or recommended dependencies
 # #
 #############################################################################
-./sec/sudo/01-sudo-1.9.2.sh && # better to build sudo seperate
+./sec/sudo/02-sudo-1.9.2.sh && # better to build sudo seperate
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/libcap/01-libcap-2.42.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -396,6 +400,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/newt/01-newt-0.52.21.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/glib/01-glib-2.64.4.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./fsndm/sshfs/01-sshfs-3.7.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/swig/01-swig-4.0.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
