@@ -629,6 +629,10 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/gtk+/01-gtk+-2.24.32.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./gtksourceview/01-gtksourceview-3.24.11.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./X/gtksourceview4/01-gtksourceview-4.6.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/alsa-tools/01-alsa-tools-1.2.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/libglade/01-libglade-2.6.4.sh &&

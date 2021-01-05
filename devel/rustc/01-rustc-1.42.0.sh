@@ -72,6 +72,7 @@ ${log} `basename "$0"` " configured" blfs_all &&
 export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &&
 python3 ./x.py build --exclude src/tools/miri &&
 ${log} `basename "$0"` " built" blfs_all &&
+
 if [ ${ENABLE_TEST} == true ]
  then
     python3 ./x.py test --verbose --no-fail-fast | tee rustc-testlog &&
