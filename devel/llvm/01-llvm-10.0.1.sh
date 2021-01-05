@@ -50,7 +50,7 @@ ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 ninja check-all &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
+${log} `basename "$0"` " check succeed" blfs_all ||
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
 as_root ninja install &&

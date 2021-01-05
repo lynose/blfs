@@ -29,9 +29,12 @@ ${log} `basename "$0"` " configured" blfs_basic &&
 make && 
 ${log} `basename "$0"` " build" blfs_basic &&
 
-make check &&          #Ignoring result, not related to root user
-${log} `basename "$0"` " Unexpected Test succeeded" blfs_basic
-${log} `basename "$0"` " expected test fail?" blfs_basic &&
+if [ ${ENABLE_TEST} == true ]
+ then
+  make check &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 as_root make install &&
 ln -sfv /usr/libexec/p11-kit/trust-extract-compat \

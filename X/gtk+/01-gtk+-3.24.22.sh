@@ -33,9 +33,13 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 glib-compile-schemas /usr/share/glib-2.0/schemas &&
-make check &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
-${log} `basename "$0"` " expected check fail?" blfs_all &&
+
+if [ ${ENABLE_TEST} == true ]
+ then
+  make check &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 as_root make install &&
 gtk-query-immodules-3.0 --update-cache &&

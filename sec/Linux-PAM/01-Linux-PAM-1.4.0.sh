@@ -36,16 +36,23 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 as_root install -v -m755 -d /etc/pam.d &&
 
-as_root cat > /etc/pam.d/other << "EOF"
+
+
+if [ ${ENABLE_TEST} == true ]
+ then
+  as_root cat > /etc/pam.d/other << "EOF"
 auth     required       pam_deny.so
 account  required       pam_deny.so
 password required       pam_deny.so
 session  required       pam_deny.so
 EOF
+  make check &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+  rm -fv /etc/pam.d/other
+fi
 
-make check &&
-${log} `basename "$0"` " check succeed" blfs_all &&
-rm -fv /etc/pam.d/other &&
+
 
 
 as_root make install &&

@@ -31,8 +31,12 @@ ${log} `basename "$0"` " configured" blfs_all &&
 as_root make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-as_root make test-only &&
-${log} `basename "$0"` " check succeed" blfs_all &&
+if [ ${ENABLE_TEST} == true ]
+ then
+  as_root make test-only &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 as_root make install &&
 as_root ln -sf node /usr/share/doc/node-12.18.3 &&

@@ -34,7 +34,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 #   sed -e 's@prereq:.*@prereq: false@' \
 #     -i {helgrind,drd}/tests/pth_cond_destroy_busy.vgtest
 #   make  make regtest &&
-#   ${log} `basename "$0"` " unexpected check succeed" blfs_all
+#   ${log} `basename "$0"` " check succeed" blfs_all ||
 #   ${log} `basename "$0"` " expected check fail?" blfs_all
 # fi
 

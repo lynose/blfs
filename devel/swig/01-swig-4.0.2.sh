@@ -29,7 +29,7 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 PY3=1 make -k check TCL_INCLUDE=. &&
-${log} `basename "$0"` " check succeed" blfs_all &&
+${log} `basename "$0"` " check succeed" blfs_all || &&
 
 as_root make install &&
 as_root install -v -m755 -d /usr/share/doc/swig-4.0.2 &&

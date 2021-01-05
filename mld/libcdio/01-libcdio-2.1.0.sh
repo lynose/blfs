@@ -26,8 +26,12 @@ ${log} `basename "$0"` " configured libcdio" blfs_all &&
 make &&
 ${log} `basename "$0"` " built libcdio" blfs_all &&
 
-make check &&
-${log} `basename "$0"` " check succeed libcdio" blfs_all &&
+if [ ${ENABLE_TEST} == true ]
+ then
+  make check &&
+  ${log} `basename "$0"` " check succeed libcdio" blfs_all
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 as_root make install &&
 ${log} `basename "$0"` " installed libcdio" blfs_all &&
@@ -42,8 +46,15 @@ ${log} `basename "$0"` " configured libcdio-paranoia" blfs_all &&
 make &&
 ${log} `basename "$0"` " built libcdio-paranoia" blfs_all &&
 
-make check &&
-${log} `basename "$0"` " check succeed libcdio-paranoia" blfs_all &&
+
+if [ ${ENABLE_TEST} == true ]
+ then
+  make check &&
+  ${log} `basename "$0"` " check succeed libcdio-paranoia" blfs_all &&
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
+
+
 
 as_root make install &&
 ${log} `basename "$0"` " installed libcdio-paranoia" blfs_all &&

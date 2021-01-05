@@ -28,9 +28,13 @@ ${log} `basename "$0"` " configured" blfs_all &&
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-ninja test &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
-${log} `basename "$0"` " expected check fail?" blfs_all &&
+if [ ${ENABLE_TEST} == true ]
+ then
+  ninja test &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
+
 
 as_root ninja install &&
 gdk-pixbuf-query-loaders --update-cache &&

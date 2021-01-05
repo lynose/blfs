@@ -31,9 +31,12 @@ make &&
 make docs &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make test &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
-${log} `basename "$0"` " expected check fail?" blfs_all &&
+if [ ${ENABLE_TEST} == true ]
+ then
+  make test &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 as_root make install &&
 as_root install -v -d -m755 /usr/share/doc/graphite2-1.3.14 &&

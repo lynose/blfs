@@ -26,7 +26,7 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 ./test --keep-going --logdir=/log/test-logs --save-logs &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
+${log} `basename "$0"` " check succeed" blfs_all ||
 ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
 as_root make install &&

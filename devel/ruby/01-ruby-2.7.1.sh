@@ -33,9 +33,12 @@ make &&
 make capi &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make check &&
-${log} `basename "$0"` " unexpected check succeed" blfs_all
-${log} `basename "$0"` " expected check fail?" blfs_all &&
+if [ ${ENABLE_TEST} == true ]
+ then
+  make check &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&

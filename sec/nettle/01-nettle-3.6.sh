@@ -25,8 +25,12 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make check &&
-${log} `basename "$0"` " check succeed" blfs_all &&
+if [ ${ENABLE_TEST} == true ]
+ then
+  make check &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 as_root make install &&
 as_root chmod   -v   755 /usr/lib/lib{hogweed,nettle}.so &&

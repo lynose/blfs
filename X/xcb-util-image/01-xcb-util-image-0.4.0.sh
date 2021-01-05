@@ -25,8 +25,14 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-LD_LIBRARY_PATH=$XORG_PREFIX/lib make check &&
-${log} `basename "$0"` " check succeed" blfs_all &&
+if [ ${ENABLE_TEST} == true ]
+ then
+  LD_LIBRARY_PATH=$XORG_PREFIX/lib make check &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
+
+
 
 as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&

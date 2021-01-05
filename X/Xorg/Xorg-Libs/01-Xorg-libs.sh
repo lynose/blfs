@@ -47,9 +47,12 @@ do
   ${log} `basename "$0"` " configured $package" blfs_all &&
   make &&
   ${log} `basename "$0"` " built $package" blfs_all &&
-#   make check 2>&1 | tee ../$packagedir-make_check.log &&
-#   ${log} `basename "$0"` " unexpected check succeed $package" blfs_all
-#   ${log} `basename "$0"` " expected check fail? $package" blfs_all &&
+  if [ ${ENABLE_TEST} == true ]
+    then
+    make check 2>&1 | tee /log/$packagedir-make_check.log &&
+    ${log} `basename "$0"` " check succeed" blfs_all ||
+    ${log} `basename "$0"` " expected check fail?" blfs_all
+  fi
   as_root make install &&
   ${log} `basename "$0"` " installed $package" blfs_all &&
   popd

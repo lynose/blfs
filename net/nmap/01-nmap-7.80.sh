@@ -30,7 +30,7 @@ if [ ${ENABLE_TEST} == true ]
  then
   sed -i 's/lib./lib/' zenmap/test/run_tests.py &&
   make check &&
-  ${log} `basename "$0"` " unexpected check succeed" blfs_all
+  ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 

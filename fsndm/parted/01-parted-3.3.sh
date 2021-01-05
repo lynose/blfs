@@ -31,8 +31,13 @@ ${log} `basename "$0"` " built" blfs_all &&
 sed -i '/t0251-gpt-unicode.sh/d' tests/Makefile &&
 sed -i '/t6002-dm-busy.sh/d' tests/Makefile &&
 sed -i '1s/python/&3/' tests/{gpt-header-move,msdos-overlap} &&
-make check &&
-${log} `basename "$0"` " check succeed" blfs_all &&
+
+if [ ${ENABLE_TEST} == true ]
+ then
+  make check &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 as_root make install &&
 as_root install -v -m755 -d /usr/share/doc/parted-3.3/html &&

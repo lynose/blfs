@@ -61,7 +61,7 @@ as_root cp -vfr ../doc/*  /usr/share/doc/krb5-1.18.2 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
 # make -k -j1 check &&
-# ${log} `basename "$0"` " unexpected check succeed" blfs_all
+# ${log} `basename "$0"` " check succeed" blfs_all ||
 # ${log} `basename "$0"` " expected check fail?" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all 

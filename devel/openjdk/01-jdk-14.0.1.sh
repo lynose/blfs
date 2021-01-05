@@ -55,7 +55,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 #   jtreg/bin/jtreg -jdk:$JT_JAVA -automatic -ignore:quiet -v1 \
 #     test/jdk:tier1 test/langtools:tier1 &&
 #   unset JT_JAVA &&
-#   ${log} `basename "$0"` " unexpected check succeed" blfs_all
+#   ${log} `basename "$0"` " check succeed" blfs_all ||
 #   ${log} `basename "$0"` " expected check fail?" blfs_all
 # fi
 

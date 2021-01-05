@@ -35,9 +35,15 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-git clone git://git.freedesktop.org/git/poppler/test testfiles &&
-LC_ALL=en_US.UTF-8 make test &&
-${log} `basename "$0"` " check succeed" blfs_all &&
+
+if [ ${ENABLE_TEST} == true ]
+ then
+  git clone git://git.freedesktop.org/git/poppler/test testfiles &&
+  LC_ALL=en_US.UTF-8 make test &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
+
 
 as_root make install &&
 as_root install -v -m755 -d           /usr/share/doc/poppler-20.08.0 &&

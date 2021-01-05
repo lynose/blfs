@@ -44,7 +44,7 @@ pushd tests &&
    ./misc-tests.sh    
    ./fuzz-tests.sh    
 popd
-${log} `basename "$0"` " check succeed" blfs_all &&
+${log} `basename "$0"` " check succeed" blfs_all || &&
 
 as_root make install &&
 

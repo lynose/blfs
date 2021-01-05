@@ -29,8 +29,12 @@ makeinfo --html --no-split -o doc/gcrypt_nochunks.html doc/gcrypt.texi &&
 makeinfo --plaintext       -o doc/gcrypt.txt           doc/gcrypt.texi &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make check &&
-${log} `basename "$0"` " check succeed" blfs_all &&
+if [ ${ENABLE_TEST} == true ]
+ then
+  make check &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 as_root make install &&
 as_root install -v -dm755   /usr/share/doc/libgcrypt-1.8.6 &&

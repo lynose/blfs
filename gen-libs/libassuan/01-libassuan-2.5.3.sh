@@ -28,8 +28,12 @@ makeinfo --html --no-split -o doc/assuan_nochunks.html doc/assuan.texi &&
 makeinfo --plaintext       -o doc/assuan.txt           doc/assuan.texi &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make check &&
-${log} `basename "$0"` " check succeed" blfs_all &&
+if [ ${ENABLE_TEST} == true ]
+ then
+  make check &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 as_root make install &&
 as_root install -v -dm755   /usr/share/doc/libassuan-2.5.3/html &&

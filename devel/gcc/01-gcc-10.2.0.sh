@@ -43,7 +43,7 @@ if [ ${ENABLE_TEST} == true ]
  then
   ulimit -s 32768 &&
   make -k check &&
-  ${log} `basename "$0"` " unexpected check succeed" blfs_all
+  ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
