@@ -36,15 +36,21 @@ mv tests/convert-tests/013-reiserfs-common-inode-flags/test.sh{,.broken}    &&
 mv tests/convert-tests/014-reiserfs-tail-handling/test.sh{,.broken} &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-pushd tests &&
-   ./fsck-tests.sh
-   ./mkfs-tests.sh  
-   ./cli-tests.sh  
-   ./convert-tests.sh 
-   ./misc-tests.sh    
-   ./fuzz-tests.sh    
-popd
-${log} `basename "$0"` " check succeed" blfs_all || &&
+
+if [ ${ENABLE_TEST} == true ]
+ then
+  pushd tests &&
+    ./fsck-tests.sh
+    ./mkfs-tests.sh  
+    ./cli-tests.sh  
+    ./convert-tests.sh 
+    ./misc-tests.sh    
+    ./fuzz-tests.sh    
+  popd
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
+
 
 as_root make install &&
 
