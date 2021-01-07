@@ -15,7 +15,7 @@ check_and_download https://nodejs.org/dist/v12.18.3/node-v12.18.3.tar.xz \
 
 md5sum -c ${SCRIPTPATH}/md5-nodejs &&
 
-as_root tar xf /sources/node-v12.18.3.tar.xz -C /sources/ &&
+tar xf /sources/node-v12.18.3.tar.xz -C /sources/ &&
 
 cd /sources/node-v12.18.3 &&
 

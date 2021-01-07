@@ -15,7 +15,7 @@ check_and_download https://www.freedesktop.org/software/fontconfig/release/fontc
 
 md5sum -c ${SCRIPTPATH}/md5-fontconfig &&
 
-as_root tar xf /sources/fontconfig-2.13.1.tar.bz2 -C /sources/ &&
+tar xf /sources/fontconfig-2.13.1.tar.bz2 -C /sources/ &&
 
 cd /sources/fontconfig-2.13.1 &&
 

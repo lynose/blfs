@@ -15,7 +15,7 @@ check_and_download https://archive.mozilla.org/pub/firefox/releases/78.2.0esr/so
 
 md5sum -c ${SCRIPTPATH}/md5-firefox &&
 
-# Will return a non-zero value, but can be continued
+
 tar xf /sources/firefox-78.2.0esr.source.tar.xz -C /sources/
 
 cd /sources/firefox-78.2.0 &&
