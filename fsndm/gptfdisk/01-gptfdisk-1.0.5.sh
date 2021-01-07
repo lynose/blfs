@@ -23,7 +23,7 @@ if [ ! -f /sources/gptfdisk-1.0.5-convenience-1.patch ];
 fi
 md5sum -c ${SCRIPTPATH}/md5-gptfdisk &&
 
-as_root tar xf /sources/gptfdisk-1.0.5.tar.gz -C /sources/ &&
+tar xf /sources/gptfdisk-1.0.5.tar.gz -C /sources/ &&
  
 cd /sources/gptfdisk-1.0.5 &&
 
