@@ -597,39 +597,39 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./print/cups/01-cups-2.2.3.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/openjdk-bin/01-openjdk-14.0.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libmbim/01-libmbim-1.24.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libqmi/01-libqmi-1.26.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/ModemManager/01-ModemManager-1.14.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/udisks/01-udisks-2.9.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/libsecret/01-libsecret-0.20.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/pygobject/01-pygobject-2.28.7.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/pygobject/01-pygobject-3.36.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/upower/01-upower-0.99.11.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/json-glib/01-json-glib-1.4.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/gsettings-desktop-schemas/01-gsettings-desktop-schemas-3.36.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/atk/01-atk-2.36.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/at-spi2-atk/01-at-spi2-atk-2.34.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/pango/01-pango-1.46.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/gtk+/01-gtk+-3.24.22.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/openjdk-bin/01-openjdk-14.0.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libmbim/01-libmbim-1.24.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libqmi/01-libqmi-1.26.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/ModemManager/01-ModemManager-1.14.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/udisks/01-udisks-2.9.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/libsecret/01-libsecret-0.20.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/pygobject/01-pygobject-2.28.7.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/pygobject/01-pygobject-3.36.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/upower/01-upower-0.99.11.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/json-glib/01-json-glib-1.4.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/gsettings-desktop-schemas/01-gsettings-desktop-schemas-3.36.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/atk/01-atk-2.36.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/at-spi2-atk/01-at-spi2-atk-2.34.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/pango/01-pango-1.46.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/gtk+/01-gtk+-3.24.22.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/gtk+/01-gtk+-2.24.32.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gtksourceview/01-gtksourceview-3.24.11.sh &&
+./X/gtksourceview/01-gtksourceview-3.24.11.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/gtksourceview4/01-gtksourceview-4.6.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

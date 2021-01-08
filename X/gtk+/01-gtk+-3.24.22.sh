@@ -32,21 +32,22 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-glib-compile-schemas /usr/share/glib-2.0/schemas &&
+
 
 if [ ${ENABLE_TEST} == true ]
  then
+  as_root glib-compile-schemas /usr/share/glib-2.0/schemas &&
   make check &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
 as_root make install &&
-gtk-query-immodules-3.0 --update-cache &&
-glib-compile-schemas /usr/share/glib-2.0/schemas &&
+as_root gtk-query-immodules-3.0 --update-cache &&
+as_root glib-compile-schemas /usr/share/glib-2.0/schemas &&
 
 mkdir -vp ~/.config/gtk-3.0 &&
-cat > ~/.config/gtk-3.0/settings.ini << "EOF"
+cat > ~/.config/gtk-3.0/settings.ini << "EOF" &&
 [Settings]
 gtk-theme-name = Adwaita
 gtk-icon-theme-name = oxygen
@@ -60,7 +61,7 @@ gtk-xft-rgba = rgb
 gtk-cursor-theme-name = Adwaita
 EOF
 
-cat > ~/.config/gtk-3.0/gtk.css << "EOF"
+cat > ~/.config/gtk-3.0/gtk.css << "EOF" &&
 *  {
    -GtkScrollbar-has-backward-stepper: 1;
    -GtkScrollbar-has-forward-stepper: 1;

@@ -36,17 +36,19 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root make install &&
-gtk-query-immodules-2.0 --update-cache &&
+as_root gtk-query-immodules-2.0 --update-cache &&
 
-cat > ~/.gtkrc-2.0 << "EOF"
+cat > ~/.gtkrc-2.0 << "EOF" &&
 include "/usr/share/themes/Glider/gtk-2.0/gtkrc"
 gtk-icon-theme-name = "hicolor"
 EOF
 
-as_root cat > /etc/gtk-2.0/gtkrc << "EOF"
+cat > ./gtkrc << "EOF" &&
 include "/usr/share/themes/Clearlooks/gtk-2.0/gtkrc"
 gtk-icon-theme-name = "elementary"
 EOF
+
+as_root mv ./gtkrc /etc/gtk-2.0/gtkrc &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
