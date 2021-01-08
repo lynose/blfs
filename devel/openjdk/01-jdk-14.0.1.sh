@@ -49,15 +49,15 @@ unset MAKEFLAGS &&
 make images &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-# if [ ${ENABLE_TEST} == true ]
-#  then
-#   export JT_JAVA=$(echo $PWD/build/*/jdk) &&
-#   jtreg/bin/jtreg -jdk:$JT_JAVA -automatic -ignore:quiet -v1 \
-#     test/jdk:tier1 test/langtools:tier1 &&
-#   unset JT_JAVA &&
-#   ${log} `basename "$0"` " check succeed" blfs_all ||
-#   ${log} `basename "$0"` " expected check fail?" blfs_all
-# fi
+if [ ${ENABLE_TEST} == true ]
+ then
+  export JT_JAVA=$(echo $PWD/build/*/jdk) &&
+  jtreg/bin/jtreg -jdk:$JT_JAVA -automatic -ignore:quiet -v1 \
+    test/jdk:tier1 test/langtools:tier1 &&
+  unset JT_JAVA &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 as_root install -vdm755 /opt/jdk-14.0.1+7             &&
 as_root cp -Rv build/*/images/jdk/* /opt/jdk-14.0.1+7 &&

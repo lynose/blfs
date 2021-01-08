@@ -52,7 +52,7 @@ as_root mkdir -pv /usr/share/gdb/auto-load/usr/lib              &&
 as_root mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &&
 
 as_root chown -v -R root:root \
-    /usr/lib/gcc/*linux-gnu/10.2.0/include{,-fixed}
+    /usr/lib/gcc/*linux-gnu/10.2.0/include{,-fixed} &&
 
 as_root rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/10.2.0/include-fixed/bits/ &&
 as_root ln -v -sf ../usr/bin/cpp /lib          &&

@@ -17,6 +17,11 @@ check_and_download https://download.java.net/java/GA/jdk14.0.1/664493ef4a6946b18
 
 md5sum -c ${SCRIPTPATH}/md5-openjdk &&
 
+if [ -d /opt/jdk-14.0.1 ]
+ then
+  exit 0
+fi
+
 tar xf /sources/openjdk-14.0.1_linux-x64_bin.tar.gz -C /sources/ &&
 
 cd /sources/jdk-14.0.1 &&
