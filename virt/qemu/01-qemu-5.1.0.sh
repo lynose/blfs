@@ -57,6 +57,6 @@ EOF
 as_root mv -v 65-kvm.rules /lib/udev/rules.d/65-kvm.rules &&
 as_root chgrp kvm  /usr/libexec/qemu-bridge-helper &&
 as_root chmod 4750 /usr/libexec/qemu-bridge-helper &&
-as_root ln -sv qemu-system-`uname -m` /usr/bin/qemu &&
+as_root ln -sfv qemu-system-`uname -m` /usr/bin/qemu &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
