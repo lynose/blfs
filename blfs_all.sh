@@ -1,8 +1,10 @@
 #!/bin/bash
+export CURRENT_PATH=`pwd`
+
 
 source ./help-functions.sh &&
 
-export log=./logger.sh
+export log=${CURRENT_PATH}/logger.sh
 export MAKEFLAGS='-j 20'
 export ENABLE_TEST=false
 #############################################################################
