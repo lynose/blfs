@@ -2,6 +2,8 @@
 
 source ./help-functions.sh &&
 
+export log=./logger.sh
+export MAKEFLAGS='-j 20'
 export ENABLE_TEST=false
 #############################################################################
 #
