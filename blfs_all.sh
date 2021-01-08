@@ -627,9 +627,9 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/gtk+/01-gtk+-3.24.22.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/gtk+/01-gtk+-2.24.32.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/gtksourceview/01-gtksourceview-3.24.11.sh &&
+# ./X/gtk+/01-gtk+-2.24.32.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/gtksourceview/01-gtksourceview-3.24.11.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/gtksourceview4/01-gtksourceview-4.6.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

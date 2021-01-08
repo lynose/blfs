@@ -14,7 +14,7 @@ check_and_download http://ftp.gnome.org/pub/gnome/sources/gtksourceview/4.6/gtks
         /sources &&
 
 
-md5sum -c ${SCRIPTPATH}/md5-gtksourceview4´ &&
+md5sum -c ${SCRIPTPATH}/md5-gtksourceview4 &&
 
 tar xf /sources/gtksourceview-4.6.1.tar.xz -C /sources/ &&
 
