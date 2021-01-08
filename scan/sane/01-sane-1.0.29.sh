@@ -62,7 +62,7 @@ ${log} `basename "$0"` " SANE frontends built" blfs_all &&
 as_root make install &&
 as_root install -v -m644 doc/sane.png xscanimage-icon-48x48-2.png \
     /usr/share/sane &&
-as_root ln -v -s ../../../../bin/xscanimage /usr/lib/gimp/2.0/plug-ins &&
+as_root ln -svf ../../../../bin/xscanimage /usr/lib/gimp/2.0/plug-ins &&
 
 as_root mkdir -pv /usr/share/{applications,pixmaps}               &&
 
