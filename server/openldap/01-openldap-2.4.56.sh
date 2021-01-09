@@ -2,30 +2,30 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/openldap-2.4.51
+if test -d /sources/openldap-2.4.56
  then
-  rm -rf /sources/openldap-2.4.51
+  rm -rf /sources/openldap-2.4.56
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.51.tgz \
+check_and_download https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.56.tgz \
         /sources
 
-check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/openldap-2.4.51-consolidated-2.patch \
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.56-consolidated-1.patch \
         /sources        
 
 md5sum -c ${SCRIPTPATH}/md5-openldap &&
 
-tar xf /sources/openldap-2.4.51.tgz -C /sources/ &&
+tar xf /sources/openldap-2.4.56.tgz -C /sources/ &&
 
-cd /sources/openldap-2.4.51 &&
+cd /sources/openldap-2.4.56 &&
 
 as_root_groupadd groupadd -g 83 ldap &&
 as_root_useradd useradd  -c  \"OpenLDAP_Daemon_Owner\" -d /var/lib/openldap -u 83 -g ldap -s /bin/false ldap &&
 
-patch -Np1 -i ../openldap-2.4.51-consolidated-2.patch &&
+patch -Np1 -i ../openldap-2.4.56-consolidated-1.patch &&
 autoconf &&
 
 ./configure --prefix=/usr         \
@@ -44,7 +44,6 @@ autoconf &&
             --enable-rlookups     \
             --enable-backends=mod \
             --disable-ndb         \
-            --disable-sql         \
             --disable-shell       \
             --disable-bdb         \
             --disable-hdb         \
@@ -73,8 +72,11 @@ as_root install -v -dm700 -o ldap -g ldap /etc/openldap/slapd.d &&
 as_root chmod   -v    640     /etc/openldap/slapd.{conf,ldif}   &&
 as_root chown   -v  root:ldap /etc/openldap/slapd.{conf,ldif}   &&
 
-as_root install -v -dm755 /usr/share/doc/openldap-2.4.51 &&
+as_root install -v -dm755 /usr/share/doc/openldap-2.4.56 &&
 as_root cp      -vfr      doc/{drafts,rfc,guide} \
-                  /usr/share/doc/openldap-2.4.51 &&
+                  /usr/share/doc/openldap-2.4.56 &&
+                  
+cd /usr/src/blfs-systemd-units &&
+make install-slapd &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

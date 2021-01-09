@@ -2,36 +2,39 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/harfbuzz-2.7.1
+if test -d /sources/pango-1.48.0
  then
-  rm -rf /sources/harfbuzz-2.7.1
+  rm -rf /sources/pango-1.48.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/harfbuzz/harfbuzz/releases/download/2.7.1/harfbuzz-2.7.1.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/pango/1.46/pango-1.48.0.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-harfbuzz &&
+md5sum -c ${SCRIPTPATH}/md5-pango &&
 
-tar xf /sources/harfbuzz-2.7.1.tar.xz -C /sources/ &&
+tar xf /sources/pango-1.48.0.tar.xz -C /sources/ &&
 
-cd /sources/harfbuzz-2.7.1 &&
+cd /sources/pango-1.48.0 &&
 
-./configure --prefix=/usr --with-gobject --with-graphite2 &&
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr -Dgtk_doc .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make &&
+ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make check &&
+  ninja test &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root make install &&
+as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

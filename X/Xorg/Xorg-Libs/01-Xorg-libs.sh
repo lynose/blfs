@@ -48,7 +48,7 @@ do
   make &&
   ${log} `basename "$0"` " built $package" blfs_all &&
   if [ ${ENABLE_TEST} == true ]
-    then
+   then
     make check 2>&1 | tee /log/$packagedir-make_check.log &&
     ${log} `basename "$0"` " check succeed" blfs_all ||
     ${log} `basename "$0"` " expected check fail?" blfs_all
@@ -60,8 +60,5 @@ do
   as_root /sbin/ldconfig &&
   ${log} `basename "$0"` " ======================================" blfs_all
 done
-
-#ln -sv $XORG_PREFIX/lib/X11 /usr/lib/X11 &&
-#ln -sv $XORG_PREFIX/include/X11 /usr/include/X11 &&
 
 ${log} `basename "$0"` " finished" blfs_all 

@@ -2,44 +2,37 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/pipewire-0.3.9
+if test -d /sources/libgpg-error-1.41
  then
-  rm -rf /sources/pipewire-0.3.9
+  rm -rf /sources/libgpg-error-1.41
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/PipeWire/pipewire/archive/0.3.9/pipewire-0.3.9.tar.gz \
+check_and_download https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.41.tar.bz2 \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-pipewire &&
+md5sum -c ${SCRIPTPATH}/md5-libgpg-error &&
 
-tar xf /sources/pipewire-0.3.9.tar.gz -C /sources/ &&
+tar xf /sources/libgpg-error-1.41.tar.bz2 -C /sources/ &&
 
-cd /sources/pipewire-0.3.9 &&
+cd /sources/libgpg-error-1.41 &&
 
-mkdir build &&
-cd    build &&
-
-meson --prefix=/usr           \
-      -Djack=false            \
-      -Dpipewire-jack=false   \
-      -Dvulkan=false          \
-      .. &&
+./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-ninja &&
+make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  ninja test &&
+  make check &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-
-as_root ninja install &&
+as_root make install &&
+as_root install -v -m644 -D README /usr/share/doc/libgpg-error-1.41/README &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

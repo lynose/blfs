@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/iw-5.4
+if test -d /sources/iw-5.9
  then
-  rm -rf /sources/iw-5.4
+  rm -rf /sources/iw-5.9
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.kernel.org/pub/software/network/iw/iw-5.4.tar.xz \
+check_and_download https://www.kernel.org/pub/software/network/iw/iw-5.9.tar.xz \
         /sources
 
 
 md5sum -c ${SCRIPTPATH}/md5-iw &&
 
-tar xf /sources/iw-5.4.tar.xz -C /sources/ &&
+tar xf /sources/iw-5.9.tar.xz -C /sources/ &&
 
-cd /sources/iw-5.4 &&
+cd /sources/iw-5.9 &&
 
 sed -i "/INSTALL.*gz/s/.gz//" Makefile &&
 ${log} `basename "$0"` " configured" blfs_all &&

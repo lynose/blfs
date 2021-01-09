@@ -2,27 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/nss-3.55
+if test -d /sources/nss-3.60.1
  then
-  rm -rf /sources/nss-3.55
+  rm -rf /sources/nss-3.60.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://archive.mozilla.org/pub/security/nss/releases/NSS_3_55_RTM/src/nss-3.55.tar.gz \
+check_and_download https://archive.mozilla.org/pub/security/nss/releases/NSS_3_55_RTM/src/nss-3.60.1.tar.gz \
     /sources &&
     
-check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/nss-3.55-standalone-1.patch \
+check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/nss-3.60.1-standalone-1.patch \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-nss &&
 
-tar xf /sources/nss-3.55.tar.gz -C /sources/ &&
+tar xf /sources/nss-3.60.1.tar.gz -C /sources/ &&
 
-cd /sources/nss-3.55 &&
+cd /sources/nss-3.60.1 &&
 
-patch -Np1 -i ../nss-3.55-standalone-1.patch &&
+patch -Np1 -i ../nss-3.60.1-standalone-1.patch &&
 
 cd nss &&
 ${log} `basename "$0"` " configured" blfs_all &&
@@ -36,11 +36,14 @@ make BUILD_OPT=1                      \
   $([ -f /usr/include/sqlite3.h ] && echo NSS_USE_SYSTEM_SQLITE=1) &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-# cd tests &&
-# HOST=localhost DOMSUF=localdomain ./all.sh &&
-# cd ../ &&
-# ${log} `basename "$0"` " check succeed" blfs_all ||
-# ${log} `basename "$0"` " expected check fail?" blfs_all &&
+if [ ${ENABLE_TEST} == true ]
+ then
+  cd tests &&
+  HOST=localhost DOMSUF=localdomain ./all.sh &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+  cd ../
+fi
 
 cd ../dist                                                          &&
 

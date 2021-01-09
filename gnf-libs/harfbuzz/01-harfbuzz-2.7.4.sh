@@ -2,37 +2,39 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libgpg-error-1.38
+if test -d /sources/harfbuzz-2.7.4
  then
-  rm -rf /sources/libgpg-error-1.38
+  rm -rf /sources/harfbuzz-2.7.4
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.38.tar.bz2 \
+check_and_download https://github.com/harfbuzz/harfbuzz/releases/download/2.7.4/harfbuzz-2.7.4.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-libgpg-error &&
+md5sum -c ${SCRIPTPATH}/md5-harfbuzz &&
 
-tar xf /sources/libgpg-error-1.38.tar.bz2 -C /sources/ &&
+tar xf /sources/harfbuzz-2.7.4.tar.xz -C /sources/ &&
 
-cd /sources/libgpg-error-1.38 &&
+cd /sources/harfbuzz-2.7.4 &&
 
-./configure --prefix=/usr &&
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr -Dgraphite=enabled -Dbenchmark=disabled &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make &&
+ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make check &&
+  ninja test&&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root make install &&
-as_root install -v -m644 -D README /usr/share/doc/libgpg-error-1.38/README &&
+as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

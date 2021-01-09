@@ -2,37 +2,33 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libuv-v1.38.1
+if test -d /sources/cbindgen-0.15.0
  then
-  rm -rf /sources/libuv-v1.38.1
+  rm -rf /sources/cbindgen-0.15.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://dist.libuv.org/dist/v1.38.1/libuv-v1.38.1.tar.gz \
+check_and_download https://github.com/eqrion/cbindgen/archive/v0.15.0/cbindgen-0.15.0.tar.gz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-libuv &&
+md5sum -c ${SCRIPTPATH}/md5-cbindgen &&
 
-tar xf /sources/libuv-v1.38.1.tar.gz -C /sources/ &&
+tar xf /sources/cbindgen-0.15.0.tar.gz -C /sources/ &&
 
-cd /sources/libuv-v1.38.1 &&
+cd /sources/cbindgen-0.15.0 &&
 
-sh autogen.sh                              &&
-./configure --prefix=/usr --disable-static &&
-${log} `basename "$0"` " configured" blfs_all &&
-
-make &&
+cargo build --release &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make check &&
+  cargo test &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root make install &&
+as_root install -Dm755 target/release/cbindgen /usr/bin/ &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

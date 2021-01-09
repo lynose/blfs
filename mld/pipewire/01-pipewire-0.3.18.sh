@@ -2,27 +2,33 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/pango-1.46.0
+if test -d /sources/pipewire-0.3.18
  then
-  rm -rf /sources/pango-1.46.0
+  rm -rf /sources/pipewire-0.3.18
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/pango/1.46/pango-1.46.0.tar.xz \
+check_and_download https://github.com/PipeWire/pipewire/archive/0.3.18/pipewire-0.3.18.tar.gz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-pango &&
+md5sum -c ${SCRIPTPATH}/md5-pipewire &&
 
-tar xf /sources/pango-1.46.0.tar.xz -C /sources/ &&
+tar xf /sources/pipewire-0.3.18.tar.gz -C /sources/ &&
 
-cd /sources/pango-1.46.0 &&
+cd /sources/pipewire-0.3.18 &&
 
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --sysconfdir=/etc .. &&
+meson --prefix=/usr           \
+      -Djack=false            \
+      -Dpipewire-jack=false   \
+      -Dvulkan=false          \
+      -Ddocs=true             \
+      -Dman=true              \
+      .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&
@@ -34,6 +40,7 @@ if [ ${ENABLE_TEST} == true ]
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
+
 
 as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&

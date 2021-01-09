@@ -2,29 +2,31 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/xorg-server-1.20.8
+if test -d /sources/xorg-server-1.20.10
  then
-  rm -rf /sources/xorg-server-1.20.8
+  rm -rf /sources/xorg-server-1.20.10
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.x.org/pub/individual/xserver/xorg-server-1.20.8.tar.bz2 \
+check_and_download https://www.x.org/pub/individual/xserver/xorg-server-1.20.10.tar.bz2 \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-xorg-server &&
 
-tar xf /sources/xorg-server-1.20.8.tar.bz2 -C /sources/ &&
+tar xf /sources/xorg-server-1.20.10.tar.bz2 -C /sources/ &&
 
-cd /sources/xorg-server-1.20.8 &&
+cd /sources/xorg-server-1.20.10 &&
 
 sed -i 's/malloc(pScreen/calloc(1, pScreen/' dix/pixmap.c &&
 
 ./configure $XORG_CONFIG            \
             --enable-glamor         \
             --enable-suid-wrapper   \
-            --with-xkb-output=/var/lib/xkb &&
+            --with-xkb-output=/var/lib/xkb \
+            --enable-dmx \
+            --enable-kdrive &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 

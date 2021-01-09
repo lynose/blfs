@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libqmi-1.26.2
+if test -d /sources/libqmi-1.26.6
  then
-  rm -rf /sources/libqmi-1.26.2
+  rm -rf /sources/libqmi-1.26.6
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.freedesktop.org/software/libqmi/libqmi-1.26.2.tar.xz \
+check_and_download https://www.freedesktop.org/software/libqmi/libqmi-1.26.6.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libqmi &&
 
-tar xf /sources/libqmi-1.26.2.tar.xz -C /sources/ &&
+tar xf /sources/libqmi-1.26.6.tar.xz -C /sources/ &&
 
-cd /sources/libqmi-1.26.2 &&
+cd /sources/libqmi-1.26.6 &&
 
 ./configure --prefix=/usr --disable-static &&
 ${log} `basename "$0"` " configured" blfs_all &&

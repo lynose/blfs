@@ -5,25 +5,22 @@ ${log} `basename "$0"` " started" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-if test -d /sources/curl-7.71.1
+if test -d /sources/curl-7.74.0
  then
-  rm -rf /sources/curl-7.71.1
+  rm -rf /sources/curl-7.74.0
 fi
 
 ${log} `basename "$0"` " Downloading" blfs_all &&
-check_and_download https://curl.haxx.se/download/curl-7.71.1.tar.xz \
-/sources &&
-
-check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/curl-7.71.1-security_fixes-1.patch \
+check_and_download https://curl.haxx.se/download/curl-7.74.0.tar.xz \
 /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-curl &&
 
-tar xf /sources/curl-7.71.1.tar.xz -C /sources/ &&
+tar xf /sources/curl-7.74.0.tar.xz -C /sources/ &&
 
-cd /sources/curl-7.71.1 &&
+cd /sources/curl-7.74.0 &&
 
-patch -Np1 -i ../curl-7.71.1-security_fixes-1.patch &&
+grep -rl '#!.*python$' | xargs sed -i '1s/python/&3/' &&
 
 ./configure --prefix=/usr                           \
             --disable-static                        \
@@ -47,8 +44,8 @@ as_root rm -rf docs/examples/.deps &&
 
 find docs \( -name Makefile\* -o -name \*.1 -o -name \*.3 \) -exec as_root rm {} \; &&
 
-as_root install -v -d -m755 /usr/share/doc/curl-7.71.1 &&
-as_root cp -v -R docs/*     /usr/share/doc/curl-7.71.1 &&
+as_root install -v -d -m755 /usr/share/doc/curl-7.74.0 &&
+as_root cp -v -R docs/*     /usr/share/doc/curl-7.74.0 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all

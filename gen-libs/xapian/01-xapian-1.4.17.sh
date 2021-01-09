@@ -2,26 +2,26 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/xapian-core-1.4.16
+if test -d /sources/xapian-core-1.4.17
  then
-  rm -rf /sources/xapian-core-1.4.16
+  rm -rf /sources/xapian-core-1.4.17
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://oligarchy.co.uk/xapian/1.4.16/xapian-core-1.4.16.tar.xz \
+check_and_download http://oligarchy.co.uk/xapian/1.4.17/xapian-core-1.4.17.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-xapian &&
 
-tar xf /sources/xapian-core-1.4.16.tar.xz -C /sources/ &&
+tar xf /sources/xapian-core-1.4.17.tar.xz -C /sources/ &&
 
-cd /sources/xapian-core-1.4.16 &&
+cd /sources/xapian-core-1.4.17 &&
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/xapian-core-1.4.16 &&
+            --docdir=/usr/share/doc/xapian-core-1.4.17 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
