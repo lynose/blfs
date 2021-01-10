@@ -19,7 +19,7 @@ tar xf /sources/pygobject-2.28.7.tar.xz -C /sources/ &&
 
 cd /sources/pygobject-2.28.7 &&
 
-./configure --prefix=/usr &&
+./configure --prefix=/usr --disable-introspection &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
