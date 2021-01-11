@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/URI-1.76
+if test -d /sources/URI-5.05
  then
-  rm -rf /sources/URI-1.76
+  rm -rf /sources/URI-5.05
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.cpan.org/authors/id/O/OA/OALDERS/URI-1.76.tar.gz \
+check_and_download https://www.cpan.org/authors/id/O/OA/OALDERS/URI-5.05.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-URI &&
 
-tar xf /sources/URI-1.76.tar.gz -C /sources/ &&
+tar xf /sources/URI-5.05.tar.gz -C /sources/ &&
 
-cd /sources/URI-1.76 &&
+cd /sources/URI-5.05 &&
 
 perl Makefile.PL &&
 ${log} `basename "$0"` " configured" blfs_all &&

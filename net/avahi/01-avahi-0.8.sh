@@ -13,6 +13,8 @@ SCRIPTPATH=`dirname $SCRIPT`
 check_and_download https://github.com/lathiat/avahi/releases/download/v0.8/avahi-0.8.tar.gz \
     /sources &&
 
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/avahi-0.8-ipv6_race_condition_fix-1.patch \
+    /sources &&
 md5sum -c ${SCRIPTPATH}/md5-avahi &&
 
 tar xf /sources/avahi-0.8.tar.gz -C /sources/ &&
@@ -24,6 +26,7 @@ as_root_useradd useradd -c \"Avahi_Daemon_Owner\" -d /var/run/avahi-daemon -u 84
 
 as_root_groupadd groupadd -fg 86 netdev &&
 
+patch -Np1 -i ../avahi-0.8-ipv6_race_condition_fix-1.patch &&
 
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
