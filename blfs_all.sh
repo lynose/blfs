@@ -80,7 +80,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/cracklib/01-cracklib-2.9.7.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./sec/Linux-PAM/01-Linux-PAM-1.4.0.sh &&
+# TODO PAM Config
+# ./sec/Linux-PAM/01-Linux-PAM-1.5.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/libogg/01-libogg-1.3.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -130,7 +131,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/libdvdread/01-libdvdread-6.1.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/krb5/01-krb5-1.18.2.sh &&
+./sec/krb5/01-krb5-1.18.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/libcdio/01-libcdio-2.1.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -231,7 +232,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/gc/01-gc-8.0.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libksba/01-libksba-1.4.0.sh &&
+./gen-libs/libksba/01-libksba-1.5.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/aspell/01-aspell-0.60.8.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -301,7 +302,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/plasma-wayland-protocols/01-plasma-wayland-protocols-1.1.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/c-ares/01-c-ares-1.16.1.sh &&
+./net-libs/c-ares/01-c-ares-1.17.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/libjpeg-turbo/01-libjpeg-turbo-2.0.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -343,7 +344,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/rsync/01-rsync-3.2.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/gpgme/01-gpgme-1.14.0.sh &&
+./sec/gpgme/01-gpgme-1.15.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libyaml/01-libyaml-0.2.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -412,7 +413,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/glib/01-glib-2.66.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/sshfs/01-sshfs-3.7.0.sh &&
+./fsndm/sshfs/01-sshfs-3.7.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/swig/01-swig-4.0.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -590,7 +591,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/freetype/02-freetype-2.10.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/gdk-pixbuf/01-gdk-pixbuf-2.40.0.sh &&
+./X/gdk-pixbuf/01-gdk-pixbuf-2.42.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libgusb/01-libgusb-0.3.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

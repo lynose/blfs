@@ -2,32 +2,33 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/c-ares-1.16.1
+if test -d /sources/sshfs-3.7.1
  then
-  rm -rf /sources/c-ares-1.16.1
+  rm -rf /sources/sshfs-3.7.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://c-ares.haxx.se/download/c-ares-1.16.1.tar.gz \
-    /sources &&
+check_and_download https://github.com/libfuse/sshfs/releases/download/sshfs-3.7.1/sshfs-3.7.1.tar.xz \
+        /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-c-ares &&
 
-tar xf /sources/c-ares-1.16.1.tar.gz -C /sources/ &&
+md5sum -c ${SCRIPTPATH}/md5-sshfs &&
 
-cd /sources/c-ares-1.16.1 &&
+tar xf /sources/sshfs-3.7.1.tar.xz -C /sources/ &&
+
+cd /sources/sshfs-3.7.1 &&
 
 mkdir build &&
 cd    build &&
-
-cmake  -DCMAKE_INSTALL_PREFIX=/usr .. &&
+          
+meson --prefix=/usr .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make &&
+ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-as_root make install &&
+as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

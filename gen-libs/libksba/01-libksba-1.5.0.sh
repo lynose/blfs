@@ -10,14 +10,14 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.gnupg.org/ftp/gcrypt/libksba/libksba-1.4.0.tar.bz2 \
+check_and_download https://www.gnupg.org/ftp/gcrypt/libksba/libksba-1.5.0.tar.bz2 \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libksba &&
 
-tar xf /sources/libksba-1.4.0.tar.bz2 -C /sources/ &&
+tar xf /sources/libksba-1.5.0.tar.bz2 -C /sources/ &&
 
-cd /sources/libksba-1.4.0 &&
+cd /sources/libksba-1.5.0 &&
 
 ./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&

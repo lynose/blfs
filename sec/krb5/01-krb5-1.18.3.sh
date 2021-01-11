@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/krb5-1.18.2
+if test -d /sources/krb5-1.18.3
  then
-  rm -rf /sources/krb5-1.18.2
+  rm -rf /sources/krb5-1.18.3
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://kerberos.org/dist/krb5/1.18/krb5-1.18.2.tar.gz \
+check_and_download https://kerberos.org/dist/krb5/1.18/krb5-1.18.3.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-krb5 &&
 
-tar xf /sources/krb5-1.18.2.tar.gz -C /sources/ &&
+tar xf /sources/krb5-1.18.3.tar.gz -C /sources/ &&
 
-cd /sources/krb5-1.18.2 &&
+cd /sources/krb5-1.18.3 &&
 
 cd src &&
  
@@ -55,8 +55,8 @@ as_root ln -v -sf ../../lib/libkrb5support.so.0.1 /usr/lib/libkrb5support.so &&
 as_root mv -v /usr/bin/ksu /bin &&
 as_root chmod -v 755 /bin/ksu   &&
 
-as_root install -v -dm755 /usr/share/doc/krb5-1.18.2 &&
-as_root cp -vfr ../doc/*  /usr/share/doc/krb5-1.18.2 &&
+as_root install -v -dm755 /usr/share/doc/krb5-1.18.3 &&
+as_root cp -vfr ../doc/*  /usr/share/doc/krb5-1.18.3 &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 

@@ -2,33 +2,33 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/Linux-PAM-1.4.0
+if test -d /sources/Linux-PAM-1.5.1
  then
-  rm -rf /sources/Linux-PAM-1.4.0
+  rm -rf /sources/Linux-PAM-1.5.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/linux-pam/linux-pam/releases/download/v1.4.0/Linux-PAM-1.4.0.tar.xz \
+check_and_download https://github.com/linux-pam/linux-pam/releases/download/v1.5.1/Linux-PAM-1.5.1.tar.xz \
     /sources &&
-check_and_download https://github.com/linux-pam/linux-pam/releases/download/v1.4.0/Linux-PAM-1.4.0-docs.tar.xz \
+check_and_download https://github.com/linux-pam/linux-pam/releases/download/v1.5.1/Linux-PAM-1.5.1-docs.tar.xz \
     /sources &&
     
     
 md5sum -c ${SCRIPTPATH}/md5-Linux-PAM &&
 
-tar xf /sources/Linux-PAM-1.4.0.tar.xz -C /sources/ &&
+tar xf /sources/Linux-PAM-1.5.1.tar.xz -C /sources/ &&
 
-cd /sources/Linux-PAM-1.4.0 &&
+cd /sources/Linux-PAM-1.5.1 &&
 
-tar -xf ../Linux-PAM-1.4.0-docs.tar.xz --strip-components=1 &&
+tar -xf ../Linux-PAM-1.5.1-docs.tar.xz --strip-components=1 &&
 
 ./configure --prefix=/usr                    \
             --sysconfdir=/etc                \
             --libdir=/usr/lib                \
             --enable-securedir=/lib/security \
-            --docdir=/usr/share/doc/Linux-PAM-1.4.0 &&
+            --docdir=/usr/share/doc/Linux-PAM-1.5.1 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
@@ -51,9 +51,6 @@ EOF
   ${log} `basename "$0"` " expected check fail?" blfs_all
   rm -fv /etc/pam.d/other
 fi
-
-
-
 
 as_root make install &&
 chmod -v 4755 /sbin/unix_chkpwd &&

@@ -2,37 +2,41 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gpgme-1.14.0
+if test -d /sources/gdk-pixbuf-2.42.2
  then
-  rm -rf /sources/gpgme-1.14.0
+  rm -rf /sources/gdk-pixbuf-2.42.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.14.0.tar.bz2 \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.40/gdk-pixbuf-2.42.2.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-gpgme &&
+md5sum -c ${SCRIPTPATH}/md5-gdk-pixbuf &&
 
-tar xf /sources/gpgme-1.14.0.tar.bz2 -C /sources/ &&
+tar xf /sources/gdk-pixbuf-2.42.2.tar.xz -C /sources/ &&
 
-cd /sources/gpgme-1.14.0 &&
+cd /sources/gdk-pixbuf-2.42.2 &&
 
-./configure --prefix=/usr --disable-gpg-test &&
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make &&
+ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make -k check &&
+  ninja test &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
 
-as_root make install &&
+as_root ninja install &&
+gdk-pixbuf-query-loaders --update-cache &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
