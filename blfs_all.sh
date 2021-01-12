@@ -246,19 +246,19 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/python-libxml2/01-python-libxml2-2.9.10.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/nss/01-nss-3.60.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/make-ca/01-make-ca-1.7.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libgcrypt/01-libgcrypt-1.8.7.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/MarkupSafe/01-MarkupSafe-1.1.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/Jinja2/01-Jinja2-2.11.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/Mako/01-Mako-1.1.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/lsof/01-lsof-4.91.sh &&
+# ./sec/nss/01-nss-3.60.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/make-ca/01-make-ca-1.7.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libgcrypt/01-libgcrypt-1.8.7.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/MarkupSafe/01-MarkupSafe-1.1.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/Jinja2/01-Jinja2-2.11.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/Mako/01-Mako-1.1.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/lsof/01-lsof-4.91.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/freetype/01-freetype-2.10.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
