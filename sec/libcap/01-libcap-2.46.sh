@@ -36,7 +36,7 @@ auth      optional    pam_cap.so
 EOF
   
   as_root mv -v /tmp/system-auth /etc/pam.d &&
-  as_root tail -n +3 /etc/pam.d/system-auth.bak >> /etc/pam.d/system-auth &&
+  as_root tail -n +3 /etc/pam.d/system-auth.bak >> /etc/pam.d/system-auth
 fi
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
