@@ -25,10 +25,10 @@ cd /sources/wget-1.21.1 &&
 ./configure --prefix=/usr      \
             --sysconfdir=/etc  \
             --with-ssl=openssl &&
-${log} `basename "$0"` " configured" blfs_basic &&
+${log} `basename "$0"` " configured" blfs_all &&
 
 make && 
-${log} `basename "$0"` " build" blfs_basic &&
+${log} `basename "$0"` " build" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
@@ -38,5 +38,5 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root make install &&
-${log} `basename "$0"` " installed" blfs_basic &&
-${log} `basename "$0"` " finished" blfs_basic
+${log} `basename "$0"` " installed" blfs_all &&
+${log} `basename "$0"` " finished" blfs_all

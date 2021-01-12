@@ -1,6 +1,6 @@
 #!/bin/bash
 
-${log} `basename "$0"` " started" networking &&
+${log} `basename "$0"` " started" blfs_all &&
 if test -d /sources/openssh-8.4p1
  then
   rm -rf /sources/openssh-8.4p1
@@ -27,9 +27,9 @@ as_root_useradd  -c 'sshd_PrivSep' \
             --sysconfdir=/etc/ssh             \
             --with-md5-passwords              \
             --with-privsep-path=/var/lib/sshd &&
-${log} `basename "$0"` " configured" networking &&
+${log} `basename "$0"` " configured" blfs_all &&
 make &&
-${log} `basename "$0"` " built" networking &&
+${log} `basename "$0"` " built" blfs_all &&
 as_root make install &&
 as_root install -v -m755    contrib/ssh-copy-id /usr/bin     &&
 
@@ -38,10 +38,10 @@ as_root install -v -m644    contrib/ssh-copy-id.1 \
 as_root install -v -m755 -d /usr/share/doc/openssh-8.4p1     &&
 as_root install -v -m644    INSTALL LICENCE OVERVIEW README* \
                     /usr/share/doc/openssh-8.4p1 &&
-as_root echo "PermitRootLogin no" >> /etc/ssh/sshd_config &&
+#as_root echo "PermitRootLogin no" >> /etc/ssh/sshd_config &&
 
-${log} `basename "$0"` " installed" networking &&
+${log} `basename "$0"` " installed" blfs_all &&
 
 
 
-${log} `basename "$0"` " finished" networking 
+${log} `basename "$0"` " finished" blfs_all 
