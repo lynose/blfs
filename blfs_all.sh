@@ -227,25 +227,25 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./devel/perl-IO-Socket-SSL/01-perl-IO-Socket-SSL-2.068.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net/ntp/01-ntp-4.2.8p15.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/perl-URI/01-URI-5.05.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/gc/01-gc-8.0.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libksba/01-libksba-1.5.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/aspell/01-aspell-0.60.8.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/libdvdnav/01-libdvdnav-6.1.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libassuan/01-libassuan-2.5.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/LVM2/01-LVM2-2.03.10.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/parted/01-parted-3.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/python-libxml2/01-python-libxml2-2.9.10.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/perl-URI/01-URI-5.05.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/gc/01-gc-8.0.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libksba/01-libksba-1.5.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/aspell/01-aspell-0.60.8.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/libdvdnav/01-libdvdnav-6.1.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libassuan/01-libassuan-2.5.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./fsndm/LVM2/01-LVM2-2.03.10.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./fsndm/parted/01-parted-3.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/python-libxml2/01-python-libxml2-2.9.10.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/nss/01-nss-3.60.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/make-ca/01-make-ca-1.7.sh &&

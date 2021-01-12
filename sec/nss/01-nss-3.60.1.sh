@@ -10,10 +10,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://archive.mozilla.org/pub/security/nss/releases/NSS_3_55_RTM/src/nss-3.60.1.tar.gz \
+check_and_download https://archive.mozilla.org/pub/security/nss/releases/NSS_3_60_1_RTM/src/nss-3.60.1.tar.gz \
     /sources &&
     
-check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/nss-3.60.1-standalone-1.patch \
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.60.1-standalone-1.patch \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-nss &&
