@@ -11,7 +11,7 @@ if test -d /sources/cmake-3.19.2
 fi
 
 ${log} `basename "$0"` " Downloading" blfs_all &&
-check_and_download https://cmake.org/files/v3.18/cmake-3.19.2.tar.gz \
+check_and_download https://cmake.org/files/v3.19/cmake-3.19.2.tar.gz \
 /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-cmake &&

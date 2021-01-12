@@ -274,28 +274,28 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen/gtk-doc/01-gtk-doc-1.33.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/p11-kit/01-p11-kit-0.23.22.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libbytesize/01-libbytesize-2.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./xml/xmlto/01-xmlto-0.0.28.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/asciidoc/01-asciidoc-9.0.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/btrfs-progs/01-btrfs-progs-5.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/pciutils/01-pciutils-3.7.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/curl/01-curl-7.74.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/git/01-git-2.30.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libidn2/01-libidn2-2.3.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/libpsl/01-libpsl-0.21.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/nghttp2/01-nghttp2-1.42.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/p11-kit/01-p11-kit-0.23.22.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libbytesize/01-libbytesize-2.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./xml/xmlto/01-xmlto-0.0.28.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/asciidoc/01-asciidoc-9.0.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./fsndm/btrfs-progs/01-btrfs-progs-5.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/pciutils/01-pciutils-3.7.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/curl/01-curl-7.74.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/git/01-git-2.30.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libidn2/01-libidn2-2.3.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/libpsl/01-libpsl-0.21.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/nghttp2/01-nghttp2-1.42.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/cmake/01-cmake-3.19.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/extra-cmake-modules/01-extra-cmake-modules-5.77.0.sh &&
