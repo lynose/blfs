@@ -25,8 +25,6 @@ source /etc/profile.d/kf5.sh &&
 source /etc/profile.d/qt5.sh &&
 source /etc/profile.d/openjdk.sh &&
 
-export KF5_PREFIX=/opt/kf5-5.73.0 &&
-
 ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"`  "Started BLFS build" &&
