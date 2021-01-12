@@ -1,4 +1,4 @@
-´#!/bin/bash
+#!/bin/bash
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&

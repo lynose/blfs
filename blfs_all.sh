@@ -12,7 +12,7 @@ export ENABLE_TEST=false
 #   Global Xorg configuration
 #
 #############################################################################
-# as_root chown root:root / #fixes problems with systemd installtion
+as_root chown root:root / #fixes problems with systemd installtion
 
 ./X/Xorg/01preXorg.sh &&
 ./typesetting/01preTeX.sh &&
