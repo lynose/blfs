@@ -1,5 +1,5 @@
-#!/bin/bash
-#${log} `basename "$0"` " started" blfs_all &&
+!/bin/bash
+${log} `basename "$0"` " started" blfs_all &&
 
 source ./help-functions.sh &&
 
@@ -43,7 +43,8 @@ cat > /tmp/java << "EOF" &&
 Defaults env_keep += JAVA_HOME
 Defaults env_keep += CLASSPATH
 EOF
-as_root mv -v /tmp/java /etc/sudoers.d/java #&&
+as_root chown root:root /tmp/java &&
+as_root mv -v /tmp/java /etc/sudoers.d/java &&
 
-# ${log} `basename "$0"` " installed" blfs_all &&
-# ${log} `basename "$0"` " finished" blfs_all 
+${log} `basename "$0"` " installed" blfs_all &&
+${log} `basename "$0"` " finished" blfs_all 

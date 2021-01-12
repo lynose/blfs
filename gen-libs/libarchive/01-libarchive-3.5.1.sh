@@ -10,7 +10,7 @@ if test -d /sources/libarchive-3.5.1
   rm -rf /sources/libarchive-3.5.1
 fi
 
-check_and_download https://github.com/libarchive/libarchive/releases/download/v3.5.1/libarchive-3.5.1.tar.xz \
+check_and_download https://github.com/libarchive/libarchive/releases/download/3.5.1/libarchive-3.5.1.tar.xz \
     /sources &&
   
 md5sum -c ${SCRIPTPATH}/md5-libarchive &&
@@ -18,8 +18,6 @@ md5sum -c ${SCRIPTPATH}/md5-libarchive &&
 tar xf /sources/libarchive-3.5.1.tar.xz -C /sources/ &&
 
 cd /sources/libarchive-3.5.1 &&
-
-patch -Np1 -i ../libarchive-3.5.1-testsuite_fix-1.patch &&
 
 ./configure --prefix=/usr --disable-static &&
 ${log} `basename "$0"` " configured" blfs_all &&
