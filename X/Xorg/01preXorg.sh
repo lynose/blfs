@@ -15,7 +15,8 @@ as_root mv -v ./xorg.sh /etc/profile.d/xorg.sh &&
 
 as_root chmod 644 /etc/profile.d/xorg.sh &&
 
-as_root echo "$XORG_PREFIX/lib" >> /etc/ld.so.conf.d/xorg.conf &&
+echo "$XORG_PREFIX/lib" >> /tmp/xorg.conf &&
+as_root mv -v /tmp/xorg.conf /etc/ld.so.conf.d/xorg.conf
 as_root sed "s@/usr/X11R6@$XORG_PREFIX@g" -i /etc/man_db.conf &&
 as_root ln -svf $XORG_PREFIX/share/X11 /usr/share/X11 &&
 as_root ln -svf $XORG_PREFIX /usr/X11R6 &&
