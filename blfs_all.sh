@@ -14,13 +14,13 @@ export ENABLE_TEST=false
 #############################################################################
 # as_root chown root:root / #fixes problems with systemd installtion
 
-# as_root ./X/Xorg/01preXorg.sh &&
-# as_root ./typesetting/01preTeX.sh &&
-# as_root ./kde/01preKDE.sh &&
-as_root ./devel/java/01-java.sh &&
+./X/Xorg/01preXorg.sh &&
+./typesetting/01preTeX.sh &&
+./kde/01preKDE.sh &&
+./devel/java/01-java.sh &&
 
 source /etc/profile.d/xorg.sh && # Do not uncomment
-source /etc/profile.d/extrapaths.sh &&
+source /etc/profile.d/extrapathtex.sh &&
 source /etc/profile.d/kf5.sh &&
 source /etc/profile.d/qt5.sh &&
 source /etc/profile.d/openjdk.sh &&
