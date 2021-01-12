@@ -14,9 +14,9 @@ export ENABLE_TEST=false
 #############################################################################
 as_root chown root:root / #fixes problems with systemd installtion
 
-./X/Xorg/01preXorg.sh &&
-./typesetting/01preTeX.sh &&
-./kde/01preKDE.sh &&
+# ./X/Xorg/01preXorg.sh &&
+# ./typesetting/01preTeX.sh &&
+# ./kde/01preKDE.sh &&
 ./devel/java/01-java.sh &&
 
 source /etc/profile.d/xorg.sh && # Do not uncomment

@@ -10,13 +10,13 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/thkukuk/libnsl/archive/v1.3.0/libnsl-1.3.0.tar.gz \
+check_and_download https://github.com/thkukuk/libnsl/releases/download/v1.3.0/libnsl-1.3.0.tar.xz \
         /sources
 
 
 md5sum -c ${SCRIPTPATH}/md5-libnsl &&
 
-tar xf /sources/libnsl-1.3.0.tar.gz -C /sources/ &&
+tar xf /sources/libnsl-1.3.0.tar.xz -C /sources/ &&
 
 cd /sources/libnsl-1.3.0 &&
 
