@@ -5,20 +5,20 @@ ${log} `basename "$0"` " started" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-if test -d /sources/doxygen-1.9.0
+if test -d /sources/doxygen-1.9.1
  then
-  rm -rf /sources/doxygen-1.9.0
+  rm -rf /sources/doxygen-1.9.1
 fi
 
 ${log} `basename "$0"` " Downloading" blfs_all &&
-check_and_download http://doxygen.nl/files/doxygen-1.9.0.src.tar.gz \
+check_and_download http://doxygen.nl/files/doxygen-1.9.1.src.tar.gz \
 /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-doxygen &&
 
-tar xf /sources/doxygen-1.9.0.src.tar.gz -C /sources/ &&
+tar xf /sources/doxygen-1.9.1.src.tar.gz -C /sources/ &&
 
-cd /sources/doxygen-1.9.0 &&
+cd /sources/doxygen-1.9.1 &&
 
 mkdir -v build &&
 cd       build &&
@@ -26,11 +26,26 @@ cd       build &&
 cmake -G "Unix Makefiles"         \
       -DCMAKE_BUILD_TYPE=Release  \
       -DCMAKE_INSTALL_PREFIX=/usr \
+      -Dbuild_wizard=ON \
+      -Dbuild_search=ON \
+      -Duse_libclang=ON \
       -Wno-dev .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
 ${log} `basename "$0"` " build" blfs_all &&
+
+if [ ${ENABLE_TEST} == true ]
+ then
+  make tests &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
+
+cmake -DDOC_INSTALL_DIR=share/doc/doxygen-1.9.1 -Dbuild_doc=ON .. &&
+
+make docs &&
+${log} `basename "$0"` " generating docs" blfs_all &&
 
 as_root make install &&
 as_root install -vm644 ../doc/*.1 /usr/share/man/man1 &&

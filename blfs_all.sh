@@ -326,7 +326,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/json-c/01-json-c-0.15.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/doxygen/01-doxygen-1.9.0.sh &&
+./devel/doxygen/01-doxygen-1.9.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./fsndm/fuse/01-fuse-3.10.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
