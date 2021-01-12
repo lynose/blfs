@@ -44,13 +44,14 @@ as_root make install &&
 as_root ln -sfv libsudo_util.so.0.0.0 /usr/lib/sudo/libsudo_util.so.0 &&
 
 as_root test -f /etc/sudoers.d/sudo && RES=true || RES=false
-
+echo $RES
 if [ $RES == false ]
  then
   cat > ./sudoers.sudo << "EOF" &&
 Defaults secure_path="/usr/bin:/bin:/usr/sbin:/sbin"
 %wheel ALL=(ALL) ALL
 EOF
+  echo "$USER ALL=(ALL) NOPASSWD : ALL" >> ./sudoers.sudo
   as_root mv -v ./sudoers.sudo /etc/sudoers.d/sudo 
   
 fi
