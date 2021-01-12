@@ -51,7 +51,8 @@ if [ $RES == false ]
 Defaults secure_path="/usr/bin:/bin:/usr/sbin:/sbin"
 %wheel ALL=(ALL) ALL
 EOF
-  echo "$USER ALL=(ALL) NOPASSWD : ALL" >> ./sudoers.sudo
+  echo "$USER ALL=(ALL) NOPASSWD : ALL" >> ./sudoers.sudo &&
+  as_root chown root:root ./sudoers.sudo &&
   as_root mv -v ./sudoers.sudo /etc/sudoers.d/sudo 
   
 fi
