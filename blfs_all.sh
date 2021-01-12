@@ -259,21 +259,21 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./devel/Mako/01-Mako-1.1.3.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen/lsof/01-lsof-4.91.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/freetype/01-freetype-2.10.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./xml/docbook-xsl-nons/01-docbook-xsl-nons-1.79.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/scons/01-scons-4.0.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./xml/docbook-xml/01-docbook-xml-4.5.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./xml/itstool/01-itstool-2.0.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libxslt/01-libxslt-1.1.34.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/gtk-doc/01-gtk-doc-1.33.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/freetype/01-freetype-2.10.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./xml/docbook-xsl-nons/01-docbook-xsl-nons-1.79.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/scons/01-scons-4.0.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./xml/docbook-xml/01-docbook-xml-4.5.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./xml/itstool/01-itstool-2.0.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libxslt/01-libxslt-1.1.34.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/gtk-doc/01-gtk-doc-1.33.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/p11-kit/01-p11-kit-0.23.22.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libbytesize/01-libbytesize-2.4.sh &&
