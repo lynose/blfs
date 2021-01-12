@@ -11,8 +11,7 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
 check_and_download https://fukuchi.org/works/qrencode/qrencode-4.1.1.tar.bz2 \
-        /sources
-
+        /sources &&
 
 sha512sum -c ${SCRIPTPATH}/qrencode-4.1.1.tar.bz2.sha &&
 
@@ -24,8 +23,11 @@ cd /sources/qrencode-4.1.1 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
+doxygen &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
+as_root install -vdm 755 /usr/share/doc/qrencode-4.1.1 &&
+as_root mv html/* /usr/share/doc/qrencode-4.1.1 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

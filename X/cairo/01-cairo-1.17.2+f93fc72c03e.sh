@@ -19,9 +19,10 @@ tar xf /sources/cairo-1.17.2+f93fc72c03e.tar.xz -C /sources/ &&
 
 cd /sources/cairo-1.17.2+f93fc72c03e &&
 
-autoreconf -fiv             &&
+autoreconf -fv             &&
 ./configure --prefix=/usr    \
             --disable-static \
+            --enable-gtk-doc \
             --enable-tee &&
 ${log} `basename "$0"` " configured" blfs_all &&
 

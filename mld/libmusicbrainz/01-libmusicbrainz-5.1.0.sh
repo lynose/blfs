@@ -13,7 +13,7 @@ SCRIPTPATH=`dirname $SCRIPT`
 check_and_download https://github.com/metabrainz/libmusicbrainz/releases/download/release-5.1.0/libmusicbrainz-5.1.0.tar.gz \
     /sources &&
     
-check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/libmusicbrainz-5.1.0-cmake_fixes-1.patch \
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/libmusicbrainz-5.1.0-cmake_fixes-1.patch \
     /sources &&    
 
 md5sum -c ${SCRIPTPATH}/md5-libmusicbrainz &&
