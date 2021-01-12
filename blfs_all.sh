@@ -206,14 +206,14 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 #############################################################################
 # # ./sec/sudo/02-sudo-1.9.4p2.sh && # better to build sudo seperate
 # # ${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/libcap/01-libcap-2.46.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-# ./net/bridge-utils/01-bridge-utils-1.6.sh && #!!! Need to be reviewed, kernel headers!!!
+# ./sec/libcap/01-libcap-2.46.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/xfsprogs/01-xfsprogs-5.10.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/pm-utils/01-pm-utils-1.4.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# # ./net/bridge-utils/01-bridge-utils-1.6.sh && #!!! Need to be reviewed, kernel headers!!!
+# # ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./fsndm/xfsprogs/01-xfsprogs-5.10.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/pm-utils/01-pm-utils-1.4.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/libnsl/01-libnsl-1.3.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/iw/01-iw-5.9.sh &&
