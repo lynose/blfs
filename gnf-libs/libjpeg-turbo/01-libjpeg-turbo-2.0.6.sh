@@ -9,11 +9,10 @@ fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-if [ ! -f /sources/libjpeg-turbo-2.0.6.tar.gz ];  
- then
-  check_and_download https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.0.6.tar.gz \
-    /sources
-fi
+
+check_and_download https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.0.6.tar.gz \
+    /sources &&
+
 
 md5sum -c ${SCRIPTPATH}/md5-libjpeg-turbo  &&
 
