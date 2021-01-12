@@ -214,19 +214,19 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sys/pm-utils/01-pm-utils-1.4.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/libnsl/01-libnsl-1.3.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/iw/01-iw-5.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/rpcbind/01-rpcbind-1.2.5.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./db/BerkeleyDB/01-db-5.3.28.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/qrencode/01-qrencode-4.1.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/perl-IO-Socket-SSL/01-perl-IO-Socket-SSL-2.068.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/ntp/01-ntp-4.2.8p15.sh &&
+# ./net-libs/libnsl/01-libnsl-1.3.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/iw/01-iw-5.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/rpcbind/01-rpcbind-1.2.5.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./db/BerkeleyDB/01-db-5.3.28.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/qrencode/01-qrencode-4.1.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/perl-IO-Socket-SSL/01-perl-IO-Socket-SSL-2.068.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/ntp/01-ntp-4.2.8p15.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/perl-URI/01-URI-5.05.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
