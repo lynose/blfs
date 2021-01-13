@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 ${log} `basename "$0"` " started" blfs_all &&
 
 source ./help-functions.sh &&
