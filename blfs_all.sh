@@ -379,10 +379,10 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sys/lm-sensors/01-lm-sensors-3-6-0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/boost/01-boost_1_75_0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/taglib/01-taglib-1.11.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/boost/01-boost_1_75_0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/taglib/01-taglib-1.11.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/llvm/01-llvm-11.0.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/rustc/01-rustc-1.47.0.sh && #FIXME Reconfigure ld.so...

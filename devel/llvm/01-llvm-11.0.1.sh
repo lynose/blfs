@@ -45,7 +45,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr               \
       -DLLVM_ENABLE_RTTI=ON                     \
       -DLLVM_TARGETS_TO_BUILD="host;AMDGPU;BPF" \
       -DLLVM_BUILD_TESTS=ON                     \
-      -DLLVM_ENABLE_DOXYGEN                     \
+      -DLLVM_ENABLE_DOXYGEN=ON                  \
       -Wno-dev -G Ninja ..    &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
