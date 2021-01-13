@@ -24,7 +24,6 @@ cd    build &&
 
 meson --prefix=/usr \
       -Dgtk_doc=true \
-      -Dcairo=enabled \
       .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
