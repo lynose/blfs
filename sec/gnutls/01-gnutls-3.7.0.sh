@@ -2,25 +2,25 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gnutls-3.6.14
+if test -d /sources/gnutls-3.7.0
  then
-  rm -rf /sources/gnutls-3.6.14
+  rm -rf /sources/gnutls-3.7.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.14.tar.xz \
+check_and_download https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-gnutls &&
 
-tar xf /sources/gnutls-3.6.14.tar.xz -C /sources/ &&
+tar xf /sources/gnutls-3.7.0.tar.xz -C /sources/ &&
 
-cd /sources/gnutls-3.6.14 &&
+cd /sources/gnutls-3.7.0 &&
 
 ./configure --prefix=/usr \
-            --docdir=/usr/share/doc/gnutls-3.6.14 \
+            --docdir=/usr/share/doc/gnutls-3.7.0 \
             --disable-guile \
             --with-default-trust-store-pkcs11="pkcs11:" \
             --enable-gtk-doc &&
