@@ -6,6 +6,7 @@ source ./help-functions.sh &&
 
 export log=${CURRENT_PATH}/logger.sh
 export MAKEFLAGS='-j 8'
+export NINJAJOBS=8
 export ENABLE_TEST=false
 export DANGER_TEST=false
 #############################################################################
