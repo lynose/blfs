@@ -519,39 +519,39 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/vala/01-vala-0.50.3.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/gexiv2/01-gexiv2-0.12.1.sh &&
+# ./gnome/gexiv2/01-gexiv2-0.12.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xcb-util/01-xcb-util-0.4.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/startup-notification/01-startup-notification-0.12.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xcb-util-image/01-xcb-util-image-0.4.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xcb-util-keysyms/01-xcb-util-keysyms-0.4.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xcb-util-renderutil/01-xcb-util-renderutil-0.3.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xcb-util-wm/01-xcb-util-wm-0.4.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xcb-util-cursor/01-xcb-util-cursor-0.1.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/libdrm/01-libdrm-2.4.104.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/libva/01-libva-2.10.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/libvdpau/01-libvdpau-1.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/mesa/01-mesa-20.3.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/libepoxy/01-libepoxy-1.5.5.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/glu/01-glu-9.0.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/freeglut/01-freeglut-3.2.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/libvdpau-va-gl/01-libvdpau-va-gl-0.4.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xcb-util/01-xcb-util-0.4.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/startup-notification/01-startup-notification-0.12.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xcb-util-image/01-xcb-util-image-0.4.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xcb-util-keysyms/01-xcb-util-keysyms-0.4.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xcb-util-renderutil/01-xcb-util-renderutil-0.3.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xcb-util-wm/01-xcb-util-wm-0.4.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xcb-util-cursor/01-xcb-util-cursor-0.1.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/libdrm/01-libdrm-2.4.104.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/libva/01-libva-2.10.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/libvdpau/01-libvdpau-1.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/mesa/01-mesa-20.3.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/libepoxy/01-libepoxy-1.5.5.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/glu/01-glu-9.0.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/freeglut/01-freeglut-3.2.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/libvdpau-va-gl/01-libvdpau-va-gl-0.4.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/libva/01-libva-2.8.0.sh && # Rebuild after mesa
+./X/Xorg/Xorg-drivers/libva/01-libva-2.10.0.sh && # Rebuild after mesa
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/xbitmaps/01-xbitmaps-1.1.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
