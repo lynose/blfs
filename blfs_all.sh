@@ -499,26 +499,26 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/tk/01-tk-8.6.10.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/python3/01-python-3.9.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/six/01-six-1.15.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/gdb/01-gdb-10.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/valgrind/01-valgrind-3.16.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/gcc/01-gcc-10.2.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/SDL/01-SDL-1.2.15.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/libwebp/01-libwebp-1.1.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/dbus/01-dbus-1.12.20.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/dbus-glib/01-dbus-glib-0.110.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/vala/01-vala-0.50.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/python3/01-python-3.9.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/six/01-six-1.15.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/gdb/01-gdb-10.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/valgrind/01-valgrind-3.16.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/gcc/01-gcc-10.2.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/SDL/01-SDL-1.2.15.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/libwebp/01-libwebp-1.1.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/dbus/01-dbus-1.12.20.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/dbus-glib/01-dbus-glib-0.110.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/vala/01-vala-0.50.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnome/gexiv2/01-gexiv2-0.12.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/xcb-util/01-xcb-util-0.4.0.sh &&
