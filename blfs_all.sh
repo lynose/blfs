@@ -454,8 +454,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/volume_key/01-volume_key-0.3.12.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./sec/shadow/01-shadow-4.8.1.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./sec/shadow/01-shadow-4.8.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/alsa-lib/01-alsa-lib-1.2.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/audiofile/01-audiofile-0.3.6.sh &&
