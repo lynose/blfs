@@ -10,7 +10,7 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.40/gdk-pixbuf-2.42.2.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.42/gdk-pixbuf-2.42.2.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-gdk-pixbuf &&

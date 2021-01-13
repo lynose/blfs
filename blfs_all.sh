@@ -582,20 +582,20 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/telepathy-glib/01-telepathy-glib-0.24.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libical/01-libical-3.0.8.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/bluez/01-bluez-5.55.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/libpcap/01-libpcap-1.9.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/ldns/01-ldns-1.7.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/harfbuzz/01-harfbuzz-2.7.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./postscript/mupdf/01-mupdf-1.18.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/freetype/02-freetype-2.10.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libical/01-libical-3.0.8.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/bluez/01-bluez-5.55.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/libpcap/01-libpcap-1.9.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/ldns/01-ldns-1.7.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/harfbuzz/01-harfbuzz-2.7.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./postscript/mupdf/01-mupdf-1.18.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/freetype/02-freetype-2.10.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/gdk-pixbuf/01-gdk-pixbuf-2.42.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libgusb/01-libgusb-0.3.5.sh &&
