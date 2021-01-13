@@ -22,7 +22,10 @@ cd /sources/gobject-introspection-1.66.1 &&
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr  .. &&
+meson --prefix=/usr \
+      -Dgtk_doc=true \
+      -Dcairo=enabled \
+      .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&
