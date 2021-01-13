@@ -397,11 +397,11 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/cyrus-sasl/01-cyrus-sasl-2.1.27.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./server/openldap/01-openldap-2.4.56.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libnfsidmap/01-libnfsidmap-0.26.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/nfsutils/01-nfsutils-2.5.1.sh &&
+# ./server/openldap/01-openldap-2.4.56.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libnfsidmap/01-libnfsidmap-0.26.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+./net/nfsutils/01-nfsutils-2.5.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/apr-util/01-apr-util-1.6.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
