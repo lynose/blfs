@@ -19,6 +19,10 @@ tar xf /sources/libical-3.0.8.tar.gz -C /sources/ &&
 
 cd /sources/libical-3.0.8 &&
 
+sed -i '/define LEAP_MONTH/a #define FALSE 0' src/libical/icalrecur.c &&
+sed -i 's/array/arraytest/'       src/test/libical-glib/CMakeLists.txt &&
+mv src/test/libical-glib/array.py src/test/libical-glib/arraytest.py &&
+
 mkdir build &&
 cd    build &&
 
@@ -31,7 +35,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr  \
       ..  &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make &&
+make -j 1 &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]

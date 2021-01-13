@@ -574,12 +574,14 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./devel/pycairo/01-pycairo-1.18.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/pycairo/01-pycairo-1.20.0.sh &&
+
 # # TODO further check need
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/gobject-introspection/01-gobject-introspection-1.66.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/telepathy-glib/01-telepathy-glib-0.24.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/telepathy-glib/01-telepathy-glib-0.24.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libical/01-libical-3.0.8.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sys/bluez/01-bluez-5.55.sh &&
