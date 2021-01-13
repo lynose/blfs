@@ -401,104 +401,104 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/libnfsidmap/01-libnfsidmap-0.26.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./net/nfsutils/01-nfsutils-2.5.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/apr-util/01-apr-util-1.6.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/serf/01-serf-1.3.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./server/apache/01-apache-2.4.46.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/slang/01-slang-2.3.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/newt/01-newt-0.52.21.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/glib/01-glib-2.66.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/sshfs/01-sshfs-3.7.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/swig/01-swig-4.0.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/desktop-file-utils/01-desktop-file-utils-0.26.sh && #TODO Reinstall fails
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/enchant/01-enchant-2.2.15.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/glib-networking/01-glib-networking-2.66.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/shared-mime-info/01-shared-mime-info-2.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/icu/01-icu-68.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/JS/01-JS-78.6.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/nodejs/01-nodejs-v14.15.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/gptfdisk/01-gptfdisk-1.0.5.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/fontconfig/01-fontconfig-2.13.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/oxygen-fonts/01-oxygen-fonts-5.4.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/noto-fonts/01-Noto-fonts.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/frididi/01-fribidi-1.0.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/libass/01-libass-0.14.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/polkit/01-polkit-0.118.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/systemd/01-systemd-247.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/libpwquality/01-libpwquality-1.4.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/cryptsetup/01-cryptsetup-2.3.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/volume_key/01-volume_key-0.3.12.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/shadow/01-shadow-4.8.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/alsa-lib/01-alsa-lib-1.2.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/audiofile/01-audiofile-0.3.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/libsndfile/01-libsndfile-1.0.28.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/sbc/01-sbc-1.5.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/libsamplerate/01-libsamplerate-0.1.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/alsa-plugin/01-alsa-plugin-1.2.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/alsa-utils/01-alsa-utils-1.2.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/alsa-firmware/01-alsa-firmware-1.2.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/alsa-oss/01-alsa-oss-1.1.8.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/SDL2/01-SDL2-2.0.14.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/libtheora/01-libtheora-1.1.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./video-utils/ffmpeg/01-ffmpeg-4.3.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/wayland/01-wayland-1.18.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/wayland-protocols/01-wayland-protocols-1.20.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xorgproto/01-xorgproto-2020.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/libXau/01-libXau-1.0.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xcb-proto/01-xcb-proto-1.14.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/libXdmcp/01-libXdmcp-1.1.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/libxcb/01-libxcb-1.14.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-Libs/01-Xorg-libs.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/tk/01-tk-8.6.10.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/nfsutils/01-nfsutils-2.5.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/apr-util/01-apr-util-1.6.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/serf/01-serf-1.3.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./server/apache/01-apache-2.4.46.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/slang/01-slang-2.3.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/newt/01-newt-0.52.21.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/glib/01-glib-2.66.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./fsndm/sshfs/01-sshfs-3.7.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/swig/01-swig-4.0.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/desktop-file-utils/01-desktop-file-utils-0.26.sh && #TODO Reinstall fails
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/enchant/01-enchant-2.2.15.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/glib-networking/01-glib-networking-2.66.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/shared-mime-info/01-shared-mime-info-2.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/icu/01-icu-68.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/JS/01-JS-78.6.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/nodejs/01-nodejs-v14.15.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./fsndm/gptfdisk/01-gptfdisk-1.0.5.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/fontconfig/01-fontconfig-2.13.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/oxygen-fonts/01-oxygen-fonts-5.4.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/noto-fonts/01-Noto-fonts.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/frididi/01-fribidi-1.0.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/libass/01-libass-0.14.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/polkit/01-polkit-0.118.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/systemd/01-systemd-247.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/libpwquality/01-libpwquality-1.4.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/cryptsetup/01-cryptsetup-2.3.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/volume_key/01-volume_key-0.3.12.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/shadow/01-shadow-4.8.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/alsa-lib/01-alsa-lib-1.2.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/audiofile/01-audiofile-0.3.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/libsndfile/01-libsndfile-1.0.28.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/sbc/01-sbc-1.5.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/libsamplerate/01-libsamplerate-0.1.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/alsa-plugin/01-alsa-plugin-1.2.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/alsa-utils/01-alsa-utils-1.2.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/alsa-firmware/01-alsa-firmware-1.2.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/alsa-oss/01-alsa-oss-1.1.8.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/SDL2/01-SDL2-2.0.14.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/libtheora/01-libtheora-1.1.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./video-utils/ffmpeg/01-ffmpeg-4.3.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/wayland/01-wayland-1.18.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/wayland-protocols/01-wayland-protocols-1.20.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xorgproto/01-xorgproto-2020.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/libXau/01-libXau-1.0.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xcb-proto/01-xcb-proto-1.14.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/libXdmcp/01-libXdmcp-1.1.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/libxcb/01-libxcb-1.14.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-Libs/01-Xorg-libs.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/tk/01-tk-8.6.10.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/python3/01-python-3.9.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/six/01-six-1.15.0.sh &&
