@@ -28,6 +28,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
 as_root install -vdm 755 /usr/share/doc/qrencode-4.1.1 &&
-as_root mv html/* /usr/share/doc/qrencode-4.1.1 &&
+as_root cp -rv html/* /usr/share/doc/qrencode-4.1.1 &&
+as_root chown -R root:root /usr/share/doc/qrencode-4.1.1 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
