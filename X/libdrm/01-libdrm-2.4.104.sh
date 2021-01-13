@@ -2,36 +2,40 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/vala-0.50.2
+if test -d /sources/libdrm-2.4.104
  then
-  rm -rf /sources/vala-0.50.2
+  rm -rf /sources/libdrm-2.4.104
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/vala/0.50/vala-0.50.2.tar.xz \
+check_and_download https://dri.freedesktop.org/libdrm/libdrm-2.4.104.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-vala &&
+md5sum -c ${SCRIPTPATH}/md5-libdrm &&
 
-tar xf /sources/vala-0.50.2.tar.xz -C /sources/ &&
+tar xf /sources/libdrm-2.4.104.tar.xz -C /sources/ &&
 
-cd /sources/vala-0.50.2 &&
+cd /sources/libdrm-2.4.104 &&
 
-./configure --prefix=/usr &&
+mkdir build &&
+cd    build &&
+
+meson --prefix=$XORG_PREFIX -Dudev=true &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make &&
+ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make check &&
+  ninja test &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root make install &&
+
+as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -36,7 +36,7 @@ as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
 as_root install -v -d -m755 /usr/share/doc/libusb-1.0.24/apidocs &&
-as_root install -v -m644    doc/html/* \
+as_root install -v -m644    doc/api-1.0/* \
                     /usr/share/doc/libusb-1.0.24/apidocs &&
 ${log} `basename "$0"` " install apidocs" blfs_all &&
 

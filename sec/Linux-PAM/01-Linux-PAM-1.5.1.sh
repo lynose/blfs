@@ -40,29 +40,31 @@ as_root install -v -m755 -d /etc/pam.d &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  as_root cat > /etc/pam.d/other << "EOF"
+  cat > ./other << "EOF" &&
 auth     required       pam_deny.so
 account  required       pam_deny.so
 password required       pam_deny.so
 session  required       pam_deny.so
 EOF
+  as_root install -vm644 ./other /etc/pam.d &&
   make check &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
-  rm -fv /etc/pam.d/other
+  as_root rm -fv /etc/pam.d/other
 fi
 
 as_root make install &&
-chmod -v 4755 /sbin/unix_chkpwd &&
+as_root chmod -v 4755 /sbin/unix_chkpwd &&
 
 for file in pam pam_misc pamc
 do
   as_root mv -v /usr/lib/lib${file}.so.* /lib &&
-  ln -sfv ../../lib/$(readlink /usr/lib/lib${file}.so) /usr/lib/lib${file}.so
+  as_root ln -sfv ../../lib/$(readlink /usr/lib/lib${file}.so) /usr/lib/lib${file}.so
 done
 
 as_root install -vdm755 /etc/pam.d &&
-as_root cat > /etc/pam.d/system-account << "EOF" &&
+
+cat > ./system-account << "EOF" &&
 # Begin /etc/pam.d/system-account
 
 account   required    pam_unix.so
@@ -70,7 +72,9 @@ account   required    pam_unix.so
 # End /etc/pam.d/system-account
 EOF
 
-as_root cat > /etc/pam.d/system-auth << "EOF" &&
+as_root install -vm644 ./system-account /etc/pam.d &&
+
+cat > ./system-auth << "EOF" &&
 # Begin /etc/pam.d/system-auth
 
 auth      required    pam_unix.so
@@ -78,14 +82,19 @@ auth      required    pam_unix.so
 # End /etc/pam.d/system-auth
 EOF
 
-as_root cat > /etc/pam.d/system-session << "EOF"
+as_root install -vm644 ./system-auth /etc/pam.d &&
+
+cat > ./system-session << "EOF" &&
 # Begin /etc/pam.d/system-session
 
 session   required    pam_unix.so
 
 # End /etc/pam.d/system-session
 EOF
-as_root cat > /etc/pam.d/system-password << "EOF"
+
+as_root install -vm644 ./system-session /etc/pam.d &&
+
+cat > ./system-password << "EOF" &&
 # Begin /etc/pam.d/system-password
 
 # use sha512 hash for encryption, use shadow, and try to use any previously
@@ -95,7 +104,9 @@ password  required    pam_unix.so       sha512 shadow try_first_pass
 # End /etc/pam.d/system-password
 EOF
 
-as_root cat > /etc/pam.d/other << "EOF"
+as_root install -vm644 ./system-password /etc/pam.d &&
+
+cat > ./other << "EOF" &&
 # Begin /etc/pam.d/other
 
 auth        required        pam_warn.so
@@ -109,6 +120,8 @@ session     required        pam_deny.so
 
 # End /etc/pam.d/other
 EOF
+
+as_root install -vm644 ./other /etc/pam.d &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

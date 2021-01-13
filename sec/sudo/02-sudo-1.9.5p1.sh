@@ -51,6 +51,8 @@ if [ $RES == false ]
 Defaults secure_path="/usr/bin:/bin:/usr/sbin:/sbin"
 %wheel ALL=(ALL) ALL
 EOF
+  echo "$USER ALL=(ALL) NOPASSWD : ALL" >> ./sudoers.sudo &&
+  as_root chown root:root ./sudoers.sudo &&
   as_root mv -v ./sudoers.sudo /etc/sudoers.d/sudo 
 fi
 
@@ -58,7 +60,7 @@ unset RES
 
 if [ ! -f /etc/pam.d/sudo ]
  then 
-  cat > /etc/pam.d/sudo << "EOF" &&
+  cat > ./pam.sudo << "EOF" &&
 # Begin /etc/pam.d/sudo
 
 # include the default auth settings
@@ -75,6 +77,7 @@ session   include     system-session
 
 # End /etc/pam.d/sudo
 EOF
+  as_root chown root:root ./pam.sudo
   as_root mv ./pam.sudo /etc/pam.d/sudo &&
   as_root chmod 644 /etc/pam.d/sudo
 fi
