@@ -550,30 +550,30 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./X/freeglut/01-freeglut-3.2.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/Xorg/Xorg-drivers/libvdpau-va-gl/01-libvdpau-va-gl-0.4.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/libva/01-libva-2.10.0.sh && # Rebuild after mesa
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xbitmaps/01-xbitmaps-1.1.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-apps/01-Xorg-apps.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./xsoft/xdg-utils/01-xdg-utils-1.1.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xcursor-themes/01-xcursor-themes-1.0.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-Fonts/01-Xorg-fonts.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xkeyboard-config/01-xkeyboard-config-2.31.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libxkbcommon/01-libxkbcommon-1.0.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/pixman/01-pixman-0.40.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/cairo/01-cairo-1.17.2+f93fc72c03e.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/pycairo/01-pycairo-1.18.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/pycairo/01-pycairo-1.20.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/libva/01-libva-2.10.0.sh && # Rebuild after mesa
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xbitmaps/01-xbitmaps-1.1.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-apps/01-Xorg-apps.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./xsoft/xdg-utils/01-xdg-utils-1.1.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xcursor-themes/01-xcursor-themes-1.0.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-Fonts/01-Xorg-fonts.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xkeyboard-config/01-xkeyboard-config-2.31.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libxkbcommon/01-libxkbcommon-1.0.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/pixman/01-pixman-0.40.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/cairo/01-cairo-1.17.2+f93fc72c03e.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/pycairo/01-pycairo-1.18.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/pycairo/01-pycairo-1.20.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/gobject-introspection/01-gobject-introspection-1.66.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
