@@ -384,19 +384,19 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/taglib/01-taglib-1.11.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/llvm/01-llvm-11.0.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/rustc/01-rustc-1.47.0.sh && #FIXME Reconfigure ld.so...
-source /etc/profile.d/rustc.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/cbindgen/01-cbindgen-0.15.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/pcre/01-pcre-8.44.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./db/mariadb/01-mariadb-10.5.8.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/cyrus-sasl/01-cyrus-sasl-2.1.27.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/llvm/01-llvm-11.0.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/rustc/01-rustc-1.47.0.sh && #FIXME Reconfigure ld.so...
+# source /etc/profile.d/rustc.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/cbindgen/01-cbindgen-0.15.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/pcre/01-pcre-8.44.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./db/mariadb/01-mariadb-10.5.8.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/cyrus-sasl/01-cyrus-sasl-2.1.27.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./server/openldap/01-openldap-2.4.56.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libnfsidmap/01-libnfsidmap-0.26.sh &&

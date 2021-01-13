@@ -77,6 +77,6 @@ as_root cp      -vfr      doc/{drafts,rfc,guide} \
                   /usr/share/doc/openldap-2.4.56 &&
                   
 cd /usr/src/blfs-systemd-units &&
-make install-slapd &&
+as_root make install-slapd &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
