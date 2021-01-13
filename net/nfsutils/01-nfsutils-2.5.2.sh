@@ -26,6 +26,7 @@ as_root_useradd useradd -c \"Unprivileged_Nobody\" -d /dev/null -g nogroup -s /b
 ./configure --prefix=/usr          \
             --sysconfdir=/etc      \
             --sbindir=/sbin        \
+            --disable-nfsv4        \
             --disable-gss &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
