@@ -22,7 +22,7 @@ cd /sources/pango-1.48.0 &&
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dgtk_doc .. &&
+meson --prefix=/usr -Dgtk_doc=true .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&
