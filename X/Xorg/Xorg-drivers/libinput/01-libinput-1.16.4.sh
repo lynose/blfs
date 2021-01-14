@@ -35,8 +35,5 @@ ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root ninja install &&
-as_root install -v -dm755      /usr/share/doc/libinput-1.16.4/{html,api} &&
-as_root cp -rv Documentation/* /usr/share/doc/libinput-1.16.4/html &&
-as_root cp -rv api/*           /usr/share/doc/libinput-1.16.4/api &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
