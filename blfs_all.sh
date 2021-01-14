@@ -5,8 +5,8 @@ export CURRENT_PATH=`pwd`
 source ./help-functions.sh &&
 
 export log=${CURRENT_PATH}/logger.sh
-export MAKEFLAGS='-j 4'
-export NINJAJOBS=4
+export MAKEFLAGS='-j 20'
+export NINJAJOBS=20
 export ENABLE_TEST=false
 export DANGER_TEST=false
 #############################################################################
@@ -813,23 +813,23 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./scan/sane/01-sane-1.0.29.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/kf5/01-kf5-5.77.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/ark/01-ark-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./icons/breeze-icons/01-breeze-icons-5.77.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/kdenlive/01-kdenlive-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/kmix/01-kmix-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/khelpcenter/01-khelpcenter-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/konsole/01-konsole-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/libkkexiv2/01-libkexiv2-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/okular/01-okular-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/ark/01-ark-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./icons/breeze-icons/01-breeze-icons-5.77.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/kdenlive/01-kdenlive-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/kmix/01-kmix-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/khelpcenter/01-khelpcenter-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/konsole/01-konsole-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/libkkexiv2/01-libkexiv2-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/okular/01-okular-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/libkdcraw/01-libkdcraw-20.12.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/gwenview/01-gwenview-20.08.0.sh &&
