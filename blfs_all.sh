@@ -728,54 +728,54 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./video-utils/vlc/01-vlc-3.0.11.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/phonon-backend-vlc/01-phonon-backend-vlc-0.11.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/webkitgtk/01-webkitgtk-2.30.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./xsoft/firefox/01-firefox-78.6.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/gcr/01-gcr-3.38.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/gnome-online-accounts/01-gnome-online-accounts-3.38.0.sh && #TODO fix rebuidl
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/libgdata/01-libgdata-0.17.13.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/gnome-keyring/01-gnome-keyring-3.36.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/subversion/01-subversion-1.14.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/nmap/01-nmap-7.91.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/babl/01-babl-0.1.84.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/gegl/01-gegl-0.4.28.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/libmypaint/01-libmypaint-1.6.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/mypaint-brushes/01-mypaint-brushes-1.3.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/poppler/01-poppler-21.01.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/qtwebengine/01-qtwebengine-5.15.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./typesetting/texlive/01-texlive-20200406.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/cpio/01-cpio-2.13.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/openjdk/01-jdk-14.0.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/apache-ant/01-apache-ant-1.10.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/bind/01-bind-9.16.10.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/dejavu-fonts/01-dejavu-fonts-2.37.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./xsoft/gimp/01-gimp-2.10.22.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/avahi/01-avahi-0.8.sh && #@TODO fix useradd 
-${log} `basename "$0"` " ======================================" blfs_all &&
-./print/cups-filter/01-cups-filters-1.28.7.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/phonon-backend-vlc/01-phonon-backend-vlc-0.11.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/webkitgtk/01-webkitgtk-2.30.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./xsoft/firefox/01-firefox-78.6.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/gcr/01-gcr-3.38.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/gnome-online-accounts/01-gnome-online-accounts-3.38.0.sh && #TODO fix rebuidl
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/libgdata/01-libgdata-0.17.13.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/gnome-keyring/01-gnome-keyring-3.36.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/subversion/01-subversion-1.14.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/nmap/01-nmap-7.91.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/babl/01-babl-0.1.84.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/gegl/01-gegl-0.4.28.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/libmypaint/01-libmypaint-1.6.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/mypaint-brushes/01-mypaint-brushes-1.3.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/poppler/01-poppler-21.01.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/qtwebengine/01-qtwebengine-5.15.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./typesetting/texlive/01-texlive-20200406.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/cpio/01-cpio-2.13.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/openjdk/01-jdk-14.0.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/apache-ant/01-apache-ant-1.10.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/bind/01-bind-9.16.10.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/dejavu-fonts/01-dejavu-fonts-2.37.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./xsoft/gimp/01-gimp-2.10.22.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/avahi/01-avahi-0.8.sh && #@TODO fix useradd 
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./print/cups-filter/01-cups-filters-1.28.7.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnome/gvfs/01-gvfs-1.46.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/Xorg/Xorg-server/01-xorg-server-1.20.10.sh &&
