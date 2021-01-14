@@ -59,4 +59,4 @@ if [ -d /opt/kf5 ]
  then
   as_root mv /opt/kf5{,-5.77.0}
 fi
-#as_root ln -sfv kf5-5.77.0 /opt/kf5
+as_root ln -sfv kf5-5.77.0 /opt/kf5

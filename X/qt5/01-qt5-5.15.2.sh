@@ -21,8 +21,8 @@ cd /sources/qt-everywhere-src-5.15.2 &&
 
 export QT5PREFIX=/opt/qt5 &&
 
-mkdir /opt/qt-5.15.2 &&
-ln -sfnv qt-5.15.2 /opt/qt5 &&
+as_root mkdir -p /opt/qt-5.15.2 &&
+as_root ln -sfnv qt-5.15.2 /opt/qt5 &&
 
 sed -i 's/python /python3 /' qtdeclarative/qtdeclarative.pro \
                              qtdeclarative/src/3rdparty/masm/masm.pri &&
@@ -140,7 +140,7 @@ EOF
 
 as_root mv -v ./qt.conf /etc/ld.so.conf.d/ &&
 
-ldconfig &&
+as_root ldconfig &&
 
 cat > ./qt5.sh << "EOF" &&
 # Begin /etc/profile.d/qt5.sh
