@@ -78,7 +78,7 @@ Type=Application
 Categories=Qt;Development;Documentation;
 EOF
 
-as_root mv -v ./assistant-qt5.desktop /usr/share/applications/assistant-qt5.desktop &&
+as_root install -m644 ./assistant-qt5.desktop /usr/share/applications/assistant-qt5.desktop &&
 
 cat > ./designer-qt5.desktop << EOF &&
 [Desktop Entry]
@@ -94,7 +94,7 @@ Type=Application
 Categories=Qt;Development;
 EOF
 
-as_root mv -v ./designer-qt5.desktop /usr/share/applications/designer-qt5.desktop &&
+as_root install -m644 ./designer-qt5.desktop /usr/share/applications/designer-qt5.desktop &&
 
 cat > ./linguist-qt5.desktop << EOF &&
 [Desktop Entry]
@@ -109,7 +109,7 @@ Type=Application
 Categories=Qt;Development;
 EOF
 
-as_root mv -v ./linguist-qt5.desktop /usr/share/applications/linguist-qt5.desktop &&
+as_root install -m644 ./linguist-qt5.desktop /usr/share/applications/linguist-qt5.desktop &&
 
 cat > ./qdbusviewer-qt5.desktop << EOF &&
 [Desktop Entry]
@@ -124,7 +124,7 @@ Type=Application
 Categories=Qt;Development;Debugger;
 EOF
 
-as_root mv -v ./qdbusviewer-qt5.desktop /usr/share/applications/qdbusviewer-qt5.desktop &&
+as_root install -m644 ./qdbusviewer-qt5.desktop /usr/share/applications/qdbusviewer-qt5.desktop &&
 
 for file in moc uic rcc qmake lconvert lrelease lupdate; do
   as_root ln -sfrvn $QT5BINDIR/$file /usr/bin/$file-qt5
@@ -138,7 +138,7 @@ cat >> ./qt.conf << EOF &&
 # End Qt addition
 EOF
 
-as_root mv -v ./qt.conf /etc/ld.so.conf.d/ &&
+as_root install -m644 ./qt.conf /etc/ld.so.conf.d/ &&
 
 as_root ldconfig &&
 
@@ -155,13 +155,13 @@ export QT5DIR
 # End /etc/profile.d/qt5.sh
 EOF
 
-as_root mv -v ./qt5.sh /etc/profile.d/qt5.sh &&
+as_root install -m755 ./qt5.sh /etc/profile.d/qt5.sh &&
 
 cat > ./qt << "EOF" &&
 Defaults env_keep += QT5DIR
 EOF
 
-as_root mv -v ./qt /etc/sudoers.d/qt &&
+as_root install -m644 ./qt /etc/sudoers.d/qt &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
