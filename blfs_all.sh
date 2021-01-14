@@ -784,35 +784,35 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/Xorg/Xorg-drivers/xf86-input-evdev/01-xf86-input-evdev-2.10.6.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/libinput/01-libinput-1.16.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-input-libinput/01-xf86-input-libinput-0.30.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-input-synaptics/01-xf86-input-synaptics-1.9.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-video-amdgpu/01-xf86-video-amdgpu-19.1.0.sh    &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-video-fbdev/01-xf86-video-fbdev-0.5.0.sh       &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-video-ati/01-xf86-video-ati-19.1.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-video-intel/01-xf86-video-intel-20200817.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-Legacy/01-Xorg-Legacy.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/OpenSSH/01-openssh-8.4p1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/twm/01-twm-1.0.11.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xterm/01-xterm-363.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xclock/01-xclock-1.0.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-xinit/01-xinit-1.4.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./scan/sane/01-sane-1.0.29.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/kf5/01-kf5-5.77.0.sh &&
+# ./X/Xorg/Xorg-drivers/libinput/01-libinput-1.16.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-input-libinput/01-xf86-input-libinput-0.30.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-input-synaptics/01-xf86-input-synaptics-1.9.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-video-amdgpu/01-xf86-video-amdgpu-19.1.0.sh    &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-video-fbdev/01-xf86-video-fbdev-0.5.0.sh       &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-video-ati/01-xf86-video-ati-19.1.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-video-intel/01-xf86-video-intel-20200817.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-Legacy/01-Xorg-Legacy.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/OpenSSH/01-openssh-8.4p1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/twm/01-twm-1.0.11.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xterm/01-xterm-363.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xclock/01-xclock-1.0.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-xinit/01-xinit-1.4.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./scan/sane/01-sane-1.0.29.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/kf5/01-kf5-5.77.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/ark/01-ark-20.12.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
