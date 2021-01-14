@@ -3,7 +3,7 @@
 as_root()
 {
   if   [ $EUID = 0 ];        then $*
-  elif [ -x /usr/bin/sudo ]; then sudo $*
+  elif [ -x /usr/bin/sudo ]; then sudo -E $*
   else                            su -c \\"$*\\"
   fi
 }

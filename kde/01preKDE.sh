@@ -26,7 +26,7 @@ EOF
 
 as_root mv -v ./kf5.sh /etc/profile.d/kf5.sh &&
 
-cat >> ./qt5.sh << "EOF" &&
+cat >> ./qt5-add.sh << "EOF" &&
 # Begin Qt5 changes for KF5
 
 pathappend $QT5DIR/plugins             QT_PLUGIN_PATH
@@ -35,7 +35,7 @@ pathappend $QT5DIR/qml                 QML2_IMPORT_PATH
 # End Qt5 changes for KF5
 EOF
 
-as_root mv -v ./qt5.sh /etc/profile.d/qt5.sh &&
+as_root mv -v ./qt5-add.sh /etc/profile.d/qt5.sh &&
 
 cat >> ./kde.conf << "EOF" &&
 # Begin KF5 addition

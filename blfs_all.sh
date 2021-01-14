@@ -639,37 +639,37 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./X/atk/01-atk-2.36.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/at-spi2-atk/01-at-spi2-atk-2.38.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/pango/01-pango-1.48.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/gtk+/01-gtk+-3.24.24.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/gtk+/01-gtk+-2.24.32.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/gtksourceview/01-gtksourceview-3.24.11.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/gtksourceview4/01-gtksourceview-4.8.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/alsa-tools/01-alsa-tools-1.2.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/libglade/01-libglade-2.6.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/pygtk/01-pygtk-2.24.0.sh && #TODO Fix
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/librsvg/01-librsvg-2.50.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./icons/adwaita-icon-theme/01-adwaita-icon-theme-3.38.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/vte/01-vte-0.62.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/gtk-vnc/01-gtk-vnc-1.0.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/GConf/01-GConf-3.2.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./print/ghostscript/01-ghostscript-9.53.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/gstreamer/01-gstreamer-1.18.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/pango/01-pango-1.48.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/gtk+/01-gtk+-3.24.24.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/gtk+/01-gtk+-2.24.32.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/gtksourceview/01-gtksourceview-3.24.11.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/gtksourceview4/01-gtksourceview-4.8.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/alsa-tools/01-alsa-tools-1.2.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/libglade/01-libglade-2.6.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/pygtk/01-pygtk-2.24.0.sh && #TODO Fix
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnf-libs/librsvg/01-librsvg-2.50.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./icons/adwaita-icon-theme/01-adwaita-icon-theme-3.38.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/vte/01-vte-0.62.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/gtk-vnc/01-gtk-vnc-1.0.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/GConf/01-GConf-3.2.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./print/ghostscript/01-ghostscript-9.53.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/gstreamer/01-gstreamer-1.18.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/gst-plugins-base/01-gst-plugins-base-1.18.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/gst-plugins-ugly/01-gst-plugins-ugly-1.18.2.sh &&
