@@ -41,6 +41,7 @@ meson --prefix /usr              \
       -Dqt=false                 \
       -Dudev_dir=/lib/udev       \
       -Dsession_tracking=systemd \
+      -Dmodem_manager=false      \
       -Dsystemdsystemunitdir=/lib/systemd/system \
       .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
