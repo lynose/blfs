@@ -10,7 +10,7 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.26/NetworkManager-1.28.0.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.28/NetworkManager-1.28.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-NetworkManager &&

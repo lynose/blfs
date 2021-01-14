@@ -5,8 +5,8 @@ export CURRENT_PATH=`pwd`
 source ./help-functions.sh &&
 
 export log=${CURRENT_PATH}/logger.sh
-export MAKEFLAGS='-j 8'
-export NINJAJOBS=8
+export MAKEFLAGS='-j 4'
+export NINJAJOBS=4
 export ENABLE_TEST=false
 export DANGER_TEST=false
 #############################################################################
@@ -678,17 +678,17 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/qt5/01-qt5-5.15.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/doxygen/02-doxygen-1.9.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/graphviz/01-graphviz-2.44.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./icons/oxygen-icons5/01-oxygen-icons5-5.77.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/qca/01-qca-2.3.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/grantlee/01-grantlee-5.2.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/wpa_supplicant/01-wpa_supplicant-2.9.sh &&
+# ./devel/doxygen/02-doxygen-1.9.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/graphviz/01-graphviz-2.44.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./icons/oxygen-icons5/01-oxygen-icons5-5.77.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/qca/01-qca-2.3.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/grantlee/01-grantlee-5.2.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/wpa_supplicant/01-wpa_supplicant-2.9.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/NetworkManager/01-NetworkManager-1.28.0.sh && #TODO Fix rebuild
 ${log} `basename "$0"` " ======================================" blfs_all &&
