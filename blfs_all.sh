@@ -830,10 +830,10 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/okular/01-okular-20.12.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/libkdcraw/01-libkdcraw-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/gwenview/01-gwenview-20.08.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/libkdcraw/01-libkdcraw-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/gwenview/01-gwenview-20.08.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/k3b/01-k3b-20.12.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/plasma/01-plasma-5.20.4.sh &&

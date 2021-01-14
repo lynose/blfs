@@ -13,7 +13,7 @@ SCRIPTPATH=`dirname $SCRIPT`
 check_and_download http://download.kde.org/stable/release-service/20.12.0/src/k3b-20.12.0.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-kmix &&
+md5sum -c ${SCRIPTPATH}/md5-k3b &&
 
 tar xf /sources/k3b-20.12.0.tar.xz -C /sources/ &&
 
