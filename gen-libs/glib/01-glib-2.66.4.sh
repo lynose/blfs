@@ -21,6 +21,14 @@ tar xf /sources/glib-2.66.4.tar.xz -C /sources/ &&
 
 cd /sources/glib-2.66.4 &&
 
+# fix recommended by gnome developers to solve duplicate references
+if [ -f /usr/include/glib-2.0/glib/gurifuncs.h ]
+ then
+  # this include file is obsolete
+  as_root /usr/include/glib-2.0/glib/gurifuncs.h
+fi
+
+
 patch -Np1 -i ../glib-2.66.4-skip_warnings-1.patch &&
 
 [ -e /usr/include/glib-2.0 ] && mv -vf /usr/include/glib-2.0{,.old}
