@@ -602,43 +602,43 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/libblockdev/01-libblockdev-2.24.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/at-spi2-core/01-at-spi2-core-2.38.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/libsoup/01-libsoup-2.72.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/rest/01-rest-0.8.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libgudev/01-libgudev-234.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/colord/01-colord-1.4.5.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./print/cups/01-cups-2.2.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/openjdk-bin/01-openjdk-14.0.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libmbim/01-libmbim-1.24.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libqmi/01-libqmi-1.26.8.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/ModemManager/01-ModemManager-1.14.8.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/udisks/01-udisks-2.9.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/libsecret/01-libsecret-0.20.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/pygobject/01-pygobject-2.28.7.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/pygobject/01-pygobject-3.38.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/upower/01-upower-0.99.11.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/json-glib/01-json-glib-1.6.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/gsettings-desktop-schemas/01-gsettings-desktop-schemas-3.38.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/atk/01-atk-2.36.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/at-spi2-atk/01-at-spi2-atk-2.38.0.sh &&
+# ./X/at-spi2-core/01-at-spi2-core-2.38.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net-libs/libsoup/01-libsoup-2.72.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/rest/01-rest-0.8.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libgudev/01-libgudev-234.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/colord/01-colord-1.4.5.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./print/cups/01-cups-2.2.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/openjdk-bin/01-openjdk-14.0.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libmbim/01-libmbim-1.24.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libqmi/01-libqmi-1.26.8.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/ModemManager/01-ModemManager-1.14.8.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/udisks/01-udisks-2.9.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/libsecret/01-libsecret-0.20.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/pygobject/01-pygobject-2.28.7.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/pygobject/01-pygobject-3.38.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/upower/01-upower-0.99.11.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/json-glib/01-json-glib-1.6.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/gsettings-desktop-schemas/01-gsettings-desktop-schemas-3.38.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/atk/01-atk-2.36.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/at-spi2-atk/01-at-spi2-atk-2.38.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/pango/01-pango-1.48.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

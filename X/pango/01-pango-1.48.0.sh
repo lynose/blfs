@@ -10,7 +10,7 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/pango/1.46/pango-1.48.0.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/pango/1.48/pango-1.48.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-pango &&
