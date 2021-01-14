@@ -670,12 +670,12 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/gstreamer/01-gstreamer-1.18.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/gst-plugins-base/01-gst-plugins-base-1.18.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/gst-plugins-ugly/01-gst-plugins-ugly-1.18.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/gst-plugins-bad/01-gst-plugins-bad-1.18.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/gst-plugins-base/01-gst-plugins-base-1.18.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/gst-plugins-ugly/01-gst-plugins-ugly-1.18.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/gst-plugins-bad/01-gst-plugins-bad-1.18.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/qt5/01-qt5-5.15.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/doxygen/02-doxygen-1.9.0.sh &&
