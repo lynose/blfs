@@ -61,9 +61,9 @@ while read -r line; do
   
 
 done < md5-kf5
-if [ ! -l /opt/kf5 ];
-  then
-    as_root mv -v /opt/kf5 /opt/kf5-5.77.0 &&
-    as_root ln -sfvn kf5-5.77.0 /opt/kf5 &&
-fi
+# if [ ! -l /opt/kf5 ];
+#   then
+#     as_root mv -v /opt/kf5 /opt/kf5-5.77.0 &&
+#     as_root ln -sfvn kf5-5.77.0 /opt/kf5 &&
+# fi
 ${log} `basename "$0"` " finished" blfs_all 
