@@ -776,8 +776,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./print/cups-filter/01-cups-filters-1.28.7.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/gvfs/01-gvfs-1.46.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/gvfs/01-gvfs-1.46.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/Xorg/Xorg-server/01-xorg-server-1.20.10.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/Xorg/Xorg-drivers/libevdev/01-libevdev-1.10.1.sh &&
