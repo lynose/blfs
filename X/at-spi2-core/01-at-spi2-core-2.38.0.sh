@@ -10,7 +10,7 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.36/at-spi2-core-2.38.0.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.38/at-spi2-core-2.38.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-at-spi2-core &&

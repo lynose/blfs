@@ -596,12 +596,12 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnf-libs/freetype/02-freetype-2.10.4.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/gdk-pixbuf/01-gdk-pixbuf-2.42.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libgusb/01-libgusb-0.3.5.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libblockdev/01-libblockdev-2.24.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/gdk-pixbuf/01-gdk-pixbuf-2.42.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libgusb/01-libgusb-0.3.5.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/libblockdev/01-libblockdev-2.24.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/at-spi2-core/01-at-spi2-core-2.38.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/libsoup/01-libsoup-2.72.0.sh &&
