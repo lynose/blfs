@@ -689,16 +689,16 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./gen-libs/grantlee/01-grantlee-5.2.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net/wpa_supplicant/01-wpa_supplicant-2.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/NetworkManager/01-NetworkManager-1.28.0.sh && #TODO Fix rebuild
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/telepathy-mission-control/01-telepathy-mission-control-5.16.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/polkit-qt/01-polkit-qt-0.113.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/libdbusmenu-qt/01-libdbusmenu-qt-0.9.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/pinentry/01-pineentry-1.1.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/NetworkManager/01-NetworkManager-1.28.0.sh && #TODO Fix rebuild
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/telepathy-mission-control/01-telepathy-mission-control-5.16.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/polkit-qt/01-polkit-qt-0.113.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/libdbusmenu-qt/01-libdbusmenu-qt-0.9.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/pinentry/01-pineentry-1.1.0.sh &&
 # #${log} `basename "$0"` " ======================================" blfs_all &&
 # # ./typesetting/install-tl-unx/01-install-tl-unx.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

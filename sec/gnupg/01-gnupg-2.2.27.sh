@@ -34,7 +34,7 @@ make &&
 makeinfo --html --no-split -o doc/gnupg_nochunks.html doc/gnupg.texi &&
 makeinfo --plaintext       -o doc/gnupg.txt           doc/gnupg.texi &&
 make -C doc html &&
-make -C doc pdf ps &&
+make -C doc pdf &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
