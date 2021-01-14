@@ -834,8 +834,9 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/gwenview/01-gwenview-20.08.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/k3b/01-k3b-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# TODO missing components
+# # ./kde/k3b/01-k3b-20.12.0.sh &&
+# # ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/plasma/01-plasma-5.20.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/wireshark/01-wireshark-3.4.2.sh &&
