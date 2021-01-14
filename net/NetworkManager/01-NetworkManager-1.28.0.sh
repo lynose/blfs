@@ -64,28 +64,28 @@ cat >> ./NetworkManager.conf << "EOF" &&
 plugins=keyfile
 EOF
 
-as_root mv -v ./NetworkManager.conf /etc/NetworkManager/NetworkManager.conf &&
+as_root install -vm644 ./NetworkManager.conf /etc/NetworkManager/NetworkManager.conf &&
 
-cat > ./conf.d/polkit.conf << "EOF" &&
+cat > ./polkit.conf << "EOF" &&
 [main]
 auth-polkit=true
 EOF
 
-as_root mv -v ./polkit.conf /etc/NetworkManager/conf.d/polkit.conf && 
+as_root install -vm644 ./polkit.conf /etc/NetworkManager/conf.d/polkit.conf && 
 
 cat > ./dhcp.conf << "EOF" &&
 [main]
 dhcp=dhclient
 EOF
 
-as_root mv -v ./dhcp.conf /etc/NetworkManager/conf.d/dhcp.conf &&
+as_root install -vm644 ./dhcp.conf /etc/NetworkManager/conf.d/dhcp.conf &&
 
 cat > ./no-dns-update.conf << "EOF" &&
 [main]
 dns=none
 EOF
 
-as_root mv -v ./no-dns-update.conf /etc/NetworkManager/conf.d/no-dns-update.conf &&
+as_root install -vm644 ./no-dns-update.conf /etc/NetworkManager/conf.d/no-dns-update.conf &&
 
 as_root_groupadd groupadd -fg 86 netdev &&
 as_root_useradd /usr/sbin/usermod -a -G netdev lynose &&
@@ -99,7 +99,7 @@ polkit.addRule(function(action, subject) {
 });
 EOF
 
-as_root mv ./org.freedesktop.NetworkManager.rules /usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules &&
+as_root install -vm644 ./org.freedesktop.NetworkManager.rules /usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules &&
 
 as_root systemctl enable NetworkManager &&
 as_root systemctl disable NetworkManager-wait-online &&
