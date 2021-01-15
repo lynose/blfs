@@ -42,10 +42,10 @@ if [ ${ENABLE_TEST} == true ]
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-cmake -DDOC_INSTALL_DIR=share/doc/doxygen-1.9.1 -Dbuild_doc=ON .. &&
-
-make docs &&
-${log} `basename "$0"` " generating docs" blfs_all &&
+# cmake -DDOC_INSTALL_DIR=share/doc/doxygen-1.9.1 -Dbuild_doc=ON .. &&
+# 
+# make docs &&
+# ${log} `basename "$0"` " generating docs" blfs_all &&
 
 as_root make install &&
 as_root install -vm644 ../doc/*.1 /usr/share/man/man1 &&
