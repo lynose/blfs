@@ -40,5 +40,6 @@ as_root make install_doc_dir=/usr/share/doc/slang-2.3.2   \
 
 as_root chmod -v 755 /usr/lib/libslang.so.2.3.2 \
              /usr/lib/slang/v2/modules/*.so &&
+as_root ldconfig &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
