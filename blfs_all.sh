@@ -99,8 +99,6 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen/graphviz/01-graphviz-2.44.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/Pygments/01-Pygments-2.7.3.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./icons/hicolor-icon-theme/01-hicolor-icon-theme-0.17.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/nettle/01-nettle-3.7.sh &&
@@ -208,6 +206,10 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ############################################################################
 # # ./sec/sudo/02-sudo-1.9.5p1.sh && # better to build sudo seperate
 # # ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/python3/01-python-3.9.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/Pygments/01-Pygments-2.7.3.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/libcap/01-libcap-2.46.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # # ./net/bridge-utils/01-bridge-utils-1.6.sh && #!!! Need to be reviewed, kernel headers!!!
@@ -246,8 +248,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./fsndm/parted/01-parted-3.3.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/python-libxml2/01-python-libxml2-2.9.10.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/python-libxml2/01-python-libxml2-2.9.10.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/nss/01-nss-3.60.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/make-ca/01-make-ca-1.7.sh &&
@@ -350,8 +352,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/libyaml/01-libyaml-0.2.4.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/PyYAML/01-PyAML-5.3.1.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/PyYAML/01-PyAML-5.3.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/ruby/01-ruby-3.0.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnf-libs/exiv2/01-exiv2-0.27.3.sh &&
@@ -499,28 +501,28 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/tk/01-tk-8.6.10.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/python3/01-python-3.9.1.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/python3/01-python-3.9.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/meson/01-meson-5.56.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/six/01-six-1.15.0.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/gdb/01-gdb-10.1.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/valgrind/01-valgrind-3.16.1.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/gcc/01-gcc-10.2.0.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./mld/SDL/01-SDL-1.2.15.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./gnf-libs/libwebp/01-libwebp-1.1.0.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./sys/dbus/01-dbus-1.12.20.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./gen-libs/dbus-glib/01-dbus-glib-0.110.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/vala/01-vala-0.50.3.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/six/01-six-1.15.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/gdb/01-gdb-10.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/valgrind/01-valgrind-3.16.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/gcc/01-gcc-10.2.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./mld/SDL/01-SDL-1.2.15.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gnf-libs/libwebp/01-libwebp-1.1.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./sys/dbus/01-dbus-1.12.20.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/dbus-glib/01-dbus-glib-0.110.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/vala/01-vala-0.50.3.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/xcb-util/01-xcb-util-0.4.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/startup-notification/01-startup-notification-0.12.sh &&
