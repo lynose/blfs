@@ -626,10 +626,10 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./sys/udisks/01-udisks-2.9.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnome/libsecret/01-libsecret-0.20.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/pygobject/01-pygobject-2.28.7.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/pygobject/01-pygobject-3.38.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/pygobject/01-pygobject-2.28.7.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/pygobject/01-pygobject-3.38.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sys/upower/01-upower-0.99.11.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
