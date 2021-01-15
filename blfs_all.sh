@@ -521,8 +521,6 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/vala/01-vala-0.50.3.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/gexiv2/01-gexiv2-0.12.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/xcb-util/01-xcb-util-0.4.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/startup-notification/01-startup-notification-0.12.sh &&
@@ -576,11 +574,10 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/pycairo/01-pycairo-1.18.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/pycairo/01-pycairo-1.20.0.sh &&
-
-# TODO further check need
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/gobject-introspection/01-gobject-introspection-1.66.1.sh &&
-
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gnome/gexiv2/01-gexiv2-0.12.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/telepathy-glib/01-telepathy-glib-0.24.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
