@@ -260,8 +260,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/Jinja2/01-Jinja2-2.11.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/Mako/01-Mako-1.1.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/Mako/01-Mako-1.1.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen/lsof/01-lsof-4.91.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnf-libs/freetype/01-freetype-2.10.4.sh &&
@@ -626,10 +626,10 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sys/udisks/01-udisks-2.9.1.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gnome/libsecret/01-libsecret-0.20.4.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/pygobject/01-pygobject-2.28.7.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/pygobject/01-pygobject-3.38.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/pygobject/01-pygobject-2.28.7.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/pygobject/01-pygobject-3.38.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sys/upower/01-upower-0.99.11.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -678,18 +678,18 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./mld/gst-plugins-bad/01-gst-plugins-bad-1.18.2.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./X/qt5/01-qt5-5.15.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/doxygen/02-doxygen-1.9.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/graphviz/01-graphviz-2.44.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./icons/oxygen-icons5/01-oxygen-icons5-5.77.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/qca/01-qca-2.3.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/grantlee/01-grantlee-5.2.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/wpa_supplicant/01-wpa_supplicant-2.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/doxygen/02-doxygen-1.9.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/graphviz/01-graphviz-2.44.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./icons/oxygen-icons5/01-oxygen-icons5-5.77.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/qca/01-qca-2.3.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/grantlee/01-grantlee-5.2.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/wpa_supplicant/01-wpa_supplicant-2.9.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/NetworkManager/01-NetworkManager-1.28.0.sh && #TODO Fix rebuild
 ${log} `basename "$0"` " ======================================" blfs_all &&
