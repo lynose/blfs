@@ -67,8 +67,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sys/LSB-Tools/01-LSB-Tools-0.9.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/autoconf-old/01-autoconf-2.13.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/python2/01-python2-2.7.18.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/python2/01-python2-2.7.18.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/util-macros/01-util-macros-1.19.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -248,8 +248,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./fsndm/parted/01-parted-3.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/python-libxml2/01-python-libxml2-2.9.10.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/python-libxml2/01-python-libxml2-2.9.10.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/nss/01-nss-3.60.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/make-ca/01-make-ca-1.7.sh &&
@@ -573,8 +573,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/cairo/01-cairo-1.17.2+f93fc72c03e.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/pycairo/01-pycairo-1.18.2.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/pycairo/01-pycairo-1.18.2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/pycairo/01-pycairo-1.20.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/gobject-introspection/01-gobject-introspection-1.66.1.sh &&

@@ -37,6 +37,6 @@ as_root make install &&
 as_root chmod -v 755 /usr/lib/libpython3.8.so &&
 as_root chmod -v 755 /usr/lib/libpython3.so &&
 as_root ln -svfn python-3.9.1 /usr/share/doc/python-3 &&
-
+as_root ln -svf /usr/bin/python3 python
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
