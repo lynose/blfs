@@ -417,8 +417,9 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/glib/01-glib-2.66.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/sshfs/01-sshfs-3.7.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# TODO fix docutils build
+# ./fsndm/sshfs/01-sshfs-3.7.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/swig/01-swig-4.0.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen/desktop-file-utils/01-desktop-file-utils-0.26.sh && #TODO Reinstall fails
