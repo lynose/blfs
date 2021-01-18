@@ -658,39 +658,39 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # # ./devel/pygtk/01-pygtk-2.24.0.sh && #TODO Fix
 # # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/librsvg/01-librsvg-2.50.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./icons/adwaita-icon-theme/01-adwaita-icon-theme-3.38.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/vte/01-vte-0.62.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/gtk-vnc/01-gtk-vnc-1.0.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/GConf/01-GConf-3.2.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./print/ghostscript/01-ghostscript-9.53.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/gstreamer/01-gstreamer-1.18.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/gst-plugins-base/01-gst-plugins-base-1.18.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/gst-plugins-ugly/01-gst-plugins-ugly-1.18.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/gst-plugins-bad/01-gst-plugins-bad-1.18.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/qt5/01-qt5-5.15.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/doxygen/02-doxygen-1.9.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/graphviz/01-graphviz-2.44.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./icons/oxygen-icons5/01-oxygen-icons5-5.77.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/qca/01-qca-2.3.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/grantlee/01-grantlee-5.2.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/wpa_supplicant/01-wpa_supplicant-2.9.sh &&
+# ./gnf-libs/librsvg/01-librsvg-2.50.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./icons/adwaita-icon-theme/01-adwaita-icon-theme-3.38.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/vte/01-vte-0.62.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/gtk-vnc/01-gtk-vnc-1.0.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/GConf/01-GConf-3.2.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./print/ghostscript/01-ghostscript-9.53.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/gstreamer/01-gstreamer-1.18.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/gst-plugins-base/01-gst-plugins-base-1.18.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/gst-plugins-ugly/01-gst-plugins-ugly-1.18.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/gst-plugins-bad/01-gst-plugins-bad-1.18.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/qt5/01-qt5-5.15.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/doxygen/02-doxygen-1.9.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/graphviz/01-graphviz-2.44.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./icons/oxygen-icons5/01-oxygen-icons5-5.77.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/qca/01-qca-2.3.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/grantlee/01-grantlee-5.2.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/wpa_supplicant/01-wpa_supplicant-2.9.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/NetworkManager/01-NetworkManager-1.28.0.sh && #TODO Fix rebuild
 ${log} `basename "$0"` " ======================================" blfs_all &&
