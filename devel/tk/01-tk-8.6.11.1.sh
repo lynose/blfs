@@ -2,9 +2,9 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/tk8.6.11.1
+if test -d /sources/tk8.6.11
  then
-  rm -rf /sources/tk8.6.11.1
+  rm -rf /sources/tk8.6.11
 fi
 
 SCRIPT=`realpath $0`
@@ -18,7 +18,7 @@ md5sum -c ${SCRIPTPATH}/md5-tk &&
 
 tar xf /sources/tk8.6.11.1-src.tar.gz -C /sources/ &&
 
-cd /sources/tk8.6.11.1 &&
+cd /sources/tk8.6.11 &&
 
 cd unix &&
 ./configure --prefix=/usr \
