@@ -260,7 +260,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/Jinja2/01-Jinja2-2.11.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/Mako/01-Mako-1.1.3.sh &&
+./devel/Mako/01-Mako-1.1.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen/lsof/01-lsof-4.91.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -300,7 +300,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/nghttp2/01-nghttp2-1.42.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/cmake/01-cmake-3.19.2.sh &&
+./devel/cmake/01-cmake-3.19.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/extra-cmake-modules/01-extra-cmake-modules-5.77.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -436,7 +436,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/nodejs/01-nodejs-v14.15.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/gptfdisk/01-gptfdisk-1.0.5.sh &&
+./fsndm/gptfdisk/01-gptfdisk-1.0.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/fontconfig/01-fontconfig-2.13.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -500,7 +500,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/Xorg/Xorg-Libs/01-Xorg-libs.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/tk/01-tk-8.6.10.sh &&
+./devel/tk/01-tk-8.6.11.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/python3/01-python-3.9.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -544,7 +544,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/Xorg/Xorg-drivers/libvdpau/01-libvdpau-1.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/mesa/01-mesa-20.3.2.sh &&
+./X/mesa/01-mesa-20.3.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/libepoxy/01-libepoxy-1.5.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

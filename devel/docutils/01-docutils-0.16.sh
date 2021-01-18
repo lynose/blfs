@@ -23,7 +23,7 @@ cd /sources/docutils-0.16 &&
 python3 setup.py build &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-python3 setup.py install --optimize=1 &&
+as_root python3 setup.py install --optimize=1 &&
 
 for f in /usr/bin/rst*.py; do
   as_root ln -svf $(basename $f) /usr/bin/$(basename $f .py)

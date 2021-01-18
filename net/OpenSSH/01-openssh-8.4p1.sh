@@ -23,6 +23,8 @@ as_root_useradd  -c 'sshd_PrivSep' \
          -s /bin/false     \
          -u 50 sshd
 
+sed -e '/INSTALLKEYS_SH/s/)//' -e '260a\  )' -i contrib/ssh-copy-id &&
+
 ./configure --prefix=/usr                     \
             --sysconfdir=/etc/ssh             \
             --with-md5-passwords              \

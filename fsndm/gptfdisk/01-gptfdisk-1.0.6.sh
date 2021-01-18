@@ -2,32 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gptfdisk-1.0.5
+if test -d /sources/gptfdisk-1.0.6
  then
-  rm -rf /sources/gptfdisk-1.0.5
+  rm -rf /sources/gptfdisk-1.0.6
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-if [ ! -f /sources/gptfdisk-1.0.5.tar.gz ];  
- then
-  check_and_download https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.5.tar.gz \
+check_and_download https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.6.tar.gz \
     /sources
-fi
 
-if [ ! -f /sources/gptfdisk-1.0.5-convenience-1.patch ];  
- then
-  check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/gptfdisk-1.0.5-convenience-1.patch \
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/gptfdisk-1.0.6-convenience-1.patch \
     /sources
-fi
+
 md5sum -c ${SCRIPTPATH}/md5-gptfdisk &&
 
-tar xf /sources/gptfdisk-1.0.5.tar.gz -C /sources/ &&
+tar xf /sources/gptfdisk-1.0.6.tar.gz -C /sources/ &&
  
-cd /sources/gptfdisk-1.0.5 &&
+cd /sources/gptfdisk-1.0.6 &&
 
-patch -Np1 -i ../gptfdisk-1.0.5-convenience-1.patch &&
+patch -Np1 -i ../gptfdisk-1.0.6-convenience-1.patch &&
 sed -i 's|ncursesw/||' gptcurses.cc &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
