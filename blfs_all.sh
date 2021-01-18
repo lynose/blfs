@@ -692,8 +692,6 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net/wpa_supplicant/01-wpa_supplicant-2.9.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./net/NetworkManager/01-NetworkManager-1.28.0.sh && #TODO Fix rebuild
-${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen/telepathy-mission-control/01-telepathy-mission-control-5.16.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/polkit-qt/01-polkit-qt-0.113.0.sh &&
@@ -733,6 +731,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/phonon-backend-vlc/01-phonon-backend-vlc-0.11.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/webkitgtk/01-webkitgtk-2.30.4.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./net/NetworkManager/01-NetworkManager-1.28.0.sh && #TODO Fix rebuild
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./xsoft/firefox/01-firefox-78.6.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
