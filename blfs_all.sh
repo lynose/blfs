@@ -691,46 +691,46 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./gen-libs/grantlee/01-grantlee-5.2.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net/wpa_supplicant/01-wpa_supplicant-2.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen/telepathy-mission-control/01-telepathy-mission-control-5.16.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/polkit-qt/01-polkit-qt-0.113.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/libdbusmenu-qt/01-libdbusmenu-qt-0.9.3.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/pinentry/01-pineentry-1.1.0.sh &&
-#${log} `basename "$0"` " ======================================" blfs_all &&
-# ./typesetting/install-tl-unx/01-install-tl-unx.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/gnupg/01-gnupg-2.2.27.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/pulseaudio/01-pulseaudio-14.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/mlt/01-mlt-6.24.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/v4l-utils/01-v4l-utils-1.20.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/pipewire/01-pipewire-0.3.19.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./audio-utils/mpg123/01-mpg123-1.26.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/phonon/01-phonon-4.11.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/gst-plugins-good/01-gst-plugins-good-1.18.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/phonon-backend-gstreamer/01-phonon-backend-gstreamer-4.10.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/libcanberra/01-libcanberra-0.30.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sys/notification-daemon/01-notification-daemon-3.20.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/libnotify/01-libnotify-0.7.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./video-utils/vlc/01-vlc-3.0.11.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/phonon-backend-vlc/01-phonon-backend-vlc-0.11.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/webkitgtk/01-webkitgtk-2.30.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen/telepathy-mission-control/01-telepathy-mission-control-5.16.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/polkit-qt/01-polkit-qt-0.113.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/libdbusmenu-qt/01-libdbusmenu-qt-0.9.3.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gen-libs/pinentry/01-pineentry-1.1.0.sh &&
+# #${log} `basename "$0"` " ======================================" blfs_all &&
+# # ./typesetting/install-tl-unx/01-install-tl-unx.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sec/gnupg/01-gnupg-2.2.27.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/pulseaudio/01-pulseaudio-14.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/mlt/01-mlt-6.24.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/v4l-utils/01-v4l-utils-1.20.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/pipewire/01-pipewire-0.3.19.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./audio-utils/mpg123/01-mpg123-1.26.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/phonon/01-phonon-4.11.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/gst-plugins-good/01-gst-plugins-good-1.18.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/phonon-backend-gstreamer/01-phonon-backend-gstreamer-4.10.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./mld/libcanberra/01-libcanberra-0.30.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./sys/notification-daemon/01-notification-daemon-3.20.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/libnotify/01-libnotify-0.7.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./video-utils/vlc/01-vlc-3.0.11.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/phonon-backend-vlc/01-phonon-backend-vlc-0.11.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/webkitgtk/01-webkitgtk-2.30.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/NetworkManager/01-NetworkManager-1.28.0.sh && #TODO Fix rebuild
 ${log} `basename "$0"` " ======================================" blfs_all &&
