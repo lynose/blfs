@@ -232,7 +232,7 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net/ntp/01-ntp-4.2.8p15.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/perl-URI/01-URI-5.05.sh &&
+# ./devel/perl-URI/01-URI-5.06.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/gc/01-gc-8.0.4.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
