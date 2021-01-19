@@ -763,84 +763,84 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./typesetting/texlive/01-texlive-20200406.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sys/cpio/01-cpio-2.13.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/openjdk/01-jdk-14.0.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/apache-ant/01-apache-ant-1.10.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/bind/01-bind-9.16.10.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/dejavu-fonts/01-dejavu-fonts-2.37.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./xsoft/gimp/01-gimp-2.10.22.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/avahi/01-avahi-0.8.sh && #@TODO fix useradd 
-${log} `basename "$0"` " ======================================" blfs_all &&
-./print/cups-filter/01-cups-filters-1.28.7.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/gvfs/01-gvfs-1.46.2.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-server/01-xorg-server-1.20.10.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/libevdev/01-libevdev-1.10.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-input-evdev/01-xf86-input-evdev-2.10.6.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/libinput/01-libinput-1.16.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-input-libinput/01-xf86-input-libinput-0.30.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-input-synaptics/01-xf86-input-synaptics-1.9.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-video-amdgpu/01-xf86-video-amdgpu-19.1.0.sh    &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-video-fbdev/01-xf86-video-fbdev-0.5.0.sh       &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-video-ati/01-xf86-video-ati-19.1.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/xf86-video-intel/01-xf86-video-intel-20200817.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-Legacy/01-Xorg-Legacy.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./net/OpenSSH/01-openssh-8.4p1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/twm/01-twm-1.0.11.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xterm/01-xterm-363.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xclock/01-xclock-1.0.9.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-xinit/01-xinit-1.4.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./scan/sane/01-sane-1.0.29.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/kf5/01-kf5-5.77.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/ark/01-ark-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./icons/breeze-icons/01-breeze-icons-5.77.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/kdenlive/01-kdenlive-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/kmix/01-kmix-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/khelpcenter/01-khelpcenter-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/konsole/01-konsole-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/libkkexiv2/01-libkexiv2-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/okular/01-okular-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/libkdcraw/01-libkdcraw-20.12.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/gwenview/01-gwenview-20.08.0.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-# TODO missing components
-# ./kde/k3b/01-k3b-20.12.0.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/plasma/01-plasma-5.20.4.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/openjdk/01-jdk-14.0.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./devel/apache-ant/01-apache-ant-1.10.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/bind/01-bind-9.16.10.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/dejavu-fonts/01-dejavu-fonts-2.37.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./xsoft/gimp/01-gimp-2.10.22.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/avahi/01-avahi-0.8.sh && #@TODO fix useradd 
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./print/cups-filter/01-cups-filters-1.28.7.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./gnome/gvfs/01-gvfs-1.46.2.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-server/01-xorg-server-1.20.10.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/libevdev/01-libevdev-1.10.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-input-evdev/01-xf86-input-evdev-2.10.6.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/libinput/01-libinput-1.16.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-input-libinput/01-xf86-input-libinput-0.30.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-input-synaptics/01-xf86-input-synaptics-1.9.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-video-amdgpu/01-xf86-video-amdgpu-19.1.0.sh    &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-video-fbdev/01-xf86-video-fbdev-0.5.0.sh       &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-video-ati/01-xf86-video-ati-19.1.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-drivers/xf86-video-intel/01-xf86-video-intel-20200817.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-Legacy/01-Xorg-Legacy.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./net/OpenSSH/01-openssh-8.4p1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/twm/01-twm-1.0.11.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xterm/01-xterm-363.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/xclock/01-xclock-1.0.9.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./X/Xorg/Xorg-xinit/01-xinit-1.4.1.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./scan/sane/01-sane-1.0.29.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/kf5/01-kf5-5.77.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/ark/01-ark-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./icons/breeze-icons/01-breeze-icons-5.77.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/kdenlive/01-kdenlive-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/kmix/01-kmix-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/khelpcenter/01-khelpcenter-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/konsole/01-konsole-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/libkkexiv2/01-libkexiv2-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/okular/01-okular-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/libkdcraw/01-libkdcraw-20.12.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/gwenview/01-gwenview-20.08.0.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+# # TODO missing components
+# # ./kde/k3b/01-k3b-20.12.0.sh &&
+# # ${log} `basename "$0"` " ======================================" blfs_all &&
+# ./kde/plasma/01-plasma-5.20.4.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/wireshark/01-wireshark-3.4.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./virt/qemu/01-qemu-5.2.0.sh &&
