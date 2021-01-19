@@ -399,7 +399,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/cyrus-sasl/01-cyrus-sasl-2.1.27.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./server/openldap/01-openldap-2.4.56.sh &&
+./server/openldap/01-openldap-2.4.57.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libnfsidmap/01-libnfsidmap-0.26.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
