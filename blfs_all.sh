@@ -95,7 +95,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/nspr/01-nspr-4.29.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./db/sqlite/01-sqlite-3.34.0.sh &&
+./db/sqlite/01-sqlite-3.34.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen/graphviz/01-graphviz-2.44.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
