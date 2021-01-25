@@ -2,42 +2,38 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gcr-3.38.0
+if test -d /sources/xapian-core-1.4.18
  then
-  rm -rf /sources/gcr-3.38.0
+  rm -rf /sources/xapian-core-1.4.18
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://download.gnome.org/sources/gcr/3.38/gcr-3.38.0.tar.xz \
+check_and_download http://oligarchy.co.uk/xapian/1.4.18/xapian-core-1.4.18.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-gcr &&
+md5sum -c ${SCRIPTPATH}/md5-xapian &&
 
-tar xf /sources/gcr-3.38.0.tar.xz -C /sources/ &&
+tar xf /sources/xapian-core-1.4.18.tar.xz -C /sources/ &&
 
-cd /sources/gcr-3.38.0 &&
+cd /sources/xapian-core-1.4.18 &&
 
-sed -i 's:"/desktop:"/org:' schema/*.xml &&
-
-mkdir gcr-build &&
-cd    gcr-build &&
-
-meson --prefix=/usr -Dgtk_doc=true ..  &&
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/xapian-core-1.4.18 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-ninja &&
+make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  ninja test &&
+  make check &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-
-as_root ninja install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -2,28 +2,30 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/vte-0.62.1
+if test -d /sources/gst-plugins-bad-1.18.3
  then
-  rm -rf /sources/vte-0.62.1
+  rm -rf /sources/gst-plugins-bad-1.18.3
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://download.gnome.org/sources/vte/0.62/vte-0.62.1.tar.xz \
-        /sources &&
+check_and_download https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.18.3.tar.xz \
+    /sources &&
 
+md5sum -c ${SCRIPTPATH}/md5-gst-plugins-bad &&
 
-md5sum -c ${SCRIPTPATH}/md5-vte &&
+tar xf /sources/gst-plugins-bad-1.18.3.tar.xz -C /sources/ &&
 
-tar xf /sources/vte-0.62.1.tar.xz -C /sources/ &&
-
-cd /sources/vte-0.62.1 &&
+cd /sources/gst-plugins-bad-1.18.3 &&
 
 mkdir build &&
 cd    build &&
 
-meson  --prefix=/usr --sysconfdir=/etc -Dfribidi=false -Ddocs=true .. &&
+meson  --prefix=/usr       \
+       -Dbuildtype=release \
+       -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
+       -Dpackage-name="GStreamer 1.18.3 BLFS" &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&
@@ -37,6 +39,5 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root ninja install &&
-as_root rm -v /etc/profile.d/vte.* &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

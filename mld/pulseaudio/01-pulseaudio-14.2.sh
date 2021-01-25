@@ -2,27 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/pulseaudio-14.0
+if test -d /sources/pulseaudio-14.2
  then
-  rm -rf /sources/pulseaudio-14.0
+  rm -rf /sources/pulseaudio-14.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-14.0.tar.xz \
+check_and_download https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-14.2.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-pulseaudio &&
 
-tar xf /sources/pulseaudio-14.0.tar.xz -C /sources/ &&
+tar xf /sources/pulseaudio-14.2.tar.xz -C /sources/ &&
 
-cd /sources/pulseaudio-14.0 &&
+cd /sources/pulseaudio-14.2 &&
 
 mkdir build &&
 cd    build &&
 
-meson  --prefix=/usr -Ddatabase=gdbm &&
+meson  --prefix=/usr -Ddatabase=gdbm -Dbluez5=false &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&

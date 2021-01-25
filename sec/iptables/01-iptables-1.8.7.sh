@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/iptables-1.8.6.tar.bz2
+if test -d /sources/iptables-1.8.7.tar.bz2
  then
-  rm -rf /sources/iptables-1.8.6.tar.bz2
+  rm -rf /sources/iptables-1.8.7.tar.bz2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://www.netfilter.org/projects/iptables/files/iptables-1.8.6.tar.bz2 \
+check_and_download http://www.netfilter.org/projects/iptables/files/iptables-1.8.7.tar.bz2 \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-iptables &&
 
-tar xf /sources/iptables-1.8.6.tar.bz2 -C /sources/ &&
+tar xf /sources/iptables-1.8.7.tar.bz2 -C /sources/ &&
 
-cd /sources/iptables-1.8.6 &&
+cd /sources/iptables-1.8.7 &&
 
 ./configure --prefix=/usr      \
             --sbindir=/sbin    \

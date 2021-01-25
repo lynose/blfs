@@ -2,36 +2,29 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/jdk14u-jdk-14.0.1+7
+if test -d /sources/jdk15u-jdk-15.0.2-ga
  then
-  rm -rf /sources/jdk14u-jdk-14.0.1+7
+  rm -rf /sources/jdk15u-jdk-15.0.2-ga
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://hg.openjdk.java.net/jdk-updates/jdk14u/archive/jdk-14.0.1+7.tar.bz2 \
+check_and_download https://github.com/openjdk/jdk15u/archive/jdk-15.0.2-ga.tar.gz \
         /sources &&
-check_and_download http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-14.0.1/jtreg-4.2-b13-517.tar.gz \
+check_and_download http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-15.0.2/jtreg-4.2.0-tip.tar.gz \
         /sources &&
-check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/openjdk-14.0.1-make_4.3_fix-1.patch \
-        /sources &&
-
 
 md5sum -c ${SCRIPTPATH}/md5-jdk &&
 
-tar xf /sources/jdk-14.0.1+7.tar.bz2 -C /sources/ &&
+tar xf /sources/jdk-15.0.2-ga.tar.gz -C /sources/ &&
 
-cd /sources/jdk14u-jdk-14.0.1+7 &&
+cd /sources/jdk15u-jdk-15.0.2-ga &&
 
-tar -xf ../jtreg-4.2-b13-517.tar.gz &&
-patch -p1 -i ../openjdk-14.0.1-make_4.3_fix-1.patch &&
-sed -i /sysctl/d \
-    src/jdk.incubator.jpackage/unix/native/libapplauncher/PosixPlatform.cpp &&
+tar -xf ../jtreg-4.2.0-tip.tar.gz &&
 
 unset JAVA_HOME                                       &&
 bash configure --enable-unlimited-crypto              \
-               --with-extra-cflags="$CFLAGS -fcommon" \
                --disable-warnings-as-errors           \
                --with-stdc++lib=dynamic               \
                --with-giflib=system                   \
@@ -45,7 +38,6 @@ bash configure --enable-unlimited-crypto              \
                --with-version-opt=""                  \
                --with-cacerts-file=/etc/pki/tls/java/cacerts &&
 ${log} `basename "$0"` " configured" blfs_all &&
-unset MAKEFLAGS &&
 make images &&
 ${log} `basename "$0"` " built" blfs_all &&
 
@@ -59,22 +51,22 @@ if [ ${ENABLE_TEST} == true ]
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root install -vdm755 /opt/jdk-14.0.1+7             &&
-as_root cp -Rv build/*/images/jdk/* /opt/jdk-14.0.1+7 &&
-as_root chown -R root:root /opt/jdk-14.0.1+7          &&
+as_root install -vdm755 /opt/jdk-15.0.2+7             &&
+as_root cp -Rv build/*/images/jdk/* /opt/jdk-15.0.2+7 &&
+as_root chown -R root:root /opt/jdk-15.0.2+7          &&
 for s in 16 24 32 48; do
   as_root install -vDm644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \
                   /usr/share/icons/hicolor/${s}x${s}/apps/java.png
 done
 
-as_root ln -v -nsf /opt/jdk-14.0.1+7 /opt/jdk &&
+as_root ln -v -nsf /opt/jdk-15.0.2+7 /opt/jdk &&
 
 as_root mkdir -pv /usr/share/applications &&
 
 cat > ./openjdk-java.desktop << "EOF" &&
 [Desktop Entry]
-Name=OpenJDK Java 14.0.1 Runtime
-Comment=OpenJDK Java 14.0.1 Runtime
+Name=OpenJDK Java 15.0.2 Runtime
+Comment=OpenJDK Java 15.0.2 Runtime
 Exec=/opt/jdk/bin/java -jar
 Terminal=false
 Type=Application
@@ -85,8 +77,8 @@ EOF
 
 cat > ./openjdk-jconsole.desktop << "EOF" &&
 [Desktop Entry]
-Name=OpenJDK Java 14.0.1 Console
-Comment=OpenJDK Java 14.0.1 Console
+Name=OpenJDK Java 15.0.2 Console
+Comment=OpenJDK Java 15.0.2 Console
 Keywords=java;console;monitoring
 Exec=/opt/jdk/bin/jconsole
 Terminal=false
