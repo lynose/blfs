@@ -401,8 +401,6 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./server/openldap/01-openldap-2.4.57.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libnfsidmap/01-libnfsidmap-0.26.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/nfsutils/01-nfsutils-2.5.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/apr-util/01-apr-util-1.6.1.sh &&
@@ -432,7 +430,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/icu/01-icu-68.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/JS/01-JS-78.6.1.sh &&
+./gen-libs/JS/01-JS-78.7.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/nodejs/01-nodejs-v14.15.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -734,7 +732,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/NetworkManager/01-NetworkManager-1.28.0.sh && #TODO Fix rebuild
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./xsoft/firefox/01-firefox-78.6.1.sh &&
+./xsoft/firefox/01-firefox-78.7.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnome/gcr/01-gcr-3.38.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

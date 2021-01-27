@@ -33,10 +33,9 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-as_root make install &&
-as_root mv -v /sbin/start-statd /usr/sbin &&
-as_root chmod u+w,go+r /sbin/mount.nfs    &&
-as_root chown nobody.nogroup /var/lib/nfs &&
+make install                      &&
+chmod u+w,go+r /sbin/mount.nfs    &&
+chown nobody.nogroup /var/lib/nfs &&
 cd /usr/src/blfs-systemd-units &&
 as_root make install-nfsv4-server &&
 as_root make install-nfs-client &&

@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/firefox-78.6.1
+if test -d /sources/firefox-78.7.0
  then
-  rm -rf /sources/firefox-78.6.1
+  rm -rf /sources/firefox-78.7.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://archive.mozilla.org/pub/firefox/releases/78.6.1esr/source/firefox-78.6.1esr.source.tar.xz \
+check_and_download https://archive.mozilla.org/pub/firefox/releases/78.7.0esr/source/firefox-78.7.0esr.source.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-JS &&
 
 # Will return a non-zero value, but can be continued
-tar xf /sources/firefox-78.6.1esr.source.tar.xz -C /sources/
+tar xf /sources/firefox-78.7.0esr.source.tar.xz -C /sources/
 
-cd /sources/firefox-78.6.1 &&
+cd /sources/firefox-78.7.0 &&
 
 mkdir obj &&
 cd    obj &&
@@ -48,6 +48,6 @@ fi
 
 as_root make install &&
 as_root rm -v /usr/lib/libjs_static.ajs &&
-as_root sed -i '/@NSPR_CFLAGS@/d' /usr/bin/js78-config
+as_root sed -i '/@NSPR_CFLAGS@/d' /usr/bin/js78-config &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
