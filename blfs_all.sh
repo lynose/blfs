@@ -204,7 +204,7 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ############################################################################
 ./sec/sudo/02-sudo-1.9.5p2.sh && # better to build sudo seperate
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/python3/01-python-3.9.1.sh &&
+./devel/python3/01-python-3.8.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/Pygments/01-Pygments-2.7.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -500,7 +500,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/tk/01-tk-8.6.11.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/python3/01-python-3.9.1.sh &&
+./devel/python3/01-python-3.8.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/meson/01-meson-5.56.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
