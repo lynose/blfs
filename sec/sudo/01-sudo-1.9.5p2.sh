@@ -2,30 +2,30 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/sudo-1.9.5p1
+if test -d /sources/sudo-1.9.5p2
  then
-  rm -rf /sources/sudo-1.9.5p1
+  rm -rf /sources/sudo-1.9.5p2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://www.sudo.ws/dist/sudo-1.9.5p1.tar.gz \
+check_and_download http://www.sudo.ws/dist/sudo-1.9.5p2.tar.gz \
         /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-sudo &&
 
-tar xf /sources/sudo-1.9.5p1.tar.gz -C /sources/ &&
+tar xf /sources/sudo-1.9.5p2.tar.gz -C /sources/ &&
 
-cd /sources/sudo-1.9.5p1 &&
+cd /sources/sudo-1.9.5p2 &&
 
 ./configure --prefix=/usr              \
             --libexecdir=/usr/lib      \
             --with-secure-path         \
             --with-all-insults         \
             --with-env-editor          \
-            --docdir=/usr/share/doc/sudo-1.9.5p1 \
+            --docdir=/usr/share/doc/sudo-1.9.5p2 \
             --with-passprompt="[sudo] password for %p: "  &&
 ${log} `basename "$0"` " configured" blfs_all &&
 

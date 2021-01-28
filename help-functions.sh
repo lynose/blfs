@@ -75,7 +75,7 @@ check_and_download ()
   
   if [ ! -f ${dirname}/${filename} ];
     then 
-      wget ${url} --continue --directory-prefix=${dirname}
+      wget ${url} --no-check-certificate --continue --directory-prefix=${dirname}
   fi
 }
 
