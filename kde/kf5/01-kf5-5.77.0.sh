@@ -5,10 +5,8 @@ ${log} `basename "$0"` " download" blfs_all &&
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-if [ ! -d /sources/kf5 ]
- then
-  mkdir /sources/kf5
-fi
+mkdir -p /sources/kf5
+
 
 cp -uf ${SCRIPTPATH}/md5-kf5 /sources/kf5 &&
 cd /sources/kf5 &&
@@ -31,9 +29,9 @@ while read -r line; do
     ${log} `basename "$0"` " ======================================" blfs_all &&
     pkg=$(echo $file|sed 's|^.*/||') &&          # Remove directory
     packagedir=$(echo $pkg|sed 's|\.tar.*||') && # Package directory
-    if test -d $packagedir
-     then
-      rm -rf $packagedir
+    if [ -d $packagedir ] && [ $packagedir != / ]
+      then
+        as_root rm -rf $packagedir
     fi
     name=$(echo $pkg|sed 's|-5.*$||') && # Isolate package name
 

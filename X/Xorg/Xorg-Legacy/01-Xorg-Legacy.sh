@@ -2,15 +2,11 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/Xorg-Legacy
- then
-  rm -rf /sources/Xorg-Legacy
-fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 cp -u ${SCRIPTPATH}/md5-Xorg-Legacy /sources &&
-mkdir /sources/Xorg-Legacy &&
+mkdir -p /sources/Xorg-Legacy &&
 cd /sources/Xorg-Legacy &&
 
 
@@ -22,7 +18,14 @@ md5sum -c ../Xorg-Legacy.md5 &&
 for package in $(grep -v '^#' ../Xorg-Legacy.md5 | awk '{print $2}')
 do
   ${log} `basename "$0"` " ======================================" blfs_all &&
-  packagedir=${package%.tar.?z*} &&
+  packagedir=${package%.tar.?z*}
+  
+  if [ -d $packagedir ]
+    then
+       as_root rm -rf $packagedir
+  fi
+  
+  
   tar -xf $package &&
   pushd $packagedir &&
      ./configure $XORG_CONFIG &&
@@ -32,7 +35,6 @@ do
      as_root make install &&
      ${log} `basename "$0"` " installed $package" blfs_all &&
   popd
-  as_root rm -rf $packagedir &&
   ${log} `basename "$0"` " ======================================" blfs_all
 done
 

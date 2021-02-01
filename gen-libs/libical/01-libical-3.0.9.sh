@@ -25,14 +25,14 @@ cd    build &&
 cmake -DCMAKE_INSTALL_PREFIX=/usr  \
       -DCMAKE_BUILD_TYPE=Release   \
       -DSHARED_ONLY=yes            \
-      -DICAL_BUILD_DOCS=false      \
+      -DICAL_BUILD_DOCS=true      \
       -DGOBJECT_INTROSPECTION=true \
       -DICAL_GLIB_VAPI=true        \
       ..  &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make -j 1 &&
-make doc &&
+make docs &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 

@@ -2,16 +2,12 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/Xorg-libs
- then
-  rm -rf /sources/Xorg-libs
-fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
 cp -u ${SCRIPTPATH}/md5-Xorg-libs /sources &&
-mkdir /sources/Xorg-libs &&
+mkdir -p /sources/Xorg-libs &&
 cd /sources/Xorg-libs &&
 
 
@@ -22,8 +18,15 @@ md5sum -c ../md5-Xorg-libs &&
 for package in $(grep -v '^#' ../md5-Xorg-libs | awk '{print $2}' )
 do
   ${log} `basename "$0"` " ======================================" blfs_all &&
-  packagedir=${package%.tar.bz2}
-  tar -xf $package
+  
+  packagedir=${package%.tar.?z*}
+  
+  if [ -d $packagedir ];
+    then
+       as_root rm -rf $packagedir
+  fi
+  
+  tar -xf $package &&
   pushd $packagedir &&
   docdir="--docdir=$XORG_PREFIX/share/doc/$packagedir" &&
   case $packagedir in
@@ -56,7 +59,6 @@ do
   as_root make install &&
   ${log} `basename "$0"` " installed $package" blfs_all &&
   popd
-  as_root rm -rf $packagedir &&
   as_root /sbin/ldconfig &&
   ${log} `basename "$0"` " ======================================" blfs_all
 done

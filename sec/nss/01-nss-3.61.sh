@@ -2,32 +2,32 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/nss-3.60.1
+if test -d /sources/nss-3.61
  then
-  rm -rf /sources/nss-3.60.1
+  rm -rf /sources/nss-3.61
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://archive.mozilla.org/pub/security/nss/releases/NSS_3_60_1_RTM/src/nss-3.60.1.tar.gz \
+check_and_download https://archive.mozilla.org/pub/security/nss/releases/NSS_3_61_RTM/src/nss-3.61.tar.gz \
     /sources &&
     
-check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.60.1-standalone-1.patch \
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.61-standalone-1.patch \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-nss &&
 
-tar xf /sources/nss-3.60.1.tar.gz -C /sources/ &&
+tar xf /sources/nss-3.61.tar.gz -C /sources/ &&
 
-cd /sources/nss-3.60.1 &&
+cd /sources/nss-3.61 &&
 
-patch -Np1 -i ../nss-3.60.1-standalone-1.patch &&
+patch -Np1 -i ../nss-3.61-standalone-1.patch &&
 
 cd nss &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make BUILD_OPT=1                      \
+make -j1 BUILD_OPT=1                  \
   NSPR_INCLUDE_DIR=/usr/include/nspr  \
   USE_SYSTEM_ZLIB=1                   \
   ZLIB_LIBS=-lz                       \

@@ -2,15 +2,11 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/Xorg-fonts
- then
-  rm -rf /sources/Xorg-fonts
-fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 cp -u ${SCRIPTPATH}/md5-Xorg-fonts /sources &&
-mkdir /sources/Xorg-fonts &&
+mkdir -p /sources/Xorg-fonts &&
 cd /sources/Xorg-fonts &&
 
 
@@ -21,7 +17,13 @@ md5sum -c ../md5-Xorg-fonts &&
 for package in $(grep -v '^#' ../md5-Xorg-fonts | awk '{print $2}')
 do
   ${log} `basename "$0"` " ======================================" blfs_all &&
-  packagedir=${package%.tar.?z*} &&
+  packagedir=${package%.tar.?z*}
+  
+  if [ -d $packagedir ]
+    then
+       as_root rm -rf $packagedir
+  fi
+  
   tar -xf $package &&
   pushd $packagedir
      ./configure $XORG_CONFIG &&
@@ -31,7 +33,6 @@ do
      as_root make install &&
      ${log} `basename "$0"` " installed $package" blfs_all &&
   popd
-  as_root rm -rf $packagedir &&
   ${log} `basename "$0"` " ======================================" blfs_all
 done
 

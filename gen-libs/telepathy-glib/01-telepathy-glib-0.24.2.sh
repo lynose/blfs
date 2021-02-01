@@ -2,32 +2,24 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/telepathy-glib-0.24.1
+if test -d /sources/telepathy-glib-0.24.2
  then
-  rm -rf /sources/telepathy-glib-0.24.1
+  rm -rf /sources/telepathy-glib-0.24.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-glib-0.24.1.tar.gz \
+check_and_download https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-glib-0.24.2.tar.gz \
         /sources &&
-        
-check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/telepathy-glib-0.24.1-consolidated_fixes-1.patch \
-        /sources &&
-
 
 md5sum -c ${SCRIPTPATH}/md5-telepathy-glib &&
 
-tar xf /sources/telepathy-glib-0.24.1.tar.gz -C /sources/ &&
+tar xf /sources/telepathy-glib-0.24.2.tar.gz -C /sources/ &&
 
-cd /sources/telepathy-glib-0.24.1 &&
+cd /sources/telepathy-glib-0.24.2 &&
 
-patch -Np1 -i ../telepathy-glib-0.24.1-consolidated_fixes-1.patch &&
 sed -i 's%/usr/bin/python%&3%' tests/all-errors-documented.py &&
-
-
-autoreconf -fiv &&
 
 PYTHON=/usr/bin/python3 ./configure --prefix=/usr          \
                                     --enable-vala-bindings \

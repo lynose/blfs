@@ -2,29 +2,29 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/asciidoc-9.0.4
+if test -d /sources/asciidoc-9.0.5
  then
-  rm -rf /sources/asciidoc-9.0.4
+  rm -rf /sources/asciidoc-9.0.5
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/asciidoc/asciidoc-py3/releases/download/9.0.4/asciidoc-9.0.4.tar.gz \
+check_and_download https://github.com/asciidoc/asciidoc-py3/releases/download/9.0.5/asciidoc-9.0.5.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-asciidoc &&
 
-tar xf /sources/asciidoc-9.0.4.tar.gz -C /sources/ &&
+tar xf /sources/asciidoc-9.0.5.tar.gz -C /sources/ &&
 
-cd /sources/asciidoc-9.0.4 &&
+cd /sources/asciidoc-9.0.5 &&
 
 sed -i 's:doc/testasciidoc.1::' Makefile.in &&
 rm doc/testasciidoc.1.txt &&
 
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
-            --docdir=/usr/share/doc/asciidoc-9.0.4 &&
+            --docdir=/usr/share/doc/asciidoc-9.0.5 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

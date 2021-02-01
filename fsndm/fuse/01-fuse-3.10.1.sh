@@ -33,12 +33,12 @@ doxygen ../doc/Doxyfile &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 #TODO PYTEST needed
-# if [ ${ENABLE_TEST} == true ]
-#  then
-#   python3 -m pytest test && 
-#   ${log} `basename "$0"` " check succeed" blfs_all ||
-#   ${log} `basename "$0"` " expected check fail?" blfs_all
-# fi
+if [ ${ENABLE_TEST} == true ]
+ then
+  python3 -m pytest test && 
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
 
 as_root ninja install &&
 

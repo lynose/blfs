@@ -2,24 +2,24 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/pinentry-1.1.0
+if test -d /sources/util-macros-1.19.3
  then
-  rm -rf /sources/pinentry-1.1.0
+  rm -rf /sources/util-macros-1.19.3
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.1.0.tar.bz2 \
+check_and_download https://www.x.org/pub/individual/util/util-macros-1.19.3.tar.bz2 \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-pinentry &&
+md5sum -c ${SCRIPTPATH}/md5-util-macros &&
 
-tar xf /sources/pinentry-1.1.0.tar.bz2 -C /sources/ &&
+tar xf /sources/util-macros-1.19.3.tar.bz2 -C /sources/ &&
 
-cd /sources/pinentry-1.1.0 &&
+cd /sources/util-macros-1.19.3 &&
 
-./configure --prefix=/usr --enable-pinentry-tty &&
+./configure $XORG_CONFIG &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

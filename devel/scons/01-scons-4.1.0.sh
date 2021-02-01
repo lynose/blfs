@@ -2,25 +2,26 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/SCons-4.0.1
+if test -d /sources/SCons-4.1.0
  then
-  rm -rf /sources/SCons-4.0.1
+  rm -rf /sources/SCons-4.1.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://downloads.sourceforge.net/scons/scons-4.0.1.tar.gz \
+check_and_download https://downloads.sourceforge.net/scons/scons-4.1.0.tar.gz \
         /sources
 
 
 md5sum -c ${SCRIPTPATH}/md5-scons &&
 
-tar xf /sources/scons-4.0.1.tar.gz -C /sources/ &&
+tar xf /sources/scons-4.1.0.tar.gz -C /sources/ &&
 
-cd /sources/SCons-4.0.1 &&
+cd /sources/SCons-4.1.0 &&
 
-sed -i 's/env python/&3/' SCons/Utilities/*.py     &&
+sed -i 's/env python/&3/' SCons/Utilities/*.py            &&
+sed -i 's:build/doc/man::' setup.cfg  &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 as_root python3 setup.py install --prefix=/usr  \

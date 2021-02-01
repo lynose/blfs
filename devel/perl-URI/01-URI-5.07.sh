@@ -2,25 +2,24 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/IO-Socket-SSL-2.068
+if test -d /sources/URI-5.07
  then
-  rm -rf /sources/IO-Socket-SSL-2.068
+  rm -rf /sources/URI-5.07
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.068.tar.gz \
-        /sources
+check_and_download https://www.cpan.org/authors/id/O/OA/OALDERS/URI-5.07.tar.gz \
+    /sources &&
 
+md5sum -c ${SCRIPTPATH}/md5-URI &&
 
-md5sum -c ${SCRIPTPATH}/md5-perl-IO-Socket-SSL &&
+tar xf /sources/URI-5.07.tar.gz -C /sources/ &&
 
-tar xf /sources/IO-Socket-SSL-2.068.tar.gz -C /sources/ &&
+cd /sources/URI-5.07 &&
 
-cd /sources/IO-Socket-SSL-2.068 &&
-
-yes '' | perl Makefile.PL &&
+perl Makefile.PL &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

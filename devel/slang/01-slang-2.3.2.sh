@@ -7,6 +7,11 @@ if test -d /sources/slang-2.3.2
   rm -rf /sources/slang-2.3.2
 fi
 
+if [ -d /usr/share/slsh ]
+ then
+   as_root rm -rf /usr/share/slsh
+fi
+
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 

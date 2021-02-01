@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/btrfs-progs-v5.9
+if test -d /sources/btrfs-progs-v5.10
  then
-  rm -rf /sources/btrfs-progs-v5.9
+  rm -rf /sources/btrfs-progs-v5.10
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.9.tar.xz \
+check_and_download https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.10.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-btrfs-progs &&
 
-tar xf /sources/btrfs-progs-v5.9.tar.xz -C /sources/ &&
+tar xf /sources/btrfs-progs-v5.10.tar.xz -C /sources/ &&
 
-cd /sources/btrfs-progs-v5.9 &&
+cd /sources/btrfs-progs-v5.10 &&
 
 ./configure --prefix=/usr \
             --bindir=/bin \
@@ -26,22 +26,17 @@ cd /sources/btrfs-progs-v5.9 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
-make fssum &&
-
-sed -i '/found/s/^/: #/' tests/convert-tests.sh &&
-
-
-mv tests/convert-tests/010-reiserfs-basic/test.sh{,.broken}               &&
-mv tests/convert-tests/011-reiserfs-delete-all-rollback/test.sh{,.broken} &&
-mv tests/convert-tests/012-reiserfs-large-hole-extent/test.sh{,.broken}   &&
-mv tests/convert-tests/013-reiserfs-common-inode-flags/test.sh{,.broken}  &&
-mv tests/convert-tests/014-reiserfs-tail-handling/test.sh{,.broken}       &&
-mv tests/fuzz-tests/003-multi-check-unmounted/test.sh{,.broken} &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 
 if [ ${ENABLE_TEST} == true ]
  then
+  make fssum &&
+
+  sed -i '/found/s/^/: #/' tests/convert-tests.sh &&
+  
+  mv tests/misc-tests/025-zstd-compression/test.sh{,.broken} &&
+
   pushd tests &&
     ./fsck-tests.sh
     ./mkfs-tests.sh  

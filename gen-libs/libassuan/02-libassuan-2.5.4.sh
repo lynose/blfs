@@ -26,6 +26,7 @@ make &&
 make -C doc html                                                       &&
 makeinfo --html --no-split -o doc/assuan_nochunks.html doc/assuan.texi &&
 makeinfo --plaintext       -o doc/assuan.txt           doc/assuan.texi &&
+make -C doc pdf ps &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
@@ -43,5 +44,7 @@ as_root install -v -m644 doc/assuan_nochunks.html \
                     /usr/share/doc/libassuan-2.5.4      &&
 as_root install -v -m644 doc/assuan.{txt,texi} \
                     /usr/share/doc/libassuan-2.5.4 &&
+as_root install -v -m644  doc/assuan.{pdf,ps,dvi} \
+                  /usr/share/doc/libassuan-2.5.4 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
