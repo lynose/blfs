@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libcap-2.46
+if test -d /sources/libcap-2.47
  then
-  rm -rf /sources/libcap-2.46
+  rm -rf /sources/libcap-2.47
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.46.tar.xz \
+check_and_download https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.47.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libcap &&
 
-tar xf /sources/libcap-2.46.tar.xz -C /sources/ &&
+tar xf /sources/libcap-2.47.tar.xz -C /sources/ &&
 
-cd /sources/libcap-2.46 &&
+cd /sources/libcap-2.47 &&
 
 make -C pam_cap &&
 ${log} `basename "$0"` " built" blfs_all &&

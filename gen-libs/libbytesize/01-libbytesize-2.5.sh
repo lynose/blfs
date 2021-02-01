@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libbytesize-2.4
+if test -d /sources/libbytesize-2.5
  then
-  rm -rf /sources/libbytesize-2.4
+  rm -rf /sources/libbytesize-2.5
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/storaged-project/libbytesize/releases/download/2.4/libbytesize-2.4.tar.gz \
+check_and_download https://github.com/storaged-project/libbytesize/releases/download/2.5/libbytesize-2.5.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libbytesize &&
 
-tar xf /sources/libbytesize-2.4.tar.gz -C /sources/ &&
+tar xf /sources/libbytesize-2.5.tar.gz -C /sources/ &&
 
-cd /sources/libbytesize-2.4 &&
+cd /sources/libbytesize-2.5 &&
 
 ./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&

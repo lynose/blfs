@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/wayland-1.18.0
+if test -d /sources/wayland-1.19.0
  then
-  rm -rf /sources/wayland-1.18.0
+  rm -rf /sources/wayland-1.19.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://wayland.freedesktop.org/releases/wayland-1.18.0.tar.xz \
+check_and_download https://wayland.freedesktop.org/releases/wayland-1.19.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-wayland &&
 
-tar xf /sources/wayland-1.18.0.tar.xz -C /sources/ &&
+tar xf /sources/wayland-1.19.0.tar.xz -C /sources/ &&
 
-cd /sources/wayland-1.18.0 &&
+cd /sources/wayland-1.19.0 &&
 
 ./configure --prefix=/usr    \
             --disable-static \

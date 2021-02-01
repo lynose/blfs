@@ -210,7 +210,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/docutils/01-docutils-0.16.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/libcap/01-libcap-2.46.sh &&
+./sec/libcap/01-libcap-2.47.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./net/bridge-utils/01-bridge-utils-1.6.sh && #!!! Need to be reviewed, kernel headers!!!
 # ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -279,7 +279,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/p11-kit/01-p11-kit-0.23.22.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libbytesize/01-libbytesize-2.4.sh &&
+./gen-libs/libbytesize/01-libbytesize-2.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./xml/xmlto/01-xmlto-0.0.28.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -482,7 +482,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./video-utils/ffmpeg/01-ffmpeg-4.3.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/wayland/01-wayland-1.18.0.sh &&
+./gen-libs/wayland/01-wayland-1.19.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/wayland-protocols/01-wayland-protocols-1.20.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -656,7 +656,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/pygtk/01-pygtk-2.24.0.sh && #TODO Fixit Python2 ...
 # ${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/librsvg/01-librsvg-2.50.2.sh &&
+./gnf-libs/librsvg/01-librsvg-2.50.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./icons/adwaita-icon-theme/01-adwaita-icon-theme-3.38.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -758,7 +758,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/poppler/01-poppler-21.01.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/qtwebengine/01-qtwebengine-5.15.2.sh &&
+./X/qtwebengine/01-qtwebengine-5.15.2.sh && #TODODoes not work without python2
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./typesetting/texlive/01-texlive-20200406.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
