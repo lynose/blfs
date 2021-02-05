@@ -129,7 +129,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/libdvdread/01-libdvdread-6.1.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/krb5/01-krb5-1.18.3.sh &&
+./sec/krb5/01-krb5-1.19.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/libtirpc/01-libtirpc-1.3.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -256,7 +256,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/MarkupSafe/01-MarkupSafe-1.1.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/Jinja2/01-Jinja2-2.11.2.sh &&
+./devel/Jinja2/01-Jinja2-2.11.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/Mako/01-Mako-1.1.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -288,7 +288,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sys/pciutils/01-pciutils-3.7.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/curl/01-curl-7.74.0.sh &&
+./net-libs/curl/01-curl-7.75.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/git/01-git-2.30.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -296,7 +296,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/libpsl/01-libpsl-0.21.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./net-libs/nghttp2/01-nghttp2-1.42.0.sh &&
+./net-libs/nghttp2/01-nghttp2-1.43.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/cmake/01-cmake-3.19.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -306,11 +306,13 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/c-ares/01-c-ares-1.17.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./net-libs/curl/02-curl-7.75.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/libjpeg-turbo/01-libjpeg-turbo-2.0.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/qpdf/01-qpdf-10.1.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/jasper/01-jasper-2.0.14.sh &&
+./gnf-libs/jasper/01-jasper-2.0.24.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/lcms2/01-lcms2-2.11.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -389,7 +391,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/rustc/01-rustc-1.47.0.sh && #FIXME Reconfigure ld.so...
 source /etc/profile.d/rustc.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/cbindgen/01-cbindgen-0.16.0.sh &&
+./devel/cbindgen/01-cbindgen-0.17.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/pcre/01-pcre-8.44.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -398,6 +400,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/cyrus-sasl/01-cyrus-sasl-2.1.27.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./server/openldap/01-openldap-2.4.57.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./sec/krb5/02-krb5-1.19.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/nfsutils/01-nfsutils-2.5.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -411,7 +415,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/newt/01-newt-0.52.21.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/glib/01-glib-2.66.4.sh &&
+./gen-libs/glib/01-glib-2.66.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./fsndm/sshfs/01-sshfs-3.7.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -709,7 +713,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/v4l-utils/01-v4l-utils-1.20.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/pipewire/01-pipewire-0.3.20.sh &&
+./mld/pipewire/01-pipewire-0.3.21.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./audio-utils/mpg123/01-mpg123-1.26.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -755,11 +759,13 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/mypaint-brushes/01-mypaint-brushes-1.3.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/poppler/01-poppler-21.01.0.sh &&
+./gnf-libs/poppler/01-poppler-21.02.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/qtwebengine/01-qtwebengine-5.15.2.sh && 
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./typesetting/texlive/01-texlive-20200406.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gnf-libs/jasper/02-jasper-2.0.24.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./fsndm/parted/02-parted-3.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -787,7 +793,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/Xorg/Xorg-server/01-xorg-server-1.20.10.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/libevdev/01-libevdev-1.10.1.sh &&
+./X/Xorg/Xorg-drivers/libevdev/01-libevdev-1.11.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/Xorg/Xorg-drivers/xf86-input-evdev/01-xf86-input-evdev-2.10.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -811,7 +817,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/twm/01-twm-1.0.11.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xterm/01-xterm-363.sh &&
+./X/xterm/01-xterm-365.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/xclock/01-xclock-1.0.9.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

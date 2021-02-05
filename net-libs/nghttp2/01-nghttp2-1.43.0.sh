@@ -4,24 +4,24 @@ ${log} `basename "$0"` " started" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-if test -d /sources/nghttp2-1.42.0
+if test -d /sources/nghttp2-1.43.0
  then
-  rm -rf /sources/nghttp2-1.42.0
+  rm -rf /sources/nghttp2-1.43.0
 fi
 
 ${log} `basename "$0"` " Downloading" blfs_all &&
-check_and_download https://github.com/nghttp2/nghttp2/releases/download/v1.42.0/nghttp2-1.42.0.tar.xz \
+check_and_download https://github.com/nghttp2/nghttp2/releases/download/v1.43.0/nghttp2-1.43.0.tar.xz \
 /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-nghttp2 &&
 
-tar xf /sources/nghttp2-1.42.0.tar.xz -C /sources/ &&
+tar xf /sources/nghttp2-1.43.0.tar.xz -C /sources/ &&
 
-cd /sources/nghttp2-1.42.0 &&
+cd /sources/nghttp2-1.43.0 &&
 
 ./configure --prefix=/usr     \
             --disable-static  \
-            --docdir=/usr/share/doc/nghttp2-1.42.0 &&
+            --docdir=/usr/share/doc/nghttp2-1.43.0 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make && 

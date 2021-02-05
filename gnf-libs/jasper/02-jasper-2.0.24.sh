@@ -4,20 +4,20 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/jasper-2.0.14
  then
-  rm -rf /sources/jasper-2.0.14
+  as_root rm -rf /sources/jasper-version-2.0.24
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.14.tar.gz \
+check_and_download https://github.com/jasper-software/jasper/archive/version-2.0.24/jasper-2.0.24.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-jasper &&
 
 tar xf /sources/jasper-2.0.14.tar.gz -C /sources/ &&
 
-cd /sources/jasper-2.0.14 &&
+cd /sources/jasper-version-2.0.24 &&
 
 mkdir BUILD &&
 cd    BUILD &&
@@ -25,7 +25,7 @@ cd    BUILD &&
 cmake -DCMAKE_INSTALL_PREFIX=/usr    \
       -DCMAKE_BUILD_TYPE=Release     \
       -DCMAKE_SKIP_INSTALL_RPATH=YES \
-      -DJAS_ENABLE_DOC=NO            \
+      -DJAS_ENABLE_DOC=YES           \
       -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/jasper-2.0.14 \
       .. &&
 ${log} `basename "$0"` " configured" blfs_all &&

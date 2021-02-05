@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/pipewire-0.3.20
+if test -d /sources/pipewire-0.3.21
  then
-  rm -rf /sources/pipewire-0.3.20
+  rm -rf /sources/pipewire-0.3.21
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/PipeWire/pipewire/archive/0.3.20/pipewire-0.3.20.tar.gz \
+check_and_download https://github.com/PipeWire/pipewire/archive/0.3.21/pipewire-0.3.21.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-pipewire &&
 
-tar xf /sources/pipewire-0.3.20.tar.gz -C /sources/ &&
+tar xf /sources/pipewire-0.3.21.tar.gz -C /sources/ &&
 
-cd /sources/pipewire-0.3.20 &&
+cd /sources/pipewire-0.3.21 &&
 
 mkdir build &&
 cd    build &&
