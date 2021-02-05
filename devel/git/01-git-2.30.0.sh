@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 
 if test -d /sources/git-2.30.0
  then
-  rm -rf /sources/git-2.30.0
+  as_root rm -rf /sources/git-2.30.0
 fi
 
 SCRIPT=`realpath $0`

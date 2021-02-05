@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/gst-plugins-base-1.18.3
  then
-  rm -rf /sources/gst-plugins-base-1.18.3
+  as_root rm -rf /sources/gst-plugins-base-1.18.3
 fi
 
 SCRIPT=`realpath $0`
@@ -26,6 +26,7 @@ meson  --prefix=/usr       \
        -Dbuildtype=release \
        -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
        -Dpackage-name="GStreamer 1.18.3 BLFS" \
+       -Dexamples=disabled \
        --wrap-mode=nodownload &&
 ${log} `basename "$0"` " configured" blfs_all &&
 

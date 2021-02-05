@@ -2,26 +2,26 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/mesa-20.3.3
+if test -d /sources/mesa-20.3.4
  then
-  rm -rf /sources/mesa-20.3.3
+  rm -rf /sources/mesa-20.3.4
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://mesa.freedesktop.org/archive/mesa-20.3.3.tar.xz \
+check_and_download https://mesa.freedesktop.org/archive/mesa-20.3.4.tar.xz \
     /sources &&
-check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/mesa-20.3.3-add_xdemos-1.patch \
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/mesa-20.3.4-add_xdemos-1.patch \
     /sources &&
     
 md5sum -c ${SCRIPTPATH}/md5-mesa &&
 
-tar xf /sources/mesa-20.3.3.tar.xz -C /sources/ &&
+tar xf /sources/mesa-20.3.4.tar.xz -C /sources/ &&
 
-cd /sources/mesa-20.3.3 &&
+cd /sources/mesa-20.3.4 &&
 
-patch -Np1 -i ../mesa-20.3.3-add_xdemos-1.patch &&
+patch -Np1 -i ../mesa-20.3.4-add_xdemos-1.patch &&
 
 sed '1s/python/&3/' -i bin/symbols-check.py &&
 
@@ -39,7 +39,7 @@ meson --prefix=$XORG_PREFIX          \
       -Dgallium-nine=false           \
       -Dglx=dri                      \
       -Dosmesa=gallium               \
-      -Dvalgrind=false               \
+      -Dvalgrind=true               \
       -Dlibunwind=false              \
       ..                             &&
 
@@ -60,7 +60,7 @@ fi
 
 as_root ninja install &&
 
-as_root install -v -dm755 /usr/share/doc/mesa-20.3.3 &&
-as_root cp -rfv ../docs/* /usr/share/doc/mesa-20.3.3 &&
+as_root install -v -dm755 /usr/share/doc/mesa-20.3.4 &&
+as_root cp -rfv ../docs/* /usr/share/doc/mesa-20.3.4 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

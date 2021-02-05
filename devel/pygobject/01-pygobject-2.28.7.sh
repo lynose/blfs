@@ -26,5 +26,7 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
+as_root ln -svf /usr/bin/python3 /usr/bin/python &&
+as_root python3 -m pip install --force pip &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

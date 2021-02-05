@@ -25,5 +25,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 as_root python2 setup.py install --optimize=1   &&
 as_root python2 setup.py install_pycairo_header &&
 as_root python2 setup.py install_pkgconfig &&
+as_root ln -svf /usr/bin/python3 /usr/bin/python &&
+as_root python3 -m pip install --force pip &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

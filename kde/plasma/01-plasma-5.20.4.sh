@@ -66,7 +66,7 @@ cd /usr/share/wayland-sessions/                            &&
 [ -e plasmawayland.desktop ]                               ||
 as_root ln -sfv $KF5_PREFIX/share/wayland-sessions/plasmawayland.desktop
 
-cat > ./kde << "EOF"  &&
+cat > /tmp/kde << "EOF"  &&
 # Begin /etc/pam.d/kde
 
 auth     requisite      pam_nologin.so
@@ -82,9 +82,9 @@ session  include        system-session
 # End /etc/pam.d/kde
 EOF
 
-as_root mv -v ./kde /etc/pam.d/kde &&
+as_root mv -v /tmp/kde /etc/pam.d/kde &&
 
-cat > ./kde-np << "EOF" &&
+cat > /tmp/kde-np << "EOF" &&
 # Begin /etc/pam.d/kde-np
 
 auth     requisite      pam_nologin.so
@@ -100,9 +100,9 @@ session  include        system-session
 # End /etc/pam.d/kde-np
 EOF
 
-as_root mv -v ./kde-np /etc/pam.d/kde-np &&
+as_root mv -v /tmp/kde-np /etc/pam.d/kde-np &&
 
-cat > ./kscreensaver << "EOF" &&
+cat > /tmp/kscreensaver << "EOF" &&
 # Begin /etc/pam.d/kscreensaver
 
 auth    include system-auth
@@ -110,7 +110,7 @@ account include system-account
 
 # End /etc/pam.d/kscreensaver
 EOF
-as_root mv -v ./kscreensaver /etc/pam.d/kscreensaver &&
+as_root mv -v /tmp/kscreensaver /etc/pam.d/kscreensaver &&
 
 cat > ~/.xinitrc << "EOF" &&
 dbus-launch --exit-with-session $KF5_PREFIX/bin/startplasma-x11

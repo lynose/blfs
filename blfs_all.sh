@@ -5,8 +5,8 @@ export CURRENT_PATH=`pwd`
 source ./help-functions.sh &&
 
 export log=${CURRENT_PATH}/logger.sh
-export MAKEFLAGS='-j 8'
-export NINJAJOBS=8
+export MAKEFLAGS='-j 2'
+export NINJAJOBS=2
 export ENABLE_TEST=false
 export DANGER_TEST=false
 #############################################################################
@@ -66,8 +66,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/autoconf-old/01-autoconf-2.13.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/python2/01-python2-2.7.18.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/python2/01-python2-2.7.18.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/util-macros/01-util-macros-1.19.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/mtdev/01-mtdev-1.1.6.sh &&
@@ -119,7 +119,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/lzo/01-lzo-2.10.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/dosfstools/01-dosfstools-4.1.sh &&
+./fsndm/dosfstools/01-dosfstools-4.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./fsndm/mdadm/01-mdadm-4.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -212,8 +212,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/libcap/01-libcap-2.47.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./net/bridge-utils/01-bridge-utils-1.6.sh && #!!! Need to be reviewed, kernel headers!!!
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./net/bridge-utils/01-bridge-utils-1.6.sh && #!!! Need to be reviewed, kernel headers!!!
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./fsndm/xfsprogs/01-xfsprogs-5.10.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sys/pm-utils/01-pm-utils-1.4.1.sh &&
@@ -244,10 +244,9 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./fsndm/LVM2/01-LVM2-2.03.11.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./fsndm/parted/01-parted-3.3.sh &&
-# TODO Python2 
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/python-libxml2/01-python-libxml2-2.9.10.sh && 
+./fsndm/parted/01-parted-3.4.sh &&
+${log} `basename "$0"` " ======================================" blfs_all && 
+./devel/python-libxml2/01-python-libxml2-2.9.10.sh && 
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/nss/01-nss-3.61.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -299,7 +298,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/nghttp2/01-nghttp2-1.42.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/cmake/01-cmake-3.19.3.sh &&
+./devel/cmake/01-cmake-3.19.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/extra-cmake-modules/01-extra-cmake-modules-5.77.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -407,7 +406,6 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/serf/01-serf-1.3.9.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./server/apache/01-apache-2.4.46.sh &&
-# TODO fix
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/slang/01-slang-2.3.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -415,7 +413,6 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/glib/01-glib-2.66.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-# TODO fix docutils build
 ./fsndm/sshfs/01-sshfs-3.7.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/swig/01-swig-4.0.2.sh &&
@@ -514,7 +511,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/SDL/01-SDL-1.2.15.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gnf-libs/libwebp/01-libwebp-1.1.0.sh &&
+./gnf-libs/libwebp/01-libwebp-1.2.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sys/dbus/01-dbus-1.12.20.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -542,7 +539,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/Xorg/Xorg-drivers/libvdpau/01-libvdpau-1.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/mesa/01-mesa-20.3.3.sh &&
+./X/mesa/01-mesa-20.3.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/libepoxy/01-libepoxy-1.5.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -552,7 +549,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/Xorg/Xorg-drivers/libvdpau-va-gl/01-libvdpau-va-gl-0.4.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/Xorg/Xorg-drivers/libva/01-libva-2.10.0.sh && # Rebuild after mesa
+./X/Xorg/Xorg-drivers/libva/01-libva-2.10.0.sh && #TODO Rebuild after mesa
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/xbitmaps/01-xbitmaps-1.1.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -572,8 +569,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/cairo/01-cairo-1.17.2+f93fc72c03e.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/pycairo/01-pycairo-1.18.2.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/pycairo/01-pycairo-1.18.2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/pycairo/01-pycairo-1.20.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/gobject-introspection/01-gobject-introspection-1.66.1.sh &&
@@ -654,8 +651,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/libglade/01-libglade-2.6.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/pygtk/01-pygtk-2.24.0.sh && #TODO Fixit Python2 ...
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/pygtk/01-pygtk-2.24.0.sh && 
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/librsvg/01-librsvg-2.50.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./icons/adwaita-icon-theme/01-adwaita-icon-theme-3.38.0.sh &&
@@ -677,6 +674,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/gst-plugins-bad/01-gst-plugins-bad-1.18.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/qt5/01-qt5-5.15.2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/cmake/02-cmake-3.19.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/doxygen/02-doxygen-1.9.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -732,13 +731,13 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/webkitgtk/01-webkitgtk-2.30.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./net/NetworkManager/01-NetworkManager-1.28.0.sh && #TODO Fix rebuild
+./net/NetworkManager/01-NetworkManager-1.28.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./xsoft/firefox/01-firefox-78.7.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnome/gcr/01-gcr-3.38.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/gnome-online-accounts/01-gnome-online-accounts-3.38.0.sh && #TODO fix rebuidl
+./gnome/gnome-online-accounts/01-gnome-online-accounts-3.38.0.sh && 
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnome/libgdata/01-libgdata-0.17.13.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -758,9 +757,11 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/poppler/01-poppler-21.01.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/qtwebengine/01-qtwebengine-5.15.2.sh && #TODODoes not work without python2
+./X/qtwebengine/01-qtwebengine-5.15.2.sh && 
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./typesetting/texlive/01-texlive-20200406.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./fsndm/parted/02-parted-3.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libassuan/02-libassuan-2.5.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

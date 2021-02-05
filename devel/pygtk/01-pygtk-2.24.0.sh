@@ -19,7 +19,7 @@ tar xf /sources/pygtk-2.24.0.tar.bz2 -C /sources/ &&
 
 cd /sources/pygtk-2.24.0 &&
 
-
+as_root ln -svf /usr/bin/python2 /usr/bin/python &&
 sed -i '1394,1402 d' pango.defs &&
 
 ./configure --prefix=/usr &&
@@ -36,5 +36,7 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root make install &&
+as_root ln -svf /usr/bin/python3 /usr/bin/python &&
+as_root python3 -m pip install --force pip &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

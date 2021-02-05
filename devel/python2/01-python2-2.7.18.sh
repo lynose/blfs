@@ -52,7 +52,7 @@ as_root tar --strip-components=1                     \
 
 as_root find /usr/share/doc/python-2.7.18 -type d -exec  chmod 0755 {} \; &&
 as_root find /usr/share/doc/python-2.7.18 -type f -exec chmod 0644 {} \; &&
-as_root ln -svf /usr/bin/python3 python &&
+as_root ln -svf /usr/bin/python3 /usr/bin/python &&
 as_root python3 -m pip install --force pip &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

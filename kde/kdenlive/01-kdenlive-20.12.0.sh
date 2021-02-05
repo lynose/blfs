@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/kdenlive-20.12.0
  then
-  rm -rf /sources/kdenlive-20.12.0
+  as_root rm -rf /sources/kdenlive-20.12.0
 fi
 
 SCRIPT=`realpath $0`
