@@ -410,8 +410,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/serf/01-serf-1.3.9.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./server/apache/01-apache-2.4.46.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
-# ./devel/slang/01-slang-2.3.2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/slang/01-slang-2.3.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/newt/01-newt-0.52.21.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -764,7 +764,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/qtwebengine/01-qtwebengine-5.15.2.sh && 
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./typesetting/texlive/01-texlive-20200406.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/jasper/02-jasper-2.0.24.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./fsndm/parted/02-parted-3.4.sh &&
@@ -847,15 +847,17 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/gwenview/01-gwenview-20.08.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-# TODO missing components
-# ./kde/k3b/01-k3b-20.12.0.sh &&
-# ${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/libkcddb/01-libkcddb-20.12.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/k3b/01-k3b-20.12.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/plasma/01-plasma-5.20.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/wireshark/01-wireshark-3.4.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./virt/qemu/01-qemu-5.2.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-
+./xsoft/thunderbird/01-thunderbird-78.7.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all

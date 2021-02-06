@@ -67,6 +67,6 @@ if [ ${ENABLE_TEST} == true ]
  then
     make -k -j1 check &&
     ${log} `basename "$0"` " check succeed" blfs_all ||
-    ${log} `basename "$0"` " check fail?" blfs_all &&
+    ${log} `basename "$0"` " check fail?" blfs_all
 fi 
 ${log} `basename "$0"` " finished" blfs_all 

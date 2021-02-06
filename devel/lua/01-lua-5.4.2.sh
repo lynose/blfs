@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/lua-5.4.2
  then
-  rm -rf /sources/lua-5.4.2
+  as_root rm -rf /sources/lua-5.4.2
 fi
 
 SCRIPT=`realpath $0`

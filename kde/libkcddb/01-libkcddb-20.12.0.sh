@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libkcddb-20.08.0
+if test -d /sources/libkcddb-20.12.0
  then
-  rm -rf /sources/libkcddb-20.08.0
+  as_root rm -rf /sources/libkcddb-20.12.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.kde.org/stable/release-service/20.08.0/src/libkcddb-20.08.0.tar.xz \
+check_and_download http://download.kde.org/stable/release-service/20.12.0/src/libkcddb-20.12.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libkcddb &&
 
-tar xf /sources/libkcddb-20.08.0.tar.xz -C /sources/ &&
+tar xf /sources/libkcddb-20.12.0.tar.xz -C /sources/ &&
 
-cd /sources/libkcddb-20.08.0 &&
+cd /sources/libkcddb-20.12.0 &&
 
 mkdir build &&
 cd    build &&
