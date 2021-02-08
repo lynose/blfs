@@ -2,27 +2,24 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/udisks-2.9.1
+if test -d /sources/kdevelop-5.6.2
  then
-  rm -rf /sources/udisks-2.9.1
+  rm -rf /sources/kdevelop-5.6.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/storaged-project/udisks/releases/download/udisks-2.9.1/udisks-2.9.1.tar.bz2 \
-    /sources &&
+check_and_download https://download.kde.org/stable/kdevelop/5.6.2/src/kdevelop-5.6.2.tar.xz \
+        /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-udisks &&
+gpg --verify ${SCRIPTPATH}/kdevelop-5.6.2.tar.xz.sig /sources/kdevelop-5.6.2.tar.xz
 
-tar xf /sources/udisks-2.9.1.tar.bz2 -C /sources/ &&
+tar xf /sources/kdevelop-5.6.2.tar.xz -C /sources/ &&
 
-cd /sources/udisks-2.9.1 &&
+cd /sources/kdevelop-5.6.2 &&
 
-./configure --prefix=/usr        \
-            --sysconfdir=/etc    \
-            --localstatedir=/var \
-            --disable-static &&
+./configure --prefix=/usr --disable-static &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

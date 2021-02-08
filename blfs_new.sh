@@ -43,7 +43,17 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #   Packages with required or recommended dependencies
 # #
 # ############################################################################
-
-
+./db/postgresql/01-postgresql-13.1.sh && #410
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/libiodbc/01-libiodbc-3.52.12.sh && #660
+${log} `basename "$0"` " ======================================" blfs_all &&
+./sys/rasqal/01-rasqal-0.9.33.sh && #787
+${log} `basename "$0"` " ======================================" blfs_all &&
+./sys/redland/01-redland-1.0.17.sh && #788
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/falkon/01-falkon-3.1.sh && #830
+${log} `basename "$0"` " ======================================" blfs_all &&
+./office/libreoffice/01-libreoffice-7.1.0.sh && #880
+${log} `basename "$0"` " ======================================" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all

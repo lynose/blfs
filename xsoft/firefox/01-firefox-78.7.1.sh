@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/firefox-78.7.0
+if test -d /sources/firefox-78.7.1
  then
-  rm -rf /sources/firefox-78.7.0
+  rm -rf /sources/firefox-78.7.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://archive.mozilla.org/pub/firefox/releases/78.7.0esr/source/firefox-78.7.0esr.source.tar.xz \
+check_and_download https://archive.mozilla.org/pub/firefox/releases/78.7.1esr/source/firefox-78.7.1esr.source.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-firefox &&
 
 # returns non-zero, ignore
-tar xf /sources/firefox-78.7.0esr.source.tar.xz -C /sources/
+tar xf /sources/firefox-78.7.1esr.source.tar.xz -C /sources/
 
-cd /sources/firefox-78.7.0 &&
+cd /sources/firefox-78.7.1 &&
 
 cat > mozconfig << "EOF"
 # If you have a multicore machine, all cores will be used by default.

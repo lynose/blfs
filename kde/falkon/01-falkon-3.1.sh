@@ -2,31 +2,35 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/qca-2.3.1
+if test -d /sources/falkon-3.1.0
  then
-  rm -rf /sources/qca-2.3.1
+  as_root rm -rf /sources/falkon-3.1.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.kde.org/stable/qca/2.3.1/qca-2.3.1.tar.xz \
-    /sources &&
+check_and_download https://download.kde.org/stable/falkon/3.1/falkon-3.1.0.tar.xz \
+        /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-qca &&
 
-tar xf /sources/qca-2.3.1.tar.xz -C /sources/ &&
+md5sum -c ${SCRIPTPATH}/md5-falkon &&
 
-cd /sources/qca-2.3.1 &&
+tar xf /sources/falkon-3.1.0.tar.xz -C /sources/ &&
 
-sed -i 's@cert.pem@certs/ca-bundle.crt@' CMakeLists.txt &&
+cd /sources/falkon-3.1.0 &&
 
+
+rm -rf po/ &&
+sed -i '/#include <QSettings>/a#include <QFile>' \
+   src/plugins/VerticalTabs/verticaltabsplugin.cpp &&
+sed -i '/#include <QPainter>/a #include <QPainterPath>' \
+   src/lib/tools/qztools.cpp &&
 mkdir build &&
 cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=$QT5DIR            \
-      -DCMAKE_BUILD_TYPE=Release                \
-      -DQCA_MAN_INSTALL_DIR:PATH=/usr/share/man \
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_BUILD_TYPE=Release  \
       .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 

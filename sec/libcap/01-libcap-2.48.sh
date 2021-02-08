@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libcap-2.47
+if test -d /sources/libcap-2.48
  then
-  rm -rf /sources/libcap-2.47
+  as_root rm -rf /sources/libcap-2.48
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.47.tar.xz \
+check_and_download https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.48.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libcap &&
 
-tar xf /sources/libcap-2.47.tar.xz -C /sources/ &&
+tar xf /sources/libcap-2.48.tar.xz -C /sources/ &&
 
-cd /sources/libcap-2.47 &&
+cd /sources/libcap-2.48 &&
 
 make -C pam_cap &&
 ${log} `basename "$0"` " built" blfs_all &&
@@ -35,8 +35,9 @@ if [ ! -f /etc/pam.d/system-auth.bak ]
 auth      optional    pam_cap.so
 EOF
   
+  as_root tail -n +3 /etc/pam.d/system-auth.bak >> /tmp/system-auth &&
   as_root mv -v /tmp/system-auth /etc/pam.d &&
-  as_root tail -n +3 /etc/pam.d/system-auth.bak >> /etc/pam.d/system-auth
+  as_root chmod root:root /etc/pam.d/system-auth
 fi
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -2,26 +2,26 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libsndfile-1.0.28
+if test -d /sources/libsamplerate-0.2.1
  then
-  rm -rf /sources/libsndfile-1.0.28
+  as_root rm -rf /sources/libsamplerate-0.2.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz \
+check_and_download https://github.com/libsndfile/libsamplerate/releases/download/0.2.1/libsamplerate-0.2.1.tar.bz2 \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-libsndfile &&
+md5sum -c ${SCRIPTPATH}/md5-libsamplerate &&
 
-tar xf /sources/libsndfile-1.0.28.tar.gz -C /sources/ &&
+tar xf /sources/libsamplerate-0.2.1.tar.bz2 -C /sources/ &&
 
-cd /sources/libsndfile-1.0.28 &&
+cd /sources/libsamplerate-0.2.1 &&
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/libsndfile-1.0.28 &&
+            --docdir=/usr/share/doc/libsamplerate-0.2.1 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

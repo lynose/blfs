@@ -41,7 +41,7 @@ Before=shutdown.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/check_and_download http://www.linux-usb.org/usb.ids -O /usr/share/hwdata/usb.ids
+ExecStart=/usr/bin/wget http://www.linux-usb.org/usb.ids -O /usr/share/hwdata/usb.ids
 EOF
 
 as_root mv -v ./update-usbids.service /lib/systemd/system/update-usbids.service &&
