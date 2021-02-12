@@ -5,8 +5,8 @@ unset LFS
 source ./help-functions.sh &&
 
 export log=${CURRENT_PATH}/logger.sh
-export MAKEFLAGS='-j 7'
-export NINJAJOBS=7
+export MAKEFLAGS='-j 8'
+export NINJAJOBS=8
 export ENABLE_TEST=false
 export DANGER_TEST=false
 #############################################################################
@@ -34,9 +34,11 @@ ${log} `basename "$0"` "                                       " blfs_kde &&
 #
 #############################################################################
 #./kde/itinerary/01-itinerary.sh &&
-
-
-
+#./X/packagekitqt5/01-packagekitqt5.sh &&
+./kde/baloo-widgets/01-baloo-widgets.sh &&
+./kde/dolphin/01-dolphin.sh &&
+./kde/dolphin-plugins/01-dolphin-plugins.sh &&
+./kde/konqueror/01-konqueror.sh &&
 
 #./virt/libvirt/01-libvirt.sh &&
 #./kde/krita/01-krita.sh

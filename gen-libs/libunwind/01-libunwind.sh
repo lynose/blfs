@@ -2,24 +2,24 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/kdevelop-5.6.2
- then
-  rm -rf /sources/kdevelop-5.6.2
-fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
+url=https://github.com/libunwind/libunwind.git
+version="v1.5-stable"
 
-check_and_download https://download.kde.org/stable/kdevelop/5.6.2/src/kdevelop-5.6.2.tar.xz \
-        /sources &&
+gitget $url \
+        /sources \
+        $version &&
 
-gpg --verify ${SCRIPTPATH}/kdevelop-5.6.2.tar.xz.sig /sources/kdevelop-5.6.2.tar.xz
+pack=`basename ${url}`
+packname=${pack:0: -4}
+gitpack=/sources/git/${packname}
 
-tar xf /sources/kdevelop-5.6.2.tar.xz -C /sources/ &&
+cd ${gitpack} &&
 
-cd /sources/kdevelop-5.6.2 &&
-
-./configure --prefix=/usr --disable-static &&
+./autogen.sh &&
+./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
@@ -32,6 +32,6 @@ if [ ${ENABLE_TEST} == true ]
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root make install &&
+as_root make install  prefix=/usr &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

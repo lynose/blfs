@@ -43,8 +43,6 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #   Packages with required or recommended dependencies
 # #
 # ############################################################################
-./devel/subversion/01-subversion-1.14.1.sh && 
-./gen-libs/nodejs/01-nodejs-v14.15.5.sh &&
 ./devel/php/01-php-8.0.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 

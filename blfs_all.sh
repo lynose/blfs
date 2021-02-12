@@ -208,7 +208,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/perl-archive-zip/01-archive-zip-1.68.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/python3/01-python-3.8.5.sh &&
+./devel/python3/01-python-3.9.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/Pygments/01-Pygments-2.7.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -1023,4 +1023,28 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/kuserfeedback/01-kuserfeedback.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/korganizer/01-korganizer.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/kaddressbook/01-kaddressbook.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/kblog/01-kblog.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/akregator/01-akregator.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/libunwind/01-libunwind.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/heaptrack/01-heaptrack.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/okteta/01-okteta.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/kdevelop/01-kdevelop.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/kdev-php/01-kdev-php.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/kdev-python/01-kdev-python.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/kdevelop-pg-qt/01-kdevelop-pg-qt.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/knotes/01-knotes.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all
+
