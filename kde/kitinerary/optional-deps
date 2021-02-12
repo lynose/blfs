@@ -1,0 +1,7 @@
+ * ZXing, <https://github.com/nu-book/zxing-cpp>
+   Support for barcode decoding.
+ * PhoneNumber, Library for parsing, formatting, and validating international phone numbers, <https://github.com/googlei18n/libphonenumber>
+   Parsing and geo-coding of phone numbers.
+ * OsmTools, Tols to convert, filter and update OpenStreetMap data files, <https://gitlab.com/osm-c-tools/osmctools>
+   Needed only for regenereating the airport database (ie. you most likely don't need this)
+

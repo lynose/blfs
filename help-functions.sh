@@ -113,3 +113,38 @@ log()
     echo "${CUR_TIME} : ${SCRIPTNAME} ${INFO}" >> ${LOGPATH}/${LOGFILE}
 }
 export -f log
+
+gitget ()
+{
+  PWD=pwd
+  url=$1
+  pack=`basename ${url}`
+  packname=${pack:0: -4}
+  dirname=$2
+  repo=${dirname}/git
+  gitpack=${repo}/${packname}
+  if [ $3 ]; 
+    then
+        version=$3
+  fi
+
+  if [ ! -d ${repo}/${packname} ];
+    then
+      cd ${repo} &&
+      git clone ${url} &&
+      cd ${packname}
+    else
+      cd ${repo}/${packname} &&
+      git pull
+  fi
+  
+  if  [ $version ]; 
+    then
+      echo $version
+      git checkout $version
+  fi
+  
+  cd $PWD
+}
+
+export -f gitget

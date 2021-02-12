@@ -83,7 +83,6 @@ export KF5LIB=/opt/kf5/include/ &&
              --with-system-serf          \
              --with-parallelism=$NINJAJOBS \
              --enable-gtk3-kde5          \
-             --enable-lto                \
              --enable-kf5                \
              --with-system-zlib &&
 ${log} `basename "$0"` " configured" blfs_all &&
