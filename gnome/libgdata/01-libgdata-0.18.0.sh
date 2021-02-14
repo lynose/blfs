@@ -2,24 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libgdata-0.17.13
+if test -d /sources/libgdata-0.18.0
  then
-  rm -rf /sources/libgdata-0.17.13
+  as_root rm -rf /sources/libgdata-0.18.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.13.tar.xz \
+check_and_download https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libgdata &&
 
-tar xf /sources/libgdata-0.17.13.tar.xz -C /sources/ &&
+tar xf /sources/libgdata-0.18.0.tar.xz -C /sources/ &&
 
-cd /sources/libgdata-0.17.13 &&
-
-
+cd /sources/libgdata-0.18.0 &&
 
 mkdir build &&
 cd    build &&

@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/postgresql-13.1
+if test -d /sources/postgresql-13.2
  then
-  rm -rf /sources/postgresql-13.1
+  as_root rm -rf /sources/postgresql-13.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.postgresql.org/pub/source/v13.1/postgresql-13.1.tar.bz2 \
+check_and_download http://ftp.postgresql.org/pub/source/v13.2/postgresql-13.2.tar.bz2 \
         /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-postgresql &&
 
-tar xf /sources/postgresql-13.1.tar.bz2 -C /sources/ &&
+tar xf /sources/postgresql-13.2.tar.bz2 -C /sources/ &&
 
-cd /sources/postgresql-13.1 &&
+cd /sources/postgresql-13.2 &&
 
 as_root_groupadd groupadd -g 41 postgres &&
 as_root_useradd useradd -c "PostgreSQL_Server" -g postgres -d /srv/pgsql/data \
@@ -29,7 +29,7 @@ sed -i '/DEFAULT_PGSOCKET_DIR/s@/tmp@/run/postgresql@' src/include/pg_config_man
 
 ./configure --prefix=/usr          \
             --enable-thread-safety \
-            --docdir=/usr/share/doc/postgresql-13.1 &&
+            --docdir=/usr/share/doc/postgresql-13.2 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
@@ -49,6 +49,7 @@ as_root make -C contrib install &&
 as_root install -v -dm700 /srv/pgsql/data &&
 as_root install -v -dm755 /run/postgresql &&
 as_root chown -Rv postgres:postgres /srv/pgsql /run/postgresql &&
+#as_root su - postgres -c '/usr/bin/initdb -D /srv/pgsql/data'
 cd /usr/src/blfs-systemd-units &&
 as_root make install-postgresql &&
 ${log} `basename "$0"` " installed" blfs_all &&
