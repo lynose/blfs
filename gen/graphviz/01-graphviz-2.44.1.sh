@@ -22,7 +22,7 @@ cd /sources/graphviz-2.44.1 &&
 sed -i '/LIBPOSTFIX="64"/s/64//' configure.ac &&
 
 autoreconf                            &&
-./configure --prefix=/usr PS2PDF=true &&
+./configure --prefix=/usr --disable-php PS2PDF=true &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

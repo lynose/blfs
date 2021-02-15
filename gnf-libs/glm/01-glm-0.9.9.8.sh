@@ -20,7 +20,7 @@ tar xf /sources/glm-0.9.9.8.tar.gz -C /sources/ &&
 
 cd /sources/glm-0.9.9.8 &&
 
-cp -r glm /usr/include/ &&
-cp -r doc /usr/share/doc/glm-0.9.9.8 &&
+as_root cp -r glm /usr/include/ &&
+as_root cp -r doc /usr/share/doc/glm-0.9.9.8 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
