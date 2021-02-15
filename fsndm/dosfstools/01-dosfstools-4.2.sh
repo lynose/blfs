@@ -15,7 +15,7 @@ check_and_download https://github.com/dosfstools/dosfstools/releases/download/v4
 
 md5sum -c ${SCRIPTPATH}/md5-dosfstools &&
 
-tar xf /sources/dosfstools-4.2.tar.xz -C /sources/ &&
+tar xf /sources/dosfstools-4.2.tar.gz -C /sources/ &&
 
 cd /sources/dosfstools-4.2 &&
 
