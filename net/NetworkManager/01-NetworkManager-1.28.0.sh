@@ -57,7 +57,8 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root ninja install &&
-as_root mv -v /usr/share/doc/NetworkManager{,-1.28.0} &&
+[ -d /usr/share/doc/NetworkManager-1.28.0 ] &&
+as_root mv -v /usr/share/doc/NetworkManager{,-1.28.0}
 
 cat >> ./NetworkManager.conf << "EOF" &&
 [main]
