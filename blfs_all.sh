@@ -79,6 +79,9 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./sec/cracklib/01-cracklib-2.9.7.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
+# # # TODO do not build in sudo env --- dangerous need to build PAM again
+# # ${log} `basename "$0"` " ======================================" blfs_all &&
+# # ./sec/krb5/01-krb5-1.19.sh &&
 # # # TODO PAM Config
 # # ./sec/Linux-PAM/01-Linux-PAM-1.5.1.sh &&
 # # ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -117,7 +120,7 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./gen-libs/inih/01-inih-r53.sh &&
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./gen-libs/lzo/01-lzo-2.10.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
 ./fsndm/dosfstools/01-dosfstools-4.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./fsndm/mdadm/01-mdadm-4.1.sh &&
@@ -127,8 +130,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/soundtouch/01-soundtouch-2.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/libdvdread/01-libdvdread-6.1.1.sh &&
-${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/krb5/01-krb5-1.19.sh &&
+
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/libtirpc/01-libtirpc-1.3.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
