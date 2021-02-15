@@ -10,7 +10,7 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/dosfstools/dosfstools/releases/download/v4.2/dosfstools-4.2.tar.xz \
+check_and_download https://github.com/dosfstools/dosfstools/releases/download/v4.2/dosfstools-4.2.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-dosfstools &&
