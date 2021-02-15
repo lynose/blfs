@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/Python-3.9.1
  then
-  rm -rf /sources/Python-3.9.1
+  as_root rm -rf /sources/Python-3.9.1
 fi
 
 SCRIPT=`realpath $0`
