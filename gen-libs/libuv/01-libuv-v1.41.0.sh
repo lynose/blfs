@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libuv-v1.40.0
+if test -d /sources/libuv-v1.41.0
  then
-  rm -rf /sources/libuv-v1.40.0
+  as_root rm -rf /sources/libuv-v1.41.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://dist.libuv.org/dist/v1.40.0/libuv-v1.40.0.tar.gz \
+check_and_download https://dist.libuv.org/dist/v1.41.0/libuv-v1.41.0.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libuv &&
 
-tar xf /sources/libuv-v1.40.0.tar.gz -C /sources/ &&
+tar xf /sources/libuv-v1.41.0.tar.gz -C /sources/ &&
 
-cd /sources/libuv-v1.40.0 &&
+cd /sources/libuv-v1.41.0 &&
 
 sh autogen.sh                              &&
 ./configure --prefix=/usr --disable-static &&
