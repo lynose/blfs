@@ -49,7 +49,7 @@ fi
 as_root make install &&
 as_root install -m 644 -v tools/udev/libsane.rules           \
                   /etc/udev/rules.d/65-scanner.rules &&
-as_root install -d755 -g scanner /var/lock/sane &&
+as_root install -dm755 -g scanner /var/lock/sane &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 
