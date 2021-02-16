@@ -21,8 +21,12 @@ tar xf /sources/rustc-1.47.0-src.tar.gz -C /sources/ &&
 
 cd /sources/rustc-1.47.0-src &&
 
-mkdir /opt/rustc-1.47.0             &&
-ln -svfin rustc-1.47.0 /opt/rustc &&
+as_root mkdir /opt/rustc-1.47.0             &&
+if [ -L /opt/rustc ];
+ then 
+  as_root rm /opt/rustc
+fi
+as_root ln -svfin rustc-1.47.0 /opt/rustc &&
 
 cat << EOF > config.toml
 # see config.toml.example for more possible options
@@ -63,8 +67,6 @@ llvm-config = "/usr/bin/llvm-config"
 # NB the output of llvm-config (i.e. help options) may be
 # dumped to the screen when config.toml is parsed.
 llvm-config = "/usr/bin/llvm-config"
-
-
 EOF
 
 ${log} `basename "$0"` " configured" blfs_all &&
