@@ -18,14 +18,7 @@ gitpack=/sources/git/${packname}
 
 cd ${gitpack} &&
 
-# if [ -d ./build ]
-#  then
-#    rm -rf build
-# fi
-# 
-# mkdir build &&
-# cd    build &&
-
+./autogen.sh &&
 ./configure --prefix=/usr  &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
