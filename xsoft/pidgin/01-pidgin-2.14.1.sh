@@ -45,7 +45,7 @@ as_root make install &&
 as_root mkdir -pv /usr/share/doc/pidgin-2.14.1 &&
 as_root cp -v README doc/gtkrc-2.0 /usr/share/doc/pidgin-2.14.1 &&
 as_root mkdir -pv /usr/share/doc/pidgin-2.14.1/api &&
-as_root cp -v doc/html/* /usr/share/doc/pidgin-2.14.1/api &&
+as_root cp -vr doc/html/* /usr/share/doc/pidgin-2.14.1/api &&
 as_root gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
 as_root update-desktop-database -q &&
 ${log} `basename "$0"` " installed" blfs_all &&
