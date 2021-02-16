@@ -2,7 +2,7 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/jasper-2.0.25
+if test -d /sources/jasper-version-2.0.25
  then
   as_root rm -rf /sources/jasper-version-2.0.25
 fi
