@@ -4,12 +4,12 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/gimp-2.10.20
  then
-  rm -rf /sources/gimp-2.10.20
+  as_root rm -rf /sources/gimp-2.10.20
 fi
 
 if test -d /sources/gimp-help-2020-10-07
  then
-  rm -rf /sources/gimp-help-2020-10-07
+  as_root rm -rf /sources/gimp-help-2020-10-07
 fi
 
 SCRIPT=`realpath $0`
