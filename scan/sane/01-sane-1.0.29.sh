@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/sane-backends-1.0.29
  then
-  rm -rf /sources/sane-backends-1.0.29
+  as_root rm -rf /sources/sane-backends-1.0.29
 fi
 
 SCRIPT=`realpath $0`
@@ -22,9 +22,12 @@ tar xf /sources/sane-backends-1.0.29.tar.gz -C /sources/ &&
 cd /sources/sane-backends-1.0.29 &&
 
 as_root_groupadd groupadd -g 70 scanner &&
+if   [ $EUID != 0 ];
+ then
+    usermod -G scanner -a $USER
+fi
 
-
-as_root sg scanner -c "          \
+sg scanner -c "          \
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \
@@ -46,7 +49,7 @@ fi
 as_root make install &&
 as_root install -m 644 -v tools/udev/libsane.rules           \
                   /etc/udev/rules.d/65-scanner.rules &&
-as_root chgrp -v scanner  /var/lock/sane &&
+as_root install -d755 -g scanner /var/lock/sane &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 
