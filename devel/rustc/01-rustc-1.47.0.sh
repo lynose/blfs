@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/rustc-1.47.0-src
  then
-  rm -rf /sources/rustc-1.47.0-src
+  as_root rm -rf /sources/rustc-1.47.0-src
 fi
 
 SCRIPT=`realpath $0`
