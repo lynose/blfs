@@ -24,8 +24,8 @@ cd /sources/glib-2.66.7 &&
 patch -Np1 -i ../glib-2.66.7-skip_warnings-1.patch &&
 
 [ -e /usr/include/glib-2.0 ]     &&
-rm -rf /usr/include/glib-2.0.old &&
-mv -vf /usr/include/glib-2.0{,.old}
+as_root rm -rf /usr/include/glib-2.0.old &&
+as_root mv -vf /usr/include/glib-2.0{,.old}
 
 mkdir build &&
 cd    build &&
@@ -44,7 +44,7 @@ as_root ninja install &&
 
 as_root mkdir -p /usr/share/doc/glib-2.66.7 &&
 as_root cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.66.7 &&
-if [-f /usr/include/glib-2.0/glib/gurifuncs.h]
+if [ -f /usr/include/glib-2.0/glib/gurifuncs.h ]
 then
   as_root rm -f /usr/include/glib-2.0/glib/gurifuncs.h
 fi
