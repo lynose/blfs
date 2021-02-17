@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/taglib-1.11.1
+if test -d /sources/taglib-1.12
  then
-  rm -rf /sources/taglib-1.11.1
+  rm -rf /sources/taglib-1.12
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://taglib.github.io/releases/taglib-1.11.1.tar.gz \
+check_and_download https://taglib.github.io/releases/taglib-1.12.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-taglib &&
 
-tar xf /sources/taglib-1.11.1.tar.gz -C /sources/ &&
+tar xf /sources/taglib-1.12.tar.gz -C /sources/ &&
 
-cd /sources/taglib-1.11.1 &&
+cd /sources/taglib-1.12 &&
 
 mkdir build &&
 cd    build &&
