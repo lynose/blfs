@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/tigervnc-1.11.0
  then
-  rm -rf /sources/tigervnc-1.11.0
+  as_root rm -rf /sources/tigervnc-1.11.0
 fi
 
 SCRIPT=`realpath $0`
@@ -63,13 +63,14 @@ ${log} `basename "$0"` " built vnc server" blfs_all &&
 as_root make install &&
 ${log} `basename "$0"` " installed vnc viewer" blfs_all &&
 #Install server
-( cd unix/xserver/hw/vnc && as_root make install ) &&
-${log} `basename "$0"` " installed vnc server" blfs_all &&
+cd unix/xserver/hw/vnc && 
+as_root make install &&
+
 [ -e /usr/bin/Xvnc ] || as_root ln -svf $XORG_PREFIX/bin/Xvnc /usr/bin/Xvnc
 
 as_root install -m755 --owner=root ../vncserver /usr/bin &&
 as_root cp ../vncserver.1 /usr/share/man/man1 &&
-
+${log} `basename "$0"` " installed vnc server" blfs_all &&
 
 if [ EUID != 0 ]
  then
