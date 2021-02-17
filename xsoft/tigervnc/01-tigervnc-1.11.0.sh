@@ -2,9 +2,9 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/server-1.20.7
+if test -d /sources/tigervnc-1.11.0
  then
-  rm -rf /sources/server-1.20.7
+  rm -rf /sources/tigervnc-1.11.0
 fi
 
 SCRIPT=`realpath $0`
@@ -19,9 +19,9 @@ check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/tigervnc-1.1
 
 md5sum -c ${SCRIPTPATH}/md5-tigervnc &&
 
-tar xf /sources/server-1.20.7.tar.bz2 -C /sources/ &&
+tar xf /sources/tigervnc-1.11.0.tar.gz -C /sources/ &&
 
-cd /sources/server-1.20.7 &&
+cd /sources/tigervnc-1.11.0.tar.gz &&
 
 patch -Np1 -i ../tigervnc-1.11.0-configuration_fixes-1.patch &&
 
