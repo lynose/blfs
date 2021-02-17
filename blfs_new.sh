@@ -43,11 +43,13 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #   Packages with required or recommended dependencies
 # #
 # ############################################################################
-#./X/gtk+/01-gtk+-3.24.25.sh && #658
-./X/webkitgtk/01-webkitgtk-2.30.5.sh && #754
-./gnome/libgdata/01-libgdata-0.18.0.sh && #764
-./X/xterm/01-xterm-844.sh && #844
-./devel/php/01-php-8.0.2.sh &&
+
+./X/sddm/01-sddm.sh &&
+./kde/sddm-kcm/01-sddm-kcm.sh &&
+# ./net/freerdp/01-freerdp.sh &&
+# ./net-libs/libvncserver/01-libvncserver.sh &&
+# ./kde/krdc/01-krdc.sh &&
+#./xsoft/tigervnc/01-tigervnc-1.11.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all
