@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/KDE/sddm-kcm.git
-version="v5.21.0"
+version="v5.20.5"
 
 gitget $url \
         /sources \
