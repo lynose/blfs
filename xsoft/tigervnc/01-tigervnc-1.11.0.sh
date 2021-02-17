@@ -21,7 +21,7 @@ md5sum -c ${SCRIPTPATH}/md5-tigervnc &&
 
 tar xf /sources/tigervnc-1.11.0.tar.gz -C /sources/ &&
 
-cd /sources/tigervnc-1.11.0.tar.gz &&
+cd /sources/tigervnc-1.11.0 &&
 
 patch -Np1 -i ../tigervnc-1.11.0-configuration_fixes-1.patch &&
 
