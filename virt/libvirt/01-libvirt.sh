@@ -20,7 +20,7 @@ cd ${gitpack} &&
 
 if [ -d ./build ]
  then
-   rm -rf build
+   as_root rm -rf build
 fi
 
 mkdir build &&
