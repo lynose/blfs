@@ -18,12 +18,23 @@ gitpack=/sources/git/${packname}
 
 cd ${gitpack} &&
 
+grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/' &&
+
+cd llvm &&
+
+if [ ! -l tools/clang ]
+  then
+    ln -sf ../clang tools/clang
+fi
+if [ ! -l projects/compiler-rt ]
+  then
+    ln -s ../compiler-rt/ projects/compiler-rt
+fi
+
 if [ -d ./build ]
  then
    as_root rm -rf build
 fi
-
-grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/' &&
 
 mkdir -v build &&
 cd       build &&
