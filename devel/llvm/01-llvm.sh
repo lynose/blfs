@@ -22,14 +22,8 @@ grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/' &&
 
 cd llvm &&
 
-if [ ! -L tools/clang ]
-  then
-    ln -sf ../clang tools/clang
-fi
-if [ ! -L projects/compiler-rt ]
-  then
-    ln -sf ../compiler-rt/ projects/compiler-rt
-fi
+mv ../clang tools/clang &&
+mv ../compiler-rt/ projects/compiler-rt &&
 
 if [ -d ./build ]
  then
