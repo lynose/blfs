@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/vte-0.62.2
+if test -d /sources/vte-0.62.3
  then
-  rm -rf /sources/vte-0.62.2
+  rm -rf /sources/vte-0.62.3
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://download.gnome.org/sources/vte/0.62/vte-0.62.2.tar.xz \
+check_and_download https://download.gnome.org/sources/vte/0.62/vte-0.62.3.tar.xz \
         /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-vte &&
 
-tar xf /sources/vte-0.62.2.tar.xz -C /sources/ &&
+tar xf /sources/vte-0.62.3.tar.xz -C /sources/ &&
 
-cd /sources/vte-0.62.2 &&
+cd /sources/vte-0.62.3 &&
 
 mkdir build &&
 cd    build &&

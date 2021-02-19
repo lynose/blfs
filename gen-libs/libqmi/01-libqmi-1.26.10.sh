@@ -2,25 +2,24 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/<pack>
+if test -d /sources/libqmi-1.26.10
  then
-  as_root rm -rf /sources/<pack>
+  as_root rm -rf /sources/libqmi-1.26.10
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download <link> \
-        /sources &&
+check_and_download https://www.freedesktop.org/software/libqmi/libqmi-1.26.10.tar.xz \
+    /sources &&
 
+md5sum -c ${SCRIPTPATH}/md5-libqmi &&
 
-md5sum -c ${SCRIPTPATH}/md5-<basepack> &&
+tar xf /sources/libqmi-1.26.10.tar.xz -C /sources/ &&
 
-tar xf /sources/<tarball> -C /sources/ &&
+cd /sources/libqmi-1.26.10 &&
 
-cd /sources/<pack> &&
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static --enable-gtk-doc &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

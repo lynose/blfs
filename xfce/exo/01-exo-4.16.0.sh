@@ -2,24 +2,25 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libqmi-1.26.8
+if test -d /sources/exo-4.16.0
  then
-  rm -rf /sources/libqmi-1.26.8
+  as_root rm -rf /sources/exo-4.16.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.freedesktop.org/software/libqmi/libqmi-1.26.8.tar.xz \
-    /sources &&
+check_and_download http://archive.xfce.org/src/xfce/exo/4.16/exo-4.16.0.tar.bz2 \
+        /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-libqmi &&
 
-tar xf /sources/libqmi-1.26.8.tar.xz -C /sources/ &&
+md5sum -c ${SCRIPTPATH}/md5-exo &&
 
-cd /sources/libqmi-1.26.8 &&
+tar xf /sources/exo-4.16.0.tar.bz2 -C /sources/ &&
 
-./configure --prefix=/usr --disable-static --enable-gtk-doc &&
+cd /sources/exo-4.16.0 &&
+
+./configure --prefix=/usr --sysconfdir=/etc &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

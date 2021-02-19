@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/bind-9.16.11
+if test -d /sources/bind-9.16.12
  then
-  rm -rf /sources/bind-9.16.11
+  rm -rf /sources/bind-9.16.12
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download ftp://ftp.isc.org/isc/bind9/9.16.11/bind-9.16.11.tar.xz \
+check_and_download ftp://ftp.isc.org/isc/bind9/9.16.12/bind-9.16.12.tar.xz \
         /sources
 
 
 md5sum -c ${SCRIPTPATH}/md5-bind &&
 
-tar xf /sources/bind-9.16.11.tar.xz -C /sources/ &&
+tar xf /sources/bind-9.16.12.tar.xz -C /sources/ &&
 
-cd /sources/bind-9.16.11 &&
+cd /sources/bind-9.16.12 &&
 
 as_root pip3 install ply &&
 

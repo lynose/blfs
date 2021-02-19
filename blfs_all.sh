@@ -256,7 +256,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sec/make-ca/01-make-ca-1.7.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libgcrypt/01-libgcrypt-1.9.1.sh &&
+./gen-libs/libgcrypt/01-libgcrypt-1.9.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/MarkupSafe/01-MarkupSafe-1.1.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -302,7 +302,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/nghttp2/01-nghttp2-1.43.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/cmake/01-cmake-3.19.4.sh &&
+./devel/cmake/01-cmake-3.19.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/extra-cmake-modules/01-extra-cmake-modules-5.77.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -328,7 +328,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/x265/01-x265-3.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./mld/x264/01-x264-20200819.sh &&
+./mld/x264/01-x264-20210211.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnf-libs/graphite2/01-graphite2-1.3.14.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -575,7 +575,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/Xorg/Xorg-Fonts/01-Xorg-fonts.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./X/xkeyboard-config/01-xkeyboard-config-2.31.sh &&
+./X/xkeyboard-config/01-xkeyboard-config-2.32.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libxkbcommon/01-libxkbcommon-1.0.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -588,6 +588,12 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/pycairo/01-pycairo-1.20.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/gobject-introspection/01-gobject-introspection-1.66.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&    
+./X/libxklavier/01-libxklavier-5.4.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./xfce/libxfce4util/01-libxfce4util-4.16.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./xfce/xfconf/01-xfconf-4.16.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gnome/gexiv2/01-gexiv2-0.12.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -631,7 +637,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libmbim/01-libmbim-1.24.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libqmi/01-libqmi-1.26.8.sh &&
+./gen-libs/libqmi/01-libqmi-1.26.10.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sys/ModemManager/01-ModemManager-1.14.10.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -657,6 +663,10 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/gtk+/01-gtk+-3.24.25.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./xfce/libxfce4ui/01-libxfce4ui.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./xfce/exo/01-exo-4.16.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/gtk+/01-gtk+-2.24.32.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libiodbc/01-libiodbc-3.52.12.sh &&
@@ -677,7 +687,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./icons/adwaita-icon-theme/01-adwaita-icon-theme-3.38.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gnome/vte/01-vte-0.62.2.sh &&
+./gnome/vte/01-vte-0.62.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/gtk-vnc/01-gtk-vnc-1.0.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -695,7 +705,9 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/qt5/01-qt5-5.15.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/cmake/02-cmake-3.19.4.sh &&
+./X/lightdm/01-lightdm-1.30.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./devel/cmake/02-cmake-3.19.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/doxygen/02-doxygen-1.9.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -793,7 +805,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libassuan/02-libassuan-2.5.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/libgcrypt/02-libgcrypt-1.9.1.sh &&
+./gen-libs/libgcrypt/02-libgcrypt-1.9.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sys/rasqal/01-rasqal-0.9.33.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -805,7 +817,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/apache-ant/01-apache-ant-1.10.9.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./net/bind/01-bind-9.16.11.sh &&
+./net/bind/01-bind-9.16.12.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/dejavu-fonts/01-dejavu-fonts-2.37.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

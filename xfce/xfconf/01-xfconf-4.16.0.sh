@@ -2,26 +2,25 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/x264-20200819
+if test -d /sources/xfconf-4.16.0
  then
-  rm -rf /sources/x264-20200819
+  as_root rm -rf /sources/xfconf-4.16.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://anduin.linuxfromscratch.org/BLFS/x264/x264-20200819.tar.xz \
-    /sources &&
+check_and_download http://archive.xfce.org/src/xfce/xfconf/4.16/xfconf-4.16.0.tar.bz2 \
+        /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-x264 &&
 
-tar xf /sources/x264-20200819.tar.xz -C /sources/ &&
+md5sum -c ${SCRIPTPATH}/md5-xfconf &&
 
-cd /sources/x264-20200819 &&
+tar xf /sources/xfconf-4.16.0.tar.bz2 -C /sources/ &&
 
-./configure --prefix=/usr \
-            --enable-shared \
-            --disable-cli &&
+cd /sources/xfconf-4.16.0 &&
+
+./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
