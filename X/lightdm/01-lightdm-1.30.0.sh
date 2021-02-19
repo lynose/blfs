@@ -22,7 +22,7 @@ tar xf /sources/lightdm-1.30.0.tar.xz -C /sources/ &&
 cd /sources/lightdm-1.30.0 &&
 
 as_root_groupadd groupadd -g 65 lightdm       &&
-as_root_useradd  -c "Lightdm_Daemon" \
+as_root_useradd useradd  -c "Lightdm_Daemon" \
          -d /var/lib/lightdm \
          -u 65 -g lightdm    \
          -s /bin/false lightdm &&
