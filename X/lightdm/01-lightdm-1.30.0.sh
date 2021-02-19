@@ -45,7 +45,10 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install                                                  &&
 as_root cp tests/src/lightdm-session /usr/bin                         &&
-as_root sed -i '1 s/sh/bash --login/' /usr/bin/lightdm-session        &&
+
+cp /usr/bin/lightdm-session /tmp &&
+sed -i '1 s/sh/bash --login/' /tmp/lightdm-session        &&
+as_root mv /tmp/lightdm-session /usr/bin/lightdm-session &&
 as_root rm -rf /etc/init                                              &&
 as_root install -v -dm755 -o lightdm -g lightdm /var/lib/lightdm      &&
 as_root install -v -dm755 -o lightdm -g lightdm /var/lib/lightdm-data &&
