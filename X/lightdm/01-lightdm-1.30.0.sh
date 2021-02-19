@@ -73,5 +73,8 @@ make &&
 ${log} `basename "$0"` " built greeter" blfs_all &&
 
 as_root make install &&
+cd /usr/src/blfs-systemd-units &&
+as_root make install-lightdm &&
+as_root systemctl enable lightdm &&
 ${log} `basename "$0"` " installed greeter" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
