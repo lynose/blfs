@@ -35,7 +35,7 @@ ${log} `basename "$0"` "                                       " blfs_kde &&
 #############################################################################
 #./kde/itinerary/01-itinerary.sh &&
 #./X/packagekitqt5/01-packagekitqt5.sh &&
-
+./kde/kcalc/01-kalc.sh &&
 #./virt/libvirt/01-libvirt.sh &&
 #./kde/krita/01-krita.sh
 

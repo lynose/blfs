@@ -35,7 +35,9 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 #############################################################################
 # ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./devel/lua/01-lua-5.4.2.sh &&
-# 
+# ./X/sddm/01-sddm.sh &&
+# ./kde/sddm-kcm/01-sddm-kcm.sh &&
+# ./xsoft/tigervnc/01-tigervnc-1.11.0.sh &&
 # 
 # 
 # #############################################################################
@@ -43,12 +45,10 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #   Packages with required or recommended dependencies
 # #
 # ############################################################################
-#./X/sddm/01-sddm.sh &&
-#./kde/sddm-kcm/01-sddm-kcm.sh &&
-./X/lightdm/01-lightdm-1.30.0.sh &&
-./gen-libs/libgcrypt/02-libgcrypt-1.9.2.sh && #796
-./net/bind/01-bind-9.16.12.sh &&
-#./xsoft/tigervnc/01-tigervnc-1.11.0.sh &&
+
+./sec/nettle/01-nettle-3.7.1.sh && #104
+./devel/llvm/01-llvm.sh &&
+
 ${log} `basename "$0"` " ======================================" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all

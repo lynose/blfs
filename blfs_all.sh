@@ -101,7 +101,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./icons/hicolor-icon-theme/01-hicolor-icon-theme-0.17.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./sec/nettle/01-nettle-3.7.sh &&
+./sec/nettle/01-nettle-3.7.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libunistring/01-libunistring-0.9.10.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -392,7 +392,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/taglib/01-taglib-1.12.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/llvm/01-llvm-11.0.1.sh &&
+./devel/llvm/01-llvm.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/rustc/01-rustc-1.47.0.sh && #FIXME Reconfigure ld.so...
 source /etc/profile.d/rustc.sh &&
@@ -1077,5 +1077,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net-libs/libvncserver/01-libvncserver.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/krdc/01-krdc.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/kcalc/01-kalc.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all

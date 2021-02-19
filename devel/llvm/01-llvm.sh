@@ -2,34 +2,26 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/llvm-11.0.1.src
- then
-  rm -rf /sources/llvm-11.0.1.src
-fi
-
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/llvm-11.0.1.src.tar.xz \
-    /sources &&
+url=https://github.com/llvm/llvm-project.git
+version="llvmorg-11.1.0"
 
-check_and_download https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/clang-11.0.1.src.tar.xz \
-    /sources &&
+gitget $url \
+        /sources \
+        $version &&
 
-check_and_download https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/compiler-rt-11.0.1.src.tar.xz \
-    /sources &&
-    
-md5sum -c ${SCRIPTPATH}/md5-llvm &&
+pack=`basename ${url}`
+packname=${pack:0: -4}
+gitpack=/sources/git/${packname}
 
-tar xf /sources/llvm-11.0.1.src.tar.xz -C /sources/ &&
+cd ${gitpack} &&
 
-cd /sources/llvm-11.0.1.src &&
-
-tar -xf ../clang-11.0.1.src.tar.xz -C tools          &&
-tar -xf ../compiler-rt-11.0.1.src.tar.xz -C projects &&
-
-mv tools/clang-11.0.1.src tools/clang &&
-mv projects/compiler-rt-11.0.1.src projects/compiler-rt &&
+if [ -d ./build ]
+ then
+   as_root rm -rf build
+fi
 
 grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/' &&
 
