@@ -20,6 +20,8 @@ tar xf /sources/valgrind-3.16.1.tar.bz2 -C /sources/ &&
 
 cd /sources/valgrind-3.16.1 &&
 
+sed -i 's/arm64/amd64/' gdbserver_tests/nlcontrolc.vgtest &&
+
 sed -i 's|/doc/valgrind||' docs/Makefile.in &&
 
 ./configure --prefix=/usr \

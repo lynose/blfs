@@ -25,6 +25,8 @@ if   [ $EUID = 0 ];
     as_root usermod -a -G kvm $USER
 fi
 
+sed -i "/LDFLAGS_NOPIE/d" configure pc-bios/optionrom/Makefile &&
+
 if [ $(uname -m) = i686 ]; then
    QEMU_ARCH=i386-softmmu
 else

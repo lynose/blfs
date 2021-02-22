@@ -45,9 +45,11 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #   Packages with required or recommended dependencies
 # #
 # ############################################################################
-
-./sec/nettle/01-nettle-3.7.1.sh && #104
-./devel/llvm/01-llvm.sh &&
+./devel/valgrind/01-valgrind-3.16.1.sh &&
+./gnome/zenity/01-zenity-3.32.0.sh &&
+./virt/qemu/01-qemu-5.2.0.sh &&
+#./sec/nettle/01-nettle-3.7.1.sh && #104
+#./devel/llvm/01-llvm.sh &&
 
 ${log} `basename "$0"` " ======================================" blfs_all &&
 

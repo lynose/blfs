@@ -767,6 +767,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/webkitgtk/01-webkitgtk-2.30.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./gnome/zenity/01-zenity-3.32.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/NetworkManager/01-NetworkManager-1.28.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./xsoft/firefox/01-firefox-78.7.1.sh &&

@@ -20,11 +20,6 @@ cd ${gitpack} &&
 
 grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/' &&
 
-cd llvm &&
-
-mv ../clang tools/clang &&
-mv ../compiler-rt/ projects/compiler-rt &&
-
 if [ -d ./build ]
  then
    as_root rm -rf build
@@ -33,7 +28,7 @@ fi
 mkdir -v build &&
 cd       build &&
 
-CC=gcc CXX=g++                                  \
+CC=clang CXX=clang++                                  \
 cmake -DCMAKE_INSTALL_PREFIX=/usr               \
       -DLLVM_ENABLE_FFI=ON                      \
       -DCMAKE_BUILD_TYPE=Release                \
@@ -42,7 +37,8 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr               \
       -DLLVM_ENABLE_RTTI=ON                     \
       -DLLVM_TARGETS_TO_BUILD="host;AMDGPU;BPF" \
       -DLLVM_BUILD_TESTS=ON                     \
-      -Wno-dev -G Ninja ..    &&
+      -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;compiler-rt;" \
+      -Wno-dev -G Ninja ../llvm    &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&
