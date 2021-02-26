@@ -11,7 +11,7 @@ mkdir -p /sources/kf5
 cp -uf ${SCRIPTPATH}/md5-kf5 /sources/kf5 &&
 cd /sources/kf5 &&
 
-url=http://download.kde.org/stable/frameworks/5.77/ &&
+url=http://download.kde.org/stable/frameworks/5.79/ &&
 wget --continue -r -nH -nd -A '*.xz' -np $url &&
 md5sum --ignore-missing -c ./md5-kf5 &&
 

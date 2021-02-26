@@ -10,7 +10,7 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.kde.org/stable/frameworks/5.77/breeze-icons-5.79.0.tar.xz \
+check_and_download http://download.kde.org/stable/frameworks/5.79/breeze-icons-5.79.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-breeze-icons &&
