@@ -73,7 +73,7 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./devel/pygtk/01-pygtk-2.24.0.sh && #688
 # ./icons/oxygen-icons5/01-oxygen-icons5-5.79.0.sh && #722
 # ./mld/pipewire/01-pipewire-0.3.22.sh && #748
-./net/NetworkManager/01-NetworkManager-1.30.0.sh && #772
+# ./net/NetworkManager/01-NetworkManager-1.30.0.sh && #772
 ./xsoft/firefox/01-firefox-78.8.0.sh && #778
 ./video-utils/ffmpeg/02-ffmpeg-4.3.2.sh && #860
 ./xsoft/tigervnc/01-tigervnc-1.11.0.sh && #828
