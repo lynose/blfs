@@ -45,7 +45,13 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/OpenSSH/01-openssh-8.4p1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/libtasn1/01-libtasn1-4.16.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./sec/p11-kit/01-p11-kit-0.23.22.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/wget/01-wget-1.21.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./sec/make-ca/01-make-ca-1.7.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./gen-libs/libxml2/01-libxml2-2.9.10.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -524,6 +530,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/gdb/01-gdb-10.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/valgrind/01-valgrind-3.16.1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./gen-libs/libtasn1/01-libtasn1-4.16.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/gcc/01-gcc-10.2.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

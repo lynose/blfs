@@ -89,13 +89,13 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./kde/konsole/01-konsole-20.12.2.sh && #892
 # ./kde/libkkexiv2/01-libkexiv2-20.12.2.sh && #894
 # ./kde/okular/01-okular-20.12.2.sh && #896
-./kde/libkdcraw/01-libkdcraw-20.12.2.sh && #898
-./kde/gwenview/01-gwenview-20.12.2.sh && #900
-./kde/libkcddb/01-libkcddb-20.12.2.sh && #902
-./kde/k3b/01-k3b-20.12.2.sh && #904
-./kde/plasma/01-plasma-5.21.0.sh && #906
-./xsoft/thunderbird/01-thunderbird-78.8.0.sh && #914
-./virt/virt-manager/01-virt-manager.sh &&
+# ./kde/libkdcraw/01-libkdcraw-20.12.2.sh && #898
+# ./kde/gwenview/01-gwenview-20.12.2.sh && #900
+# ./kde/libkcddb/01-libkcddb-20.12.2.sh && #902
+# ./kde/k3b/01-k3b-20.12.2.sh && #904
+# ./kde/plasma/01-plasma-5.21.0.sh && #906
+# ./xsoft/thunderbird/01-thunderbird-78.8.0.sh && #914
+# ./virt/virt-manager/01-virt-manager.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 
 # #############################################################################
@@ -103,58 +103,57 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # #   Dependencies
 # #
 # ############################################################################
-
-./kde/libkomparediff2/01-libkomparediff2.sh &&
-./kde/kate/01-kate.sh &&
-./kde/kpimtexteditor/01-kpimtexteditor.sh &&
-./kde/akonadi/01-akonadi.sh &&
-./kde/kontactinterface/01-kontactinterface.sh &&
-./kde/libkdepim/01-libkdepim.sh &&
-./kde/grantleetheme/01-grantleetheme.sh &&
-./kde/kseexpr/01-kseexpr.sh &&
-./kde/kmime/01-kmime.sh &&
-./kde/libkleo/01-libkleo.sh &&
-./kde/akonadi-contacts/01-akonadi-contacts.sh &&
-./kde/kimap/01-kimap.sh &&
-./kde/kldap/01-kldap.sh &&
-./kde/akonadi-mime/01-akonadi-mime.sh &&
-./kde/akonadi-search/01-akonadi-search.sh &&
-./kde/pimcommon/01-pimcommon.sh &&
-./kde/kontact/01-kontact.sh &&
-./kde/kidentitymanagement/01-kidentitymanagement.sh &&
-./kde/ksmtp/01-ksmtp.sh &&
-./kde/libkgapi/01-libkgapi.sh &&
-./kde/kmailtransport/01-kmailtransport.sh &&
-./kde/libksieve/01-libksieve.sh &&
-./kde/gravatar/01-libgravatar.sh &&
-./kde/kmbox/01-kmbox.sh &&
-./kde/messagelib/01-messagelib.sh &&
-./kde/kcalutils/01-kcalutils.sh &&
-./kde/mailimporter/01-mailimporter.sh &&
-./kde/mailcommon/01-mailcommon.sh &&
-./kde/ktnef/01-ktnef.sh &&
-./kde/kmail/01-kmail.sh &&
-./kde/akonadi-calendar/01-akonadi-calendar.sh &&
-./kde/akonadi-notes/01-akonadi-notes.sh &&
-./kde/calendarsupport/01-calendarsupport.sh &&
-./kde/akonadi-import-wizard/01-akonadi-import-wizard.sh &&
-./kde/mbox-importer/01-mbox-importer.sh &&
-./kde/pim-data-exporter/01-pim-data-exporter.sh &&
-./kde/pim-sieve-editor/01-pim-sieve-editor.sh &&
-./kde/grantlee-editor/01-grantlee-editor.sh &&
-./kde/kdepim-runtime/01-kdepim-runtime.sh &&
-./kde/kdiagram/01-kdiagram.sh &&
-./kde/eventviews/01-eventviews.sh &&
-./kde/incidenceeditor/01-incidenceeditor.sh &&
-./kde/kpkpass/01-kpkpass.sh &&
-./kde/kitinerary/01-kitinerary.sh &&
-./kde/kdepim-addons/01-kdepim-addons.sh &&
-./kde/kaccounts-integration/01-kaccount-integration.sh &&
-./kde/kaccounts-providers/01-kaccount-providers.sh &&
-./kde/kmail-account-wizard/01-kmail-account-wizard.sh &&
-./kde/kuserfeedback/01-kuserfeedback.sh &&
-./kde/korganizer/01-korganizer.sh &&
-./kde/kaddressbook/01-kaddressbook.sh &&
+# ./kde/libkomparediff2/01-libkomparediff2.sh &&
+# ./kde/kate/01-kate.sh &&
+# ./kde/kpimtexteditor/01-kpimtexteditor.sh &&
+# ./kde/akonadi/01-akonadi.sh &&
+# ./kde/kontactinterface/01-kontactinterface.sh &&
+# ./kde/libkdepim/01-libkdepim.sh &&
+# ./kde/grantleetheme/01-grantleetheme.sh &&
+# ./kde/kseexpr/01-kseexpr.sh &&
+# ./kde/kmime/01-kmime.sh &&
+# ./kde/libkleo/01-libkleo.sh &&
+# ./kde/akonadi-contacts/01-akonadi-contacts.sh &&
+# ./kde/kimap/01-kimap.sh &&
+# ./kde/kldap/01-kldap.sh &&
+# ./kde/akonadi-mime/01-akonadi-mime.sh &&
+# ./kde/akonadi-search/01-akonadi-search.sh &&
+# ./kde/pimcommon/01-pimcommon.sh &&
+# ./kde/kontact/01-kontact.sh &&
+# ./kde/kidentitymanagement/01-kidentitymanagement.sh &&
+# ./kde/ksmtp/01-ksmtp.sh &&
+# ./kde/libkgapi/01-libkgapi.sh &&
+# ./kde/kmailtransport/01-kmailtransport.sh &&
+# ./kde/libksieve/01-libksieve.sh &&
+# ./kde/gravatar/01-libgravatar.sh &&
+# ./kde/kmbox/01-kmbox.sh &&
+# ./kde/messagelib/01-messagelib.sh &&
+# ./kde/kcalutils/01-kcalutils.sh &&
+# ./kde/mailimporter/01-mailimporter.sh &&
+# ./kde/mailcommon/01-mailcommon.sh &&
+# ./kde/ktnef/01-ktnef.sh &&
+# ./kde/kmail/01-kmail.sh &&
+# ./kde/akonadi-calendar/01-akonadi-calendar.sh &&
+# ./kde/akonadi-notes/01-akonadi-notes.sh &&
+# ./kde/calendarsupport/01-calendarsupport.sh &&
+# ./kde/akonadi-import-wizard/01-akonadi-import-wizard.sh &&
+# ./kde/mbox-importer/01-mbox-importer.sh &&
+# ./kde/pim-data-exporter/01-pim-data-exporter.sh &&
+# ./kde/pim-sieve-editor/01-pim-sieve-editor.sh &&
+# ./kde/grantlee-editor/01-grantlee-editor.sh &&
+# ./kde/kdepim-runtime/01-kdepim-runtime.sh &&
+# ./kde/kdiagram/01-kdiagram.sh &&
+# ./kde/eventviews/01-eventviews.sh &&
+# ./kde/incidenceeditor/01-incidenceeditor.sh &&
+# ./kde/kpkpass/01-kpkpass.sh &&
+# ./kde/kitinerary/01-kitinerary.sh &&
+# ./kde/kdepim-addons/01-kdepim-addons.sh &&
+# ./kde/kaccounts-integration/01-kaccount-integration.sh &&
+# ./kde/kaccounts-providers/01-kaccount-providers.sh &&
+# ./kde/kmail-account-wizard/01-kmail-account-wizard.sh &&
+# ./kde/kuserfeedback/01-kuserfeedback.sh &&
+# ./kde/korganizer/01-korganizer.sh &&
+# ./kde/kaddressbook/01-kaddressbook.sh &&
 ./kde/kblog/01-kblog.sh &&
 ./kde/akregator/01-akregator.sh &&
 ./kde/heaptrack/01-heaptrack.sh &&

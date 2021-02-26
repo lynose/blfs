@@ -1,5 +1,5 @@
 http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20200828.tar.xz
-http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.3p1.tar.gz
+http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.4p1.tar.gz
 https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.16.0.tar.gz
 https://github.com/p11-glue/p11-kit/releases/download/0.23.20/p11-kit-0.23.20.tar.xz
 https://github.com/djlucas/make-ca/releases/download/v1.7/make-ca-1.7.tar.xz

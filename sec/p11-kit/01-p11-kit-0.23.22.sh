@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/p11-kit-0.23.22
  then
-  rm -rf /sources/p11-kit-0.23.22
+  as_root rm -rf /sources/p11-kit-0.23.22
 fi
 
 SCRIPT=`realpath $0`

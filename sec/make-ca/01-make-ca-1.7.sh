@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 
 if test -d /sources/make-ca-1.7
  then
-  rm -rf /sources/make-ca-1.7
+  as_root rm -rf /sources/make-ca-1.7
 fi
 
 SCRIPT=`realpath $0`
@@ -24,14 +24,14 @@ as_root systemctl enable update-pki.timer &&
 ${log} `basename "$0"` " enable update pki" blfs_all &&
 
 if [ ! -f /etc/ssl/local/CAcert_Class_1_root.pem ]; then
-    check_and_download http://www.cacert.org/certs/root.crt &&
+    wget http://www.cacert.org/certs/root.crt &&
     as_root openssl x509 -in root.crt -text -fingerprint -setalias "CAcert Class 1 root" \
         -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \
         > /etc/ssl/local/CAcert_Class_1_root.pem
 fi
 
 if [ ! -f /etc/ssl/local/CAcert_Class_3_root.pem ]; then
-    check_and_download http://www.cacert.org/certs/class3.crt &&
+    wget http://www.cacert.org/certs/class3.crt &&
     as_root openssl x509 -in class3.crt -text -fingerprint -setalias "CAcert Class 3 root" \
         -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \
         > /etc/ssl/local/CAcert_Class_3_root.pem
