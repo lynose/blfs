@@ -33,7 +33,7 @@ cat >> /tmp/kde.conf << "EOF" &&
 
 # End KDE addition
 EOF
-as_root mv -v /tmp/kde.conf /etc/ld.so.conf.d/ &&
+as_root mv -v /tmp/kde.conf /etc/ld.so.conf.d/ 
 
 
 

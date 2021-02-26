@@ -33,7 +33,7 @@ cat >> /tmp/plasma.conf << "EOF" &&
 
 # End KDE addition
 EOF
-as_root mv -v /tmp/plasma.conf /etc/ld.so.conf.d/ &&
+as_root mv -v /tmp/plasma.conf /etc/ld.so.conf.d/
 
 
 

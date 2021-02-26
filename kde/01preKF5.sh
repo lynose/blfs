@@ -52,7 +52,7 @@ as_root ln -sfv /etc/dbus-1         $KF5_PREFIX/etc         &&
 as_root ln -sfv /usr/share/dbus-1   $KF5_PREFIX/share
 
 as_root install -v -dm755                $KF5_PREFIX/share/icons &&
-as_root ln -sfv /usr/share/icons/hicolor $KF5_PREFIX/share/icons &&
+as_root ln -sfv /usr/share/icons/hicolor $KF5_PREFIX/share/icons
 
 
 
