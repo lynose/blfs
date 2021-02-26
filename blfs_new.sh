@@ -71,8 +71,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./gnome/gexiv2/01-gexiv2-0.12.2.sh && #598
 # ./devel/pygobject/01-pygobject-2.28.7.sh && #652
 # ./devel/pygtk/01-pygtk-2.24.0.sh && #688
-./icons/oxygen-icons5/01-oxygen-icons5-5.79.0.sh && #722
-./mld/pipewire/01-pipewire-0.3.22.sh && #748
+# ./icons/oxygen-icons5/01-oxygen-icons5-5.79.0.sh && #722
+# ./mld/pipewire/01-pipewire-0.3.22.sh && #748
 ./net/NetworkManager/01-NetworkManager-1.30.0.sh && #772
 ./xsoft/firefox/01-firefox-78.8.0.sh && #778
 ./video-utils/ffmpeg/02-ffmpeg-4.3.2.sh && #860

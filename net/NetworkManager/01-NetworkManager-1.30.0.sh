@@ -24,7 +24,7 @@ sed -e 's/-qt4/-qt5/'              \
     -i examples/C/qt/meson.build   &&
 sed -e 's/Qt/&5/'                  \
     -i meson.build &&
-sed '/initrd/d' -i src/meson.build &&
+sed '/initrd/d' -i src/core/meson.build &&
 grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/' &&
 mkdir build &&
 cd    build    &&
@@ -58,7 +58,7 @@ fi
 
 as_root ninja install &&
 [ -d /usr/share/doc/NetworkManager-1.30.0 ] &&
-as_root mv -v /usr/share/doc/NetworkManager{,-1.30.0}
+as_root mv -v /usr/share/doc/NetworkManager{,-1.30.0} &&
 
 cat >> ./NetworkManager.conf << "EOF" &&
 [main]
