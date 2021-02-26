@@ -4,12 +4,12 @@ export KF5_PREFIX=/opt/kf5-5.79.0
 
 if [ ! -d ${KF5_PREFIX} ]
   then 
-    mkdir ${KF5_PREFIX}
+    as_root mkdir ${KF5_PREFIX}
 fi
 
 if [ -L /opt/kf5 ]
   then 
-    rm /opt/kf5
+    as_root rm /opt/kf5
 fi
 
 as_root ln -s ${KF5_PREFIX} /opt/kf5 &&

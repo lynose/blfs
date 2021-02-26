@@ -4,12 +4,12 @@ export PLASMA_PREFIX=/opt/plasma-5.21
 
 if [ ! -d ${PLASMA_PREFIX} ]
   then 
-    mkdir ${PLASMA_PREFIX}
+    as_root mkdir ${PLASMA_PREFIX}
 fi
 
 if [ -L /opt/kf5 ]
   then 
-    rm /opt/kf5
+    as_root rm /opt/kf5
 fi
 as_root ln -s ${PLASMA_PREFIX} /opt/plasma &&
 

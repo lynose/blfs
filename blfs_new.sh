@@ -50,20 +50,34 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #   New in version
 # #
 # ############################################################################
-./devel/meson/01-meson-5.57.1.sh && #520
-./devel/six/01-six-1.15.0.sh && #522
-./devel/pycairo/01-pycairo-1.20.0.sh && #592
-./gnome/gexiv2/01-gexiv2-0.12.2.sh && #598
-./devel/openjdk-bin/01-openjdk-15.0.2.sh && #640
-./devel/pygobject/01-pygobject-2.28.7.sh && #652
-./devel/pygtk/01-pygtk-2.24.0.sh && #688
+# ./devel/python3/01-python-3.9.2.sh && #215
+# ./sys/LSB-Tools/01-LSB-Tools-0.9.sh && 
+# ./devel/Pygments/01-Pygments-2.8.0.sh && #217
+# ./devel/docutils/01-docutils-0.16.sh && #219
+# ./gen-libs/libgcrypt/01-libgcrypt-1.9.2.sh && #263
+# ./devel/MarkupSafe/01-MarkupSafe-1.1.1.sh && #265
+# ./devel/Jinja2/01-Jinja2-2.11.3.sh && #267
+# ./devel/Mako/01-Mako-1.1.4.sh && #269
+# ./devel/scons/01-scons-4.1.0.sh && #277
+# ./xml/itstool/01-itstool-2.0.6.sh && #281
+# ./kde/extra-cmake-modules/01-extra-cmake-modules-5.79.0.sh && #307
+# ./devel/PyYAML/01-PyAML-5.3.1.sh && #363
+# ./sec/krb5/02-krb5-1.19.1.sh && #412
+# ./video-utils/ffmpeg/01-ffmpeg-4.3.2.sh && #494
+# ./devel/python3/01-python-3.9.2.sh && #518
+# ./devel/meson/01-meson-5.57.1.sh && #520
+# ./devel/six/01-six-1.15.0.sh && #522
+# ./devel/pycairo/01-pycairo-1.20.0.sh && #592
+# ./gnome/gexiv2/01-gexiv2-0.12.2.sh && #598
+# ./devel/pygobject/01-pygobject-2.28.7.sh && #652
+# ./devel/pygtk/01-pygtk-2.24.0.sh && #688
 ./icons/oxygen-icons5/01-oxygen-icons5-5.79.0.sh && #722
 ./mld/pipewire/01-pipewire-0.3.22.sh && #748
 ./net/NetworkManager/01-NetworkManager-1.30.0.sh && #772
 ./xsoft/firefox/01-firefox-78.8.0.sh && #778
-./devel/openjdk/01-jdk-15.0.2.sh && #822
 ./video-utils/ffmpeg/02-ffmpeg-4.3.2.sh && #860
 ./xsoft/tigervnc/01-tigervnc-1.11.0.sh && #828
+./devel/openjdk/01-jdk-15.0.2.sh && #822
 ./X/Xorg/Xorg-drivers/xf86-video-intel/01-xf86-video-intel-20210222.sh && #856
 ./kde/kf5/01-kf5-5.79.0.sh && #876
 ./kde/ark/01-ark-20.12.2.sh && #882
@@ -81,7 +95,7 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 ./kde/k3b/01-k3b-20.12.2.sh && #904
 ./kde/plasma/01-plasma-5.21.0.sh && #906
 ./xsoft/thunderbird/01-thunderbird-78.8.0.sh && #914
-./virt/virt-manager/01-virt-manager.sh && #1007
+./virt/virt-manager/01-virt-manager.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 
 # #############################################################################
