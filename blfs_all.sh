@@ -212,7 +212,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/perl-archive-zip/01-archive-zip-1.68.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/python3/01-python-3.9.1.sh &&
+./devel/python3/01-python-3.9.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/Pygments/01-Pygments-2.8.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -515,9 +515,9 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/tk/01-tk-8.6.11.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/python3/01-python-3.9.1.sh &&
+./devel/python3/01-python-3.9.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./devel/meson/01-meson-5.56.0.sh &&
+./devel/meson/01-meson-5.57.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/six/01-six-1.15.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

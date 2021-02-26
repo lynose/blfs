@@ -2,29 +2,29 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/meson-0.56.0
+if test -d /sources/meson-0.57.1
  then
-  rm -rf /sources/meson-0.56.0
+  rm -rf /sources/meson-0.57.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/mesonbuild/meson/releases/download/0.56.0/meson-0.56.0.tar.gz \
+check_and_download https://github.com/mesonbuild/meson/releases/download/0.57.1/meson-0.57.1.tar.gz \
         /sources &&
 
-check_and_download http://www.linuxfromscratch.org/patches/lfs/development/meson-0.56.0-upstream_fix-1.patch \
+check_and_download http://www.linuxfromscratch.org/patches/lfs/development/meson-0.57.1-upstream_fix-1.patch \
         /sources &&
 
         
         
 md5sum -c ${SCRIPTPATH}/md5-meson &&
 
-tar xf /sources/meson-0.56.0.tar.gz -C /sources/ &&
+tar xf /sources/meson-0.57.1.tar.gz -C /sources/ &&
 
-cd /sources/meson-0.56.0 &&
+cd /sources/meson-0.57.1 &&
 
-patch -Np1 -i ../meson-0.56.0-upstream_fix-1.patch &&
+patch -Np1 -i ../meson-0.57.1-upstream_fix-1.patch &&
 
 ${log} `basename "$0"` " configured" blfs_all &&
 
