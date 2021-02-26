@@ -14,7 +14,7 @@ cp -u ${SCRIPTPATH}/md5-plasma /sources/plasma &&
 cd /sources/plasma &&
 
 
-url=http://download.kde.org/stable/plasma/5.20.4/ &&
+url=http://download.kde.org/stable/plasma/5.21.0/ &&
 wget --continue -r -nH -nd -A '*.xz' -np $url &&
 md5sum --ignore-missing -c ./md5-plasma &&
 
