@@ -1062,6 +1062,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/kaddressbook/01-kaddressbook.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/syndication/01-syndication.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/kblog/01-kblog.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/akregator/01-akregator.sh &&

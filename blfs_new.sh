@@ -154,6 +154,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # ./kde/kuserfeedback/01-kuserfeedback.sh &&
 # ./kde/korganizer/01-korganizer.sh &&
 # ./kde/kaddressbook/01-kaddressbook.sh &&
+./kde/syndication/01-syndication.sh &&
 ./kde/kblog/01-kblog.sh &&
 ./kde/akregator/01-akregator.sh &&
 ./kde/heaptrack/01-heaptrack.sh &&
