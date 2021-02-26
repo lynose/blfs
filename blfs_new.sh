@@ -74,21 +74,21 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./icons/oxygen-icons5/01-oxygen-icons5-5.79.0.sh && #722
 # ./mld/pipewire/01-pipewire-0.3.22.sh && #748
 # ./net/NetworkManager/01-NetworkManager-1.30.0.sh && #772
-./xsoft/firefox/01-firefox-78.8.0.sh && #778
-./video-utils/ffmpeg/02-ffmpeg-4.3.2.sh && #860
-./xsoft/tigervnc/01-tigervnc-1.11.0.sh && #828
-./devel/openjdk/01-jdk-15.0.2.sh && #822
-./X/Xorg/Xorg-drivers/xf86-video-intel/01-xf86-video-intel-20210222.sh && #856
-./kde/kf5/01-kf5-5.79.0.sh && #876
-./kde/ark/01-ark-20.12.2.sh && #882
-./net/bind/01-bind-9.16.11.sh && #884
-./icons/breeze-icons/01-breeze-icons-5.79.0.sh && #886
-./kde/kdenlive/01-kdenlive-20.12.2.sh && #886
-./kde/kmix/01-kmix-20.12.2.sh && #888
-./kde/khelpcenter/01-khelpcenter-20.12.2.sh && #890
-./kde/konsole/01-konsole-20.12.2.sh && #892
-./kde/libkkexiv2/01-libkexiv2-20.12.2.sh && #894
-./kde/okular/01-okular-20.12.2.sh && #896
+# ./xsoft/firefox/01-firefox-78.8.0.sh && #778
+# ./video-utils/ffmpeg/02-ffmpeg-4.3.2.sh && #860
+# ./xsoft/tigervnc/01-tigervnc-1.11.0.sh && #828
+# ./devel/openjdk/01-jdk-15.0.2.sh && #822
+# ./X/Xorg/Xorg-drivers/xf86-video-intel/01-xf86-video-intel-20210222.sh && #856
+# ./kde/kf5/01-kf5-5.79.0.sh && #876
+# ./kde/ark/01-ark-20.12.2.sh && #882
+# ./net/bind/01-bind-9.16.11.sh && #884
+# ./icons/breeze-icons/01-breeze-icons-5.79.0.sh && #886
+# ./kde/kdenlive/01-kdenlive-20.12.2.sh && #886
+# ./kde/kmix/01-kmix-20.12.2.sh && #888
+# ./kde/khelpcenter/01-khelpcenter-20.12.2.sh && #890
+# ./kde/konsole/01-konsole-20.12.2.sh && #892
+# ./kde/libkkexiv2/01-libkexiv2-20.12.2.sh && #894
+# ./kde/okular/01-okular-20.12.2.sh && #896
 ./kde/libkdcraw/01-libkdcraw-20.12.2.sh && #898
 ./kde/gwenview/01-gwenview-20.12.2.sh && #900
 ./kde/libkcddb/01-libkcddb-20.12.2.sh && #902
