@@ -2,6 +2,17 @@
 
 export KDE_PREFIX=/opt/kde-20.12.2
 
+if [ ! -d ${KDE_PREFIX} ]
+  then 
+    mkdir ${KDE_PREFIX}
+fi
+
+if [ -L /opt/kde ]
+  then 
+    rm /opt/kde
+fi
+as_root ln -s ${KDE_PREFIX} /opt/kde &&
+
 cat > /tmp/kde.sh << "EOF" &&
 # Begin /etc/profile.d/kde.sh
 

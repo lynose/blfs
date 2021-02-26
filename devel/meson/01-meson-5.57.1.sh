@@ -12,19 +12,12 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 check_and_download https://github.com/mesonbuild/meson/releases/download/0.57.1/meson-0.57.1.tar.gz \
         /sources &&
-
-check_and_download http://www.linuxfromscratch.org/patches/lfs/development/meson-0.57.1-upstream_fix-1.patch \
-        /sources &&
-
-        
         
 md5sum -c ${SCRIPTPATH}/md5-meson &&
 
 tar xf /sources/meson-0.57.1.tar.gz -C /sources/ &&
 
 cd /sources/meson-0.57.1 &&
-
-patch -Np1 -i ../meson-0.57.1-upstream_fix-1.patch &&
 
 ${log} `basename "$0"` " configured" blfs_all &&
 

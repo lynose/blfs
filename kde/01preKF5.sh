@@ -2,6 +2,18 @@
 
 export KF5_PREFIX=/opt/kf5-5.79.0
 
+if [ ! -d ${KF5_PREFIX} ]
+  then 
+    mkdir ${KF5_PREFIX}
+fi
+
+if [ -L /opt/kf5 ]
+  then 
+    rm /opt/kf5
+fi
+
+as_root ln -s ${KF5_PREFIX} /opt/kf5 &&
+  
 cat > /tmp/kf5.sh << "EOF" &&
 # Begin /etc/profile.d/kf5.sh
 
