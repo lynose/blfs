@@ -5,7 +5,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-url=git@github.com:KDE/syndication.git
+url=https://github.com/KDE/syndication.git
 version="v18.08.3"
 
 gitget $url \
