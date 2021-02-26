@@ -36,7 +36,8 @@ as_root make install &&
 
 as_root ln -svfn python-3.9.2 /usr/share/doc/python-3 &&
 
-echo "export PYTHONDOCS=/usr/share/doc/python-3/html" >> /etc/profile.d/python.sh &&
+echo "export PYTHONDOCS=/usr/share/doc/python-3/html" >> /tmp/python.sh &&
+as_root mv /tmp/python.sh /etc/profile.d/ &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
