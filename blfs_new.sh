@@ -77,6 +77,7 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 ./kde/libkcddb/01-libkcddb-20.12.2.sh && #902
 ./kde/k3b/01-k3b-20.12.2.sh && #904
 ./kde/plasma/01-plasma-5.21.0.sh && #906
+./xsoft/thunderbird/01-thunderbird-78.8.0.sh && #914
 ${log} `basename "$0"` " ======================================" blfs_all &&
 
 # #############################################################################
