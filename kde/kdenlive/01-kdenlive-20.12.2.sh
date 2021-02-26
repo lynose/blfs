@@ -2,27 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/kmix-20.12.0
+if test -d /sources/kdenlive-20.12.2
  then
-  rm -rf /sources/kmix-20.12.0
+  as_root rm -rf /sources/kdenlive-20.12.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.kde.org/stable/release-service/20.12.0/src/kmix-20.12.0.tar.xz \
+check_and_download http://download.kde.org/stable/release-service/20.12.2/src/kdenlive-20.12.2.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-kmix &&
+md5sum -c ${SCRIPTPATH}/md5-kdenlive &&
 
-tar xf /sources/kmix-20.12.0.tar.xz -C /sources/ &&
+tar xf /sources/kdenlive-20.12.2.tar.xz -C /sources/ &&
 
-cd /sources/kmix-20.12.0 &&
+cd /sources/kdenlive-20.12.2 &&
 
 mkdir build &&
 cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+cmake -DCMAKE_INSTALL_PREFIX=$KDE_PREFIX \
       -DCMAKE_BUILD_TYPE=Release         \
       -DBUILD_TESTING=OFF                \
       -Wno-dev .. &&

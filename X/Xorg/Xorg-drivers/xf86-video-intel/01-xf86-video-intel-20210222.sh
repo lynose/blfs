@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/xf86-video-intel-20200817
+if test -d /sources/xf86-video-intel-20210222
  then
-  rm -rf /sources/xf86-video-intel-20200817
+  rm -rf /sources/xf86-video-intel-20210222
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20200817.tar.xz \
+check_and_download http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20210222.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-xf86-video-intel &&
 
-tar xf /sources/xf86-video-intel-20200817.tar.xz -C /sources/ &&
+tar xf /sources/xf86-video-intel-20210222.tar.xz -C /sources/ &&
 
-cd /sources/xf86-video-intel-20200817 &&
+cd /sources/xf86-video-intel-20210222 &&
 
 ./autogen.sh $XORG_CONFIG     \
             --enable-kms-only \

@@ -2,27 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/k3b-20.12.0
+if test -d /sources/okular-20.12.2
  then
-  rm -rf /sources/k3b-20.12.0
+  rm -rf /sources/okular-20.12.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.kde.org/stable/release-service/20.12.0/src/k3b-20.12.0.tar.xz \
+check_and_download http://download.kde.org/stable/release-service/20.12.2/src/okular-20.12.2.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-k3b &&
+md5sum -c ${SCRIPTPATH}/md5-okular &&
 
-tar xf /sources/k3b-20.12.0.tar.xz -C /sources/ &&
+tar xf /sources/okular-20.12.2.tar.xz -C /sources/ &&
 
-cd /sources/k3b-20.12.0 &&
+cd /sources/okular-20.12.2 &&
 
 mkdir build &&
 cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+cmake -DCMAKE_INSTALL_PREFIX=$KDE_PREFIX \
       -DCMAKE_BUILD_TYPE=Release         \
       -DBUILD_TESTING=OFF                \
       -Wno-dev .. &&

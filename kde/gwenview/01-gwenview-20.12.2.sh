@@ -2,27 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libkexiv2-20.12.0
+if test -d /sources/gwenview-20.12.2
  then
-  rm -rf /sources/libkexiv2-20.12.0
+  rm -rf /sources/gwenview-20.12.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.kde.org/stable/release-service/20.12.0/src/libkexiv2-20.12.0.tar.xz \
+check_and_download http://download.kde.org/stable/release-service/20.12.2/src/gwenview-20.12.2.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-libkexiv2 &&
+md5sum -c ${SCRIPTPATH}/md5-gwenview &&
 
-tar xf /sources/libkexiv2-20.12.0.tar.xz -C /sources/ &&
+tar xf /sources/gwenview-20.12.2.tar.xz -C /sources/ &&
 
-cd /sources/libkexiv2-20.12.0 &&
+cd /sources/gwenview-20.12.2 &&
 
 mkdir build &&
 cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+cmake -DCMAKE_INSTALL_PREFIX=$KDE_PREFIX \
       -DCMAKE_BUILD_TYPE=Release         \
       -DBUILD_TESTING=OFF                \
       -Wno-dev .. &&

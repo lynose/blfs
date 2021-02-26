@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/thunderbird-78.7.1
+if test -d /sources/thunderbird-78.8.0
  then
-  rm -rf /sources/thunderbird-78.7.1
+  as_root rm -rf /sources/thunderbird-78.8.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://archive.mozilla.org/pub/thunderbird/releases/78.7.1/source/thunderbird-78.7.1.source.tar.xz \
+check_and_download https://archive.mozilla.org/pub/thunderbird/releases/78.8.0/source/thunderbird-78.8.0.source.tar.xz \
         /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-thunderbird &&
 
-tar xf /sources/thunderbird-78.7.1.source.tar.xz -C /sources/
+tar xf /sources/thunderbird-78.8.0.source.tar.xz -C /sources/
 
-cd /sources/thunderbird-78.7.1 &&
+cd /sources/thunderbird-78.8.0 &&
 
 cat > mozconfig << "EOF" &&
 # If you have a multicore machine, all cores will be used.
@@ -41,7 +41,7 @@ ac_add_options --with-system-icu
 # The elf-hack causes failed builds on clang-9.0.1 with some CFLAGS including
 # -march=native on Ryzen. It is supposed to improve startup time and it shrinks
 # libxul.so by a few MB - Uncomment this if your build is affected.
-#ac_add_options --disable-elf-hack
+ac_add_options --disable-elf-hack
 
 # The BLFS editors recommend not changing anything below this line:
 ac_add_options --prefix=/usr
@@ -92,7 +92,7 @@ StartupNotify=true
 EOF
 
 as_root mv /tmp/thunderbird.desktop /usr/share/applications/thunderbird.desktop &&
-
+as_root chown root:root /usr/share/applications/thunderbird.desktop &&
 as_root ln -sfv /usr/lib/thunderbird/chrome/icons/default/default256.png \
         /usr/share/pixmaps/thunderbird.png &&
 ${log} `basename "$0"` " installed" blfs_all &&

@@ -2,33 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/pipewire-0.3.21
+if test -d /sources/gexiv2-0.12.2
  then
-  rm -rf /sources/pipewire-0.3.21
+  rm -rf /sources/gexiv2-0.12.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/PipeWire/pipewire/archive/0.3.21/pipewire-0.3.21.tar.gz \
+check_and_download https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-pipewire &&
+md5sum -c ${SCRIPTPATH}/md5-gexiv2 &&
 
-tar xf /sources/pipewire-0.3.21.tar.gz -C /sources/ &&
+tar xf /sources/gexiv2-0.12.2.tar.xz -C /sources/ &&
 
-cd /sources/pipewire-0.3.21 &&
+cd /sources/gexiv2-0.12.2 &&
 
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr           \
-      -Djack=false            \
-      -Dpipewire-jack=false   \
-      -Dvulkan=false          \
-      -Ddocs=true             \
-      -Dman=true              \
-      .. &&
+meson --prefix=/usr .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&

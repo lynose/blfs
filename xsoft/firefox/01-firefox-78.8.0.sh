@@ -2,38 +2,38 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/firefox-78.7.1
+if test -d /sources/firefox-78.8.0
  then
-  rm -rf /sources/firefox-78.7.1
+  as_root rm -rf /sources/firefox-78.8.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://archive.mozilla.org/pub/firefox/releases/78.7.1esr/source/firefox-78.7.1esr.source.tar.xz \
+check_and_download https://archive.mozilla.org/pub/firefox/releases/78.8.0esr/source/firefox-78.8.0esr.source.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-firefox &&
 
 # returns non-zero, ignore
-tar xf /sources/firefox-78.7.1esr.source.tar.xz -C /sources/
+tar xf /sources/firefox-78.8.0esr.source.tar.xz -C /sources/
 
-cd /sources/firefox-78.7.1 &&
+cd /sources/firefox-78.8.0 &&
 
 cat > mozconfig << "EOF"
 # If you have a multicore machine, all cores will be used by default.
 
 # If you have installed (or will install) wireless-tools, and you wish
 # to use geolocation web services, comment out this line
-ac_add_options --disable-necko-wifi
+#ac_add_options --disable-necko-wifi
 
 # API Keys for geolocation APIs - necko-wifi (above) is required for MLS
 # Uncomment the following line if you wish to use Mozilla Location Service
-#ac_add_options --with-mozilla-api-keyfile=$PWD/mozilla-key
+ac_add_options --with-mozilla-api-keyfile=$PWD/mozilla-key
 
 # Uncomment the following line if you wish to use Google's geolocaton API
 # (needed for use with saved maps with Google Maps)
-#ac_add_options --with-google-location-service-api-keyfile=$PWD/google-key
+ac_add_options --with-google-location-service-api-keyfile=$PWD/google-key
 
 # startup-notification is required since firefox-78
 
@@ -109,6 +109,8 @@ EOF
 sed -i -e 's/Disable/Enable/'      \
  -e '/^MOZ_REQUIRE_SIGNING/s/0/1/' \
  build/mozconfig.common &&
+echo "AIzaSyDxKL42zsPjbke5O8_rPVpVrLrJ8aeE9rQ" > google-key &&
+echo "613364a7-9418-4c86-bcee-57e32fd70c23" > mozilla-key &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 export CC=gcc CXX=g++ &&
@@ -142,7 +144,7 @@ StartupNotify=true
 EOF
 
 as_root mv -v ./firefox.desktop /usr/share/applications/firefox.desktop &&
-
+as_root chown root:root /usr/share/applications/firefox.desktop &&
 as_root ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \
         /usr/share/pixmaps/firefox.png &&
 

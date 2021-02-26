@@ -39,7 +39,7 @@ while read -r line; do
         mkdir build &&
         cd    build &&
       
-        cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+        cmake -DCMAKE_INSTALL_PREFIX=$PLASMA_PREFIX \
             -DCMAKE_BUILD_TYPE=Release         \
             -DBUILD_TESTING=OFF                \
             -Wno-dev .. &&
@@ -60,11 +60,11 @@ done < md5-plasma
 as_root install -dvm 755 /usr/share/xsessions              &&
 cd /usr/share/xsessions/                                   &&
 [ -e plasma.desktop ]                                      ||
-as_root ln -sfv $KF5_PREFIX/share/xsessions/plasma.desktop &&
+as_root ln -sfv $PLASMA_PREFIX/share/xsessions/plasma.desktop &&
 as_root install -dvm 755 /usr/share/wayland-sessions       &&
 cd /usr/share/wayland-sessions/                            &&
 [ -e plasmawayland.desktop ]                               ||
-as_root ln -sfv $KF5_PREFIX/share/wayland-sessions/plasmawayland.desktop
+as_root ln -sfv $PLASMA_PREFIX/share/wayland-sessions/plasmawayland.desktop
 
 cat > /tmp/kde << "EOF"  &&
 # Begin /etc/pam.d/kde
@@ -113,7 +113,12 @@ EOF
 as_root mv -v /tmp/kscreensaver /etc/pam.d/kscreensaver &&
 
 cat > ~/.xinitrc << "EOF" &&
-dbus-launch --exit-with-session $KF5_PREFIX/bin/startplasma-x11
+dbus-launch --exit-with-session $PLASMA_PREFIX/bin/startplasma-x11
 EOF
+cp /usr/share/xsessions/plasma.desktop /tmp &&
+
+sed '/^Name=/s/Plasma/Plasma on Xorg/' -i /tmp/plasma.desktop &&
+as_root mv /tmp/plasma.desktop /usr/share/xsessions/plasma.desktop &&
+as_root chown root:root /usr/share/xsessions/plasma.desktop &&
 
 ${log} `basename "$0"` " finished" blfs_all 

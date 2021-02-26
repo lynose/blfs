@@ -5,7 +5,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-url=https://github.com/KDE/kmail-account-wizard.git
+url=git://source.winehq.org/git/wine.git
 version="release/20.12"
 
 gitget $url \
@@ -20,13 +20,13 @@ cd ${gitpack} &&
 
 if [ -d ./build ]
  then
-   rm -rf build
+   as_root rm -rf build
 fi
 
 mkdir build &&
 cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=$KDE_PREFIX \
+cmake -DCMAKE_INSTALL_PREFIX=/usr        \
       -DCMAKE_BUILD_TYPE=Release         \
       -DBUILD_TESTING=OFF                \
       -Wno-dev .. &&
