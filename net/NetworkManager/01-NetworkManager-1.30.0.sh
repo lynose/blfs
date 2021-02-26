@@ -41,7 +41,7 @@ meson --prefix /usr              \
       -Dqt=false                 \
       -Dudev_dir=/lib/udev       \
       -Dsession_tracking=systemd \
-      -Dmodem_manager=false       \
+      -Dmodem_manager=false      \
       -Dsystemdsystemunitdir=/lib/systemd/system \
       .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
@@ -57,8 +57,9 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root ninja install &&
-[ -d /usr/share/doc/NetworkManager-1.30.0 ] &&
-as_root mv -v /usr/share/doc/NetworkManager{,-1.30.0} &&
+[ ! -d /usr/share/doc/NetworkManager-1.30.0 ] &&
+as_root mv -v /usr/share/doc/NetworkManager{,-1.30.0} ||
+as_root rm -v /usr/share/doc/NetworkManager
 
 cat >> ./NetworkManager.conf << "EOF" &&
 [main]
