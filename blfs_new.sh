@@ -50,7 +50,7 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #   New in version
 # #
 # ############################################################################
-#./devel/python3/01-python-3.9.2.sh && #215
+# ./devel/python3/01-python-3.9.2.sh && #215
 # ./sys/LSB-Tools/01-LSB-Tools-0.9.sh && 
 # ./devel/Pygments/01-Pygments-2.8.0.sh && #217
 # ./devel/docutils/01-docutils-0.16.sh && #219
@@ -78,21 +78,21 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ./video-utils/ffmpeg/02-ffmpeg-4.3.2.sh && #860
 # ./xsoft/tigervnc/01-tigervnc-1.11.0.sh && #828
 # ./X/Xorg/Xorg-drivers/xf86-video-intel/01-xf86-video-intel-20210222.sh && #856
-./kde/kf5/01-kf5-5.79.0.sh && #876
-./kde/ark/01-ark-20.12.2.sh && #882
+# ./kde/kf5/01-kf5-5.79.0.sh && #876
+# ./kde/ark/01-ark-20.12.2.sh && #882
 # ./net/bind/01-bind-9.16.11.sh && #884
 # ./icons/breeze-icons/01-breeze-icons-5.79.0.sh && #886
-./kde/kdenlive/01-kdenlive-20.12.2.sh && #886
-./kde/kmix/01-kmix-20.12.2.sh && #888
-./kde/khelpcenter/01-khelpcenter-20.12.2.sh && #890
-./kde/konsole/01-konsole-20.12.2.sh && #892
-./kde/libkkexiv2/01-libkexiv2-20.12.2.sh && #894
-./kde/okular/01-okular-20.12.2.sh && #896
-./kde/libkdcraw/01-libkdcraw-20.12.2.sh && #898
-./kde/gwenview/01-gwenview-20.12.2.sh && #900
-./kde/libkcddb/01-libkcddb-20.12.2.sh && #902
-./kde/k3b/01-k3b-20.12.2.sh && #904
-./kde/plasma/01-plasma-5.21.0.sh && #906
+# ./kde/kdenlive/01-kdenlive-20.12.2.sh && #886
+# ./kde/kmix/01-kmix-20.12.2.sh && #888
+# ./kde/khelpcenter/01-khelpcenter-20.12.2.sh && #890
+# ./kde/konsole/01-konsole-20.12.2.sh && #892
+# ./kde/libkkexiv2/01-libkexiv2-20.12.2.sh && #894
+# ./kde/okular/01-okular-20.12.2.sh && #896
+# ./kde/libkdcraw/01-libkdcraw-20.12.2.sh && #898
+# ./kde/gwenview/01-gwenview-20.12.2.sh && #900
+# ./kde/libkcddb/01-libkcddb-20.12.2.sh && #902
+# ./kde/k3b/01-k3b-20.12.2.sh && #904
+./kde/plasma/01-plasma-5.21.1.sh && #906
 # ./xsoft/thunderbird/01-thunderbird-78.8.0.sh && #914
 # ./virt/virt-manager/01-virt-manager.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
