@@ -22,7 +22,7 @@ cd /sources/khelpcenter-20.12.2 &&
 mkdir build &&
 cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=$KDE_PREFIX \
+cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
       -DCMAKE_BUILD_TYPE=Release         \
       -DBUILD_TESTING=OFF                \
       -Wno-dev ..  &&
@@ -33,7 +33,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install  &&
 
-as_root mv -v $KDE_PREFIX/share/kde4/services/khelpcenter.desktop /usr/share/applications/ &&
-as_root rm -rv $KDE_PREFIX/share/kde4 &&
+as_root mv -v $KF5_PREFIX/share/kde4/services/khelpcenter.desktop /usr/share/applications/ &&
+as_root rm -rv $KF5_PREFIX/share/kde4 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

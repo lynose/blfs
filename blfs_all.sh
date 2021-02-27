@@ -16,11 +16,9 @@ export DANGER_TEST=false
 #############################################################################
 as_root chown root:root / #fixes problems with systemd installtion
 
-# ./X/Xorg/01preXorg.sh &&
-# ./typesetting/01preTeX.sh &&
+./X/Xorg/01preXorg.sh &&
+./typesetting/01preTeX.sh &&
 ./kde/01preKF5.sh &&
-./kde/01preKDE.sh &&
-./kde/01prePlasma.sh &&
 
 source /etc/profile.d/xorg.sh && # Do not uncomment
 source /etc/profile.d/extrapathtex.sh &&
@@ -913,7 +911,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/k3b/01-k3b-20.12.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./kde/plasma/01-plasma-5.21.0.sh &&
+./kde/plasma/01-plasma-5.21.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./net/wireshark/01-wireshark-3.4.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
