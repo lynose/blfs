@@ -871,7 +871,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./video-utils/ffmpeg/02-ffmpeg-4.3.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./net/OpenSSH/01-openssh-8.4p1.sh &&
+./net/OpenSSH/02-openssh-8.4p1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/twm/01-twm-1.0.11.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

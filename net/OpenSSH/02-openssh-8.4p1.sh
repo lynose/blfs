@@ -28,9 +28,21 @@ sed -e '/INSTALLKEYS_SH/s/)//' -e '260a\  )' -i contrib/ssh-copy-id &&
 ./configure --prefix=/usr                     \
             --sysconfdir=/etc/ssh             \
             --with-md5-passwords              \
-            --with-privsep-path=/var/lib/sshd &&
+            --with-privsep-path=/var/lib/sshd \
+            --with-libedit                    \
+            --with-kerberos5=/usr             \
+            --with-xauth=/usr/bin/xauth       \
+            --with-pam &&
 ${log} `basename "$0"` " configured" blfs_all &&
 make &&
+
+if [ ${ENABLE_TEST} == true ]
+ then
+  make -j1 test &&
+  ${log} `basename "$0"` " check succeed" blfs_all ||
+  ${log} `basename "$0"` " expected check fail?" blfs_all
+fi
+
 ${log} `basename "$0"` " built" blfs_all &&
 as_root make install &&
 as_root install -v -m755    contrib/ssh-copy-id /usr/bin     &&
@@ -44,10 +56,14 @@ if [ -f /etc/ssh/sshd_config ]
   then 
     cp /etc/ssh/sshd_config /tmp &&
     echo "PermitRootLogin no" >> /tmp/sshd_config &&
+    echo "UsePAM yes" >> /tmp/sshd_config &&
     as_root mv /tmp/sshd_config /etc/ssh/sshd_config 
 fi
-cd /usr/src/blfs-systemd-units &&
-as_root make install-sshd &&
+as_root cp /etc/pam.d/login /tmp &&
+sed 's@d/login@d/sshd@g' /tmp/login > /tmp/sshd &&
+as_root mv /tmp/sshd /etc/pam.d/sshd &&
+as_root chmod 644 /etc/pam.d/sshd &&
+
 ${log} `basename "$0"` " installed" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all 
