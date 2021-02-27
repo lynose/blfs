@@ -23,6 +23,7 @@ ${log} `basename "$0"` " ======================================" blfs_basic &&
 ${log} `basename "$0"` " ======================================" blfs_basic &&
 ./sec/make-ca/01-make-ca-1.7.sh &&
 ${log} `basename "$0"` " ======================================" blfs_basic &&
-
+./sec/sudo/01-sudo-1.9.5p2.sh &&
+${log} `basename "$0"` " ======================================" blfs_basic &&
 ${log} `basename "$0"` " finished" blfs_basic
 
