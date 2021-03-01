@@ -55,6 +55,6 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #   Dependencies
 # #
 # ############################################################################
-./kde/akonadiconsole/01-akonadiconsole.sh &&
+./xml/docbook-xml/01-docbook-xml-4.5.sh &&
 
 ${log} `basename "$0"` " finished" blfs_all

@@ -5,8 +5,8 @@ ${log} `basename "$0"` " download" blfs_all &&
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-url=https://github.com/KDE/syndication.git
-version="v5.79.0"
+url=https://github.com/KDE/akonadiconsole.git
+version="release/20.12"
 
 gitget $url \
         /sources \

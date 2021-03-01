@@ -16,7 +16,7 @@ check_and_download http://downloads.sourceforge.net/docutils/docutils-0.16.tar.g
 
 md5sum -c ${SCRIPTPATH}/md5-docutils &&
 
-tar xf /sources/docutils-0.16.tar.g z-C /sources/ &&
+tar xf /sources/docutils-0.16.tar.gz -C /sources/ &&
 
 cd /sources/docutils-0.16 &&
 

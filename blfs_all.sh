@@ -19,13 +19,11 @@ as_root chown root:root / #fixes problems with systemd installtion
 ./X/Xorg/01preXorg.sh &&
 ./typesetting/01preTeX.sh &&
 ./kde/01preKF5.sh &&
+./devel/java/01-java.sh &&
 
 source /etc/profile.d/xorg.sh && # Do not uncomment
 source /etc/profile.d/extrapathtex.sh &&
-source /etc/profile.d/qt5.sh &&
 source /etc/profile.d/kf5.sh &&
-source /etc/profile.d/kde.sh &&
-source /etc/profile.d/plasma.sh &&
 source /etc/profile.d/openjdk.sh &&
 
 ${log} `basename "$0"` " started" blfs_all &&
@@ -280,7 +278,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./devel/scons/01-scons-4.1.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./xml/docbook-xml/01-docbook-xml-4.5.sh &&
+./xml/docbook-xml/01-docbook-xml-4.5.sh && #TODO does not install as user
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./xml/itstool/01-itstool-2.0.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -449,9 +447,9 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./sys/raptor/01-raptor2-2.0.15.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/JS/01-JS-78.7.1.sh &&
+./gen-libs/JS/01-JS-78.8.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-./gen-libs/nodejs/01-nodejs-v14.15.5.sh &&
+./gen-libs/nodejs/01-nodejs-v14.16.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./fsndm/gptfdisk/01-gptfdisk-1.0.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -714,6 +712,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./mld/gst-plugins-bad/01-gst-plugins-bad-1.18.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/qt5/01-qt5-5.15.2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+source /etc/profile.d/qt5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./X/lightdm/01-lightdm-1.30.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

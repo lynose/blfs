@@ -10,7 +10,7 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://kerberos.org/dist/krb5/1.19.1/krb5-1.19.1.tar.gz \
+check_and_download https://kerberos.org/dist/krb5/1.19/krb5-1.19.1.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-krb5 &&

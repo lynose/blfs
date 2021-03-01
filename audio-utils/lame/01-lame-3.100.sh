@@ -10,11 +10,10 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-if [ ! -f /sources/lame-3.100.tar.gz ];  
- then
-  check_and_download https://downloads.sourceforge.net/lame/lame-3.100.tar.gz \
+
+check_and_download https://downloads.sourceforge.net/lame/lame-3.100.tar.gz \
     /sources
-fi
+
 md5sum -c ${SCRIPTPATH}/md5-lame &&
 
 tar xf /sources/lame-3.100.tar.gz -C /sources/ &&

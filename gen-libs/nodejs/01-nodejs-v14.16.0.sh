@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/node-v14.15.5
+if test -d /sources/node-v14.16.0
  then
-  as_root rm -rf /sources/node-v14.15.5
+  as_root rm -rf /sources/node-v14.16.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://nodejs.org/dist/v14.15.5/node-v14.15.5.tar.xz \
+check_and_download https://nodejs.org/dist/v14.16.0/node-v14.16.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-nodejs &&
 
-tar xf /sources/node-v14.15.5.tar.xz -C /sources/ &&
+tar xf /sources/node-v14.16.0.tar.xz -C /sources/ &&
 
-cd /sources/node-v14.15.5 &&
+cd /sources/node-v14.16.0 &&
 
 ./configure --prefix=/usr                  \
             --shared-cares                 \
@@ -39,6 +39,6 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root make install &&
-as_root ln -sf node /usr/share/doc/node-14.15.5 &&
+as_root ln -sf node /usr/share/doc/node-14.16.0 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
