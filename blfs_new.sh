@@ -56,5 +56,13 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #
 # ############################################################################
 ./kde/akonadiconsole/01-akonadiconsole.sh &&
-
+./gen-libs/lz4/01-lz4.sh &&
+./mld/orc/01-orc.sh &&
+./virt/usbredir/01-usbredir.sh &&
+./X/spice-protocol/01-spice-protocol.sh &&
+./X/spice/01-spice.sh &&
+./X/spice-gtk/01-spice-gtk.sh &&
+./X/Xorg/Xorg-drivers/xf86-video-qxl/01-xf86-video-qxl.sh &&
+./virt/qemu/01-qemu-5.2.0.sh &&
+./virt/libvirt/01-libvirt.sh &&
 ${log} `basename "$0"` " finished" blfs_all

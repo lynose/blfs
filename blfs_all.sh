@@ -1004,6 +1004,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/kmail/01-kmail.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+./X/Xorg/Xorg-drivers/xf86-video-qxl/01-xf86-video-qxl.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 ./virt/libosinfo/01-libosinfo.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./virt/libvirt-glib/01-libvirt-glib.sh &&
@@ -1097,5 +1099,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/krdc/01-krdc.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ./kde/kcalc/01-kalc.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+./kde/akonadiconsole/01-akonadiconsole.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all
