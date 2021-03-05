@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/babl-0.1.84
+if test -d /sources/babl-0.1.86
  then
-  rm -rf /sources/babl-0.1.84
+  rm -rf /sources/babl-0.1.86
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://download.gimp.org/pub/babl/0.1/babl-0.1.84.tar.xz \
+check_and_download https://download.gimp.org/pub/babl/0.1/babl-0.1.86.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-babl &&
 
-tar xf /sources/babl-0.1.84.tar.xz -C /sources/ &&
+tar xf /sources/babl-0.1.86.tar.xz -C /sources/ &&
 
-cd /sources/babl-0.1.84 &&
+cd /sources/babl-0.1.86 &&
 
 mkdir bld &&
 cd    bld &&

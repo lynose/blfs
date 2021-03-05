@@ -2,33 +2,36 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/cbindgen-0.17.0
+if test -d /sources/libqmi-1.28.2
  then
-  as_root rm -rf /sources/cbindgen-0.17.0
+  as_root rm -rf /sources/libqmi-1.28.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/eqrion/cbindgen/archive/v0.17.0/cbindgen-0.17.0.tar.gz \
+check_and_download https://www.freedesktop.org/software/libqmi/libqmi-1.28.2.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-cbindgen &&
+md5sum -c ${SCRIPTPATH}/md5-libqmi &&
 
-tar xf /sources/cbindgen-0.17.0.tar.gz -C /sources/ &&
+tar xf /sources/libqmi-1.28.2.tar.xz -C /sources/ &&
 
-cd /sources/cbindgen-0.17.0 &&
+cd /sources/libqmi-1.28.2 &&
 
-cargo build --release &&
+PYTHON=python3 ./configure --prefix=/usr --disable-static --enable-gtk-doc &&
+${log} `basename "$0"` " configured" blfs_all &&
+
+make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  cargo test &&
+  make check &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root install -Dm755 target/release/cbindgen /usr/bin/ &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -1,29 +1,17 @@
 #!/bin/bash
 
 ${log} `basename "$0"` " started" blfs_all &&
-if test -d /sources/openssh-8.4p1
+if test -d /sources/openssh-8.5p1
  then
-  as_root rm -rf /sources/openssh-8.4p1
+  as_root rm -rf /sources/openssh-8.5p1
 fi
 
-check_and_download http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.4p1.tar.gz \
+check_and_download http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.5p1.tar.gz \
         /sources &&
 
-tar -xzf /sources/openssh-8.4p1.tar.gz -C /sources/ &&
+tar -xzf /sources/openssh-8.5p1.tar.gz -C /sources/ &&
 
-cd /sources/openssh-8.4p1 &&
-
-as_root install  -v -m700 -d /var/lib/sshd &&
-as_root chown    -v root:sys /var/lib/sshd &&
-
-as_root_groupadd groupadd -g 50 sshd        &&
-as_root_useradd  useradd -c 'sshd_PrivSep' \
-         -d /var/lib/sshd  \
-         -g sshd           \
-         -s /bin/false     \
-         -u 50 sshd &&
-
-sed -e '/INSTALLKEYS_SH/s/)//' -e '260a\  )' -i contrib/ssh-copy-id &&
+cd /sources/openssh-8.5p1 &&
 
 ./configure --prefix=/usr                     \
             --sysconfdir=/etc/ssh             \
@@ -49,13 +37,12 @@ as_root install -v -m755    contrib/ssh-copy-id /usr/bin     &&
 
 as_root install -v -m644    contrib/ssh-copy-id.1 \
                     /usr/share/man/man1              &&
-as_root install -v -m755 -d /usr/share/doc/openssh-8.4p1     &&
+as_root install -v -m755 -d /usr/share/doc/openssh-8.5p1     &&
 as_root install -v -m644    INSTALL LICENCE OVERVIEW README* \
-                    /usr/share/doc/openssh-8.4p1 &&
+                    /usr/share/doc/openssh-8.5p1 &&
 if [ -f /etc/ssh/sshd_config ]
   then 
     cp /etc/ssh/sshd_config /tmp &&
-    echo "PermitRootLogin no" >> /tmp/sshd_config &&
     echo "UsePAM yes" >> /tmp/sshd_config &&
     as_root mv /tmp/sshd_config /etc/ssh/sshd_config 
 fi

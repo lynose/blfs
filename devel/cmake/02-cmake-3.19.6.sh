@@ -5,20 +5,20 @@ ${log} `basename "$0"` " started" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-if test -d /sources/cmake-3.19.5
+if test -d /sources/cmake-3.19.6
  then
-  as_root rm -rf /sources/cmake-3.19.5
+  as_root rm -rf /sources/cmake-3.19.6
 fi
 
 ${log} `basename "$0"` " Downloading" blfs_all &&
-check_and_download https://cmake.org/files/v3.19/cmake-3.19.5.tar.gz \
+check_and_download https://cmake.org/files/v3.19/cmake-3.19.6.tar.gz \
 /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-cmake &&
 
-tar xf /sources/cmake-3.19.5.tar.gz -C /sources/ &&
+tar xf /sources/cmake-3.19.6.tar.gz -C /sources/ &&
 
-cd /sources/cmake-3.19.5 &&
+cd /sources/cmake-3.19.6 &&
 
 
 
@@ -31,7 +31,7 @@ sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
             --no-system-librhash \
             --qt-gui             \
             --parallel=${NINJAJOBS} \
-            --docdir=/share/doc/cmake-3.19.5  &&
+            --docdir=/share/doc/cmake-3.19.6  &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
@@ -40,7 +40,7 @@ ${log} `basename "$0"` " build" blfs_all &&
  
 if [ ${ENABLE_TEST} == true ]
  then
-  LC_ALL=en_US.UTF-8 bin/ctest -j${NINJAJOBS} -O /log/cmake-3.19.5-test.log &&
+  LC_ALL=en_US.UTF-8 bin/ctest -j${NINJAJOBS} -O /log/cmake-3.19.6-test.log &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi

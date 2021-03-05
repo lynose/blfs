@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libiodbc-3.52.12
+if test -d /sources/libiodbc-3.52.14
  then
-  rm -rf /sources/libiodbc-3.52.12
+  as_root rm -rf /sources/libiodbc-3.52.14
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://downloads.sourceforge.net/iodbc/libiodbc-3.52.12.tar.gz \
+check_and_download https://downloads.sourceforge.net/iodbc/libiodbc-3.52.14.tar.gz \
         /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-libiodbc &&
 
-tar xf /sources/libiodbc-3.52.12.tar.gz -C /sources/ &&
+tar xf /sources/libiodbc-3.52.14.tar.gz -C /sources/ &&
 
-cd /sources/libiodbc-3.52.12 &&
+cd /sources/libiodbc-3.52.14 &&
 
 ./configure --prefix=/usr                   \
             --with-iodbc-inidir=/etc/iodbc  \

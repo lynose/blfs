@@ -2,27 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/bluez-5.55
+if test -d /sources/bluez-5.56
  then
-  rm -rf /sources/bluez-5.55
+  as_root rm -rf /sources/bluez-5.56
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.kernel.org/pub/linux/bluetooth/bluez-5.55.tar.xz \
+check_and_download https://www.kernel.org/pub/linux/bluetooth/bluez-5.56.tar.xz \
     /sources &&
 
-check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/bluez-5.55-upstream_fixes-1.patch \
-    /sources &&
-    
+  
 md5sum -c ${SCRIPTPATH}/md5-bluez &&
 
-tar xf /sources/bluez-5.55.tar.xz -C /sources/ &&
+tar xf /sources/bluez-5.56.tar.xz -C /sources/ &&
 
-cd /sources/bluez-5.55 &&
-
-patch -Np1 -i ../bluez-5.55-upstream_fixes-1.patch &&
+cd /sources/bluez-5.56 &&
 
 ./configure --prefix=/usr         \
             --sysconfdir=/etc     \
@@ -44,8 +40,8 @@ as_root make install &&
 as_root ln -svf ../libexec/bluetooth/bluetoothd /usr/sbin &&
 as_root install -v -dm755 /etc/bluetooth &&
 as_root install -v -m644 src/main.conf /etc/bluetooth/main.conf &&
-as_root install -v -dm755 /usr/share/doc/bluez-5.55 &&
-as_root install -v -m644 doc/*.txt /usr/share/doc/bluez-5.55 &&
+as_root install -v -dm755 /usr/share/doc/bluez-5.56 &&
+as_root install -v -m644 doc/*.txt /usr/share/doc/bluez-5.56 &&
 
 cat > /tmp/rfcomm.conf << "EOF"
 # Start rfcomm.conf

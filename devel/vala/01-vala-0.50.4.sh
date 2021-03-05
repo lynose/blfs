@@ -2,26 +2,24 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/qpdf-10.1.0
+if test -d /sources/vala-0.50.4
  then
-  rm -rf /sources/qpdf-10.1.0
+  rm -rf /sources/vala-0.50.4
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/qpdf/qpdf/releases/download/release-qpdf-10.1.0/qpdf-10.1.0.tar.gz \
+check_and_download https://download.gnome.org/sources/vala/0.50/vala-0.50.4.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-qpdf &&
+md5sum -c ${SCRIPTPATH}/md5-vala &&
 
-tar xf /sources/qpdf-10.1.0.tar.gz -C /sources/ &&
+tar xf /sources/vala-0.50.4.tar.xz -C /sources/ &&
 
-cd /sources/qpdf-10.1.0 &&
+cd /sources/vala-0.50.4 &&
 
-./configure --prefix=/usr    \
-            --disable-static \
-            --docdir=/usr/share/doc/qpdf-10.1.0 &&
+./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
@@ -33,7 +31,6 @@ if [ ${ENABLE_TEST} == true ]
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
-
 
 as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&

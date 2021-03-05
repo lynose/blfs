@@ -19,6 +19,8 @@ tar xf /sources/Python-3.9.2.tar.xz -C /sources/ &&
 
 cd /sources/Python-3.9.2 &&
 
+sed 's|cpython/||' -i Include/cpython/pystate.h &&
+
 CXX="/usr/bin/g++"              \
 ./configure --prefix=/usr       \
             --enable-shared     \

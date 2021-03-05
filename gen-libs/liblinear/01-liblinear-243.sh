@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/liblinear-242
+if test -d /sources/liblinear-243
  then
-  rm -rf /sources/liblinear-242
+  rm -rf /sources/liblinear-243
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/cjlin1/liblinear/archive/v242/liblinear-242.tar.gz \
+check_and_download https://github.com/cjlin1/liblinear/archive/v243/liblinear-243.tar.gz \
         /sources
 
 
 md5sum -c ${SCRIPTPATH}/md5-liblinear &&
 
-tar xf /sources/liblinear-242.tar.gz -C /sources/ &&
+tar xf /sources/liblinear-243.tar.gz -C /sources/ &&
 
-cd /sources/liblinear-242 &&
+cd /sources/liblinear-243 &&
 
 make lib &&
 ${log} `basename "$0"` " built" blfs_all &&

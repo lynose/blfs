@@ -6,12 +6,14 @@ export CURRENT_PATH=`pwd`
 source ./help-functions.sh &&
 
 export log=${CURRENT_PATH}/logger.sh
-export MAKEFLAGS='-j 8' 
+export MAKEFLAGS='-j 16' 
 
 
 ${log} `basename "$0"` " started" blfs_basic &&
 ${log} `basename "$0"` " ======================================" blfs_basic &&
 ${log} `basename "$0"`  "Started BLFS Basic Tools build" &&
+${log} `basename "$0"` " ======================================" blfs_basic &&
+./basic/01-blfs-systemd.sh &&
 ${log} `basename "$0"` " ======================================" blfs_basic &&
 ./net/OpenSSH/01-openssh-8.4p1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_basic &&
