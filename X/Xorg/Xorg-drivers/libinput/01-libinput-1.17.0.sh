@@ -26,6 +26,7 @@ meson --prefix=$XORG_PREFIX \
       -Dudev-dir=/lib/udev  \
       -Ddebug-gui=false     \
       -Dtests=false         \
+      -Ddocumentation=false \
       -Dlibwacom=false      \
       ..                  &&
 ${log} `basename "$0"` " configured" blfs_all &&
