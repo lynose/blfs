@@ -15,7 +15,7 @@ ${log} `basename "$0"`  "Started BLFS Basic Tools build" &&
 ${log} `basename "$0"` " ======================================" blfs_basic &&
 ./basic/01-blfs-systemd.sh &&
 ${log} `basename "$0"` " ======================================" blfs_basic &&
-./net/OpenSSH/01-openssh-8.4p1.sh &&
+./net/OpenSSH/01-openssh-8.5p1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_basic &&
 ./gen-libs/libtasn1/01-libtasn1-4.16.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_basic &&

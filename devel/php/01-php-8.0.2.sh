@@ -74,8 +74,16 @@ fi
 
 as_root tar -xvf ../php_manual_en.tar.gz \
     -C /usr/share/doc/php-8.0.2 --no-same-owner &&
-as_root sed -i 's@php/includes"@&\ninclude_path = ".:/usr/lib/php"@' /etc/php.ini &&
-as_root sed -i -e '/proxy_module/s/^#//' -e '/proxy_fcgi_module/s/^#//' /etc/httpd/httpd.conf &&
+cp /etc/php.ini /tmp &&
+sed -i 's@php/includes"@&\ninclude_path = ".:/usr/lib/php"@' /tmp/php.ini &&
+as_root mv /tmp/php.ini /etc &&
+as_root chown root:root /etc/php.ini &&
+
+cp /etc/httpd/httpd.conf /tmp &&
+sed -i -e '/proxy_module/s/^#//' -e '/proxy_fcgi_module/s/^#//' /tmp/httpd.conf &&
+as_root /tmp/httpd.conf /etc/httpd/ &&
+as_root chown root:root /etc/httpd/httpd.conf &&
+
 cd /usr/src/blfs-systemd-units &&
 as_root make install-php-fpm &&
 ${log} `basename "$0"` " installed" blfs_all &&
