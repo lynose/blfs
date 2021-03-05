@@ -81,7 +81,7 @@ as_root chown root:root /etc/php.ini &&
 
 cp /etc/httpd/httpd.conf /tmp &&
 sed -i -e '/proxy_module/s/^#//' -e '/proxy_fcgi_module/s/^#//' /tmp/httpd.conf &&
-as_root /tmp/httpd.conf /etc/httpd/ &&
+as_root mv /tmp/httpd.conf /etc/httpd/ &&
 as_root chown root:root /etc/httpd/httpd.conf &&
 
 cd /usr/src/blfs-systemd-units &&
