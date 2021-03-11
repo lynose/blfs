@@ -55,6 +55,7 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #   Dependencies
 # #
 # ############################################################################
-./xml/docbook-xml/01-docbook-xml-4.5.sh &&
+# ${log} `basename "$0"` " ======================================" blfs_all &&
+./gnf-libs/jasper/02-jasper-2.0.26.sh && #TODO Fixdocbuild
 
 ${log} `basename "$0"` " finished" blfs_all

@@ -23,13 +23,14 @@ tar xf /sources/texlive-20200406-source.tar.xz -C /sources/ &&
 
 cd /sources/texlive-20200406-source &&
 
-as_root cat >> /etc/ld.so.conf << EOF
+cat >> /tmp/tex.conf << EOF &&
 # Begin texlive 2020 addition
 
 /opt/texlive/2020/lib
 
 # End texlive 2020 addition
 EOF
+as_root mv /tmp/tex.conf /etc/ld.so.conf.d/ &&
 
 SYSPOP= &&
 MYPOPPLER_MAJOR=$(pkg-config --modversion poppler | cut -d '.' -f1)
@@ -95,21 +96,22 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 unset SYSPOP &&
 ${log} `basename "$0"` " built" blfs_all &&
-
-make -k check &&
-${log} `basename "$0"` " check succeed" blfs_all ||
-${log} `basename "$0"` " expected check fail?" blfs_all &&
-
+if [ ${ENABLE_TEST} == true ]
+ then
+    make -k check &&
+    ${log} `basename "$0"` " check succeed" blfs_all ||
+    ${log} `basename "$0"` " check failed?" blfs_all
+fi
 as_root make install-strip &&
-/sbin/ldconfig &&
+as_root /sbin/ldconfig &&
 make texlinks &&
 as_root mkdir -pv /opt/texlive/2020/tlpkg/TeXLive/ &&
 as_root install -v -m644 ../texk/tests/TeXLive/* /opt/texlive/2020/tlpkg/TeXLive/ &&
-tar -xf ../../texlive-20200406-tlpdb-full.tar.gz -C /opt/texlive/2020/tlpkg &&
-tar -xf ../../texlive-20200406-texmf.tar.xz -C /opt/texlive/2020 --strip-components=1 &&
-source /etc/profile.d/extrapaths.sh &&
-mktexlsr &&
-fmtutil-sys --all
-mtxrun --generate &&
+as_root tar -xf ../../texlive-20200406-tlpdb-full.tar.gz -C /opt/texlive/2020/tlpkg &&
+as_root tar -xf ../../texlive-20200406-texmf.tar.xz -C /opt/texlive/2020 --strip-components=1 &&
+source /etc/profile.d/extrapathtex.sh &&
+as_root mktexlsr &&
+as_root fmtutil-sys --all
+as_root mtxrun --generate &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

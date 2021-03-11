@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/vlc-3.0.12
  then
-  rm -rf /sources/vlc-3.0.12
+   as_root rm -rf /sources/vlc-3.0.12
 fi
 
 SCRIPT=`realpath $0`
@@ -19,11 +19,14 @@ tar xf /sources/vlc-3.0.12.tar.xz -C /sources/ &&
 
 cd /sources/vlc-3.0.12 &&
 
-sed -i '/vlc_demux.h/a #define LUA_COMPAT_APIINTCASTS' modules/lua/vlc.h   &&
+export LUAC=/usr/bin/luac5.2                   &&
+export LUA_LIBS="$(pkg-config --libs lua52)"   &&
+export CPPFLAGS="$(pkg-config --cflags lua52)" &&
 
 BUILDCC=gcc ./configure --prefix=/usr    \
                         --disable-opencv \
-                        --disable-vpx  &&
+                        --disable-lua    \
+                        --disable-vpx    &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

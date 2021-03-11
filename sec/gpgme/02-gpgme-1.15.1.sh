@@ -19,7 +19,7 @@ tar xf /sources/gpgme-1.15.1.tar.bz2 -C /sources/ &&
 
 cd /sources/gpgme-1.15.1 &&
 
-./configure --prefix=/usr --disable-gpg-test &&
+./configure --prefix=/usr  &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

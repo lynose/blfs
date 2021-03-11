@@ -24,5 +24,6 @@ ${log} `basename "$0"` " started" config &&
 
 ./bash/issue.sh &&
 
+./lsb/config_lsb.sh &&
 
 ${log} `basename "$0"` " end" config 

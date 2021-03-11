@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/btrfs-progs-v5.10.1
+if test -d /sources/btrfs-progs-v5.11
  then
-  as_root rm -rf /sources/btrfs-progs-v5.10.1
+  as_root rm -rf /sources/btrfs-progs-v5.11
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.10.1.tar.xz \
+check_and_download https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.11.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-btrfs-progs &&
 
-tar xf /sources/btrfs-progs-v5.10.1.tar.xz -C /sources/ &&
+tar xf /sources/btrfs-progs-v5.11.tar.xz -C /sources/ &&
 
-cd /sources/btrfs-progs-v5.10.1 &&
+cd /sources/btrfs-progs-v5.11 &&
 
 ./configure --prefix=/usr \
             --bindir=/bin \
@@ -31,20 +31,12 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make fssum &&
 
-  sed -i '/found/s/^/: #/' tests/convert-tests.sh &&
-  
-  mv tests/misc-tests/025-zstd-compression/test.sh{,.broken} &&
+  mv tests/fsck-tests/012-leaf-corruption/test.sh{,.broken} &&
+  mv tests/misc-tests/046-seed-multi-mount/test.sh{,.broken} &&
+  mv tests/convert-tests/019-ext4-copy-timestamps/test.sh{,.broken} &&
 
-  pushd tests &&
-    ./fsck-tests.sh
-    ./mkfs-tests.sh  
-    ./cli-tests.sh  
-    ./convert-tests.sh 
-    ./misc-tests.sh    
-    ./fuzz-tests.sh    
-  popd
+  as_root make -j1 -k test &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi

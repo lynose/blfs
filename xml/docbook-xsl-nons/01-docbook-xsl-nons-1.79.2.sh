@@ -10,6 +10,7 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
+
 check_and_download https://github.com/docbook/xslt10-stylesheets/releases/download/release/1.79.2/docbook-xsl-nons-1.79.2.tar.bz2 \
     /sources &&
 
@@ -47,49 +48,8 @@ as_root cp -v -R doc/* /usr/share/doc/docbook-xsl-nons-1.79.2 &&
 ${log} `basename "$0"` " install stylesheets" blfs_all &&
 
 if [ ! -d /etc/xml ]; then as_root install -v -m755 -d /etc/xml; fi &&
-if [ ! -f /etc/xml/catalog ]; then
-    as_root xmlcatalog --noout --create /etc/xml/catalog
-fi &&
 
-as_root xmlcatalog --noout --add "rewriteSystem" \
-           "https://cdn.docbook.org/release/xsl-nons/1.79.2" \
-           "/usr/share/xml/docbook/xsl-stylesheets-nons-1.79.2" \
-    /etc/xml/catalog &&
+as_root $SCRIPTPATH/docbook-xsl-nons-1.79.2-cat-inst.sh &&
 
-as_root xmlcatalog --noout --add "rewriteURI" \
-           "https://cdn.docbook.org/release/xsl-nons/1.79.2" \
-           "/usr/share/xml/docbook/xsl-stylesheets-nons-1.79.2" \
-    /etc/xml/catalog &&
-
-as_root xmlcatalog --noout --add "rewriteSystem" \
-           "https://cdn.docbook.org/release/xsl-nons/current" \
-           "/usr/share/xml/docbook/xsl-stylesheets-nons-1.79.2" \
-    /etc/xml/catalog &&
-
-as_root xmlcatalog --noout --add "rewriteURI" \
-           "https://cdn.docbook.org/release/xsl-nons/current" \
-           "/usr/share/xml/docbook/xsl-stylesheets-nons-1.79.2" \
-    /etc/xml/catalog &&
-
-as_root xmlcatalog --noout --add "rewriteSystem" \
-           "http://docbook.sourceforge.net/release/xsl/current" \
-           "/usr/share/xml/docbook/xsl-stylesheets-nons-1.79.2" \
-    /etc/xml/catalog &&
-
-as_root xmlcatalog --noout --add "rewriteURI" \
-           "http://docbook.sourceforge.net/release/xsl/current" \
-           "/usr/share/xml/docbook/xsl-stylesheets-nons-1.79.2" \
-    /etc/xml/catalog &&
-${log} `basename "$0"` " create xmlcatalog" blfs_all &&
-
-as_root xmlcatalog --noout --add "rewriteSystem" \
-           "http://docbook.sourceforge.net/release/xsl/1.79.2" \
-           "/usr/share/xml/docbook/xsl-stylesheets-1.79.2" \
-    /etc/xml/catalog &&
-
-as_root xmlcatalog --noout --add "rewriteURI" \
-           "http://docbook.sourceforge.net/release/xsl/1.79.2" \
-           "/usr/share/xml/docbook/xsl-stylesheets-1.79.2" \
-    /etc/xml/catalog &&
 ${log} `basename "$0"` " substitude LFS version" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

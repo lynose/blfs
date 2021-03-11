@@ -2,9 +2,9 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gimp-2.10.20
+if test -d /sources/gimp-2.10.22
  then
-  as_root rm -rf /sources/gimp-2.10.20
+  as_root rm -rf /sources/gimp-2.10.22
 fi
 
 if test -d /sources/gimp-help-2020-10-07
@@ -22,10 +22,10 @@ check_and_download http://anduin.linuxfromscratch.org/BLFS/gimp/gimp-help-2020-1
 
 md5sum -c ${SCRIPTPATH}/md5-gimp &&
 
-tar xf /sources/gimp-2.10.20.tar.bz2 -C /sources/ &&
+tar xf /sources/gimp-2.10.22.tar.bz2 -C /sources/ &&
 tar xf /sources/gimp-help-2020-10-07.tar.xz -C /sources &&
 
-cd /sources/gimp-2.10.20 &&
+cd /sources/gimp-2.10.22 &&
 
 ./configure --prefix=/usr --sysconfdir=/etc --enable-gtk-doc &&
 ${log} `basename "$0"` " configured gimp" blfs_all &&

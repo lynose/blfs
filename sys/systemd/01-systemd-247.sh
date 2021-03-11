@@ -11,7 +11,7 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 check_and_download https://github.com/systemd/systemd/archive/v247/systemd-247.tar.gz \
     /sources &&
-check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/systemd-247-upstream_fixes-1.patch \
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/systemd-247-upstream_fixes-2.patch \
     /sources &&
     
 md5sum -c ${SCRIPTPATH}/md5-systemd &&
@@ -20,9 +20,9 @@ tar xf /sources/systemd-247.tar.gz -C /sources/ &&
 
 cd /sources/systemd-247 &&
 
-patch -Np1 -i ../systemd-247-upstream_fixes-1.patch &&
+patch -Np1 -i ../systemd-247-upstream_fixes-2.patch &&
 
-sed -i 's/GROUP="render", //' rules.d/50-udev-default.rules.in &&
+sed -i 's/GROUP="render"/GROUP="video"/' rules.d/50-udev-default.rules.in &&
 
 mkdir build &&
 cd    build &&

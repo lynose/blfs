@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/colord-1.4.5
  then
-  rm -rf /sources/colord-1.4.5
+  as_root rm -rf /sources/colord-1.4.5
 fi
 
 SCRIPT=`realpath $0`
@@ -47,9 +47,10 @@ ${log} `basename "$0"` " built" blfs_all &&
 as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
-ninja -k 2 test &&
-${log} `basename "$0"` " check succeed" blfs_all ||
-${log} `basename "$0"` " expected check fail?" blfs_all &&
-
-
+if [ ${ENABLE_TEST} == true ]
+ then
+    ninja -k 2 test &&
+    ${log} `basename "$0"` " check succeed" blfs_all ||
+    ${log} `basename "$0"` " check failed!" blfs_all
+fi
 ${log} `basename "$0"` " finished" blfs_all 

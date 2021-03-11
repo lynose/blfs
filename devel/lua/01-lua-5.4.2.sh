@@ -25,7 +25,7 @@ tar xf /sources/lua-5.4.2.tar.gz -C /sources/ &&
 
 cd /sources/lua-5.4.2 &&
 
-cat > lua.pc << "EOF"
+cat > lua.pc << "EOF" &&
 V=5.4
 R=5.4.2
 
@@ -62,11 +62,7 @@ if [ ${ENABLE_TEST} == true ]
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root make INSTALL_TOP=/usr                \
-     INSTALL_DATA="cp -d"            \
-     INSTALL_MAN=/usr/share/man/man1 \
-     TO_LIB="liblua.so liblua.so.5.4 liblua.so.5.4.2" \
-     install &&
+as_root ${SCRIPTPATH}/lua-install.sh &&
 
 as_root mkdir -pv                      /usr/share/doc/lua-5.4.2 &&
 as_root cp -v doc/*.{html,css,gif,png} /usr/share/doc/lua-5.4.2 &&

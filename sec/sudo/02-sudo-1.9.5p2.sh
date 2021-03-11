@@ -32,6 +32,30 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
+if [ ! -f /etc/pam.d/sudo ]
+ then 
+  cat > ./pam.sudo << "EOF" &&
+# Begin /etc/pam.d/sudo
+
+# include the default auth settings
+auth      include     system-auth
+
+# include the default account settings
+account   include     system-account
+
+# Set default environment variables for the service user
+session   required    pam_env.so
+
+# include system session defaults
+session   include     system-session
+
+# End /etc/pam.d/sudo
+EOF
+  as_root chown root:root ./pam.sudo
+  as_root mv ./pam.sudo /etc/pam.d/sudo &&
+  as_root chmod 644 /etc/pam.d/sudo
+fi
+
 if [ ${ENABLE_TEST} == true ]
  then
   env LC_ALL=C make check 2>&1 &&
@@ -58,28 +82,6 @@ fi
 
 unset RES
 
-if [ ! -f /etc/pam.d/sudo ]
- then 
-  cat > ./pam.sudo << "EOF" &&
-# Begin /etc/pam.d/sudo
 
-# include the default auth settings
-auth      include     system-auth
-
-# include the default account settings
-account   include     system-account
-
-# Set default environment variables for the service user
-session   required    pam_env.so
-
-# include system session defaults
-session   include     system-session
-
-# End /etc/pam.d/sudo
-EOF
-  as_root chown root:root ./pam.sudo
-  as_root mv ./pam.sudo /etc/pam.d/sudo &&
-  as_root chmod 644 /etc/pam.d/sudo
-fi
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

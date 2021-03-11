@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/cups-2.3.3
  then
-  rm -rf /sources/cups-2.3.3
+  as_root rm -rf /sources/cups-2.3.3
 fi
 
 SCRIPT=`realpath $0`
@@ -35,9 +35,12 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
- LC_ALL=C make -k check &&
-${log} `basename "$0"` " check succeed" blfs_all ||
-${log} `basename "$0"` " expected check fail?" blfs_all &&
+if [ ${ENABLE_TEST} == true ]
+ then
+    LC_ALL=C make -k check &&
+    ${log} `basename "$0"` " check succeed" blfs_all ||
+    ${log} `basename "$0"` " check failed!" blfs_all
+fi
 
 as_root make install &&
 rm -rf /tmp/cupsinit &&

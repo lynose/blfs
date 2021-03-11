@@ -28,7 +28,7 @@ fi
 mkdir -v build &&
 cd       build &&
 
-CC=clang CXX=clang++                                  \
+CC=gcc CXX=g++                            \
 cmake -DCMAKE_INSTALL_PREFIX=/usr               \
       -DLLVM_ENABLE_FFI=ON                      \
       -DCMAKE_BUILD_TYPE=Release                \

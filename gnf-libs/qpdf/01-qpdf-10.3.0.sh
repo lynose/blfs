@@ -2,26 +2,26 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/qpdf-10.2.0
+if test -d /sources/qpdf-10.3.0
  then
-  rm -rf /sources/qpdf-10.2.0
+  rm -rf /sources/qpdf-10.3.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/qpdf/qpdf/releases/download/release-qpdf-10.2.0/qpdf-10.2.0.tar.gz \
+check_and_download https://github.com/qpdf/qpdf/releases/download/release-qpdf-10.3.0/qpdf-10.3.0.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-qpdf &&
 
-tar xf /sources/qpdf-10.2.0.tar.gz -C /sources/ &&
+tar xf /sources/qpdf-10.3.0.tar.gz -C /sources/ &&
 
-cd /sources/qpdf-10.2.0 &&
+cd /sources/qpdf-10.3.0 &&
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/qpdf-10.2.0 &&
+            --docdir=/usr/share/doc/qpdf-10.3.0 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
