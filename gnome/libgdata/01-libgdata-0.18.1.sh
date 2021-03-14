@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libgdata-0.18.0
+if test -d /sources/libgdata-0.18.1
  then
-  as_root rm -rf /sources/libgdata-0.18.0
+  as_root rm -rf /sources/libgdata-0.18.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.0.tar.xz \
+check_and_download https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.1.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libgdata &&
 
-tar xf /sources/libgdata-0.18.0.tar.xz -C /sources/ &&
+tar xf /sources/libgdata-0.18.1.tar.xz -C /sources/ &&
 
-cd /sources/libgdata-0.18.0 &&
+cd /sources/libgdata-0.18.1 &&
 
 mkdir build &&
 cd    build &&
@@ -28,7 +28,7 @@ ${log} `basename "$0"` " configured" blfs_all &&
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-# TODO rework
+# TODO rework - missing mock
 # if [ ${ENABLE_TEST} == true ]
 #  then
 #   ninja test &&

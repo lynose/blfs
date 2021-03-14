@@ -34,6 +34,5 @@ as_root cp -rv              README INSTALL doc/* \
                     /usr/share/doc/lm_sensors-3-6-0 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
-as_root sensors-detect &&
-${log} `basename "$0"` " sensors dectected" blfs_all &&
+
 ${log} `basename "$0"` " finished" blfs_all 

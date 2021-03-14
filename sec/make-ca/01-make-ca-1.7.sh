@@ -15,7 +15,11 @@ tar xf /sources/make-ca-1.7.tar.xz -C /sources/ &&
 cd /sources/make-ca-1.7 &&
 
 as_root make install &&
-as_root install -vdm755 /etc/ssl/local && 
+
+if [ ! -d /etc/ssl/local ]
+  then
+    as_root install -vdm755 /etc/ssl/local
+fi
 ${log} `basename "$0"` " installed" blfs_all &&
 
 as_root /usr/sbin/make-ca -g &&
