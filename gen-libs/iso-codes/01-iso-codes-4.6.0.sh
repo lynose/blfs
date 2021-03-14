@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/iso-codes-4.5.0
+if test -d /sources/iso-codes-4.6.0
  then
-  rm -rf /sources/iso-codes-4.5.0
+  rm -rf /sources/iso-codes-4.6.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://anduin.linuxfromscratch.org/BLFS/iso-codes/iso-codes-4.5.0.tar.xz \
+check_and_download http://anduin.linuxfromscratch.org/BLFS/iso-codes/iso-codes-4.6.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-iso-codes &&
 
-tar xf /sources/iso-codes-4.5.0.tar.xz -C /sources/ &&
+tar xf /sources/iso-codes-4.6.0.tar.xz -C /sources/ &&
 
-cd /sources/iso-codes-4.5.0 &&
+cd /sources/iso-codes-4.6.0 &&
 
 ./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&
