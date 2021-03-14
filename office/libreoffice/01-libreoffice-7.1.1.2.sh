@@ -10,14 +10,14 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.documentfoundation.org/libreoffice/src/7.1.0/libreoffice-7.1.1.2.tar.xz \
+check_and_download http://download.documentfoundation.org/libreoffice/src/7.1.1/libreoffice-7.1.1.2.tar.xz \
         /sources &&
 
-check_and_download http://download.documentfoundation.org/libreoffice/src/7.1.0/libreoffice-dictionaries-7.1.1.2.tar.xz \
+check_and_download http://download.documentfoundation.org/libreoffice/src/7.1.1/libreoffice-dictionaries-7.1.1.2.tar.xz \
         /sources &&
-check_and_download http://download.documentfoundation.org/libreoffice/src/7.1.0/libreoffice-help-7.1.1.2.tar.xz \
+check_and_download http://download.documentfoundation.org/libreoffice/src/7.1.1/libreoffice-help-7.1.1.2.tar.xz \
         /sources &&
-check_and_download http://download.documentfoundation.org/libreoffice/src/7.1.0/libreoffice-translations-7.1.1.2.tar.xz \
+check_and_download http://download.documentfoundation.org/libreoffice/src/7.1.1/libreoffice-translations-7.1.1.2.tar.xz \
         /sources &&
         
 md5sum -c ${SCRIPTPATH}/md5-libreoffice &&

@@ -49,8 +49,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # /bin/bash -l ./devel/git/01-git-2.30.2.sh && #311
 # /bin/bash -l ./sec/gnutls/01-gnutls-3.7.1.sh && #381
 # /bin/bash -l ./gnome/libgdata/01-libgdata-0.18.1.sh && #814
-/bin/bash -l ./devel/php/01-php-8.0.3.sh && #906
-/bin/bash -l ./xsoft/thunderbird/01-thunderbird-78.8.1.sh && #957
+# /bin/bash -l ./devel/php/01-php-8.0.3.sh && #906
+# /bin/bash -l ./xsoft/thunderbird/01-thunderbird-78.8.1.sh && #957
 /bin/bash -l ./office/libreoffice/01-libreoffice-7.1.1.2.sh && #959
 #./gnf-libs/wxWidgets/01-wxWidgets.sh &&
 #./gnf-libs/vulkan/01-vulkan-1.2.162.1.sh &&
