@@ -65,7 +65,7 @@ as_root make install &&
 as_root install -v -m644 php.ini-production /etc/php.ini &&
 if [ ! -d /usr/share/doc/php-8.0.3 ]
  then
-  as_root install -v -m755 -d /usr/share/doc/php-8.0.3 &&
+  as_root install -v -m755 -d /usr/share/doc/php-8.0.3
 fi
 as_root install -v -m644    CODING_STANDARDS* EXTENSIONS NEWS README* UPGRADING* \
                     /usr/share/doc/php-8.0.3 &&
