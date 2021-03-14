@@ -14,20 +14,9 @@ export DANGER_TEST=false
 #   Global Xorg configuration
 #
 #############################################################################
-as_root chown root:root / #fixes problems with systemd installtion
 
-./kde/01preKF5.sh &&
-./kde/01preKDE.sh &&
-./kde/01prePlasma.sh &&
 
-source /etc/profile.d/xorg.sh && # Do not uncomment
-source /etc/profile.d/extrapathtex.sh &&
-source /etc/profile.d/qt5.sh &&
-source /etc/profile.d/kf5.sh &&
-
-source /etc/profile.d/openjdk.sh &&
-
-${log} `basename "$0"` " started" blfs_all &&
+${log} `basename "$0"` " started" blfs_new &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"`  "Started BLFS build" &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
