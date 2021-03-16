@@ -44,7 +44,7 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 #   Packages without required and recommended dependencies
 #
 #############################################################################
-/bin/bash -l ./sec/sudo/01-sudo-1.9.5p2.sh &&
+/bin/bash -l ./sec/sudo/01-sudo-1.9.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./net/OpenSSH/01-openssh-8.5p1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -218,7 +218,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # # #   Packages with required or recommended dependencies
 # # #
 # # ############################################################################
-/bin/bash -l ./sec/sudo/02-sudo-1.9.5p2.sh && # better to build sudo seperate
+/bin/bash -l ./sec/sudo/02-sudo-1.9.6.sh && # better to build sudo seperate
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./devel/perl-archive-zip/01-archive-zip-1.68.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
