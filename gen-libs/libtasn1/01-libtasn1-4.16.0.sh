@@ -20,7 +20,7 @@ tar xf /sources/libtasn1-4.16.0.tar.gz -C /sources/ &&
 
 cd /sources/libtasn1-4.16.0 &&
 
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static --disable-gtk-doc &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
