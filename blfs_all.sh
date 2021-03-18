@@ -44,7 +44,7 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 #   Packages without required and recommended dependencies
 #
 #############################################################################
-/bin/bash -l ./sec/sudo/01-sudo-1.9.6.sh &&
+/bin/bash -l ./sec/sudo/01-sudo-1.9.6p1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./net/OpenSSH/01-openssh-8.5p1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -106,9 +106,9 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnf-libs/frididi/01-fribidi-1.0.9.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gen-libs/nspr/01-nspr-4.29.sh &&
+/bin/bash -l ./gen-libs/nspr/01-nspr-4.30.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./db/sqlite/01-sqlite-3.34.1.sh &&
+/bin/bash -l ./db/sqlite/01-sqlite-3.35.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gen/graphviz/01-graphviz-2.44.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -218,7 +218,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # # #   Packages with required or recommended dependencies
 # # #
 # # ############################################################################
-/bin/bash -l ./sec/sudo/02-sudo-1.9.6.sh && # better to build sudo seperate
+/bin/bash -l ./sec/sudo/02-sudo-1.9.6p1.sh && # better to build sudo seperate
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./devel/perl-archive-zip/01-archive-zip-1.68.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -232,7 +232,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./net/bridge-utils/01-bridge-utils-1.6.sh && #!!! Need to be reviewed, kernel headers!!!
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./fsndm/xfsprogs/01-xfsprogs-5.10.0.sh &&
+/bin/bash -l ./fsndm/xfsprogs/01-xfsprogs-5.11.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sys/pm-utils/01-pm-utils-1.4.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -318,7 +318,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./net-libs/nghttp2/01-nghttp2-1.43.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./devel/cmake/01-cmake-3.19.6.sh &&
+/bin/bash -l ./devel/cmake/01-cmake-3.19.7.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./kde/extra-cmake-modules/01-extra-cmake-modules-5.79.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -422,7 +422,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sec/cyrus-sasl/01-cyrus-sasl-2.1.27.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./server/openldap/01-openldap-2.4.57.sh &&
+/bin/bash -l ./server/openldap/01-openldap-2.4.58.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./db/postgresql/01-postgresql-13.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -631,7 +631,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./net-libs/ldns/01-ldns-1.7.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gnf-libs/harfbuzz/01-harfbuzz-2.7.4.sh &&
+/bin/bash -l ./gnf-libs/harfbuzz/01-harfbuzz-2.8.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./mld/libass/01-libass-0.15.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -643,7 +643,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/gdk-pixbuf-xlib/01-gdk-pixbuf-xlib-3116b8ae.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gen-libs/libgusb/01-libgusb-0.3.5.sh &&
+/bin/bash -l ./gen-libs/libgusb/01-libgusb-0.3.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gen-libs/libblockdev/01-libblockdev-2.25.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -653,7 +653,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnome/rest/01-rest-0.8.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gen-libs/libgudev/01-libgudev-234.sh &&
+/bin/bash -l ./gen-libs/libgudev/01-libgudev-236.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sys/colord/01-colord-1.4.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -687,11 +687,11 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/pango/01-pango-1.48.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./X/gtk+/01-gtk+-3.24.26.sh &&
+/bin/bash -l ./X/gtk+/01-gtk+-3.24.27.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./xfce/libxfce4ui/01-libxfce4ui.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./xfce/exo/01-exo-4.16.0.sh &&
+/bin/bash -l ./xfce/exo/01-exo-4.16.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/gtk+/01-gtk+-2.24.32.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -738,7 +738,7 @@ source /etc/profile.d/qt5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/lightdm/01-lightdm-1.30.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./devel/cmake/02-cmake-3.19.6.sh &&
+/bin/bash -l ./devel/cmake/02-cmake-3.19.7.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./devel/doxygen/02-doxygen-1.9.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -804,14 +804,14 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnome/zenity/01-zenity-3.32.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./net/NetworkManager/01-NetworkManager-1.30.0.sh &&
+/bin/bash -l ./net/NetworkManager/01-NetworkManager-1.30.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./xsoft/firefox/01-firefox-78.8.0.sh &&
 ./clean.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnome/gcr/01-gcr-3.38.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gnome/gnome-online-accounts/01-gnome-online-accounts-3.38.0.sh && 
+/bin/bash -l ./gnome/gnome-online-accounts/01-gnome-online-accounts-3.38.1.sh && 
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnome/libgdata/01-libgdata-0.18.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

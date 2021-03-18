@@ -2,25 +2,25 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/exo-4.16.0
+if test -d /sources/exo-4.16.1
  then
-  as_root rm -rf /sources/exo-4.16.0
+  as_root rm -rf /sources/exo-4.16.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://archive.xfce.org/src/xfce/exo/4.16/exo-4.16.0.tar.bz2 \
+check_and_download http://archive.xfce.org/src/xfce/exo/4.16/exo-4.16.1.tar.bz2 \
         /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-exo &&
 
-tar xf /sources/exo-4.16.0.tar.bz2 -C /sources/ &&
+tar xf /sources/exo-4.16.1.tar.bz2 -C /sources/ &&
 
-cd /sources/exo-4.16.0 &&
+cd /sources/exo-4.16.1 &&
 
-./configure --prefix=/usr --sysconfdir=/etc &&
+./configure --prefix=/usr --sysconfdir=/etc --enable-gtk-doc &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

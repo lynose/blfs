@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gnome-online-accounts-3.38.0
+if test -d /sources/gnome-online-accounts-3.38.1
  then
-  rm -rf /sources/gnome-online-accounts-3.38.0
+  rm -rf /sources/gnome-online-accounts-3.38.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://download.gnome.org/sources/gnome-online-accounts/3.38/gnome-online-accounts-3.38.0.tar.xz \
+check_and_download https://download.gnome.org/sources/gnome-online-accounts/3.38/gnome-online-accounts-3.38.1.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-gnome-online-accounts &&
 
-tar xf /sources/gnome-online-accounts-3.38.0.tar.xz -C /sources/ &&
+tar xf /sources/gnome-online-accounts-3.38.1.tar.xz -C /sources/ &&
 
-cd /sources/gnome-online-accounts-3.38.0 &&
+cd /sources/gnome-online-accounts-3.38.1 &&
 
 ./configure --prefix=/usr \
             --disable-static \

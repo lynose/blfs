@@ -2,31 +2,32 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libgusb-0.3.5
+if test -d /sources/libgudev-236
  then
-  rm -rf /sources/libgusb-0.3.5
+  as_root rm -rf /sources/libgudev-236
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.5.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/libgudev/236/libgudev-236.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-libgusb &&
+md5sum -c ${SCRIPTPATH}/md5-libgudev &&
 
-tar xf /sources/libgusb-0.3.5.tar.xz -C /sources/ &&
+tar xf /sources/libgudev-236.tar.xz -C /sources/ &&
 
-cd /sources/libgusb-0.3.5 &&
+cd /sources/libgudev-236 &&
 
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Ddocs=true ..  &&
+meson --prefix=/usr .. -Dgtk_doc=true &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
+
 if [ ${ENABLE_TEST} == true ]
  then
   ninja test &&

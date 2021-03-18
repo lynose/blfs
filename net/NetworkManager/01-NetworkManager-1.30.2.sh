@@ -2,30 +2,34 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/NetworkManager-1.30.0
+if test -d /sources/NetworkManager-1.30.2
  then
-  as_root rm -rf /sources/NetworkManager-1.30.0
+  as_root rm -rf /sources/NetworkManager-1.30.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.30/NetworkManager-1.30.0.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.30/NetworkManager-1.30.2.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-NetworkManager &&
 
-tar xf /sources/NetworkManager-1.30.0.tar.xz -C /sources/ &&
+tar xf /sources/NetworkManager-1.30.2.tar.xz -C /sources/ &&
 
-cd /sources/NetworkManager-1.30.0 &&
+cd /sources/NetworkManager-1.30.2 &&
 
 sed -e 's/-qt4/-qt5/'              \
     -e 's/moc_location/host_bins/' \
     -i examples/C/qt/meson.build   &&
+    
 sed -e 's/Qt/&5/'                  \
     -i meson.build &&
+
 sed '/initrd/d' -i src/core/meson.build &&
+
 grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/' &&
+
 mkdir build &&
 cd    build    &&
 
@@ -57,8 +61,8 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root ninja install &&
-[ ! -d /usr/share/doc/NetworkManager-1.30.0 ] &&
-as_root mv -v /usr/share/doc/NetworkManager{,-1.30.0} ||
+[ ! -d /usr/share/doc/NetworkManager-1.30.2 ] &&
+as_root mv -v /usr/share/doc/NetworkManager{,-1.30.2} ||
 as_root rm -v /usr/share/doc/NetworkManager
 
 cat >> ./NetworkManager.conf << "EOF" &&
@@ -90,7 +94,7 @@ EOF
 as_root install -vm644 ./no-dns-update.conf /etc/NetworkManager/conf.d/no-dns-update.conf &&
 
 as_root_groupadd groupadd -fg 86 netdev &&
-as_root_useradd /usr/sbin/usermod -a -G netdev lynose &&
+as_root /usr/sbin/usermod -a -G netdev lynose &&
 
 
 cat > ./org.freedesktop.NetworkManager.rules << "EOF" &&

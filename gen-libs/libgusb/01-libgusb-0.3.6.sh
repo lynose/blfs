@@ -2,35 +2,34 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/harfbuzz-2.7.4
+if test -d /sources/libgusb-0.3.6
  then
-  rm -rf /sources/harfbuzz-2.7.4
+  as_root rm -rf /sources/libgusb-0.3.6
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/harfbuzz/harfbuzz/releases/download/2.7.4/harfbuzz-2.7.4.tar.xz \
+check_and_download https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.6.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-harfbuzz &&
+md5sum -c ${SCRIPTPATH}/md5-libgusb &&
 
-tar xf /sources/harfbuzz-2.7.4.tar.xz -C /sources/ &&
+tar xf /sources/libgusb-0.3.6.tar.xz -C /sources/ &&
 
-cd /sources/harfbuzz-2.7.4 &&
+cd /sources/libgusb-0.3.6 &&
 
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dgraphite=enabled -Dbenchmark=disabled &&
+meson --prefix=/usr -Ddocs=true ..  &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
-
 if [ ${ENABLE_TEST} == true ]
  then
-  ninja test&&
+  ninja test &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
