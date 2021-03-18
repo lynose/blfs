@@ -2,28 +2,24 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gptfdisk-1.0.6
+if test -d /sources/cryptsetup-2.3.5
  then
-  rm -rf /sources/gptfdisk-1.0.6
+  rm -rf /sources/cryptsetup-2.3.5
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.6.tar.gz \
-    /sources
+check_and_download https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.5.tar.xz \
+    /sources &&
 
-check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/gptfdisk-1.0.6-convenience-1.patch \
-    /sources
+md5sum -c ${SCRIPTPATH}/md5-cryptsetup &&
 
-md5sum -c ${SCRIPTPATH}/md5-gptfdisk &&
+tar xf /sources/cryptsetup-2.3.5.tar.xz -C /sources/ &&
 
-tar xf /sources/gptfdisk-1.0.6.tar.gz -C /sources/ &&
- 
-cd /sources/gptfdisk-1.0.6 &&
+cd /sources/cryptsetup-2.3.5 &&
 
-patch -Np1 -i ../gptfdisk-1.0.6-convenience-1.patch &&
-sed -i 's|ncursesw/||' gptcurses.cc &&
+./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
@@ -31,7 +27,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make test &&
+  make check &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi

@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libxkbcommon-1.0.3
+if test -d /sources/libxkbcommon-1.1.0
  then
-  rm -rf /sources/libxkbcommon-1.0.3
+  as_root rm -rf /sources/libxkbcommon-1.1.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://xkbcommon.org/download/libxkbcommon-1.0.3.tar.xz \
+check_and_download https://xkbcommon.org/download/libxkbcommon-1.1.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libxkbcommon &&
 
-tar xf /sources/libxkbcommon-1.0.3.tar.xz -C /sources/ &&
+tar xf /sources/libxkbcommon-1.1.0.tar.xz -C /sources/ &&
 
-cd /sources/libxkbcommon-1.0.3 &&
+cd /sources/libxkbcommon-1.1.0 &&
 
 mkdir build &&
 cd    build &&

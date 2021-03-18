@@ -2,39 +2,39 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/pango-1.48.2
+if test -d /sources/qpdf-10.3.1
  then
-  as_root rm -rf /sources/pango-1.48.2
+  rm -rf /sources/qpdf-10.3.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/pango/1.48/pango-1.48.2.tar.xz \
+check_and_download https://github.com/qpdf/qpdf/releases/download/release-qpdf-10.3.1/qpdf-10.3.1.tar.gz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-pango &&
+md5sum -c ${SCRIPTPATH}/md5-qpdf &&
 
-tar xf /sources/pango-1.48.2.tar.xz -C /sources/ &&
+tar xf /sources/qpdf-10.3.1.tar.gz -C /sources/ &&
 
-cd /sources/pango-1.48.2 &&
+cd /sources/qpdf-10.3.1 &&
 
-mkdir build &&
-cd    build &&
-
-meson --prefix=/usr -Dgtk_doc=true .. &&
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/qpdf-10.3.1 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-ninja &&
+make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  ninja test &&
+  make check &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root ninja install &&
+
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

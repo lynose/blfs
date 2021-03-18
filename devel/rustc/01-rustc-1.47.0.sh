@@ -9,11 +9,9 @@ fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-if [ ! -f /sources/rustc-1.47.0-src.tar.gz ] 
- then
-  check_and_download https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz \
+
+check_and_download https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz \
     /sources
-fi
 
 md5sum -c ${SCRIPTPATH}/md5-rustc &&
 

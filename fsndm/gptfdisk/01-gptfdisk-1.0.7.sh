@@ -2,26 +2,28 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/qpdf-10.3.0
+if test -d /sources/gptfdisk-1.0.7
  then
-  rm -rf /sources/qpdf-10.3.0
+  rm -rf /sources/gptfdisk-1.0.7
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/qpdf/qpdf/releases/download/release-qpdf-10.3.0/qpdf-10.3.0.tar.gz \
-    /sources &&
+check_and_download https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.7.tar.gz \
+    /sources
 
-md5sum -c ${SCRIPTPATH}/md5-qpdf &&
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/gptfdisk-1.0.7-convenience-1.patch \
+    /sources
 
-tar xf /sources/qpdf-10.3.0.tar.gz -C /sources/ &&
+md5sum -c ${SCRIPTPATH}/md5-gptfdisk &&
 
-cd /sources/qpdf-10.3.0 &&
+tar xf /sources/gptfdisk-1.0.7.tar.gz -C /sources/ &&
+ 
+cd /sources/gptfdisk-1.0.7 &&
 
-./configure --prefix=/usr    \
-            --disable-static \
-            --docdir=/usr/share/doc/qpdf-10.3.0 &&
+patch -Np1 -i ../gptfdisk-1.0.7-convenience-1.patch &&
+sed -i 's|ncursesw/||' gptcurses.cc &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
@@ -29,11 +31,10 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make check &&
+  make test &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
-
 
 as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&

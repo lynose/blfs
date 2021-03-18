@@ -21,6 +21,7 @@ cd ${gitpack} &&
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
+sed -i '/^LN_S/s/s/sfvn/' Makefile.inc &&
 as_root make PREFIX=/usr install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
