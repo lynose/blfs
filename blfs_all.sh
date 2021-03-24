@@ -213,13 +213,13 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l  ./sys/libelf/01-elfutils-0.183.sh && 
 ${log} `basename "$0"` " ======================================" blfs_all &&
 
-# # 
-# # 
-# # #############################################################################
-# # #
-# # #   Packages with required or recommended dependencies
-# # #
-# # ############################################################################
+
+
+#############################################################################
+#
+#   Packages with required or recommended dependencies
+#
+############################################################################
 /bin/bash -l ./sec/sudo/02-sudo-1.9.6p1.sh && # better to build sudo seperate
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./devel/perl-archive-zip/01-archive-zip-1.68.sh &&
