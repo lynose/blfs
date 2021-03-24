@@ -15,7 +15,7 @@ check_and_download http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.t
 
 tar xf /sources/install-tl-unx.tar.gz -C /sources/ &&
 
-cd /sources/install-tl-20210311 &&
+cd /sources/install-tl-20210131 &&
 
 as_root TEXLIVE_INSTALL_PREFIX=/opt/texlive ./install-tl &&
 ${log} `basename "$0"` " installed" blfs_all &&

@@ -49,7 +49,7 @@ ${log} `basename "$0"` " installed gimp" blfs_all &&
 
 cd /sources/gimp-help-2020-10-07 &&
 
-ALL_LINGUAS="ca da de el en en_GB es fi fr it ja ko nl nn pt_BR ro ru zh_CN" \
+ALL_LINGUAS="ca de el en en_GB es fi fr it ja ko nl nn ro ru zh_CN" \
 ./autogen.sh --prefix=/usr &&
 ${log} `basename "$0"` " configured gimp-help" blfs_all &&
 

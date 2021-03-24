@@ -2,30 +2,34 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gst-plugins-bad-1.18.3
+if test -d /sources/gstreamer-1.18.4
  then
-  rm -rf /sources/gst-plugins-bad-1.18.3
+  rm -rf /sources/gstreamer-1.18.4
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.18.3.tar.xz \
+check_and_download https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.18.4.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-gst-plugins-bad &&
+md5sum -c ${SCRIPTPATH}/md5-gstreamer &&
 
-tar xf /sources/gst-plugins-bad-1.18.3.tar.xz -C /sources/ &&
+tar xf /sources/gstreamer-1.18.4.tar.xz -C /sources/ &&
 
-cd /sources/gst-plugins-bad-1.18.3 &&
+cd /sources/gstreamer-1.18.4 &&
+
+#TODO check old installation
+as_root rm -rf /usr/bin/gst-* /usr/{lib,libexec}/gstreamer-1.0 &&
 
 mkdir build &&
 cd    build &&
 
 meson  --prefix=/usr       \
        -Dbuildtype=release \
+       -Dgst_debug=false   \
        -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.18.3 BLFS" &&
+       -Dpackage-name="GStreamer 1.18.4 BLFS" &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&
@@ -38,6 +42,7 @@ if [ ${ENABLE_TEST} == true ]
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
+as_root rm -rf /usr/bin/gst-* /usr/{lib,libexec}/gstreamer-1.0 &&
 as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

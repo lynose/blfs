@@ -1,6 +1,7 @@
 #!/bin/bash
 
-export log=../logger.sh
+source ../help-functions.sh && 
+export log=../logger.sh &&
 
 ${log} `basename "$0"` " started" config &&
 

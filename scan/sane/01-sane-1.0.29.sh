@@ -24,7 +24,7 @@ cd /sources/sane-backends-1.0.29 &&
 as_root_groupadd groupadd -g 70 scanner &&
 if   [ $EUID != 0 ];
  then
-    usermod -G scanner -a $USER
+    as_root usermod -G scanner -a $USER
 fi
 
 sg scanner -c "          \

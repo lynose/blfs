@@ -19,7 +19,7 @@ tar xf /sources/rustc-1.47.0-src.tar.gz -C /sources/ &&
 
 cd /sources/rustc-1.47.0-src &&
 
-as_root mkdir /opt/rustc-1.47.0             &&
+as_root mkdir -p /opt/rustc-1.47.0             &&
 if [ -L /opt/rustc ];
  then 
   as_root rm /opt/rustc

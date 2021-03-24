@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/gobject-introspection-1.66.1
  then
-  rm -rf /sources/gobject-introspection-1.66.1
+  as_root rm -rf /sources/gobject-introspection-1.66.1
 fi
 
 SCRIPT=`realpath $0`

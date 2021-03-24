@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gst-plugins-ugly-1.18.3
+if test -d /sources/gst-plugins-bad-1.18.4
  then
-  rm -rf /sources/gst-plugins-ugly-1.18.3
+  rm -rf /sources/gst-plugins-bad-1.18.4
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.18.3.tar.xz \
+check_and_download https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.18.4.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-gst-plugins-ugly &&
+md5sum -c ${SCRIPTPATH}/md5-gst-plugins-bad &&
 
-tar xf /sources/gst-plugins-ugly-1.18.3.tar.xz -C /sources/ &&
+tar xf /sources/gst-plugins-bad-1.18.4.tar.xz -C /sources/ &&
 
-cd /sources/gst-plugins-ugly-1.18.3 &&
+cd /sources/gst-plugins-bad-1.18.4 &&
 
 mkdir build &&
 cd    build &&
@@ -25,7 +25,7 @@ cd    build &&
 meson  --prefix=/usr       \
        -Dbuildtype=release \
        -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.18.3 BLFS"  &&
+       -Dpackage-name="GStreamer 1.18.4 BLFS" &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&

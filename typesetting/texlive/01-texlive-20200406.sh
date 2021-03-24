@@ -110,8 +110,8 @@ as_root install -v -m644 ../texk/tests/TeXLive/* /opt/texlive/2020/tlpkg/TeXLive
 as_root tar -xf ../../texlive-20200406-tlpdb-full.tar.gz -C /opt/texlive/2020/tlpkg &&
 as_root tar -xf ../../texlive-20200406-texmf.tar.xz -C /opt/texlive/2020 --strip-components=1 &&
 source /etc/profile.d/extrapathtex.sh &&
-as_root mktexlsr &&
-as_root fmtutil-sys --all
-as_root mtxrun --generate &&
+as_root /bin/bash -l mktexlsr &&
+as_root /bin/bash -l fmtutil-sys --all
+mtxrun --generate &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

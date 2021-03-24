@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/harfbuzz-2.8.0
  then
-  rm -rf /sources/harfbuzz-2.8.0
+  as_root rm -rf /sources/harfbuzz-2.8.0
 fi
 
 SCRIPT=`realpath $0`
