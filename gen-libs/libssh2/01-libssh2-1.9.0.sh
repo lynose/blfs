@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/libssh2-1.9.0
  then
-  rm -rf /sources/libssh2-1.9.0
+  as_root rm -rf /sources/libssh2-1.9.0
 fi
 
 SCRIPT=`realpath $0`
@@ -13,11 +13,16 @@ SCRIPTPATH=`dirname $SCRIPT`
 check_and_download https://www.libssh2.org/download/libssh2-1.9.0.tar.gz \
     /sources &&
 
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/libssh2-1.9.0-security_fixes-1.patch \
+    /sources &&
+    
 md5sum -c ${SCRIPTPATH}/md5-libssh2 &&
 
 tar xf /sources/libssh2-1.9.0.tar.gz -C /sources/ &&
 
 cd /sources/libssh2-1.9.0 &&
+
+patch -Np1 -i ../libssh2-1.9.0-security_fixes-1.patch &&
 
 ./configure --prefix=/usr --disable-static &&
 ${log} `basename "$0"` " configured" blfs_all &&

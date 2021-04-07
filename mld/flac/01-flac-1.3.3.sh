@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/flac-1.3.3
  then
-  rm -rf /sources/flac-1.3.3
+  as_root rm -rf /sources/flac-1.3.3
 fi
 
 SCRIPT=`realpath $0`
@@ -12,12 +12,16 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 check_and_download https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz \
     /sources &&
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/flac-1.3.3-security_fixes-1.patch \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-flac &&
 
 tar xf /sources/flac-1.3.3.tar.xz -C /sources/ &&
 
 cd /sources/flac-1.3.3 &&
+
+patch -Np1 -i ../flac-1.3.3-security_fixes-1.patch      &&
 
 ./configure --prefix=/usr \
             --disable-thorough-tests \

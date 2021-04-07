@@ -23,6 +23,8 @@ cd /sources/mariadb-10.5.9 &&
 as_root_groupadd groupadd -g 40 mysql &&
 as_root_useradd useradd -c \"MySQL_Server\" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql &&
 
+sed -i 's/END()/ENDIF()/' libmariadb/cmake/ConnectorName.cmake &&
+
 mkdir build &&
 cd    build &&
 

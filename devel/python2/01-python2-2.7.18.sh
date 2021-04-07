@@ -13,6 +13,9 @@ SCRIPTPATH=`dirname $SCRIPT`
 check_and_download https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz \
     /sources &&
 
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/Python-2.7.18-security_fixes-1.patch \
+    /sources &&    
+    
 check_and_download https://docs.python.org/ftp/python/doc/2.7.18/python-2.7.18-docs-html.tar.bz2 \
     /sources &&
 
@@ -23,6 +26,9 @@ tar xf /sources/Python-2.7.18.tar.xz -C /sources/ &&
 
 cd /sources/Python-2.7.18 &&
 
+sed -i '/2to3/d' ./setup.py &&
+
+patch -Np1 -i ../Python-2.7.18-security_fixes-1.patch &&
 ./configure --prefix=/usr       \
             --enable-shared     \
             --with-system-expat \
