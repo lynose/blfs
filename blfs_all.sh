@@ -459,7 +459,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sys/raptor/01-raptor2-2.0.15.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gen-libs/JS/01-JS-78.8.0.sh &&
+/bin/bash -l ./gen-libs/JS/01-JS-78.9.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gen-libs/nodejs/01-nodejs-v14.16.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -697,6 +697,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/gtk+/01-gtk+-2.24.32.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./sec/ssh-askpass/01-ssh-askpass-8.5p1.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gen-libs/libiodbc/01-libiodbc-3.52.14.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/gtksourceview/01-gtksourceview-3.24.11.sh &&
@@ -809,7 +811,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./net/NetworkManager/01-NetworkManager-1.30.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./xsoft/firefox/01-firefox-78.8.0.sh &&
+/bin/bash -l ./xsoft/firefox/01-firefox-78.9.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnome/gcr/01-gcr-3.38.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

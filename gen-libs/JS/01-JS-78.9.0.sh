@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/firefox-78.8.0
+if test -d /sources/firefox-78.9.0
  then
-  as_roo rm -rf /sources/firefox-78.8.0
+  as_root rm -rf /sources/firefox-78.9.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://archive.mozilla.org/pub/firefox/releases/78.8.0esr/source/firefox-78.8.0esr.source.tar.xz \
+check_and_download https://archive.mozilla.org/pub/firefox/releases/78.9.0esr/source/firefox-78.9.0esr.source.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-JS &&
 
 # Will return a non-zero value, but can be continued
-tar xf /sources/firefox-78.8.0esr.source.tar.xz -C /sources/
+tar xf /sources/firefox-78.9.0esr.source.tar.xz -C /sources/ &&
 
-cd /sources/firefox-78.8.0 &&
+cd /sources/firefox-78.9.0 &&
 
 mkdir obj &&
 cd    obj &&
@@ -45,6 +45,11 @@ if [ ${ENABLE_TEST} == true ]
   ${log} `basename "$0"` " JIT check succeed" blfs_all ||
   ${log} `basename "$0"` " JIT expected check fail?" blfs_all
 fi
+
+if [ -f /usr/lib/libmozjs-78.so ]
+ then
+   as_root rm -fv /usr/lib/libmozjs-78.so
+fi 
 
 as_root make install &&
 as_root rm -v /usr/lib/libjs_static.ajs &&

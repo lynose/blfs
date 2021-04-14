@@ -47,8 +47,10 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #
 # ############################################################################
 # 
-/bin/bash -l ./X/libxklavier/01-libxklavier-5.4.sh &&
-/bin/bash -l ./X/lightdm/01-lightdm-1.30.0.sh &&
+
+#/bin/bash -l ./gen-libs/JS/01-JS-78.9.0.sh &&  #462
+/bin/bash -l ./sec/ssh-askpass/01-ssh-askpass-8.5p1.sh &&
+#/bin/bash -l ./xsoft/firefox/01-firefox-78.9.0.sh &&
 
 
 
