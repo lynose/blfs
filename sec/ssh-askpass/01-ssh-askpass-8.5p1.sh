@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/openssh-8.4p1
+if test -d /sources/openssh-8.5p1
  then
-  as_root rm -rf /sources/openssh-8.4p1
+  as_root rm -rf /sources/openssh-8.5p1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.4p1.tar.gz \
+check_and_download http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.5p1.tar.gz \
         /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-ssh-askpass &&
 
-tar xf /sources/openssh-8.4p1.tar.gz -C /sources/ &&
+tar xf /sources/openssh-8.5p1.tar.gz -C /sources/ &&
 
-cd /sources/openssh-8.4p1 &&
+cd /sources/openssh-8.5p1 &&
 
 cd contrib &&
 ${log} `basename "$0"` " configured" blfs_all &&
