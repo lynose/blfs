@@ -2,27 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libdrm-2.4.104
+if test -d /sources/libxkbcommon-1.2.1
  then
-  rm -rf /sources/libdrm-2.4.104
+  as_root rm -rf /sources/libxkbcommon-1.2.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://dri.freedesktop.org/libdrm/libdrm-2.4.104.tar.xz \
+check_and_download https://xkbcommon.org/download/libxkbcommon-1.2.1.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-libdrm &&
+md5sum -c ${SCRIPTPATH}/md5-libxkbcommon &&
 
-tar xf /sources/libdrm-2.4.104.tar.xz -C /sources/ &&
+tar xf /sources/libxkbcommon-1.2.1.tar.xz -C /sources/ &&
 
-cd /sources/libdrm-2.4.104 &&
+cd /sources/libxkbcommon-1.2.1 &&
 
 mkdir build &&
 cd    build &&
 
-meson --prefix=$XORG_PREFIX -Dudev=true &&
+meson --prefix=/usr .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&

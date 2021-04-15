@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/avahi-0.8
  then
-  rm -rf /sources/avahi-0.8
+  as_root rm -rf /sources/avahi-0.8
 fi
 
 SCRIPT=`realpath $0`
@@ -27,6 +27,11 @@ as_root_useradd useradd -c \"Avahi_Daemon_Owner\" -d /var/run/avahi-daemon -u 84
 as_root_groupadd groupadd -fg 86 netdev &&
 
 patch -Np1 -i ../avahi-0.8-ipv6_race_condition_fix-1.patch &&
+
+sed -i '426a if (events & AVAHI_WATCH_HUP) { \
+client_free(c); \
+return; \
+}' avahi-daemon/simple-protocol.c &&
 
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \

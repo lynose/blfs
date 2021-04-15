@@ -2,27 +2,29 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libxkbcommon-1.1.0
+if test -d /sources/gcr-3.40.0
  then
-  as_root rm -rf /sources/libxkbcommon-1.1.0
+  as_root rm -rf /sources/gcr-3.40.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://xkbcommon.org/download/libxkbcommon-1.1.0.tar.xz \
+check_and_download https://download.gnome.org/sources/gcr/3.40/gcr-3.40.0.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-libxkbcommon &&
+md5sum -c ${SCRIPTPATH}/md5-gcr &&
 
-tar xf /sources/libxkbcommon-1.1.0.tar.xz -C /sources/ &&
+tar xf /sources/gcr-3.40.0.tar.xz -C /sources/ &&
 
-cd /sources/libxkbcommon-1.1.0 &&
+cd /sources/gcr-3.40.0 &&
 
-mkdir build &&
-cd    build &&
+sed -i 's:"/desktop:"/org:' schema/*.xml &&
 
-meson --prefix=/usr .. &&
+mkdir gcr-build &&
+cd    gcr-build &&
+
+meson --prefix=/usr -Dgtk_doc=true ..  &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&

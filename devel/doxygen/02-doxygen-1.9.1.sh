@@ -20,6 +20,8 @@ tar xf /sources/doxygen-1.9.1.src.tar.gz -C /sources/ &&
 
 cd /sources/doxygen-1.9.1 &&
 
+rm src/._xmlgen.cpp && 
+
 mkdir -v build &&
 cd       build &&
 

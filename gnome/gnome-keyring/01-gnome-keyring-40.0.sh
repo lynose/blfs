@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gnome-keyring-3.36.0
+if test -d /sources/gnome-keyring-40.0
  then
-  rm -rf /sources/gnome-keyring-3.36.0
+  rm -rf /sources/gnome-keyring-40.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.36/gnome-keyring-3.36.0.tar.xz \
+check_and_download https://download.gnome.org/sources/gnome-keyring/40/gnome-keyring-40.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-gnome-keyring &&
 
-tar xf /sources/gnome-keyring-3.36.0.tar.xz -C /sources/ &&
+tar xf /sources/gnome-keyring-40.0.tar.xz -C /sources/ &&
 
-cd /sources/gnome-keyring-3.36.0 &&
+cd /sources/gnome-keyring-40.0 &&
 
 sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml &&
 

@@ -2,38 +2,33 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gvfs-1.46.2
+if test -d /sources/gvfs-1.48.0
  then
-  rm -rf /sources/gvfs-1.46.2
+  as_root rm -rf /sources/gvfs-1.48.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://download.gnome.org/sources/gvfs/1.46/gvfs-1.46.2.tar.xz \
+check_and_download https://download.gnome.org/sources/gvfs/1.48/gvfs-1.48.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-gvfs &&
 
-tar xf /sources/gvfs-1.46.2.tar.xz -C /sources/ &&
+tar xf /sources/gvfs-1.48.0.tar.xz -C /sources/ &&
 
-cd /sources/gvfs-1.46.2 &&
+cd /sources/gvfs-1.48.0 &&
 
 mkdir build &&
 cd    build &&
 
 meson --prefix=/usr     \
-      --sysconfdir=/etc \
-      -Dfuse=true      \
       -Dgphoto2=false   \
       -Dafc=false       \
       -Dbluray=false    \
-      -Dnfs=false       \
       -Dmtp=false       \
-      -Dsmb=false       \
-      -Ddnssd=true     \
-      -Dgoa=true       \
-      -Dgoogle=true    ..  &&
+      -Dnfs=false       \
+      -Dsmb=false  .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&

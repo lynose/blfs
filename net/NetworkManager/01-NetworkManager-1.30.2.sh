@@ -30,6 +30,8 @@ sed '/initrd/d' -i src/core/meson.build &&
 
 grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/' &&
 
+sed -i 's/str, 0/str ?: "", 0/' src/core/nm-core-utils.c &&
+
 mkdir build &&
 cd    build    &&
 

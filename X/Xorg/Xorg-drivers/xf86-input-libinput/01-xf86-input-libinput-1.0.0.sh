@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/xf86-input-libinput-0.30.0
+if test -d /sources/xf86-input-libinput-1.0.0
  then
-  rm -rf /sources/xf86-input-libinput-0.30.0
+  rm -rf /sources/xf86-input-libinput-1.0.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.x.org/pub/individual/driver/xf86-input-libinput-0.30.0.tar.bz2 \
+check_and_download https://www.x.org/pub/individual/driver/xf86-input-libinput-1.0.0.tar.bz2 \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-xf86-input-libinput &&
 
-tar xf /sources/xf86-input-libinput-0.30.0.tar.bz2 -C /sources/ &&
+tar xf /sources/xf86-input-libinput-1.0.0.tar.bz2 -C /sources/ &&
 
-cd /sources/xf86-input-libinput-0.30.0 &&
+cd /sources/xf86-input-libinput-1.0.0 &&
 
 ./configure $XORG_CONFIG &&
 ${log} `basename "$0"` " configured" blfs_all &&

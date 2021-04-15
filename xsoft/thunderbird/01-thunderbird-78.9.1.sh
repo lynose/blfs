@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/thunderbird-78.9.0
+if test -d /sources/thunderbird-78.9.1
  then
-  as_root rm -rf /sources/thunderbird-78.9.0
+  as_root rm -rf /sources/thunderbird-78.9.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://archive.mozilla.org/pub/thunderbird/releases/78.9.0/source/thunderbird-78.9.0.source.tar.xz \
+check_and_download https://archive.mozilla.org/pub/thunderbird/releases/78.9.1/source/thunderbird-78.9.1.source.tar.xz \
         /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-thunderbird &&
 
-tar xf /sources/thunderbird-78.9.0.source.tar.xz -C /sources/
+tar xf /sources/thunderbird-78.9.1.source.tar.xz -C /sources/
 
-cd /sources/thunderbird-78.9.0 &&
+cd /sources/thunderbird-78.9.1 &&
 
 cat > mozconfig << "EOF" &&
 # If you have a multicore machine, all cores will be used.

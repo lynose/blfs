@@ -2,29 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gcr-3.38.1
+if test -d /sources/libdrm-2.4.105
  then
-  rm -rf /sources/gcr-3.38.1
+  as_root rm -rf /sources/libdrm-2.4.105
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://download.gnome.org/sources/gcr/3.38/gcr-3.38.1.tar.xz \
+check_and_download https://dri.freedesktop.org/libdrm/libdrm-2.4.105.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-gcr &&
+md5sum -c ${SCRIPTPATH}/md5-libdrm &&
 
-tar xf /sources/gcr-3.38.1.tar.xz -C /sources/ &&
+tar xf /sources/libdrm-2.4.105.tar.xz -C /sources/ &&
 
-cd /sources/gcr-3.38.1 &&
+cd /sources/libdrm-2.4.105 &&
 
-sed -i 's:"/desktop:"/org:' schema/*.xml &&
+mkdir build &&
+cd    build &&
 
-mkdir gcr-build &&
-cd    gcr-build &&
-
-meson --prefix=/usr -Dgtk_doc=true ..  &&
+meson --prefix=$XORG_PREFIX -Dudev=true &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&
