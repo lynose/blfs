@@ -5,9 +5,9 @@ cat >> ./extrapathtex.sh << EOF &&
 
 # Begin texlive addition
 
-pathappend /opt/texlive/2020/texmf-dist/doc/man  MANPATH
-pathappend /opt/texlive/2020/texmf-dist/doc/info INFOPATH
-pathappend /opt/texlive/2020/bin/$TEXARCH
+pathappend /opt/texlive/2021/texmf-dist/doc/man  MANPATH
+pathappend /opt/texlive/2021/texmf-dist/doc/info INFOPATH
+pathappend /opt/texlive/2021/bin/$TEXARCH
 
 # End texlive addition
 

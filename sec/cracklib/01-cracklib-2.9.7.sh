@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/cracklib-2.9.7
  then
-  rm -rf /sources/cracklib-2.9.7
+  as_root rm -rf /sources/cracklib-2.9.7
 fi
 
 SCRIPT=`realpath $0`
@@ -25,9 +25,10 @@ cd /sources/cracklib-2.9.7 &&
 
 sed -i '/skipping/d' util/packer.c &&
 
+PYTHON=python3 CPPFLAGS=-I/usr/include/python3.9 \
 ./configure --prefix=/usr    \
             --disable-static \
-            --with-default-dict=/lib/cracklib/pw_dict &&
+            --with-default-dict=/lib/cracklib/pw_dict && &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

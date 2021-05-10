@@ -52,5 +52,6 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root make install &&
+as_root ldconfig &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

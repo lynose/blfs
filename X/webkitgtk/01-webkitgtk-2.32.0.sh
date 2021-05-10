@@ -12,12 +12,17 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 check_and_download https://webkitgtk.org/releases/webkitgtk-2.32.0.tar.xz \
     /sources &&
-
+check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/webkitgtk-2.32.0-icu_69-1.patch \
+    /sources &&
+    
+    
 md5sum -c ${SCRIPTPATH}/md5-webkitgtk &&
 
 tar xf /sources/webkitgtk-2.32.0.tar.xz -C /sources/ &&
 
 cd /sources/webkitgtk-2.32.0 &&
+
+patch -Np1 -i ../webkitgtk-2.32.0-icu_69-1.patch &&
 
 mkdir -vp build &&
 cd        build &&

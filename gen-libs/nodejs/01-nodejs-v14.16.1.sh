@@ -12,12 +12,15 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 check_and_download https://nodejs.org/dist/v14.16.1/node-v14.16.1.tar.xz \
     /sources &&
+check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/node-v14.16.1-icu_69-1.patch \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-nodejs &&
 
 tar xf /sources/node-v14.16.1.tar.xz -C /sources/ &&
 
 cd /sources/node-v14.16.1 &&
+patch -Np1 -i ../node-v14.16.1-icu_69-1.patch &&
 
 ./configure --prefix=/usr                  \
             --shared-cares                 \

@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/gegl-0.4.30
  then
-  rm -rf /sources/gegl-0.4.30
+  as_root rm -rf /sources/gegl-0.4.30
 fi
 
 SCRIPT=`realpath $0`

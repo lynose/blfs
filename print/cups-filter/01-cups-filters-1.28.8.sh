@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/cups-filters-1.28.8
  then
-  rm -rf /sources/cups-filters-1.28.8
+  as_root rm -rf /sources/cups-filters-1.28.8
 fi
 
 SCRIPT=`realpath $0`
@@ -20,7 +20,7 @@ tar xf /sources/cups-filters-1.28.8.tar.xz -C /sources/ &&
 cd /sources/cups-filters-1.28.8 &&
 
 sed -i "s:cups.service:org.cups.cupsd.service:g" utils/cups-browsed.service &&
-
+sed -i 's/ldap_connect/ldap_connect_loc/g' utils/cups-browsed.c &&
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \

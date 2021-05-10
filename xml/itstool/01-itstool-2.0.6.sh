@@ -15,11 +15,13 @@ check_and_download http://files.itstool.org/itstool/itstool-2.0.6.tar.bz2 \
 
 md5sum -c ${SCRIPTPATH}/md5-itstool &&
 
+as_root ln -svf /usr/bin/python3 /usr/bin/python
+
 tar xf /sources/itstool-2.0.6.tar.bz2 -C /sources/ &&
 
 cd /sources/itstool-2.0.6 &&
 
-PYTHON=/usr/bin/python3 ./configure --prefix=/usr &&
+PYTHON=/usr/bin/python2 ./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

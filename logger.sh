@@ -24,7 +24,7 @@ if [ -n ${STAGE} ]
     LOGFILE="default.log"
 fi
 
-CUR_TIME=$(date +%D" "%r)
+CUR_TIME=$(date +%D%r)
 
 echo "${CUR_TIME} : ${SCRIPTNAME} ${INFO}" >> ${LOGPATH}/${LOGFILE}
 
