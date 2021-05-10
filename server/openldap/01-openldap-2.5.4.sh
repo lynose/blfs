@@ -44,9 +44,10 @@ autoconf &&
             --enable-rlookups     \
             --enable-backends=mod \
             --disable-ndb         \
-            --disable-shell       \
-            --disable-bdb         \
-            --disable-hdb         \
+            --disable-wt          \
+#             --disable-shell       \
+#             --disable-bdb         \
+#             --disable-hdb         \
             --enable-overlays=mod  &&
 
 make depend &&            
