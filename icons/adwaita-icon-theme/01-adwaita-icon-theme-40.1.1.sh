@@ -10,7 +10,7 @@ fi
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://download.gnome.org/sources/adwaita-icon-theme/3.38/adwaita-icon-theme-40.1.1.tar.xz \
+check_and_download https://download.gnome.org/sources/adwaita-icon-theme/40/adwaita-icon-theme-40.1.1.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-adwaita-icon-theme &&
