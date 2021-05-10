@@ -2,7 +2,7 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-# if test -d /sources/nss-3.64
+if test -d /sources/nss-3.64
  then
   as_root rm -rf /sources/nss-3.64
 fi
