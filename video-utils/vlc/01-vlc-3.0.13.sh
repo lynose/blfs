@@ -25,7 +25,7 @@ export CPPFLAGS="$(pkg-config --cflags lua52)" &&
 
 BUILDCC=gcc ./configure --prefix=/usr    \
                         --disable-opencv \
-                        #--disable-lua    \
+                        --disable-lua    \
                         --disable-vpx    &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
