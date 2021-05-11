@@ -27,7 +27,7 @@ make                      &&
 make -C doc html                                                       &&
 makeinfo --html --no-split -o doc/gcrypt_nochunks.html doc/gcrypt.texi &&
 makeinfo --plaintext       -o doc/gcrypt.txt           doc/gcrypt.texi &&
-make -C doc pdf ps &&
+make -C doc pdf &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
@@ -49,7 +49,7 @@ as_root install -v -m644 doc/gcrypt_nochunks.html \
                     /usr/share/doc/libgcrypt-1.9.3      &&
 as_root install -v -m644 doc/gcrypt.{txt,texi} \
                     /usr/share/doc/libgcrypt-1.9.3 &&
-as_root install -v -m644 doc/gcrypt.{pdf,ps,dvi} \
+as_root install -v -m644 doc/gcrypt.pdf \
                     /usr/share/doc/libgcrypt-1.9.3 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
