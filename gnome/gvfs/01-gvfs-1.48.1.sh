@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gvfs-1.48.0
+if test -d /sources/gvfs-1.48.1
  then
-  as_root rm -rf /sources/gvfs-1.48.0
+  as_root rm -rf /sources/gvfs-1.48.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://download.gnome.org/sources/gvfs/1.48/gvfs-1.48.0.tar.xz \
+check_and_download https://download.gnome.org/sources/gvfs/1.48/gvfs-1.48.1.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-gvfs &&
 
-tar xf /sources/gvfs-1.48.0.tar.xz -C /sources/ &&
+tar xf /sources/gvfs-1.48.1.tar.xz -C /sources/ &&
 
-cd /sources/gvfs-1.48.0 &&
+cd /sources/gvfs-1.48.1 &&
 
 mkdir build &&
 cd    build &&

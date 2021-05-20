@@ -815,7 +815,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnome/gcr/01-gcr-3.40.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gnome/gnome-online-accounts/01-gnome-online-accounts-3.38.1.sh && 
+/bin/bash -l ./gnome/gnome-online-accounts/01-gnome-online-accounts-3.40.0.sh && 
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnome/libgdata/01-libgdata-0.18.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -847,7 +847,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gen-libs/libassuan/02-libassuan-2.5.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gen-libs/libgcrypt/02-libgcrypt-1.9.2.sh &&
+/bin/bash -l ./gen-libs/libgcrypt/02-libgcrypt-1.9.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sys/rasqal/01-rasqal-0.9.33.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -875,7 +875,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./print/cups-filter/01-cups-filters-1.28.8.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gnome/gvfs/01-gvfs-1.48.0.sh &&
+/bin/bash -l ./gnome/gvfs/01-gvfs-1.48.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/Xorg/Xorg-server/01-xorg-server-1.20.11.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

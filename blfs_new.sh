@@ -122,13 +122,15 @@ source /etc/profile.d/rustc.sh &&
 /bin/bash -l ./video-utils/vlc/01-vlc-3.0.13.sh && #804
 /bin/bash -l ./X/webkitgtk/01-webkitgtk-2.32.0.sh && #808
 /bin/bash -l ./xsoft/firefox/01-firefox-78.10.1.sh && #814
+/bin/bash -l ./gnome/gnome-online-accounts/01-gnome-online-accounts-3.40.0.sh && #818
 /bin/bash -l ./gnf-libs/poppler/01-poppler-21.05.0.sh && #836
 /bin/bash -l ./X/qtwebengine/01-qtwebengine-5.15.2.sh && #838
 /bin/bash -l ./gnf-libs/jasper/02-jasper-2.0.32.sh && #842
-/bin/bash -l ./gen-libs/libgcrypt/02-libgcrypt-1.9.2.sh && #850
+/bin/bash -l ./gen-libs/libgcrypt/02-libgcrypt-1.9.3.sh && #850
 /bin/bash -l ./net/bind/01-bind-9.16.15.sh && #862
 /bin/bash -l ./xsoft/pidgin/01-pidgin-2.14.3.sh && #874
 /bin/bash -l ./print/cups-filter/01-cups-filters-1.28.8.sh && #876
+/bin/bash -l ./gnome/gvfs/01-gvfs-1.48.1.sh && #878
 /bin/bash -l ./X/Xorg/Xorg-server/01-xorg-server-1.20.11.sh && #880 
 /bin/bash -l ./X/Xorg/Xorg-drivers/libinput/01-libinput-1.17.2.sh && #886
 /bin/bash -l ./X/Xorg/Xorg-drivers/xf86-input-libinput/01-xf86-input-libinput-1.0.1.sh && #888
