@@ -2,27 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libepoxy-1.5.7
+if test -d /sources/libepoxy-1.5.8
  then
-  rm -rf /sources/libepoxy-1.5.7
+  rm -rf /sources/libepoxy-1.5.8
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/anholt/libepoxy/releases/download/1.5.7/libepoxy-1.5.7.tar.xz \
+check_and_download https://github.com/anholt/libepoxy/releases/download/1.5.8/libepoxy-1.5.8.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libepoxy &&
 
-tar xf /sources/libepoxy-1.5.7.tar.xz -C /sources/ &&
+tar xf /sources/libepoxy-1.5.8.tar.xz -C /sources/ &&
 
-cd /sources/libepoxy-1.5.7 &&
+cd /sources/libepoxy-1.5.8 &&
 
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Ddocs=true .. &&
+meson --prefix=/usr --buildtype=release -Ddocs=true .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&

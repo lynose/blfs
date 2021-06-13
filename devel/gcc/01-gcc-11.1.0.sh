@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gcc-10.2.0
+if test -d /sources/gcc-11.1.0
  then
-  rm -rf /sources/gcc-10.2.0
+  rm -rf /sources/gcc-11.1.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz \
+check_and_download https://ftp.gnu.org/gnu/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz \
         /sources
 
 
 md5sum -c ${SCRIPTPATH}/md5-gcc &&
 
-tar xf /sources/gcc-10.2.0.tar.xz -C /sources/ &&
+tar xf /sources/gcc-11.1.0.tar.xz -C /sources/ &&
 
-cd /sources/gcc-10.2.0 &&
+cd /sources/gcc-11.1.0 &&
 
 case $(uname -m) in
   x86_64)
@@ -45,6 +45,7 @@ if [ ${ENABLE_TEST} == true ]
   make -k check &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
+  ../contrib/test_summary > /log/gcc-upgrade.log
 fi
 
 as_root make install &&
@@ -52,12 +53,12 @@ as_root mkdir -pv /usr/share/gdb/auto-load/usr/lib              &&
 as_root mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &&
 
 as_root chown -v -R root:root \
-    /usr/lib/gcc/*linux-gnu/10.2.0/include{,-fixed} &&
+    /usr/lib/gcc/*linux-gnu/11.1.0/include{,-fixed} &&
 
-as_root rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/10.2.0/include-fixed/bits/ &&
+as_root rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/11.1.0/include-fixed/bits/ &&
 as_root ln -v -sf ../usr/bin/cpp /lib          &&
 as_root ln -v -sf gcc /usr/bin/cc              &&
 as_root install -v -dm755 /usr/lib/bfd-plugins &&
-as_root ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/10.2.0/liblto_plugin.so /usr/lib/bfd-plugins/ &&
+as_root ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/11.1.0/liblto_plugin.so /usr/lib/bfd-plugins/ &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

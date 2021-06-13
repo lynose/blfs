@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libndp-1.7
+if test -d /sources/libndp-1.8
  then
-  rm -rf /sources/libndp-1.7
+  rm -rf /sources/libndp-1.8
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://libndp.org/files/libndp-1.7.tar.gz \
+check_and_download http://libndp.org/files/libndp-1.8.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libndp &&
 
-tar xf /sources/libndp-1.7.tar.gz -C /sources/ &&
+tar xf /sources/libndp-1.8.tar.gz -C /sources/ &&
 
-cd /sources/libndp-1.7 &&
+cd /sources/libndp-1.8 &&
 
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \

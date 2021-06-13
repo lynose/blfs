@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/logrotate-3.18.0
+if test -d /sources/logrotate-3.18.1
  then
-  rm -rf /sources/logrotate-3.18.0
+  as_root rm -rf /sources/logrotate-3.18.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/logrotate/logrotate/releases/download/3.18.0/logrotate-3.18.0.tar.xz \
+check_and_download https://github.com/logrotate/logrotate/releases/download/3.18.1/logrotate-3.18.1.tar.xz \
         /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-logrotate &&
 
-tar xf /sources/logrotate-3.18.0.tar.xz -C /sources/ &&
+tar xf /sources/logrotate-3.18.1.tar.xz -C /sources/ &&
 
-cd /sources/logrotate-3.18.0 &&
+cd /sources/logrotate-3.18.1 &&
 
 ./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&
@@ -83,7 +83,7 @@ as_root chown root:root /etc/logrotate.conf &&
 as_root chmod -v 0644 /etc/logrotate.conf &&
 as_root mkdir -p /etc/logrotate.d &&
 
-cat > ./sys.log << EOF
+cat > ./sys.log << EOF &&
 /var/log/sys.log {
    # If the log file is larger than 100kb, rotate it
    size   100k

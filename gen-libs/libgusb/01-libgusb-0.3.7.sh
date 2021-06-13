@@ -2,27 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libgusb-0.3.6
+if test -d /sources/libgusb-0.3.7
  then
-  as_root rm -rf /sources/libgusb-0.3.6
+  as_root rm -rf /sources/libgusb-0.3.7
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.6.tar.xz \
+check_and_download https://github.com/hughsie/libgusb/archive/0.3.7/libgusb-0.3.7.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libgusb &&
 
-tar xf /sources/libgusb-0.3.6.tar.xz -C /sources/ &&
+tar xf /sources/libgusb-0.3.7.tar.gz -C /sources/ &&
 
-cd /sources/libgusb-0.3.6 &&
+cd /sources/libgusb-0.3.7 &&
 
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Ddocs=true ..  &&
+meson --prefix=/usr --buildtype=release -Ddocs=true ..  &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&

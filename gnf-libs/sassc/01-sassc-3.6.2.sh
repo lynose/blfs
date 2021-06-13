@@ -2,27 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/sassc-3.6.1
+if test -d /sources/sassc-3.6.2
  then
-  rm -rf /sources/sassc-3.6.1
+  as_root rm -rf /sources/sassc-3.6.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/sass/sassc/archive/3.6.1/sassc-3.6.1.tar.gz \
+check_and_download https://github.com/sass/sassc/archive/3.6.2/sassc-3.6.2.tar.gz \
     /sources &&#
-check_and_download https://github.com/sass/libsass/archive/3.6.4/libsass-3.6.4.tar.gz \
+check_and_download https://github.com/sass/libsass/archive/3.6.5/libsass-3.6.5.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-sassc &&
 
-tar xf /sources/sassc-3.6.1.tar.gz -C /sources/ &&
+tar xf /sources/sassc-3.6.2.tar.gz -C /sources/ &&
 
-cd /sources/sassc-3.6.1 &&
+cd /sources/sassc-3.6.2 &&
 
-tar -xf ../libsass-3.6.4.tar.gz &&
-pushd libsass-3.6.4 &&
+tar -xf ../libsass-3.6.5.tar.gz &&
+pushd libsass-3.6.5 &&
 
 autoreconf -fi &&
 

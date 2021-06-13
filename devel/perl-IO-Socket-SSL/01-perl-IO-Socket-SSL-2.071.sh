@@ -2,25 +2,25 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/IO-Socket-SSL-2.070
+if test -d /sources/IO-Socket-SSL-2.071
  then
-  as_root rm -rf /sources/IO-Socket-SSL-2.070
+  as_root rm -rf /sources/IO-Socket-SSL-2.071
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.070.tar.gz \
+check_and_download https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.071.tar.gz \
         /sources
 
 
 md5sum -c ${SCRIPTPATH}/md5-perl-IO-Socket-SSL &&
 
-tar xf /sources/IO-Socket-SSL-2.070.tar.gz -C /sources/ &&
+tar xf /sources/IO-Socket-SSL-2.071.tar.gz -C /sources/ &&
 
-cd /sources/IO-Socket-SSL-2.070 &&
+cd /sources/IO-Socket-SSL-2.071 &&
 
-yes '' | perl Makefile.PL &&
+yes | perl Makefile.PL &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

@@ -13,6 +13,9 @@ SCRIPTPATH=`dirname $SCRIPT`
 check_and_download https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.18.4.tar.xz \
     /sources &&
 
+check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/gst-plugins-good-1.18.4-upstream_fixes-1.patch \
+    sources &&
+    
 md5sum -c ${SCRIPTPATH}/md5-gst-plugins-good &&
 
 tar xf /sources/gst-plugins-good-1.18.4.tar.xz -C /sources/ &&

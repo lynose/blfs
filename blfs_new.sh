@@ -69,9 +69,11 @@ source /etc/profile.d/openjdk.sh &&
 /bin/bash -l ./sec/cracklib/01-cracklib-2.9.7.sh && #93
 /bin/bash -l ./sec/krb5/01-krb5-1.19.1.sh && #97
 /bin/bash -l ./db/sqlite/01-sqlite-3.35.5.sh && #111
+/bin/bash -l ./gnf-libs/sassc/01-sassc-3.6.2.sh && #125
 /bin/bash -l ./mld/libdvdread/01-libdvdread-6.1.2.sh && #145
 /bin/bash -l ./net-libs/libtirpc/01-libtirpc-1.3.2.sh && #147
 /bin/bash -l ./db/lmdb/01-LMDB_0.9.29.sh && #167
+/bin/bash -l ./net-libs/libndp/01-libndp-1.8.sh && #171
 /bin/bash -l ./sec/iptables/01-iptables-1.8.7.sh && #179
 /bin/bash -l ./net/dhcp/01-dhcp-4.4.2-P1.sh && #181
 /bin/bash -l ./sys/hdparm/01-hdparm-9.62.sh && #207
@@ -81,6 +83,7 @@ source /etc/profile.d/openjdk.sh &&
 /bin/bash -l ./devel/Pygments/01-Pygments-2.9.0.sh && #229
 /bin/bash -l ./devel/docutils/01-docutils-0.17.1.sh && #231
 /bin/bash -l ./net/rpcbind/01-rpcbind-1.2.6.sh && #245
+/bin/bash -l ./devel/perl-IO-Socket-SSL/01-perl-IO-Socket-SSL-2.071.sh && #249
 /bin/bash -l ./gen-libs/libksba/01-libksba-1.5.1.sh && #257
 /bin/bash -l ./mld/libdvdnav/01-libdvdnav-6.1.1.sh && #261
 /bin/bash -l ./fsndm/LVM2/01-LVM2-2.03.12.sh && #265
@@ -96,6 +99,7 @@ source /etc/profile.d/openjdk.sh &&
 /bin/bash -l ./gnf-libs/jasper/01-jasper-2.0.32.sh && #337
 /bin/bash -l ./fsndm/fuse/01-fuse-3.10.3.sh && #357
 /bin/bash -l ./gen-libs/popt/01-popt-1.18.sh && #367
+/bin/bash -l ./sys/logrotate/01-logrotate-3.18.1.sh && #369
 /bin/bash -l ./gen-libs/libyaml/01-libyaml-0.2.5.sh && #373
 /bin/bash -l ./devel/ruby/01-ruby-3.0.1.sh && #377
 /bin/bash -l ./gnf-libs/exiv2/01-exiv2-0.27.3.sh &&
@@ -117,24 +121,26 @@ source /etc/profile.d/rustc.sh && #413
 /bin/bash -l ./gen-libs/libxml2/02-libxml2-2.9.12.sh && #460
 /bin/bash -l ./gen-libs/JS/01-JS-78.10.1.sh && #464
 /bin/bash -l ./gen-libs/nodejs/01-nodejs-v14.17.0.sh && #466
-/bin/bash -l ./sys/systemd/01-systemd-247.sh && #478
+/bin/bash -l ./sys/systemd/01-systemd-248.sh && ##480
 /bin/bash -l ./gen-libs/wayland-protocols/01-wayland-protocols-1.21.sh &&
 /bin/bash -l ./X/xorgproto/01-xorgproto-2021.4.sh && #524
 /bin/bash -l ./X/libxcb/01-libxcb-1.14.sh && #534
-/bin/bash -l ./devel/python3/01-python-3.9.4.sh && #538
+/bin/bash -l ./devel/python3/01-python-3.9.5.sh && #540
 /bin/bash -l ./devel/six/01-six-1.16.0.sh && #542
 /bin/bash -l ./devel/gdb/01-gdb-10.2.sh && #544
+/bin/bash -l ./devel/gcc/01-gcc-11.1.0.sh && #550
 /bin/bash -l ./sys/dbus/01-dbus-1.12.20.sh && #556
 /bin/bash -l ./devel/vala/01-vala-0.52.3.sh && #560
 /bin/bash -l ./X/libdrm/01-libdrm-2.4.106.sh && #576
-/bin/bash -l ./X/mesa/01-mesa-21.1.0.sh && #582
-/bin/bash -l ./X/libepoxy/01-libepoxy-1.5.7.sh && #584
+/bin/bash -l ./X/mesa/01-mesa-21.1.2.sh && #582
+/bin/bash -l ./X/libepoxy/01-libepoxy-1.5.8.sh && #584
 /bin/bash -l ./gen-libs/libxkbcommon/01-libxkbcommon-1.3.0.sh && #606
 /bin/bash -l ./gen-libs/libical/01-libical-3.0.10.sh && #628
 /bin/bash -l ./sys/bluez/01-bluez-5.58.sh && #630
 /bin/bash -l ./gnf-libs/harfbuzz/01-harfbuzz-2.8.1.sh && #636
 /bin/bash -l ./mld/libass/01-libass-0.15.1.sh && #638
 /bin/bash -l ./X/gdk-pixbuf/01-gdk-pixbuf-2.42.6.sh && #644
+/bin/bash -l ./gen-libs/libgusb/01-libgusb-0.3.7.sh && #648
 /bin/bash -l ./X/at-spi2-core/01-at-spi2-core-2.40.1.sh && #652
 /bin/bash -l ./print/cups/01-cups-2.3.3op2.sh && #662
 /bin/bash -l ./gen-libs/libqmi/01-libqmi-1.28.4.sh && #668
@@ -148,7 +154,8 @@ source /etc/profile.d/rustc.sh && #413
 /bin/bash -l ./devel/cmake/02-cmake-3.20.2.sh && #746
 /bin/bash -l ./gen/graphviz/01-graphviz-2.47.1.sh && #750
 /bin/bash -l ./typesetting/install-tl-unx/01-install-tl-unx.sh && #772
-/bin/bash -l ./mld/pipewire/01-pipewire-0.3.27.sh && #784
+/bin/bash -l ./mld/pipewire/01-pipewire-0.3.30.sh && #784
+/bin/bash -l ./mld/gst-plugins-good/01-gst-plugins-good-1.18.4.sh && #790
 /bin/bash -l ./devel/lua-5.2/01-lua-5.2.4.sh && #800
 /bin/bash -l ./video-utils/vlc/01-vlc-3.0.14.sh && #802
 /bin/bash -l ./X/webkitgtk/01-webkitgtk-2.32.0.sh && #808
@@ -162,7 +169,7 @@ source /etc/profile.d/rustc.sh && #413
 /bin/bash -l ./gen-libs/libgcrypt/02-libgcrypt-1.9.3.sh && #850
 /bin/bash -l ./sys/cpio/01-cpio-2.13.sh && #854
 /bin/bash -l ./devel/apache-ant/01-apache-ant-1.10.10.sh && #860
-/bin/bash -l ./net/bind/01-bind-9.16.15.sh && #862
+/bin/bash -l ./net/bind/01-bind-9.16.16.sh && #862
 /bin/bash -l ./xsoft/pidgin/01-pidgin-2.14.3.sh && #874
 /bin/bash -l ./print/cups-filter/01-cups-filters-1.28.8.sh && #876
 /bin/bash -l ./gnome/gvfs/01-gvfs-1.48.1.sh && #878
@@ -172,7 +179,7 @@ source /etc/profile.d/rustc.sh && #413
 /bin/bash -l ./net/OpenSSH/02-openssh-8.6p1.sh && #904
 /bin/bash -l ./devel/php/01-php-8.0.6.sh && #914
 /bin/bash -l ./net/wireshark/01-wireshark-3.4.5.sh && #948
-/bin/bash -l ./xsoft/thunderbird/01-thunderbird-78.10.1.sh && #956
+/bin/bash -l ./xsoft/thunderbird/01-thunderbird-78.11.0.sh && #956
 /bin/bash -l ./office/libreoffice/01-libreoffice-7.1.3.2.sh && #958
 /bin/bash -l ./virt/qemu/01-qemu-6.0.0.sh && #966
 

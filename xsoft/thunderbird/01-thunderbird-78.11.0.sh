@@ -2,29 +2,29 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/thunderbird-78.10.1
+if test -d /sources/thunderbird-78.11.0
  then
-  as_root rm -rf /sources/thunderbird-78.10.1
+  as_root rm -rf /sources/thunderbird-78.11.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://archive.mozilla.org/pub/thunderbird/releases/78.10.1/source/thunderbird-78.10.1.source.tar.xz \
+check_and_download https://archive.mozilla.org/pub/thunderbird/releases/78.11.0/source/thunderbird-78.11.0.source.tar.xz \
         /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-thunderbird &&
 
-tar xf /sources/thunderbird-78.10.1.source.tar.xz -C /sources/
+tar xf /sources/thunderbird-78.11.0.source.tar.xz -C /sources/
 
-cd /sources/thunderbird-78.10.1 &&
+cd /sources/thunderbird-78.11.0 &&
 
 cat > mozconfig << "EOF" &&
 # If you have a multicore machine, all cores will be used.
 
 # If you have installed wireless-tools comment out this line:
-ac_add_options --disable-necko-wifi
+#ac_add_options --disable-necko-wifi
 
 # Uncomment the following option if you have not installed PulseAudio
 #ac_add_options --disable-pulseaudio

@@ -2,25 +2,25 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/systemd-247
+if test -d /sources/systemd-248
  then
-  rm -rf /sources/systemd-247
+  as_root rm -rf /sources/systemd-248
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-check_and_download https://github.com/systemd/systemd/archive/v247/systemd-247.tar.gz \
+check_and_download https://github.com/systemd/systemd/archive/v248/systemd-248.tar.gz \
     /sources &&
-check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/systemd-247-upstream_fixes-3.patch \
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/systemd-248-upstream_fixes-3.patch \
     /sources &&
     
 md5sum -c ${SCRIPTPATH}/md5-systemd &&
 
-tar xf /sources/systemd-247.tar.gz -C /sources/ &&
+tar xf /sources/systemd-248.tar.gz -C /sources/ &&
 
-cd /sources/systemd-247 &&
+cd /sources/systemd-248 &&
 
-patch -Np1 -i ../systemd-247-upstream_fixes-3.patch &&
+patch -Np1 -i ../systemd-248-upstream_fixes-1.patch &&
 
 sed -i 's/GROUP="render"/GROUP="video"/' rules.d/50-udev-default.rules.in &&
 
@@ -28,16 +28,15 @@ mkdir build &&
 cd    build &&
 
 meson --prefix=/usr                 \
+      --sysconfdir=/etc             \
+      --localstatedir=/var          \
+      --buildtype=release           \
       -Dblkid=true                  \
-      -Dbuildtype=release           \
       -Ddefault-dnssec=no           \
       -Dfirstboot=false             \
       -Dinstall-tests=false         \
       -Dldconfig=false              \
       -Dman=auto                    \
-      -Drootprefix=                 \
-      -Drootlibdir=/lib             \
-      -Dsplit-usr=true              \
       -Dsysusers=false              \
       -Drpmmacrosdir=no             \
       -Db_lto=false                 \
@@ -45,7 +44,7 @@ meson --prefix=/usr                 \
       -Duserdb=false                \
       -Dmode=release                \
       -Dpamconfdir=/etc/pam.d       \
-      -Ddocdir=/usr/share/doc/systemd-247 \
+      -Ddocdir=/usr/share/doc/systemd-248 \
       ..                            &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
@@ -70,7 +69,7 @@ session  optional    pam_systemd.so
 # End Systemd addition
 EOF
 
-as_root mv -v ./system-session /etc/pam.d/system-session &&
+as_root install -vm644 --owner=root ./system-session /etc/pam.d/ &&
 
 cat > ./systemd-user << "EOF" &&
 # Begin /etc/pam.d/systemd-user
@@ -91,7 +90,7 @@ password required    pam_deny.so
 # End /etc/pam.d/systemd-user
 EOF
 
-as_root mv -v ./systemd-user /etc/pam.d/systemd-user &&
+as_root install -vm644 --owner=root  ./systemd-user /etc/pam.d/ &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

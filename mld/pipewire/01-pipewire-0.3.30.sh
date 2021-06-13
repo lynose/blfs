@@ -2,28 +2,28 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/pipewire-0.3.27
+if test -d /sources/pipewire-0.3.30
  then
-  as_root rm -rf /sources/pipewire-0.3.27
+  as_root rm -rf /sources/pipewire-0.3.30
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/PipeWire/pipewire/archive/0.3.27/pipewire-0.3.27.tar.gz \
+check_and_download https://github.com/PipeWire/pipewire/archive/0.3.30/pipewire-0.3.30.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-pipewire &&
 
-tar xf /sources/pipewire-0.3.27.tar.gz -C /sources/ &&
+tar xf /sources/pipewire-0.3.30.tar.gz -C /sources/ &&
 
-cd /sources/pipewire-0.3.27 &&
+cd /sources/pipewire-0.3.30 &&
 
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr           \
-      -Ddocs=enabled          \
+meson --prefix=/usr  --buildtype=release         \
+      -Ddocs=enabled   -Dman=true       \
       .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
