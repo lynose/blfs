@@ -27,6 +27,7 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \; &&
 
 sed -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
     -e 's@/var/spool/mail@/var/mail@'                 \
+    -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                \
     -i etc/login.defs                                 &&
 
 sed -i 's/1000/999/' etc/useradd                      &&
@@ -62,7 +63,7 @@ do
     sed -i "s/^${FUNCTION}/# &/" /etc/login.defs
 done
 
-as_root cat > /etc/pam.d/login << "EOF"
+cat > /tmp/login << "EOF" &&
 # Begin /etc/pam.d/login
 
 # Set failure delay before next prompt to 3 seconds
@@ -110,15 +111,18 @@ password  include     system-password
 # End /etc/pam.d/login
 EOF
 
-as_root cat > /etc/pam.d/passwd << "EOF"
+as_root install -vm644 --owner=root /tmp/login /etc/pam.d/ &&
+
+cat > /tmp/passwd << "EOF" &&
 # Begin /etc/pam.d/passwd
 
 password  include     system-password
 
 # End /etc/pam.d/passwd
 EOF
+as_root install -vm644 --owner=root /tmp/passwd /etc/pam.d/ &&
 
-as_root cat > /etc/pam.d/su << "EOF"
+cat > /tmp/su << "EOF" &&
 # Begin /etc/pam.d/su
 
 # always allow root
@@ -145,8 +149,10 @@ session   include     system-session
 
 # End /etc/pam.d/su
 EOF
+as_root install -vm644 --owner=root /tmp/su /etc/pam.d &&
 
-as_root cat > /etc/pam.d/chage << "EOF"
+
+as_root cat > /etc/pam.d/chage << "EOF" &&
 # Begin /etc/pam.d/chage
 
 # always allow root
@@ -162,7 +168,14 @@ password  required    pam_permit.so
 
 # End /etc/pam.d/chage
 EOF
+as_root install -vm644 --owner=root /tmp/chage /etc/pam.d/ &&
 
+for PROGRAM in chfn chgpasswd chpasswd chsh groupadd groupdel \
+               groupmems groupmod newusers useradd userdel usermod
+do
+    as_root install -v -m644 /etc/pam.d/chage /etc/pam.d/${PROGRAM} &&
+    as_root sed -i "s/chage/$PROGRAM/" /etc/pam.d/${PROGRAM}
+done
 [ -f /etc/login.access ] && mv -v /etc/login.access{,.NOUSE}
 
 [ -f /etc/limits ] && mv -v /etc/limits{,.NOUSE}

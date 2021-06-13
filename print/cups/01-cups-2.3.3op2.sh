@@ -2,34 +2,40 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/cups-2.3.3
+if test -d /sources/cups-2.3.3op2
  then
-  as_root rm -rf /sources/cups-2.3.3
+  as_root rm -rf /sources/cups-2.3.3op2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/apple/cups/releases/download/v2.3.3/cups-2.3.3-source.tar.gz \
+check_and_download https://github.com/apple/cups/releases/download/v2.3.3op2/cups-2.3.3op2-source.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-cups &&
 
-tar xf /sources/cups-2.3.3-source.tar.gz -C /sources/ &&
+tar xf /sources/cups-2.3.3op2-source.tar.gz -C /sources/ &&
 
-cd /sources/cups-2.3.3 &&
+cd /sources/cups-2.3.3op2 &&
 
 as_root_useradd useradd -c \"Print_Service_User\" -d /var/spool/cups -g lp -s /bin/false -u 9 lp &&
 
 as_root_groupadd groupadd -g 19 lpadmin &&
 
-sed -i '/stat.h/a #include <asm-generic/ioctls.h>' tools/ipptool.c   &&
+if [ $EUID != 0 ]
+ then
+    as_root usermod -a -G lpadmin $USER &&
+fi
 
-CC=gcc CXX=g++ \
+sed -e "s/-Wno-format-truncation//" \
+    -i configure \
+    -i config-scripts/cups-compiler.m4 &&
+
 ./configure --libdir=/usr/lib            \
-            --with-rcdir=/tmp/cupsinit   \
             --with-system-groups=lpadmin \
-            --with-docdir=/usr/share/cups/doc-2.3.3 &&
+            --enable-libpaper            \
+            --with-docdir=/usr/share/cups/doc-2.3.3op2 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
@@ -43,11 +49,12 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root make install &&
-rm -rf /tmp/cupsinit &&
-ln -svnf ../cups/doc-2.3.3 /usr/share/doc/cups-2.3.3 &&
+ln -svnf ../cups/doc-2.3.3op2 /usr/share/doc/cups-2.3.3op2 &&
 echo "ServerName /run/cups/cups.sock" > /etc/cups/client.conf &&
 gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
-as_root cat > /etc/pam.d/cups << "EOF"
+
+
+cat > /tmp/cups << "EOF" &&
 # Begin /etc/pam.d/cups
 
 auth    include system-auth
@@ -56,5 +63,7 @@ session include system-session
 
 # End /etc/pam.d/cups
 EOF
+
+as_root install -vm644 --owner=root /tmp/cups /etc/pam.d/ &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

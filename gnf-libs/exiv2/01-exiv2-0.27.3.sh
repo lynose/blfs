@@ -12,12 +12,15 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 check_and_download http://www.exiv2.org/builds/exiv2-0.27.3-Source.tar.gz \
     /sources &&
-
+check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/exiv2-0.27.3-security_fixes-1.patch \
+    /sources &&
 md5sum -c ${SCRIPTPATH}/md5-exiv2 &&
 
 tar xf /sources/exiv2-0.27.3-Source.tar.gz -C /sources/ &&
 
 cd /sources/exiv2-0.27.3-Source &&
+
+patch -Np1 -i ../exiv2-0.27.3-security_fixes-1.patch &&
 
 mkdir build &&
 cd    build &&

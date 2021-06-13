@@ -21,7 +21,9 @@ cd /sources/libxcb-1.14 &&
 
 
 
-CFLAGS=-Wno-error=format-extra-args ./configure $XORG_CONFIG      \
+CFLAGS="${CFLAGS:--O2 -g} -Wno-error=format-extra-args" \
+PYTHON=python3                \
+./configure $XORG_CONFIG      \
             --docdir='${datadir}'/doc/libxcb-1.14 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 

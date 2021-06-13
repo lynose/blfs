@@ -19,6 +19,8 @@ tar xf /sources/gst-plugins-base-1.18.4.tar.xz -C /sources/ &&
 
 cd /sources/gst-plugins-base-1.18.4 &&
 
+sed -i 's|implicit_include_directories : false||' gst-libs/gst/gl/meson.build &&
+
 mkdir build &&
 cd    build &&
 

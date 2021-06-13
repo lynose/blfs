@@ -2,27 +2,30 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libdrm-2.4.105
+if test -d /sources/libdrm-2.4.106
  then
-  as_root rm -rf /sources/libdrm-2.4.105
+  as_root rm -rf /sources/libdrm-2.4.106
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://dri.freedesktop.org/libdrm/libdrm-2.4.105.tar.xz \
+check_and_download https://dri.freedesktop.org/libdrm/libdrm-2.4.106.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libdrm &&
 
-tar xf /sources/libdrm-2.4.105.tar.xz -C /sources/ &&
+tar xf /sources/libdrm-2.4.106.tar.xz -C /sources/ &&
 
-cd /sources/libdrm-2.4.105 &&
+cd /sources/libdrm-2.4.106 &&
 
 mkdir build &&
 cd    build &&
 
-meson --prefix=$XORG_PREFIX -Dudev=true &&
+meson --prefix=$XORG_PREFIX \
+      --buildtype=release   \
+      -Dudev=true           \
+      -Dvalgrind=false &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&

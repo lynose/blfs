@@ -73,6 +73,7 @@ source /etc/profile.d/openjdk.sh &&
 /bin/bash -l ./net-libs/libtirpc/01-libtirpc-1.3.2.sh && #147
 /bin/bash -l ./db/lmdb/01-LMDB_0.9.29.sh && #167
 /bin/bash -l ./sec/iptables/01-iptables-1.8.7.sh && #179
+/bin/bash -l ./net/dhcp/01-dhcp-4.4.2-P1.sh && #181
 /bin/bash -l ./sys/hdparm/01-hdparm-9.62.sh && #207
 /bin/bash -l ./fsndm/ntfs-3g/01-ntfs-3g-2017.3.23.sh && #209
 /bin/bash -l ./sec/sudo/02-sudo-1.9.7.sh && # better to build sudo seperate #223
@@ -83,7 +84,7 @@ source /etc/profile.d/openjdk.sh &&
 /bin/bash -l ./gen-libs/libksba/01-libksba-1.5.1.sh && #257
 /bin/bash -l ./mld/libdvdnav/01-libdvdnav-6.1.1.sh && #261
 /bin/bash -l ./fsndm/LVM2/01-LVM2-2.03.12.sh && #265
-/bin/bash -l ./sec/nss/01-nss-3.64.sh && #271
+/bin/bash -l ./sec/nss/01-nss-3.67.sh && #271
 /bin/bash -l ./gen-libs/libgcrypt/01-libgcrypt-1.9.3.sh && #275
 /bin/bash -l ./devel/MarkupSafe/01-MarkupSafe-2.0.1.sh && #277
 /bin/bash -l ./devel/Jinja2/01-Jinja2-3.0.1.sh && #279
@@ -95,8 +96,9 @@ source /etc/profile.d/openjdk.sh &&
 /bin/bash -l ./gnf-libs/jasper/01-jasper-2.0.32.sh && #337
 /bin/bash -l ./fsndm/fuse/01-fuse-3.10.3.sh && #357
 /bin/bash -l ./gen-libs/popt/01-popt-1.18.sh && #367
-/bin/bash -l ./gen-libs/libyaml/01-libyaml-0.2.5.sh && #375
-/bin/bash -l ./devel/ruby/01-ruby-3.0.1.sh && #379
+/bin/bash -l ./gen-libs/libyaml/01-libyaml-0.2.5.sh && #373
+/bin/bash -l ./devel/ruby/01-ruby-3.0.1.sh && #377
+/bin/bash -l ./gnf-libs/exiv2/01-exiv2-0.27.3.sh &&
 /bin/bash -l ./gen-libs/boost/01-boost_1_76_0.sh && #407
 /bin/bash -l ./devel/llvm/01-llvm.sh && #411
 /bin/bash -l ./devel/rustc/01-rustc-1.52.0.sh && #FIXME Reconfigure ld.so...
@@ -106,6 +108,7 @@ source /etc/profile.d/rustc.sh && #413
 /bin/bash -l ./db/mariadb/01-mariadb-10.5.10.sh && #422
 /bin/bash -l ./server/openldap/01-openldap-2.5.4.sh && #424
 /bin/bash -l ./net-libs/curl/02-curl-7.76.1.sh && #426
+/bin/bash -l ./db/postgresql/01-postgresql-13.3.sh && #428
 /bin/bash -l ./sec/krb5/02-krb5-1.19.1.sh && #430
 /bin/bash -l ./server/apache/01-apache-2.4.47.sh && #438
 /bin/bash -l ./gen-libs/glib/01-glib-2.68.2.sh && #444
@@ -117,10 +120,13 @@ source /etc/profile.d/rustc.sh && #413
 /bin/bash -l ./sys/systemd/01-systemd-247.sh && #478
 /bin/bash -l ./gen-libs/wayland-protocols/01-wayland-protocols-1.21.sh &&
 /bin/bash -l ./X/xorgproto/01-xorgproto-2021.4.sh && #524
+/bin/bash -l ./X/libxcb/01-libxcb-1.14.sh && #534
 /bin/bash -l ./devel/python3/01-python-3.9.4.sh && #538
 /bin/bash -l ./devel/six/01-six-1.16.0.sh && #542
 /bin/bash -l ./devel/gdb/01-gdb-10.2.sh && #544
+/bin/bash -l ./sys/dbus/01-dbus-1.12.20.sh && #556
 /bin/bash -l ./devel/vala/01-vala-0.52.3.sh && #560
+/bin/bash -l ./X/libdrm/01-libdrm-2.4.106.sh && #576
 /bin/bash -l ./X/mesa/01-mesa-21.1.0.sh && #582
 /bin/bash -l ./X/libepoxy/01-libepoxy-1.5.7.sh && #584
 /bin/bash -l ./gen-libs/libxkbcommon/01-libxkbcommon-1.3.0.sh && #606
@@ -130,6 +136,9 @@ source /etc/profile.d/rustc.sh && #413
 /bin/bash -l ./mld/libass/01-libass-0.15.1.sh && #638
 /bin/bash -l ./X/gdk-pixbuf/01-gdk-pixbuf-2.42.6.sh && #644
 /bin/bash -l ./X/at-spi2-core/01-at-spi2-core-2.40.1.sh && #652
+/bin/bash -l ./print/cups/01-cups-2.3.3op2.sh && #662
+/bin/bash -l ./gen-libs/libqmi/01-libqmi-1.28.4.sh && #668
+/bin/bash -l ./X/pango/01-pango-1.48.5.sh && ##690
 /bin/bash -l ./X/gtk+/01-gtk+-3.24.29.sh && #692
 /bin/bash -l ./xfce/exo/01-exo-4.16.2.sh && #696
 /bin/bash -l ./gnf-libs/librsvg/01-librsvg-2.50.5.sh && #720
@@ -145,9 +154,11 @@ source /etc/profile.d/rustc.sh && #413
 /bin/bash -l ./X/webkitgtk/01-webkitgtk-2.32.0.sh && #808
 /bin/bash -l ./xsoft/firefox/01-firefox-78.11.0.sh && #814
 /bin/bash -l ./gnome/gnome-online-accounts/01-gnome-online-accounts-3.40.0.sh && #818
+/bin/bash -l ./devel/subversion/01-subversion-1.14.1.sh && #824
 /bin/bash -l ./gnf-libs/poppler/01-poppler-21.05.0.sh && #836
 /bin/bash -l ./X/qtwebengine/01-qtwebengine-5.15.2.sh && #838
 /bin/bash -l ./gnf-libs/jasper/02-jasper-2.0.32.sh && #842
+/bin/bash -l ./X/fltk/01-fltk-1.3.6.sh && #844
 /bin/bash -l ./gen-libs/libgcrypt/02-libgcrypt-1.9.3.sh && #850
 /bin/bash -l ./sys/cpio/01-cpio-2.13.sh && #854
 /bin/bash -l ./devel/apache-ant/01-apache-ant-1.10.10.sh && #860

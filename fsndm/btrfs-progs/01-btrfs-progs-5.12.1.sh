@@ -19,10 +19,7 @@ tar xf /sources/btrfs-progs-v5.12.1.tar.xz -C /sources/ &&
 
 cd /sources/btrfs-progs-v5.12.1 &&
 
-./configure --prefix=/usr \
-            --bindir=/bin \
-            --libdir=/lib \
-            --with-pkgconfigdir=/usr/lib/pkgconfig &&
+./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

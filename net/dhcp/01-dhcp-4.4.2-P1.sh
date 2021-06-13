@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/dhcp-4.4.2
+if test -d /sources/dhcp-4.4.2-P1
  then
-  rm -rf /sources/dhcp-4.4.2
+  rm -rf /sources/dhcp-4.4.2-P1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download ftp://ftp.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2.tar.gz \
+check_and_download ftp://ftp.isc.org/isc/dhcp/4.4.2-P1/dhcp-4.4.2-P1.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-dhcp &&
 
-tar xf /sources/dhcp-4.4.2.tar.gz -C /sources/ &&
+tar xf /sources/dhcp-4.4.2-P1.tar.gz -C /sources/ &&
 
-cd /sources/dhcp-4.4.2 &&
+cd /sources/dhcp-4.4.2-P1 &&
 
 sed -i '/o.*dhcp_type/d' server/mdb.c &&
 sed -r '/u.*(local|remote)_port/d'    \
@@ -42,9 +42,9 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make -j1 &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make -C client install         &&
-as_root mv -v /usr/sbin/dhclient /sbin &&
-as_root install -v -m755 client/scripts/linux /sbin/dhclient-script &&
+make install         &&
+install -v -m755 client/scripts/linux /usr/sbin/dhclient-script &&
+
 as_root install -vdm755 /etc/dhcp &&
 as_root cat > /etc/dhcp/dhclient.conf << "EOF"
 # Begin /etc/dhcp/dhclient.conf
@@ -66,5 +66,7 @@ require subnet-mask, domain-name-servers;
 # End /etc/dhcp/dhclient.conf
 EOF
 as_root install -v -dm 755 /var/lib/dhclient &&
+cd /usr/src/blfs-systemd-units &&
+make install-dhclient &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

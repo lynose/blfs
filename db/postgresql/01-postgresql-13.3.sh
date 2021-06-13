@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/postgresql-13.2
+if test -d /sources/postgresql-13.3
  then
-  as_root rm -rf /sources/postgresql-13.2
+  as_root rm -rf /sources/postgresql-13.3
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.postgresql.org/pub/source/v13.2/postgresql-13.2.tar.bz2 \
+check_and_download http://ftp.postgresql.org/pub/source/v13.3/postgresql-13.3.tar.bz2 \
         /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-postgresql &&
 
-tar xf /sources/postgresql-13.2.tar.bz2 -C /sources/ &&
+tar xf /sources/postgresql-13.3.tar.bz2 -C /sources/ &&
 
-cd /sources/postgresql-13.2 &&
+cd /sources/postgresql-13.3 &&
 
 as_root_groupadd groupadd -g 41 postgres &&
 as_root_useradd useradd -c "PostgreSQL_Server" -g postgres -d /srv/pgsql/data \
@@ -29,7 +29,11 @@ sed -i '/DEFAULT_PGSOCKET_DIR/s@/tmp@/run/postgresql@' src/include/pg_config_man
 
 ./configure --prefix=/usr          \
             --enable-thread-safety \
-            --docdir=/usr/share/doc/postgresql-13.2 &&
+            --with-openssl         \
+            --with-perl            \
+            --with-python          \
+            --with-tcl             \
+            --docdir=/usr/share/doc/postgresql-13.3 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

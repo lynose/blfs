@@ -95,7 +95,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 # TODO do not build in sudo env --- dangerous need to build PAM again
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sec/krb5/01-krb5-1.19.1.sh &&
-# TODO PAM Config
+# TODO PAM Config rework, if reinstall
 /bin/bash -l ./sec/Linux-PAM/01-Linux-PAM-1.5.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./mld/libogg/01-libogg-1.3.4.sh &&
@@ -178,7 +178,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sec/iptables/01-iptables-1.8.7.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./net/dhcp/01-dhcp-4.4.2.sh &&
+/bin/bash -l ./net/dhcp/01-dhcp-4.4.2-P1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gen-libs/xapian/01-xapian-1.4.18.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -268,7 +268,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all && 
 /bin/bash -l ./devel/python-libxml2/01-python-libxml2-2.9.10.sh && 
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./sec/nss/01-nss-3.64.sh &&
+/bin/bash -l ./sec/nss/01-nss-3.67.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sec/make-ca/01-make-ca-1.7.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -425,7 +425,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./net-libs/curl/02-curl-7.76.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./db/postgresql/01-postgresql-13.2.sh &&
+/bin/bash -l ./db/postgresql/01-postgresql-13.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sec/krb5/02-krb5-1.19.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -573,7 +573,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/xcb-util-cursor/01-xcb-util-cursor-0.1.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./X/libdrm/01-libdrm-2.4.105.sh &&
+/bin/bash -l ./X/libdrm/01-libdrm-2.4.106.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/Xorg/Xorg-drivers/libva/01-libva-2.11.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -659,13 +659,13 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sys/colord/01-colord-1.4.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./print/cups/01-cups-2.3.3.sh &&
+/bin/bash -l ./print/cups/01-cups-2.3.3op2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./devel/openjdk-bin/01-openjdk-15.0.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gen-libs/libmbim/01-libmbim-1.24.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gen-libs/libqmi/01-libqmi-1.28.2.sh &&
+/bin/bash -l ./gen-libs/libqmi/01-libqmi-1.28.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sys/ModemManager/01-ModemManager-1.16.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -687,7 +687,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/at-spi2-atk/01-at-spi2-atk-2.38.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./X/pango/01-pango-1.48.4.sh &&
+/bin/bash -l ./X/pango/01-pango-1.48.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/gtk+/01-gtk+-3.24.29.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -841,7 +841,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnf-libs/jasper/02-jasper-2.0.32.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./X/fltk/01-fltk-1.3.5.sh &&
+/bin/bash -l ./X/fltk/01-fltk-1.3.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./fsndm/parted/02-parted-3.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
