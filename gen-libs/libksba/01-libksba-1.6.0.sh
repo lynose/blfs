@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/vala-0.52.3
+if test -d /sources/libksba-1.6.0
  then
-  rm -rf /sources/vala-0.52.3
+  as_root rm -rf /sources/libksba-1.6.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://download.gnome.org/sources/vala/0.52/vala-0.52.3.tar.xz \
+check_and_download https://www.gnupg.org/ftp/gcrypt/libksba/libksba-1.6.0.tar.bz2 \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-vala &&
+md5sum -c ${SCRIPTPATH}/md5-libksba &&
 
-tar xf /sources/vala-0.52.3.tar.xz -C /sources/ &&
+tar xf /sources/libksba-1.6.0.tar.bz2 -C /sources/ &&
 
-cd /sources/vala-0.52.3 &&
+cd /sources/libksba-1.6.0 &&
 
 ./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&

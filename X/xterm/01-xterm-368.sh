@@ -45,6 +45,6 @@ cat >> ./XTerm << "EOF" &&
 *ptyInitialErase: true
 EOF
 
-as_root mv -v ./XTerm /etc/X11/app-defaults/XTerm &&
+as_root install -vm644 --owner=root ./XTerm /etc/X11/app-defaults/XTerm &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

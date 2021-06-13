@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/xkeyboard-config-2.32
+if test -d /sources/xkeyboard-config-2.33
  then
-  as_root rm -rf /sources/xkeyboard-config-2.32
+  as_root rm -rf /sources/xkeyboard-config-2.33
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.32.tar.bz2 \
+check_and_download https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.33.tar.bz2 \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-xkeyboard-config &&
 
-tar xf /sources/xkeyboard-config-2.32.tar.bz2 -C /sources/ &&
+tar xf /sources/xkeyboard-config-2.33.tar.bz2 -C /sources/ &&
 
-cd /sources/xkeyboard-config-2.32 &&
+cd /sources/xkeyboard-config-2.33 &&
 
 ./configure $XORG_CONFIG --with-xkb-rules-symlink=xorg &&
 ${log} `basename "$0"` " configured" blfs_all &&

@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/mpg123-1.26.5
+if test -d /sources/mpg123-1.28.0
  then
-  rm -rf /sources/mpg123-1.26.5
+  rm -rf /sources/mpg123-1.28.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://downloads.sourceforge.net/mpg123/mpg123-1.26.5.tar.bz2 \
+check_and_download https://downloads.sourceforge.net/mpg123/mpg123-1.28.0.tar.bz2 \
     /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-mpg123 &&
 
-tar xf /sources/mpg123-1.26.5.tar.bz2 -C /sources/ &&
+tar xf /sources/mpg123-1.28.0.tar.bz2 -C /sources/ &&
 
-cd /sources/mpg123-1.26.5 &&
+cd /sources/mpg123-1.28.0 &&
 
 ./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&

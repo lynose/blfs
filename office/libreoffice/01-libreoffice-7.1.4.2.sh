@@ -2,35 +2,35 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libreoffice-7.1.3.2
+if test -d /sources/libreoffice-7.1.4.2
  then
-  rm -rf /sources/libreoffice-7.1.3.2
+  rm -rf /sources/libreoffice-7.1.4.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.documentfoundation.org/libreoffice/src/7.1.3/libreoffice-7.1.3.2.tar.xz \
+check_and_download https://download.documentfoundation.org/libreoffice/src/7.1.4/libreoffice-7.1.4.2.tar.xz \
         /sources &&
 
-check_and_download http://download.documentfoundation.org/libreoffice/src/7.1.3/libreoffice-dictionaries-7.1.3.2.tar.xz \
+check_and_download https://download.documentfoundation.org/libreoffice/src/7.1.4/libreoffice-dictionaries-7.1.4.2.tar.xz \
         /sources &&
-check_and_download http://download.documentfoundation.org/libreoffice/src/7.1.3/libreoffice-help-7.1.3.2.tar.xz \
+check_and_download https://download.documentfoundation.org/libreoffice/src/7.1.4/libreoffice-help-7.1.4.2.tar.xz \
         /sources &&
-check_and_download http://download.documentfoundation.org/libreoffice/src/7.1.3/libreoffice-translations-7.1.3.2.tar.xz \
+check_and_download https://download.documentfoundation.org/libreoffice/src/7.1.4/libreoffice-translations-7.1.4.2.tar.xz \
         /sources &&
         
 md5sum -c ${SCRIPTPATH}/md5-libreoffice &&
 
-tar xf /sources/libreoffice-7.1.3.2.tar.xz --no-overwrite-dir -C /sources/ &&
+tar xf /sources/libreoffice-7.1.4.2.tar.xz --no-overwrite-dir -C /sources/ &&
 
-cd /sources/libreoffice-7.1.3.2 &&
+cd /sources/libreoffice-7.1.4.2 &&
 install -dm755 external/tarballs &&
-ln -sv /sources/libreoffice-dictionaries-7.1.3.2.tar.xz external/tarballs/ &&
-ln -sv /sources/libreoffice-help-7.1.3.2.tar.xz         external/tarballs/ &&
-ln -sv /sources/libreoffice-translations-7.1.3.2.tar.xz external/tarballs/
+ln -sv /sources/libreoffice-dictionaries-7.1.4.2.tar.xz external/tarballs/ &&
+ln -sv /sources/libreoffice-help-7.1.4.2.tar.xz         external/tarballs/ &&
+ln -sv /sources/libreoffice-translations-7.1.4.2.tar.xz external/tarballs/
 
-export LO_PREFIX=/opt/libreoffice-7.1.3.2 &&
+export LO_PREFIX=/opt/libreoffice-7.1.4.2 &&
 
 sed -e "/gzip -f/d"   \
     -e "s|.1.gz|.1|g" \
@@ -93,7 +93,7 @@ if [ "$LO_PREFIX" != "/usr" ]; then
   as_root ln -svf $LO_PREFIX/lib/libreoffice/program/soffice /usr/bin/libreoffice &&
 
   # Set up a generic location independent of version number
-  as_root ln -sfv libreoffice-7.1.3.2 /opt/libreoffice &&
+  as_root ln -sfv libreoffice-7.1.4.2 /opt/libreoffice &&
 
   # Icons
   as_root mkdir -vp /usr/share/pixmaps &&

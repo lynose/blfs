@@ -5,8 +5,8 @@ export CURRENT_PATH=`pwd`
 source ./help-functions.sh &&
 
 export log=${CURRENT_PATH}/logger.sh
-export MAKEFLAGS='-j 8'
-export NINJAJOBS=8
+export MAKEFLAGS='-j 2'
+export NINJAJOBS=2
 export ENABLE_TEST=false
 export DANGER_TEST=false
 #############################################################################
@@ -61,7 +61,7 @@ source /etc/profile.d/extrapaths.sh &&
 source /etc/profile.d/kf5.sh &&
 source /etc/profile.d/openjdk.sh &&
 
-/bin/bash -l ./sec/sudo/01-sudo-1.9.7.sh && #47
+/bin/bash -l ./sec/sudo/01-sudo-1.9.7p1.sh && #47
 /bin/bash -l ./net/OpenSSH/01-openssh-8.6p1.sh && #49
 /bin/bash -l ./gen-libs/libtasn1/01-libtasn1-4.16.0.sh && #51
 /bin/bash -l ./sec/p11-kit/01-p11-kit-0.24.0.sh && #53
@@ -69,9 +69,11 @@ source /etc/profile.d/openjdk.sh &&
 /bin/bash -l ./mld/fdk-aac/01-fdk-aac-2.0.2.sh && #91
 /bin/bash -l ./sec/cracklib/01-cracklib-2.9.7.sh && #93
 /bin/bash -l ./sec/krb5/01-krb5-1.19.1.sh && #97
+/bin/bash -l ./mld/libogg/01-libogg-1.3.5.sh && #101
 /bin/bash -l ./gen-libs/nspr/01-nspr-4.31.sh && #109
 /bin/bash -l ./db/sqlite/01-sqlite-3.35.5.sh && #111
 /bin/bash -l ./gen/graphviz/01-graphviz-2.47.2.sh && #113
+/bin/bash -l ./sec/nettle/01-nettle-3.7.3.sh && #117
 /bin/bash -l ./gnf-libs/sassc/01-sassc-3.6.2.sh && #125
 /bin/bash -l ./gen-libs/pcre2/01-pcre2-10.37.sh && #127
 /bin/bash -l ./mld/libdvdread/01-libdvdread-6.1.2.sh && #145
@@ -83,7 +85,7 @@ source /etc/profile.d/openjdk.sh &&
 /bin/bash -l ./gen-libs/gsl/01-gsl-2.7.sh && #195
 /bin/bash -l ./sys/hdparm/01-hdparm-9.62.sh && #207
 /bin/bash -l ./fsndm/ntfs-3g/01-ntfs-3g-2017.3.23.sh && #209
-/bin/bash -l ./sec/sudo/02-sudo-1.9.7.sh && # better to build sudo seperate #223
+/bin/bash -l ./sec/sudo/02-sudo-1.9.7p1.sh && # better to build sudo seperate #223
 /bin/bash -l ./devel/python3/01-python-3.9.4.sh && #227
 /bin/bash -l ./devel/Pygments/01-Pygments-2.9.0.sh && #229
 /bin/bash -l ./devel/docutils/01-docutils-0.17.1.sh && #231
@@ -91,7 +93,7 @@ source /etc/profile.d/openjdk.sh &&
 /bin/bash -l ./net/iw/01-iw-5.9.sh && #243
 /bin/bash -l ./net/rpcbind/01-rpcbind-1.2.6.sh && #245
 /bin/bash -l ./devel/perl-IO-Socket-SSL/01-perl-IO-Socket-SSL-2.071.sh && #249
-/bin/bash -l ./gen-libs/libksba/01-libksba-1.5.1.sh && #257
+/bin/bash -l ./gen-libs/libksba/01-libksba-1.6.0.sh && #257
 /bin/bash -l ./mld/libdvdnav/01-libdvdnav-6.1.1.sh && #261
 /bin/bash -l ./fsndm/LVM2/01-LVM2-2.03.12.sh && #265
 /bin/bash -l ./sec/nss/01-nss-3.67.sh && #271
@@ -101,11 +103,12 @@ source /etc/profile.d/openjdk.sh &&
 /bin/bash -l ./fsndm/btrfs-progs/01-btrfs-progs-5.12.1.sh && #307
 /bin/bash -l ./sys/pciutils/01-pciutils-3.7.0.sh && #309
 /bin/bash -l ./net-libs/curl/01-curl-7.77.0.sh && #311
+/bin/bash -l ./devel/git/01-git-2.32.0.sh && #313
 /bin/bash -l ./devel/cmake/01-cmake-3.20.3.sh && #323
 /bin/bash -l ./gnf-libs/libjpeg-turbo/01-libjpeg-turbo-2.1.0.sh && #333
 /bin/bash -l ./gnf-libs/qpdf/01-qpdf-10.3.2.sh && #335
 /bin/bash -l ./gnf-libs/jasper/01-jasper-2.0.32.sh && #337
-/bin/bash -l ./fsndm/fuse/01-fuse-3.10.3.sh && #357
+/bin/bash -l ./fsndm/fuse/01-fuse-3.10.4.sh && #357
 /bin/bash -l ./net-libs/libevent/01-libevent-2.1.12.sh && #363
 /bin/bash -l ./gen-libs/popt/01-popt-1.18.sh && #367
 /bin/bash -l ./sys/logrotate/01-logrotate-3.18.1.sh && #369
@@ -121,20 +124,25 @@ source /etc/profile.d/rustc.sh && #413
 /bin/bash -l ./devel/cbindgen/01-cbindgen-0.19.0.sh && #416
 /bin/bash -l ./gen-libs/pcre/01-pcre-8.44.sh && ##418
 /bin/bash -l ./db/mariadb/01-mariadb-10.5.10.sh && #422
-/bin/bash -l ./server/openldap/01-openldap-2.5.4.sh && #424
+/bin/bash -l ./server/openldap/01-openldap-2.5.5.sh && #424
 /bin/bash -l ./net-libs/curl/02-curl-7.77.0.sh && #426
 /bin/bash -l ./db/postgresql/01-postgresql-13.3.sh && #428
 /bin/bash -l ./sec/krb5/02-krb5-1.19.1.sh && #430
+/bin/bash -l ./net/nfsutils/01-nfsutils-2.5.3.sh && #432
 /bin/bash -l ./server/apache/01-apache-2.4.48.sh && #438
-/bin/bash -l ./gen-libs/glib/01-glib-2.68.2.sh && #444
+/bin/bash -l ./gen-libs/glib/01-glib-2.68.3.sh && #444
+/bin/bash -l ./fsndm/sshfs/01-sshfs-3.7.2.sh && #TODO ??? #446
 /bin/bash -l ./net-libs/glib-networking/01-glib-networking-2.68.1.sh && #454
 /bin/bash -l ./gen-libs/icu/01-icu-69.1.sh && #458
 /bin/bash -l ./gen-libs/libxml2/02-libxml2-2.9.12.sh && #460
 /bin/bash -l ./gen-libs/JS/01-JS-78.11.0.sh && #464
 /bin/bash -l ./gen-libs/nodejs/01-nodejs-v14.17.0.sh && #466
+/bin/bash -l ./fsndm/gptfdisk/01-gptfdisk-1.0.8.sh && #468
+/bin/bash -l ./sec/polkit/01-polkit-0.119.sh && #478
 /bin/bash -l ./sys/systemd/01-systemd-248.sh && #480
 /bin/bash -l ./sec/libpwquality/01-libpwquality-1.4.4.sh && #482
 /bin/bash -l ./sec/cryptsetup/01-cryptsetup-2.3.6.sh && #484
+/bin/bash -l ./sec/gnupg/01-gnupg-2.2.28.sh && #486
 /bin/bash -l ./mld/alsa-lib/01-alsa-lib-1.2.5.sh && #494
 /bin/bash -l ./mld/alsa-plugin/01-alsa-plugin-1.2.5.sh && #504
 /bin/bash -l ./mld/alsa-utils/01-alsa-utils-1.2.5.sh && #506
@@ -146,21 +154,23 @@ source /etc/profile.d/rustc.sh && #413
 /bin/bash -l ./devel/gdb/01-gdb-10.2.sh && #544
 /bin/bash -l ./devel/gcc/01-gcc-11.1.0.sh && #550
 /bin/bash -l ./sys/dbus/01-dbus-1.12.20.sh && #556
-/bin/bash -l ./devel/vala/01-vala-0.52.3.sh && #560
+/bin/bash -l ./devel/vala/01-vala-0.52.4.sh && #560
 /bin/bash -l ./X/libdrm/01-libdrm-2.4.106.sh && #576
 /bin/bash -l ./X/mesa/01-mesa-21.1.2.sh && #582
 /bin/bash -l ./X/libepoxy/01-libepoxy-1.5.8.sh && #584
+/bin/bash -l ./X/xkeyboard-config/01-xkeyboard-config-2.33.sh && #604
 /bin/bash -l ./gen-libs/libxkbcommon/01-libxkbcommon-1.3.0.sh && #606
 /bin/bash -l ./gen-libs/libwpe/01-libwpe-1.10.0.sh && #608
 /bin/bash -l ./gen-libs/wpebackend-fdo/01-wpebackend-fdo-1.10.0.sh && #610
 /bin/bash -l ./devel/pycairo/01-pycairo-1.20.1.sh && #618
 /bin/bash -l ./gen-libs/libical/01-libical-3.0.10.sh && #628
 /bin/bash -l ./sys/bluez/01-bluez-5.58.sh && #630
-/bin/bash -l ./gnf-libs/harfbuzz/01-harfbuzz-2.8.1.sh && #636
-/bin/bash -l ./mld/libass/01-libass-0.15.1.sh && #638
+/bin/bash -l ./net-libs/libpcap/01-libpcap-1.10.1.sh && #636
+/bin/bash -l ./gnf-libs/harfbuzz/01-harfbuzz-2.8.1.sh && #640
+/bin/bash -l ./mld/libass/01-libass-0.15.1.sh && #642
 /bin/bash -l ./X/gdk-pixbuf/01-gdk-pixbuf-2.42.6.sh && #644
 /bin/bash -l ./gen-libs/libgusb/01-libgusb-0.3.7.sh && #648
-/bin/bash -l ./X/at-spi2-core/01-at-spi2-core-2.40.1.sh && #652
+/bin/bash -l ./X/at-spi2-core/01-at-spi2-core-2.40.2.sh && #656
 /bin/bash -l ./print/cups/01-cups-2.3.3op2.sh && #662
 /bin/bash -l ./gen-libs/libmbim/01-libmbim-1.24.8.sh && #670
 /bin/bash -l ./gen-libs/libqmi/01-libqmi-1.28.6.sh && #672
@@ -168,11 +178,14 @@ source /etc/profile.d/rustc.sh && #413
 /bin/bash -l ./X/pango/01-pango-1.48.5.sh && ##690
 /bin/bash -l ./X/gtk+/01-gtk+-3.24.29.sh && #692
 /bin/bash -l ./xfce/exo/01-exo-4.16.2.sh && #696
+/bin/bash -l ./gen-libs/libiodbc/01-libiodbc-3.52.15.sh && #706
 /bin/bash -l ./mld/alsa-tools/01-alsa-tools-1.2.5.sh && #712
+/bin/bash -l ./xsoft/xscreensaver/01-xscreensaver-6.01.sh && #716
 /bin/bash -l ./gnf-libs/librsvg/01-librsvg-2.50.7.sh && #720
 /bin/bash -l ./icons/adwaita-icon-theme/01-adwaita-icon-theme-40.1.1.sh && #722
 /bin/bash -l ./gnome/vte/01-vte-0.64.1.sh && #724
 /bin/bash -l ./X/gtk-vnc/01-gtk-vnc-1.2.0.sh && #726
+/bin/bash -l ./gnome/vte/01-vte-0.64.2.sh && #728
 /bin/bash -l ./devel/cmake/02-cmake-3.20.3.sh && #750
 /bin/bash -l ./gen/graphviz/01-graphviz-2.47.2.sh && #754
 /bin/bash -l ./gen-libs/qca/01-qca-2.3.3.sh && #760
@@ -180,9 +193,10 @@ source /etc/profile.d/rustc.sh && #413
 /bin/bash -l ./typesetting/install-tl-unx/01-install-tl-unx.sh && #772
 /bin/bash -l ./mld/v4l-utils/01-v4l-utils-1.20.0.sh && #782
 /bin/bash -l ./mld/pipewire/01-pipewire-0.3.30.sh && #784
-/bin/bash -l ./mld/gst-plugins-good/01-gst-plugins-good-1.18.4.sh && #790
+/bin/bash -l ./audio-utils/mpg123/01-mpg123-1.28.0.sh && #790
+/bin/bash -l ./mld/gst-plugins-good/01-gst-plugins-good-1.18.4.sh && #794
 /bin/bash -l ./devel/lua-5.2/01-lua-5.2.4.sh && #800
-/bin/bash -l ./video-utils/vlc/01-vlc-3.0.14.sh && #802
+/bin/bash -l ./video-utils/vlc/01-vlc-3.0.15.sh && #808
 /bin/bash -l ./X/webkitgtk/01-webkitgtk-2.32.1.sh && #812
 /bin/bash -l ./net/NetworkManager/01-NetworkManager-1.30.4.sh && #816
 /bin/bash -l ./xsoft/firefox/01-firefox-78.11.0.sh && #818
@@ -197,17 +211,18 @@ source /etc/profile.d/rustc.sh && #413
 /bin/bash -l ./sys/cpio/01-cpio-2.13.sh && #854
 /bin/bash -l ./devel/apache-ant/01-apache-ant-1.10.10.sh && #860
 /bin/bash -l ./net/bind/01-bind-9.16.16.sh && #862
-/bin/bash -l ./xsoft/pidgin/01-pidgin-2.14.3.sh && #874
+/bin/bash -l ./xsoft/pidgin/01-pidgin-2.14.5.sh && #878
 /bin/bash -l ./print/cups-filter/01-cups-filters-1.28.8.sh && #876
 /bin/bash -l ./gnome/gvfs/01-gvfs-1.48.1.sh && #878
 /bin/bash -l ./X/Xorg/Xorg-server/01-xorg-server-1.20.11.sh && #880 
 /bin/bash -l ./X/Xorg/Xorg-drivers/libinput/01-libinput-1.18.0.sh && #890
 /bin/bash -l ./X/Xorg/Xorg-drivers/xf86-input-libinput/01-xf86-input-libinput-1.0.1.sh && #892
 /bin/bash -l ./net/OpenSSH/02-openssh-8.6p1.sh && #904
+/bin/bash -l ./X/xterm/01-xterm-368.sh && #912
 /bin/bash -l ./devel/php/01-php-8.0.7.sh && #918
-/bin/bash -l ./net/wireshark/01-wireshark-3.4.5.sh && #948
+/bin/bash -l ./net/wireshark/01-wireshark-3.4.6.sh && #952
 /bin/bash -l ./xsoft/thunderbird/01-thunderbird-78.11.0.sh && #956
-/bin/bash -l ./office/libreoffice/01-libreoffice-7.1.3.2.sh && #958
+/bin/bash -l ./office/libreoffice/01-libreoffice-7.1.4.2.sh && #962
 /bin/bash -l ./virt/qemu/01-qemu-6.0.0.sh && #966
 
 ${log} `basename "$0"` " finished" blfs_all

@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/pidgin-2.14.3
+if test -d /sources/pidgin-2.14.5
  then
-  as_root rm -rf /sources/pidgin-2.14.3
+  as_root rm -rf /sources/pidgin-2.14.5
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://downloads.sourceforge.net/pidgin/pidgin-2.14.3.tar.bz2 \
+check_and_download https://downloads.sourceforge.net/pidgin/pidgin-2.14.5.tar.bz2 \
         /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-pidgin &&
 
-tar xf /sources/pidgin-2.14.3.tar.bz2 -C /sources/ &&
+tar xf /sources/pidgin-2.14.5.tar.bz2 -C /sources/ &&
 
-cd /sources/pidgin-2.14.3 &&
+cd /sources/pidgin-2.14.5 &&
 
 
 
@@ -46,10 +46,10 @@ ${log} `basename "$0"` " built" blfs_all &&
 # fi
 
 as_root make install &&
-as_root mkdir -pv /usr/share/doc/pidgin-2.14.3 &&
-as_root cp -v README doc/gtkrc-2.0 /usr/share/doc/pidgin-2.14.3 &&
-as_root mkdir -pv /usr/share/doc/pidgin-2.14.3/api &&
-as_root cp -vr doc/html/* /usr/share/doc/pidgin-2.14.3/api &&
+as_root mkdir -pv /usr/share/doc/pidgin-2.14.5 &&
+as_root cp -v README doc/gtkrc-2.0 /usr/share/doc/pidgin-2.14.5 &&
+as_root mkdir -pv /usr/share/doc/pidgin-2.14.5/api &&
+as_root cp -vr doc/html/* /usr/share/doc/pidgin-2.14.5/api &&
 as_root gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
 as_root update-desktop-database -q &&
 ${log} `basename "$0"` " installed" blfs_all &&

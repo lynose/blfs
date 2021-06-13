@@ -30,8 +30,7 @@ sed -i "/servname/s:rpcbind:sunrpc:" src/rpcbind.c &&
 patch -Np1 -i ../rpcbind-1.2.6-vulnerability_fixes-1.patch &&
 
 ./configure --prefix=/usr       \
-            --bindir=/sbin      \
-            --sbindir=/sbin     \
+            --bindir=/usr/sbin      \
             --enable-warmstarts \
             --with-rpcuser=rpc &&
 ${log} `basename "$0"` " configured" blfs_all &&

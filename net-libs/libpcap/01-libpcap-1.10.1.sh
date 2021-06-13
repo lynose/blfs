@@ -2,27 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libpcap-1.9.1
+if test -d /sources/libpcap-1.10.1
  then
-  rm -rf /sources/libpcap-1.9.1
+  as_root rm -rf /sources/libpcap-1.10.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://www.tcpdump.org/release/libpcap-1.9.1.tar.gz \
+check_and_download http://www.tcpdump.org/release/libpcap-1.10.1.tar.gz \
         /sources 
-check_and_download http://www.linuxfromscratch.org/patches/blfs/10.0/libpcap-1.9.1-enable_bluetooth-1.patch \
-        /sources
-
 
 md5sum -c ${SCRIPTPATH}/md5-libpcap &&
 
-tar xf /sources/libpcap-1.9.1.tar.gz -C /sources/ &&
+tar xf /sources/libpcap-1.10.1.tar.gz -C /sources/ &&
 
-cd /sources/libpcap-1.9.1 &&
-
-patch -Np1 -i ../libpcap-1.9.1-enable_bluetooth-1.patch &&
+cd /sources/libpcap-1.10.1 &&
 
 ./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&

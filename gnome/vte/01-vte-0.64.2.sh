@@ -2,36 +2,41 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libksba
+if test -d /sources/vte-0.64.2
  then
-  rm -rf /sources/libksba
+  as_root rm -rf /sources/vte-0.64.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.gnupg.org/ftp/gcrypt/libksba/libksba-1.5.1.tar.bz2 \
-    /sources &&
+check_and_download https://gitlab.gnome.org/GNOME/vte/-/archive/0.64.2/vte-0.64.2.tar.gz \
+        /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-libksba &&
 
-tar xf /sources/libksba-1.5.1.tar.bz2 -C /sources/ &&
+md5sum -c ${SCRIPTPATH}/md5-vte &&
 
-cd /sources/libksba-1.5.1 &&
+tar xf /sources/vte-0.64.2.tar.gz -C /sources/ &&
 
-./configure --prefix=/usr &&
+cd /sources/vte-0.64.2 &&
+
+mkdir build &&
+cd    build &&
+
+meson  --prefix=/usr --buildtype=release -Dfribidi=false -Ddocs=true .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make &&
+ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make check &&
+  ninja test &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root make install &&
+as_root ninja install &&
+as_root rm -v /etc/profile.d/vte.* &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

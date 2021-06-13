@@ -2,26 +2,26 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/glib-2.68.2
+if test -d /sources/glib-2.68.3
  then
-  as_root rm -rf /sources/glib-2.68.2
+  as_root rm -rf /sources/glib-2.68.3
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/glib/2.68/glib-2.68.2.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/glib/2.68/glib-2.68.3.tar.xz \
     /sources &&
-check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/glib-2.68.2-skip_warnings-1.patch \
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/glib-2.68.3-skip_warnings-1.patch \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-glib &&
 
-tar xf /sources/glib-2.68.2.tar.xz -C /sources/ &&
+tar xf /sources/glib-2.68.3.tar.xz -C /sources/ &&
 
-cd /sources/glib-2.68.2 &&
+cd /sources/glib-2.68.3 &&
 
-patch -Np1 -i ../glib-2.68.2-skip_warnings-1.patch &&
+patch -Np1 -i ../glib-2.68.3-skip_warnings-1.patch &&
 
 if [ -e /usr/include/glib-2.0 ]; then
     rm -rf /usr/include/glib-2.0.old &&
@@ -32,6 +32,7 @@ mkdir build &&
 cd    build &&
 
 meson --prefix=/usr      \
+      --buildtype=release \
       -Dman=true         \
       -Dselinux=disabled \
       -Dgtk_doc=true     \
@@ -43,8 +44,8 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 as_root ninja install &&
 
-as_root mkdir -p /usr/share/doc/glib-2.68.2 &&
-as_root cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.68.2 &&
+as_root mkdir -p /usr/share/doc/glib-2.68.3 &&
+as_root cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.68.3 &&
 if [ -f /usr/include/glib-2.0/glib/gurifuncs.h ]
 then
   as_root rm -f /usr/include/glib-2.0/glib/gurifuncs.h

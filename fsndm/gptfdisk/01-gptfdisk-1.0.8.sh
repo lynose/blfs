@@ -2,27 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gptfdisk-1.0.7
+if test -d /sources/gptfdisk-1.0.8
  then
-  rm -rf /sources/gptfdisk-1.0.7
+  rm -rf /sources/gptfdisk-1.0.8
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.7.tar.gz \
+check_and_download https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.8.tar.gz \
     /sources
 
-check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/gptfdisk-1.0.7-convenience-1.patch \
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/gptfdisk-1.0.8-convenience-1.patch \
     /sources
 
 md5sum -c ${SCRIPTPATH}/md5-gptfdisk &&
 
-tar xf /sources/gptfdisk-1.0.7.tar.gz -C /sources/ &&
+tar xf /sources/gptfdisk-1.0.8.tar.gz -C /sources/ &&
  
-cd /sources/gptfdisk-1.0.7 &&
+cd /sources/gptfdisk-1.0.8 &&
 
-patch -Np1 -i ../gptfdisk-1.0.7-convenience-1.patch &&
+patch -Np1 -i ../gptfdisk-1.0.8-convenience-1.patch &&
 sed -i 's|ncursesw/||' gptcurses.cc &&
 ${log} `basename "$0"` " configured" blfs_all &&
 

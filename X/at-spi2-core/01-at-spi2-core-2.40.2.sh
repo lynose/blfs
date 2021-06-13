@@ -2,38 +2,39 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libogg-1.3.4
+if test -d /sources/at-spi2-core-2.40.2
  then
-  rm -rf /sources/libogg-1.3.4
+  rm -rf /sources/at-spi2-core-2.40.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://downloads.xiph.org/releases/ogg/libogg-1.3.4.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.40/at-spi2-core-2.40.2.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-libogg&&
+md5sum -c ${SCRIPTPATH}/md5-at-spi2-core &&
 
-tar xf /sources/libogg-1.3.4.tar.xz -C /sources/ &&
+tar xf /sources/at-spi2-core-2.40.2.tar.xz -C /sources/ &&
 
-cd /sources/libogg-1.3.4 &&
+cd /sources/at-spi2-core-2.40.2 &&
 
-./configure --prefix=/usr    \
-            --disable-static \
-            --docdir=/usr/share/doc/libogg-1.3.4 &&
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr --buildtype=release ..  &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make &&
+ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make check &&
+  ninja test &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root make install &&
+as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
