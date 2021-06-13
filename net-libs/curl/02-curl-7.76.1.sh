@@ -13,6 +13,8 @@ fi
 ${log} `basename "$0"` " Downloading" blfs_all &&
 check_and_download https://curl.haxx.se/download/curl-7.76.0.tar.xz \
 /sources &&
+check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/curl-7.76.1-function_naming-1.patch \
+/sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-curl &&
 
@@ -21,6 +23,8 @@ tar xf /sources/curl-7.76.0.tar.xz -C /sources/ &&
 cd /sources/curl-7.76.0 &&
 
 grep -rl '#!.*python$' | xargs sed -i '1s/python/&3/' &&
+
+patch -Np1 -i ../curl-7.76.1-function_naming-1.patch &&
 
 ./configure --prefix=/usr                           \
             --disable-static                        \

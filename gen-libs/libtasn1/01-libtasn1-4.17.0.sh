@@ -2,25 +2,25 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libtasn1-4.16.0
+if test -d /sources/libtasn1-4.17.0
  then
-  as_root rm -rf /sources/libtasn1-4.16.0
+  as_root rm -rf /sources/libtasn1-4.17.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.16.0.tar.gz \
+check_and_download https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.17.0.tar.gz \
         /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-libtasn1 &&
 
-tar xf /sources/libtasn1-4.16.0.tar.gz -C /sources/ &&
+tar xf /sources/libtasn1-4.17.0.tar.gz -C /sources/ &&
 
-cd /sources/libtasn1-4.16.0 &&
+cd /sources/libtasn1-4.17.0 &&
 
-./configure --prefix=/usr --disable-static --enable-gtk-doc &&
+./configure --prefix=/usr --disable-static &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

@@ -41,23 +41,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
 
-for f in gssapi_krb5 gssrpc k5crypto kadm5clnt kadm5srv \
-         kdb5 kdb_ldap krad krb5 krb5support verto ; do
-
-    as_root find /usr/lib -type f -name "lib$f*.so*" -exec chmod -v 755 {} \;    
-done          &&
-
-as_root mv -v /usr/lib/libkrb5.so.3*        /lib &&
-as_root mv -v /usr/lib/libk5crypto.so.3*    /lib &&
-as_root mv -v /usr/lib/libkrb5support.so.0* /lib &&
-
-as_root ln -v -sf ../../lib/libkrb5.so.3.3        /usr/lib/libkrb5.so        &&
-as_root ln -v -sf ../../lib/libk5crypto.so.3.1    /usr/lib/libk5crypto.so    &&
-as_root ln -v -sf ../../lib/libkrb5support.so.0.1 /usr/lib/libkrb5support.so &&
-
-as_root mv -v /usr/bin/ksu /bin &&
-as_root chmod -v 755 /bin/ksu   &&
-
 as_root install -v -dm755 /usr/share/doc/krb5-1.19.1 &&
 as_root cp -vfr ../doc/*  /usr/share/doc/krb5-1.19.1 &&
 

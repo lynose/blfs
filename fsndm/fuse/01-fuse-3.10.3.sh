@@ -2,30 +2,32 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/fuse-3.10.2
+if test -d /sources/fuse-3.10.3
  then
-  as_root rm -rf /sources/fuse-3.10.2
+  as_root rm -rf /sources/fuse-3.10.3
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/libfuse/libfuse/releases/download/fuse-3.10.2/fuse-3.10.2.tar.xz \
+check_and_download https://github.com/libfuse/libfuse/releases/download/fuse-3.10.3/fuse-3.10.3.tar.xz \
         /sources
 
 
 md5sum -c ${SCRIPTPATH}/md5-fuse &&
 
-tar xf /sources/fuse-3.10.2.tar.xz -C /sources/ &&
+tar xf /sources/fuse-3.10.3.tar.xz -C /sources/ &&
 
-cd /sources/fuse-3.10.2 &&
+cd /sources/fuse-3.10.3 &&
+
+sed -i '/iostream/a #include <limits>' example/cxxopts.hpp &&
 
 sed -i '/^udev/,$ s/^/#/' util/meson.build &&
 
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&
@@ -40,19 +42,14 @@ if [ ${ENABLE_TEST} == true ]
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root ninja install &&
+ninja install                                             &&
 
-as_root mv -vf   /usr/lib/libfuse3.so.3*     /lib                 &&
-as_root ln -sfvn ../../lib/libfuse3.so.3.10.2 /usr/lib/libfuse3.so &&
+chmod u+s /usr/bin/fusermount3                &&
 
-as_root mv -vf /usr/bin/fusermount3  /bin         &&
-as_root mv -vf /usr/sbin/mount.fuse3 /sbin        &&
-as_root chmod u+s /bin/fusermount3                &&
-
-as_root install -v -m755 -d /usr/share/doc/fuse-3.10.2      &&
-as_root install -v -m644    ../doc/{README.NFS,kernel.txt} \
-                    /usr/share/doc/fuse-3.10.2      &&
-as_root cp -Rv ../doc/html  /usr/share/doc/fuse-3.10.2 &&
+install -v -m755 -d /usr/share/doc/fuse-3.10.3      &&
+install -v -m644    ../doc/{README.NFS,kernel.txt} \
+                    /usr/share/doc/fuse-3.10.3      &&
+cp -Rv ../doc/html  /usr/share/doc/fuse-3.10.3 &&
 
 cat > ./fuse.conf << "EOF" &&
 # Set the maximum number of FUSE mounts allowed to non-root users.

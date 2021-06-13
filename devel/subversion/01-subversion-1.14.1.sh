@@ -47,13 +47,13 @@ if [ ${ENABLE_TEST} == true ]
     ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
   make check-swig-pl &&
-  ${log} `basename "$0"` " unexpected check-swig-pl succeed" blfs_all
-  ${log} `basename "$0"` " expected check-swig-pl fail?" blfs_all
+  ${log} `basename "$0"` " check-swig-pl succeed" blfs_all ||
+  ${log} `basename "$0"` " !!!check-swig-pl fail!!!" blfs_all
 #   make check-swig-py &&
 #   ${log} `basename "$0"` " unexpected check-swig-py succeed" blfs_all
 #   ${log} `basename "$0"` " expected check-swig-py fail?" blfs_all
   make check-swig-rb &&
-  ${log} `basename "$0"` " unexpected check-swig-rb succeed" blfs_all
+  ${log} `basename "$0"` " unexpected check-swig-rb succeed" blfs_all ||
   ${log} `basename "$0"` " expected check-swig-rb fail?" blfs_all
 fi
 

@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/vlc-3.0.13
+if test -d /sources/vlc-3.0.14
  then
-   as_root rm -rf /sources/vlc-3.0.13
+   as_root rm -rf /sources/vlc-3.0.14
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://download.videolan.org/vlc/3.0.13/vlc-3.0.13.tar.xz \
+check_and_download https://download.videolan.org/vlc/3.0.14/vlc-3.0.14.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-vlc &&
 
-tar xf /sources/vlc-3.0.13.tar.xz -C /sources/ &&
+tar xf /sources/vlc-3.0.14.tar.xz -C /sources/ &&
 
-cd /sources/vlc-3.0.13 &&
+cd /sources/vlc-3.0.14 &&
 
 export LUAC=/usr/bin/luac5.2                   &&
 export LUA_LIBS="$(pkg-config --libs lua52)"   &&
@@ -25,7 +25,6 @@ export CPPFLAGS="$(pkg-config --cflags lua52)" &&
 
 BUILDCC=gcc ./configure --prefix=/usr    \
                         --disable-opencv \
-                        --disable-lua    \
                         --disable-vpx    &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
@@ -39,7 +38,7 @@ if [ ${ENABLE_TEST} == true ]
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root make docdir=/usr/share/doc/vlc-3.0.13 install &&
+as_root make docdir=/usr/share/doc/vlc-3.0.14 install &&
 as_root gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
 as_root update-desktop-database -q &&
 ${log} `basename "$0"` " installed" blfs_all &&

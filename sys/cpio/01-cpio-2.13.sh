@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/cpio-2.13
  then
-  rm -rf /sources/cpio-2.13
+  as_root rm -rf /sources/cpio-2.13
 fi
 
 SCRIPT=`realpath $0`
@@ -24,7 +24,6 @@ sed -i '/The name/,+2 d' src/global.c &&
 
 
 ./configure --prefix=/usr \
-            --bindir=/bin \
             --enable-mt   \
             --with-rmt=/usr/libexec/rmt &&
 ${log} `basename "$0"` " configured" blfs_all &&
@@ -41,7 +40,7 @@ if [ ${ENABLE_TEST} == true ]
  then
   make check &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
-  ${log} `basename "$0"` " expected check fail?" blfs_all
+  ${log} `basename "$0"` " !!!check failed!!!" blfs_all
 fi
 
 as_root make install &&

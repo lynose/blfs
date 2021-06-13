@@ -20,22 +20,13 @@ tar xf /sources/iptables-1.8.7.tar.bz2 -C /sources/ &&
 cd /sources/iptables-1.8.7 &&
 
 ./configure --prefix=/usr      \
-            --sbindir=/sbin    \
             --disable-nftables \
-            --enable-libipq    \
-            --with-xtlibdir=/lib/xtables &&
+            --enable-libipq &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
-ln -sfv ../../sbin/xtables-legacy-multi /usr/bin/iptables-xml &&
-
-for file in ip4tc ip6tc ipq xtables
-do
-  as_root mv -v /usr/lib/lib${file}.so.* /lib &&
-  ln -sfv ../../lib/$(readlink /usr/lib/lib${file}.so) /usr/lib/lib${file}.so
-done
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

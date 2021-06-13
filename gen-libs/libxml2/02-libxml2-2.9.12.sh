@@ -5,34 +5,29 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libxml2-2.9.10
+if test -d /sources/libxml2-2.9.12
  then
-  rm -rf /sources/libxml2-2.9.10
+  as_root rm -rf /sources/libxml2-2.9.12
 fi
 
-check_and_download http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz \
+check_and_download http://xmlsoft.org/sources/libxml2-2.9.12.tar.gz \
     /sources &&
 
-check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/libxml2-2.9.10-security_fixes-1.patch \
-    /sources &&
-    
+ 
 check_and_download http://www.w3.org/XML/Test/xmlts20130923.tar.gz \
     /sources &&
     
 md5sum -c ${SCRIPTPATH}/md5-libxml2 &&
 
-tar xf /sources/libxml2-2.9.10.tar.gz -C /sources/ &&
+tar xf /sources/libxml2-2.9.12.tar.gz -C /sources/ &&
 
-cd /sources/libxml2-2.9.10 &&
+cd /sources/libxml2-2.9.12 &&
 
-patch -p1 -i ../libxml2-2.9.10-security_fixes-1.patch &&
-
-sed -i '/if Py/{s/Py/(Py/;s/)/))/}' python/{types.c,libxml.c} &&
-
-sed -i 's/test.test/#&/' python/tests/tstLastError.py &&
 ./configure --prefix=/usr    \
             --disable-static \
             --with-history   \
+            --with-icu       \
+            --with-threads   \
             --with-python=/usr/bin/python3 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 

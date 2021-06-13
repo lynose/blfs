@@ -2,25 +2,25 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/firefox-78.10.1
+if test -d /sources/firefox-78.11.0
  then
-  as_root rm -rf /sources/firefox-78.10.1
+  as_root rm -rf /sources/firefox-78.11.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://archive.mozilla.org/pub/firefox/releases/78.10.1esr/source/firefox-78.10.1esr.source.tar.xz \
+check_and_download https://archive.mozilla.org/pub/firefox/releases/78.11.0esr/source/firefox-78.11.0esr.source.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-firefox &&
 
 # returns non-zero, ignore
-tar xf /sources/firefox-78.10.1esr.source.tar.xz -C /sources/ &&
+tar xf /sources/firefox-78.11.0esr.source.tar.xz -C /sources/ &&
 
-cd /sources/firefox-78.10.1 &&
+cd /sources/firefox-78.11.0 &&
 
-cat > mozconfig << "EOF"
+cat > mozconfig << "EOF" &&
 # If you have a multicore machine, all cores will be used by default.
 
 # If you have installed (or will install) wireless-tools, and you wish
@@ -121,8 +121,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 as_root ./mach install                                                  &&
 
-as_root mkdir -pv  /usr/lib/mozilla/plugins                             &&
-as_root ln    -sfv ../../mozilla/plugins /usr/lib/firefox/browser/ &&
 unset CC CXX MOZBUILD_STATE_PATH &&
 
 as_root mkdir -pv /usr/share/applications &&
