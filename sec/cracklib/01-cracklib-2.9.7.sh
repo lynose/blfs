@@ -28,17 +28,13 @@ sed -i '/skipping/d' util/packer.c &&
 PYTHON=python3 CPPFLAGS=-I/usr/include/python3.9 \
 ./configure --prefix=/usr    \
             --disable-static \
-            --with-default-dict=/lib/cracklib/pw_dict &&
+            --with-default-dict=/usr/lib/cracklib/pw_dict &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install                      &&
-as_root mv -v /usr/lib/libcrack.so.* /lib &&
-as_root ln -sfv ../../lib/$(readlink /usr/lib/libcrack.so) /usr/lib/libcrack.so &&
-
-
 
 as_root install -v -m644 -D    ../cracklib-words-2.9.7.bz2 \
                          /usr/share/dict/cracklib-words.bz2    &&

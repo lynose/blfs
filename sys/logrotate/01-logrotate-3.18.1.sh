@@ -78,10 +78,8 @@ include /etc/logrotate.d
 # End /etc/logrotate.conf
 EOF
 
-as_root mv -v ./logrotate.conf /etc/logrotate.conf &&
-as_root chown root:root /etc/logrotate.conf &&
-as_root chmod -v 0644 /etc/logrotate.conf &&
-as_root mkdir -p /etc/logrotate.d &&
+as_root install -vm644  --owner=root ./logrotate.conf /etc/logrotate.conf &&
+as_root install -d -vm755 --owner=root /etc/logrotate.d &&
 
 cat > ./sys.log << EOF &&
 /var/log/sys.log {
@@ -94,9 +92,7 @@ cat > ./sys.log << EOF &&
    endscript
 }
 EOF
-as_root mv -v ./sys.log /etc/logrotate.d/sys.log &&
-as_root chown -v root:root /etc/logrotate.d/sys.log &&
-as_root chmod -v 0644 /etc/logrotate.d/sys.log &&
+as_root install -vm644 --owner=root ./sys.log /etc/logrotate.d/sys.log &&
 
 cat > ./logrotate.service << "EOF" &&
 [Unit]
@@ -112,8 +108,8 @@ RemainAfterExit=yes
 ExecStart=/usr/sbin/logrotate /etc/logrotate.conf
 EOF
 
-as_root mv -v ./logrotate.service /lib/systemd/system/logrotate.service &&
-as_root chown root:root /lib/systemd/system/logrotate.service &&
+as_root install -vm644 --owner=root ./logrotate.service /usr/lib/systemd/system/logrotate.service &&
+
 
 cat > ./logrotate.timer << "EOF" &&
 [Unit]
@@ -127,8 +123,7 @@ Persistent=true
 WantedBy=timers.target
 EOF
 
-as_root mv -v ./logrotate.timer /lib/systemd/system/logrotate.timer &&
-as_root chown root:root /lib/systemd/system/logrotate.timer &&
+as_root install -vm644 --owner=root ./logrotate.timer /usr/lib/systemd/system/logrotate.timer &&
 as_root systemctl enable logrotate.timer &&
 
 ${log} `basename "$0"` " installed" blfs_all &&

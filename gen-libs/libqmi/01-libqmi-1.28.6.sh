@@ -2,25 +2,24 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gsl-2.6
+if test -d /sources/libqmi-1.28.6
  then
-  rm -rf /sources/gsl-2.6
+  as_root rm -rf /sources/libqmi-1.28.6
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz \
-        /sources
+check_and_download https://www.freedesktop.org/software/libqmi/libqmi-1.28.6.tar.xz \
+    /sources &&
 
+md5sum -c ${SCRIPTPATH}/md5-libqmi &&
 
-md5sum -c ${SCRIPTPATH}/md5-gsl &&
+tar xf /sources/libqmi-1.28.6.tar.xz -C /sources/ &&
 
-tar xf /sources/gsl-2.6.tar.gz -C /sources/ &&
+cd /sources/libqmi-1.28.6 &&
 
-cd /sources/gsl-2.6 &&
-
-./configure --prefix=/usr --disable-static &&
+PYTHON=python3 ./configure --prefix=/usr --disable-static --enable-gtk-doc &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

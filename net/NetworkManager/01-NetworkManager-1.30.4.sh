@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/NetworkManager-1.30.2
+if test -d /sources/NetworkManager-1.30.4
  then
-  as_root rm -rf /sources/NetworkManager-1.30.2
+  as_root rm -rf /sources/NetworkManager-1.30.4
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.30/NetworkManager-1.30.2.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.30/NetworkManager-1.30.4.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-NetworkManager &&
 
-tar xf /sources/NetworkManager-1.30.2.tar.xz -C /sources/ &&
+tar xf /sources/NetworkManager-1.30.4.tar.xz -C /sources/ &&
 
-cd /sources/NetworkManager-1.30.2 &&
+cd /sources/NetworkManager-1.30.4 &&
 
 sed -e 's/-qt4/-qt5/'              \
     -e 's/moc_location/host_bins/' \
@@ -30,13 +30,12 @@ sed '/initrd/d' -i src/core/meson.build &&
 
 grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/' &&
 
-sed -i 's/str, 0/str ?: "", 0/' src/core/nm-core-utils.c &&
-
 mkdir build &&
 cd    build    &&
 
 CXXFLAGS+="-O2 -fPIC"            \
 meson --prefix /usr              \
+      --buildtype=release        \
       -Ddocs=true                \
       -Dlibaudit=no              \
       -Dlibpsl=false             \
@@ -48,7 +47,6 @@ meson --prefix /usr              \
       -Dudev_dir=/lib/udev       \
       -Dsession_tracking=systemd \
       -Dmodem_manager=false      \
-      -Dsystemdsystemunitdir=/lib/systemd/system \
       .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
@@ -63,8 +61,8 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root ninja install &&
-[ ! -d /usr/share/doc/NetworkManager-1.30.2 ] &&
-as_root mv -v /usr/share/doc/NetworkManager{,-1.30.2} ||
+[ ! -d /usr/share/doc/NetworkManager-1.30.4 ] &&
+as_root mv -v /usr/share/doc/NetworkManager{,-1.30.4} ||
 as_root rm -v /usr/share/doc/NetworkManager
 
 cat >> ./NetworkManager.conf << "EOF" &&

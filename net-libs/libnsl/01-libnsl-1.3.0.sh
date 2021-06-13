@@ -28,7 +28,5 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install                  &&
-as_root mv -v /usr/lib/libnsl.so.2* /lib &&
-as_root ln -sfv ../../lib/libnsl.so.2.0.1 /usr/lib/libnsl.so &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

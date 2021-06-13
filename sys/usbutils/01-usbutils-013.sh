@@ -44,7 +44,7 @@ RemainAfterExit=yes
 ExecStart=/usr/bin/wget http://www.linux-usb.org/usb.ids -O /usr/share/hwdata/usb.ids
 EOF
 
-as_root mv -v ./update-usbids.service /lib/systemd/system/update-usbids.service &&
+as_root install -vm644 --owner=root ./update-usbids.service /usr/lib/systemd/system/update-usbids.service &&
 
 cat > ./update-usbids.timer << "EOF" &&
 [Unit]
@@ -58,7 +58,7 @@ Persistent=true
 WantedBy=timers.target
 EOF
 
-as_root mv -v ./update-usbids.timer /lib/systemd/system/update-usbids.timer &&
+as_root install -vm644 --owner=root ./update-usbids.timer /usr/lib/systemd/system/update-usbids.timer &&
 
 systemctl enable update-usbids.timer
 ${log} `basename "$0"` " systemd update configured" blfs_all &&

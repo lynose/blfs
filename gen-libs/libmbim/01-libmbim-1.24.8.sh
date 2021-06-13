@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libmbim-1.24.6
+if test -d /sources/libmbim-1.24.8
  then
-  rm -rf /sources/libmbim-1.24.6
+  rm -rf /sources/libmbim-1.24.8
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.freedesktop.org/software/libmbim/libmbim-1.24.6.tar.xz \
+check_and_download https://www.freedesktop.org/software/libmbim/libmbim-1.24.8.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libmbim &&
 
-tar xf /sources/libmbim-1.24.6.tar.xz -C /sources/ &&
+tar xf /sources/libmbim-1.24.8.tar.xz -C /sources/ &&
 
-cd /sources/libmbim-1.24.6 &&
+cd /sources/libmbim-1.24.8 &&
 
 ./configure --prefix=/usr --disable-static --enable-gtk-doc &&
 ${log} `basename "$0"` " configured" blfs_all &&

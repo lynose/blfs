@@ -2,32 +2,25 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/qca-2.3.2
+if test -d /sources/gsl-2.7
  then
-  as_root rm -rf /sources/qca-2.3.2
+  as_root rm -rf /sources/gsl-2.7
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.kde.org/stable/qca/2.3.2/qca-2.3.2.tar.xz \
-    /sources &&
+check_and_download https://ftp.gnu.org/gnu/gsl/gsl-2.7.tar.gz \
+        /sources
 
-md5sum -c ${SCRIPTPATH}/md5-qca &&
 
-tar xf /sources/qca-2.3.2.tar.xz -C /sources/ &&
+md5sum -c ${SCRIPTPATH}/md5-gsl &&
 
-cd /sources/qca-2.3.2 &&
+tar xf /sources/gsl-2.7.tar.gz -C /sources/ &&
 
-sed -i 's@cert.pem@certs/ca-bundle.crt@' CMakeLists.txt &&
+cd /sources/gsl-2.7 &&
 
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=$QT5DIR            \
-      -DCMAKE_BUILD_TYPE=Release                \
-      -DQCA_MAN_INSTALL_DIR:PATH=/usr/share/man \
-      .. &&
+./configure --prefix=/usr --disable-static &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
@@ -35,7 +28,7 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make test &&
+  make check &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi

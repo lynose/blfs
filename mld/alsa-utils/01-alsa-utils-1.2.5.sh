@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/alsa-utils-1.2.4
+if test -d /sources/alsa-utils-1.2.5
  then
-  rm -rf /sources/alsa-utils-1.2.4
+  rm -rf /sources/alsa-utils-1.2.5
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.alsa-project.org/files/pub/utils/alsa-utils-1.2.4.tar.bz2 \
+check_and_download https://www.alsa-project.org/files/pub/utils/alsa-utils-1.2.5.tar.bz2 \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-alsa-utils &&
 
-tar xf /sources/alsa-utils-1.2.4.tar.bz2 -C /sources/ &&
+tar xf /sources/alsa-utils-1.2.5.tar.bz2 -C /sources/ &&
 
-cd /sources/alsa-utils-1.2.4 &&
+cd /sources/alsa-utils-1.2.5 &&
 
 ./configure --disable-alsaconf \
             --with-curses=ncursesw &&

@@ -32,7 +32,7 @@ as_root make PREFIX=/usr                \
 as_root chmod -v 755 /usr/lib/libpci.so &&
 ${log} `basename "$0"` " installed" blfs_all &&
 
-as_root cat > /lib/systemd/system/update-pciids.service << "EOF" &&
+as_root cat > /usr/lib/systemd/system/update-pciids.service << "EOF" &&
 [Unit]
 Description=Update pci.ids file
 Documentation=man:update-pciids(8)
@@ -46,7 +46,7 @@ RemainAfterExit=yes
 ExecStart=/usr/sbin/update-pciids
 EOF
 
-as_root cat > /lib/systemd/system/update-pciids.timer << "EOF" &&
+as_root cat > /usr/lib/systemd/system/update-pciids.timer << "EOF" &&
 [Unit]
 Description=Update pci.ids file weekly
 
@@ -57,7 +57,7 @@ Persistent=true
 [Install]
 WantedBy=timers.target
 EOF
-as_root systemctl enable update-pciids.timer
+as_root systemctl enable update-pciids.timer &&
 ${log} `basename "$0"` " update pciids" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all

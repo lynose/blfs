@@ -29,8 +29,6 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
-as_root mv -v /usr/lib/libpwquality.so.* /lib &&
-ln -sfv ../../lib/$(readlink /usr/lib/libpwquality.so) /usr/lib/libpwquality.so &&
 if [ ! -f /etc/pam.d/system-password.orig ]
  then 
   as_root mv /etc/pam.d/system-password{,.orig} &&
@@ -53,7 +51,7 @@ password  required    pam_unix.so        sha512 shadow use_authtok
 
 # End /etc/pam.d/system-password
 EOF
-  as_root mv -v ./system-password /etc/pam.d/system-password
+  as_root install -vm644 --owner=root ./system-password /etc/pam.d/system-password
 fi
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

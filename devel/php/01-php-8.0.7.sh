@@ -2,15 +2,15 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/php-8.0.6
+if test -d /sources/php-8.0.7
  then
-  rm -rf /sources/php-8.0.6
+  rm -rf /sources/php-8.0.7
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://www.php.net/distributions/php-8.0.6.tar.xz \
+check_and_download http://www.php.net/distributions/php-8.0.7.tar.xz \
         /sources &&
 check_and_download https://www.php.net/distributions/manual/php_manual_en.html.gz \
         /sources &&
@@ -20,9 +20,9 @@ check_and_download https://www.php.net/distributions/manual/php_manual_en.tar.gz
 
 md5sum -c ${SCRIPTPATH}/md5-php &&
 
-tar xf /sources/php-8.0.6.tar.xz -C /sources/ &&
+tar xf /sources/php-8.0.7.tar.xz -C /sources/ &&
 
-cd /sources/php-8.0.6 &&
+cd /sources/php-8.0.7 &&
 
 
 
@@ -63,19 +63,19 @@ fi
 
 as_root make install &&
 as_root install -v -m644 php.ini-production /etc/php.ini &&
-if [ ! -d /usr/share/doc/php-8.0.6 ]
+if [ ! -d /usr/share/doc/php-8.0.7 ]
  then
-  as_root install -v -m755 -d /usr/share/doc/php-8.0.6
+  as_root install -v -m755 -d /usr/share/doc/php-8.0.7
 fi
 as_root install -v -m644    CODING_STANDARDS* EXTENSIONS NEWS README* UPGRADING* \
-                    /usr/share/doc/php-8.0.6 &&
+                    /usr/share/doc/php-8.0.7 &&
 if [ -f /etc/php-fpm.conf.default ]; then
   as_root mv -v /etc/php-fpm.conf{.default,} &&
   as_root mv -v /etc/php-fpm.d/www.conf{.default,}
 fi
 
 as_root tar -xvf ../php_manual_en.tar.gz \
-    -C /usr/share/doc/php-8.0.6 --no-same-owner &&
+    -C /usr/share/doc/php-8.0.7 --no-same-owner &&
 cp /etc/php.ini /tmp &&
 sed -i 's@php/includes"@&\ninclude_path = ".:/usr/lib/php"@' /tmp/php.ini &&
 as_root mv /tmp/php.ini /etc &&
