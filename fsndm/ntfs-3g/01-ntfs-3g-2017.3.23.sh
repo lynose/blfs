@@ -30,8 +30,8 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
-as_root ln -sv ../bin/ntfs-3g /usr/sbin/mount.ntfs &&
-as_root ln -sv ntfs-3g.8 /usr/share/man/man8/mount.ntfs.8 &&
-as_root chmod -v 4755 /usr/bin/ntfs-3g &&
+as_root ln -sfv ../bin/ntfs-3g /usr/sbin/mount.ntfs &&
+as_root ln -sfv ntfs-3g.8 /usr/share/man/man8/mount.ntfs.8 &&
+as_root chmod -v 4755 /bin/ntfs-3g &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

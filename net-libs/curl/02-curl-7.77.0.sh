@@ -22,8 +22,6 @@ cd /sources/curl-7.77.0 &&
 
 grep -rl '#!.*python$' | xargs sed -i '1s/python/&3/' &&
 
-patch -Np1 -i ../curl-7.76.1-function_naming-1.patch &&
-
 ./configure --prefix=/usr                           \
             --disable-static                        \
             --enable-threaded-resolver              \

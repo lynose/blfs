@@ -52,7 +52,7 @@ session   include     system-session
 # End /etc/pam.d/sudo
 EOF
 
-  as_root install -vm644 --owner=root --group=root ./pam.sudo /etc/pam.d/sudo &&
+  as_root install -vm644 --owner=root --group=root ./pam.sudo /etc/pam.d/sudo
 fi
 
 if [ ${ENABLE_TEST} == true ]

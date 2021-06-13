@@ -42,11 +42,11 @@ ${log} `basename "$0"` " configured" blfs_all &&
 make -j1 &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-make install         &&
-install -v -m755 client/scripts/linux /usr/sbin/dhclient-script &&
+as_root make install         &&
+as_root install -v -m755 client/scripts/linux /usr/sbin/dhclient-script &&
 
 as_root install -vdm755 /etc/dhcp &&
-as_root cat > /etc/dhcp/dhclient.conf << "EOF"
+cat > /tmp/dhclient.conf << "EOF" &&
 # Begin /etc/dhcp/dhclient.conf
 #
 # Basic dhclient.conf(5)
@@ -65,8 +65,10 @@ require subnet-mask, domain-name-servers;
 
 # End /etc/dhcp/dhclient.conf
 EOF
+
+as_root install -vm644 --owner=root --group=root /tmp/dhclient.conf /etc/dhcp/ &&
 as_root install -v -dm 755 /var/lib/dhclient &&
 cd /usr/src/blfs-systemd-units &&
-make install-dhclient &&
+as_root make install-dhclient &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

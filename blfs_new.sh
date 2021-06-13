@@ -61,47 +61,9 @@ source /etc/profile.d/extrapaths.sh &&
 source /etc/profile.d/kf5.sh &&
 source /etc/profile.d/openjdk.sh &&
 
-/bin/bash -l ./sec/sudo/01-sudo-1.9.7p1.sh && #47
-/bin/bash -l ./net/OpenSSH/01-openssh-8.6p1.sh && #49
-/bin/bash -l ./gen-libs/libtasn1/01-libtasn1-4.16.0.sh && #51
-/bin/bash -l ./sec/p11-kit/01-p11-kit-0.24.0.sh && #53
-/bin/bash -l ./gen-libs/libxml2/01-libxml2-2.9.12.sh && #59
-/bin/bash -l ./mld/fdk-aac/01-fdk-aac-2.0.2.sh && #91
-/bin/bash -l ./sec/cracklib/01-cracklib-2.9.7.sh && #93
-/bin/bash -l ./sec/krb5/01-krb5-1.19.1.sh && #97
-/bin/bash -l ./mld/libogg/01-libogg-1.3.5.sh && #101
-/bin/bash -l ./gen-libs/nspr/01-nspr-4.31.sh && #109
-/bin/bash -l ./db/sqlite/01-sqlite-3.35.5.sh && #111
-/bin/bash -l ./gen/graphviz/01-graphviz-2.47.2.sh && #113
-/bin/bash -l ./sec/nettle/01-nettle-3.7.3.sh && #117
-/bin/bash -l ./gnf-libs/sassc/01-sassc-3.6.2.sh && #125
-/bin/bash -l ./gen-libs/pcre2/01-pcre2-10.37.sh && #127
-/bin/bash -l ./mld/libdvdread/01-libdvdread-6.1.2.sh && #145
-/bin/bash -l ./net-libs/libtirpc/01-libtirpc-1.3.2.sh && #147
-/bin/bash -l ./db/lmdb/01-LMDB_0.9.29.sh && #167
-/bin/bash -l ./net-libs/libndp/01-libndp-1.8.sh && #171
-/bin/bash -l ./sec/iptables/01-iptables-1.8.7.sh && #179
-/bin/bash -l ./net/dhcp/01-dhcp-4.4.2-P1.sh && #181
-/bin/bash -l ./gen-libs/gsl/01-gsl-2.7.sh && #195
-/bin/bash -l ./sys/hdparm/01-hdparm-9.62.sh && #207
-/bin/bash -l ./fsndm/ntfs-3g/01-ntfs-3g-2017.3.23.sh && #209
-/bin/bash -l ./sec/sudo/02-sudo-1.9.7p1.sh && # better to build sudo seperate #223
-/bin/bash -l ./devel/python3/01-python-3.9.4.sh && #227
-/bin/bash -l ./devel/Pygments/01-Pygments-2.9.0.sh && #229
-/bin/bash -l ./devel/docutils/01-docutils-0.17.1.sh && #231
-/bin/bash -l ./net-libs/libnsl/01-libnsl-1.3.0.sh && #241
-/bin/bash -l ./net/iw/01-iw-5.9.sh && #243
-/bin/bash -l ./net/rpcbind/01-rpcbind-1.2.6.sh && #245
-/bin/bash -l ./devel/perl-IO-Socket-SSL/01-perl-IO-Socket-SSL-2.071.sh && #249
-/bin/bash -l ./gen-libs/libksba/01-libksba-1.6.0.sh && #257
-/bin/bash -l ./mld/libdvdnav/01-libdvdnav-6.1.1.sh && #261
-/bin/bash -l ./fsndm/LVM2/01-LVM2-2.03.12.sh && #265
-/bin/bash -l ./sec/nss/01-nss-3.67.sh && #271
-/bin/bash -l ./gen-libs/libgcrypt/01-libgcrypt-1.9.3.sh && #275
-/bin/bash -l ./devel/MarkupSafe/01-MarkupSafe-2.0.1.sh && #277
-/bin/bash -l ./devel/Jinja2/01-Jinja2-3.0.1.sh && #279
-/bin/bash -l ./fsndm/btrfs-progs/01-btrfs-progs-5.12.1.sh && #307
-/bin/bash -l ./sys/pciutils/01-pciutils-3.7.0.sh && #309
+#/bin/bash -l ./fsndm/btrfs-progs/01-btrfs-progs-5.12.1.sh && #307
+#/bin/bash -l ./sys/pciutils/01-pciutils-3.7.0.sh && #309
+
 /bin/bash -l ./net-libs/curl/01-curl-7.77.0.sh && #311
 /bin/bash -l ./devel/git/01-git-2.32.0.sh && #313
 /bin/bash -l ./devel/cmake/01-cmake-3.20.3.sh && #323

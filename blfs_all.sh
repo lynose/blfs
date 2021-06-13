@@ -48,7 +48,7 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./net/OpenSSH/01-openssh-8.6p1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gen-libs/libtasn1/01-libtasn1-4.16.0.sh &&
+/bin/bash -l ./gen-libs/libtasn1/01-libtasn1-4.17.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sec/p11-kit/01-p11-kit-0.24.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

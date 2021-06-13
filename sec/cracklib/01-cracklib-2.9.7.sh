@@ -44,7 +44,7 @@ if [ ! -f /usr/share/dict/cracklib-words ];
     as_root ln -v -sf cracklib-words /usr/share/dict/words                 &&
     as_root echo $(hostname) >>      /usr/share/dict/cracklib-extra-words
 fi
-as_root install -v -m755 -d      /lib/cracklib                         &&
+as_root install -v -m755 -d      /usr/lib/cracklib                         &&
 
 as_root create-cracklib-dict     /usr/share/dict/cracklib-words \
                          /usr/share/dict/cracklib-extra-words &&
