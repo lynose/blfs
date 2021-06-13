@@ -2,27 +2,26 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/pcre2-10.36
+if test -d /sources/pcre2-10.37
  then
-  rm -rf /sources/pcre2-10.36
+  as_root rm -rf /sources/pcre2-10.37
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-if [ ! -f /sources/pcre2-10.36.tar.bz2 ];  
- then
-  check_and_download https://downloads.sourceforge.net/pcre/pcre2-10.36.tar.bz2 \
-    /sources
-fi
+
+check_and_download https://ftp.pcre.org/pub/pcre/pcre2-10.37.tar.bz2 \
+    /sources &&
+
 
 md5sum -c ${SCRIPTPATH}/md5-pcre2 &&
 
-tar xf /sources/pcre2-10.36.tar.bz2 -C /sources/ &&
+tar xf /sources/pcre2-10.37.tar.bz2 -C /sources/ &&
 
-cd /sources/pcre2-10.36 &&
+cd /sources/pcre2-10.37 &&
 
 ./configure --prefix=/usr                       \
-            --docdir=/usr/share/doc/pcre2-10.36 \
+            --docdir=/usr/share/doc/pcre2-10.37 \
             --enable-unicode                    \
             --enable-jit                        \
             --enable-pcre2-16                   \

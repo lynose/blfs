@@ -2,27 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/webkitgtk-2.32.0
+if test -d /sources/webkitgtk-2.32.1
  then
-  as_root rm -rf /sources/webkitgtk-2.32.0
+  as_root rm -rf /sources/webkitgtk-2.32.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://webkitgtk.org/releases/webkitgtk-2.32.0.tar.xz \
+check_and_download https://webkitgtk.org/releases/webkitgtk-2.32.1.tar.xz \
     /sources &&
-check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/webkitgtk-2.32.0-icu_69-1.patch \
-    /sources &&
-    
     
 md5sum -c ${SCRIPTPATH}/md5-webkitgtk &&
 
-tar xf /sources/webkitgtk-2.32.0.tar.xz -C /sources/ &&
+tar xf /sources/webkitgtk-2.32.1.tar.xz -C /sources/ &&
 
-cd /sources/webkitgtk-2.32.0 &&
-
-patch -Np1 -i ../webkitgtk-2.32.0-icu_69-1.patch &&
+cd /sources/webkitgtk-2.32.1 &&
 
 mkdir -vp build &&
 cd        build &&
@@ -36,7 +31,7 @@ cmake -DCMAKE_BUILD_TYPE=Release  \
       -DENABLE_GAMEPAD=OFF        \
       -DENABLE_MINIBROWSER=ON     \
       -DUSE_WOFF2=OFF             \
-      -DUSE_WPE_RENDERER=OFF      \
+      -DUSE_WPE_RENDERER=ON       \
       -DENABLE_BUBBLEWRAP_SANDBOX=OFF \
       -DENABLE_GTKDOC=ON          \
       -Wno-dev -G Ninja ..  &&

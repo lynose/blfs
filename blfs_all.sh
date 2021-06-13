@@ -5,8 +5,8 @@ export SOURCE_PATH=/sources &&
 source ./help-functions.sh &&
 
 export log=${CURRENT_PATH}/logger.sh &&
-export MAKEFLAGS='-j 4'  &&
-export NINJAJOBS=4 &&
+export MAKEFLAGS='-j 1'  &&
+export NINJAJOBS=1 &&
 export ENABLE_TEST=false &&
 export DANGER_TEST=false &&
 #############################################################################
@@ -106,11 +106,11 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnf-libs/frididi/01-fribidi-1.0.9.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gen-libs/nspr/01-nspr-4.30.sh &&
+/bin/bash -l ./gen-libs/nspr/01-nspr-4.31.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./db/sqlite/01-sqlite-3.35.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gen/graphviz/01-graphviz-2.47.0.sh &&
+/bin/bash -l ./gen/graphviz/01-graphviz-2.47.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./icons/hicolor-icon-theme/01-hicolor-icon-theme-0.17.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -124,7 +124,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnf-libs/sassc/01-sassc-3.6.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gen-libs/pcre2/01-pcre2-10.36.sh &&
+/bin/bash -l ./gen-libs/pcre2/01-pcre2-10.37.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gen-libs/libaio/01-libaio-0.3.112.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -230,7 +230,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./devel/docutils/01-docutils-0.17.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./sec/libcap/01-libcap-2.49.sh &&
+/bin/bash -l ./sec/libcap/01-libcap-2.50.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./net/bridge-utils/01-bridge-utils-1.7.1.sh && #!!! Need to be reviewed, kernel headers!!!
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -308,7 +308,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sys/pciutils/01-pciutils-3.7.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./net-libs/curl/01-curl-7.76.1.sh &&
+/bin/bash -l ./net-libs/curl/01-curl-7.77.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./devel/git/01-git-2.31.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -320,7 +320,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./net-libs/nghttp2/01-nghttp2-1.43.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./devel/cmake/01-cmake-3.20.2.sh &&
+/bin/bash -l ./devel/cmake/01-cmake-3.20.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./kde/extra-cmake-modules/01-extra-cmake-modules-5.79.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -378,7 +378,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnf-libs/exiv2/01-exiv2-0.27.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./sec/gnutls/01-gnutls-3.7.1.sh &&
+/bin/bash -l ./sec/gnutls/01-gnutls-3.7.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./net-libs/neon/01-neon-0.31.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -423,7 +423,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./server/openldap/01-openldap-2.5.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./net-libs/curl/02-curl-7.76.1.sh &&
+/bin/bash -l ./net-libs/curl/02-curl-7.77.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./db/postgresql/01-postgresql-13.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -435,7 +435,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./net-libs/serf/01-serf-1.3.9.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./server/apache/01-apache-2.4.47.sh &&
+/bin/bash -l ./server/apache/01-apache-2.4.48.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./devel/slang/01-slang-2.3.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -481,7 +481,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sec/libpwquality/01-libpwquality-1.4.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./sec/cryptsetup/01-cryptsetup-2.3.5.sh &&
+/bin/bash -l ./sec/cryptsetup/01-cryptsetup-2.3.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sec/gnupg/01-gnupg-2.2.27.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -605,6 +605,10 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gen-libs/libxkbcommon/01-libxkbcommon-1.3.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./gen-libs/libwpe/01-libwpe-1.10.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./gen-libs/wpebackend-fdo/01-wpebackend-fdo-1.10.0.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnf-libs/pixman/01-pixman-0.40.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/cairo/01-cairo-1.17.4.sh &&
@@ -667,7 +671,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gen-libs/libqmi/01-libqmi-1.28.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./sys/ModemManager/01-ModemManager-1.16.2.sh &&
+/bin/bash -l ./sys/ModemManager/01-ModemManager-1.16.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./sys/udisks/01-udisks-2.9.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -717,7 +721,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./devel/pygtk/01-pygtk-2.24.0.sh && 
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gnf-libs/librsvg/01-librsvg-2.50.5.sh &&
+/bin/bash -l ./gnf-libs/librsvg/01-librsvg-2.50.7.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./icons/adwaita-icon-theme/01-adwaita-icon-theme-40.1.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -743,11 +747,11 @@ source /etc/profile.d/qt5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/lightdm/01-lightdm-1.30.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./devel/cmake/02-cmake-3.20.2.sh &&
+/bin/bash -l ./devel/cmake/02-cmake-3.20.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./devel/doxygen/02-doxygen-1.9.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gen/graphviz/01-graphviz-2.47.1.sh &&
+/bin/bash -l ./gen/graphviz/01-graphviz-2.47.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./mm/libburn/02-libburn-1.5.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -805,7 +809,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./kde/phonon-backend-vlc/01-phonon-backend-vlc-0.11.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./X/webkitgtk/01-webkitgtk-2.32.0.sh &&
+/bin/bash -l ./X/webkitgtk/01-webkitgtk-2.32.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnome/zenity/01-zenity-3.32.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -883,7 +887,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/Xorg/Xorg-drivers/xf86-input-evdev/01-xf86-input-evdev-2.10.6.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./X/Xorg/Xorg-drivers/libinput/01-libinput-1.17.2.sh &&
+/bin/bash -l ./X/Xorg/Xorg-drivers/libinput/01-libinput-1.18.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/Xorg/Xorg-drivers/xf86-input-libinput/01-xf86-input-libinput-1.0.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

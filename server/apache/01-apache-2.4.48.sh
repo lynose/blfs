@@ -2,30 +2,30 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/httpd-2.4.47
+if test -d /sources/httpd-2.4.48
  then
-  as_root rm -rf /sources/httpd-2.4.47
+  as_root rm -rf /sources/httpd-2.4.48
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://archive.apache.org/dist/httpd/httpd-2.4.47.tar.bz2 \
+check_and_download https://archive.apache.org/dist/httpd/httpd-2.4.48.tar.bz2 \
         /sources
 
-check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/httpd-2.4.47-blfs_layout-1.patch \
+check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/httpd-2.4.48-blfs_layout-1.patch \
         /sources
         
 md5sum -c ${SCRIPTPATH}/md5-apache &&
 
-tar xf /sources/httpd-2.4.47.tar.bz2 -C /sources/ &&
+tar xf /sources/httpd-2.4.48.tar.bz2 -C /sources/ &&
 
-cd /sources/httpd-2.4.47 &&
+cd /sources/httpd-2.4.48 &&
 
 as_root_groupadd groupadd -g 25 apache &&
 as_root_useradd useradd -c \"Apache_Server\" -d /srv/www -g apache -s /bin/false -u 25 apache &&
 
-patch -Np1 -i ../httpd-2.4.47-blfs_layout-1.patch             &&
+patch -Np1 -i ../httpd-2.4.48-blfs_layout-1.patch             &&
 sed '/dir.*CFG_PREFIX/s@^@#@' -i support/apxs.in              &&
 
 ./configure --enable-authnz-fcgi                              \

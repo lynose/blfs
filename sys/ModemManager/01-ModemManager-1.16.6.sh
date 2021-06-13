@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/ModemManager-1.16.2
+if test -d /sources/ModemManager-1.16.6
  then
-  as_root rm -rf /sources/ModemManager-1.16.2
+  as_root rm -rf /sources/ModemManager-1.16.6
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.freedesktop.org/software/ModemManager/ModemManager-1.16.2.tar.xz \
+check_and_download https://www.freedesktop.org/software/ModemManager/ModemManager-1.16.6.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-ModemManager &&
 
-tar xf /sources/ModemManager-1.16.2.tar.xz -C /sources/ &&
+tar xf /sources/ModemManager-1.16.6.tar.xz -C /sources/ &&
 
-cd /sources/ModemManager-1.16.2 &&
+cd /sources/ModemManager-1.16.6 &&
 
 ./configure --prefix=/usr                 \
             --sysconfdir=/etc             \

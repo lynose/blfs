@@ -22,8 +22,7 @@ cd /sources/gnome-keyring-40.0 &&
 sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml &&
 
 ./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --with-pam-dir=/lib/security &&
+            --sysconfdir=/etc &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

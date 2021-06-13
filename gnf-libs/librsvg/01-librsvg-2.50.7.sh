@@ -2,28 +2,28 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/librsvg-2.50.5
+if test -d /sources/librsvg-2.50.7
  then
-  as_root rm -rf /sources/librsvg-2.50.5
+  as_root rm -rf /sources/librsvg-2.50.7
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/librsvg/2.50/librsvg-2.50.5.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/librsvg/2.50/librsvg-2.50.7.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-librsvg &&
 
-tar xf /sources/librsvg-2.50.5.tar.xz -C /sources/ &&
+tar xf /sources/librsvg-2.50.7.tar.xz -C /sources/ &&
 
-cd /sources/librsvg-2.50.5 &&
+cd /sources/librsvg-2.50.7 &&
 
 ./configure --prefix=/usr    \
             --enable-vala    \
             --disable-static \
             --enable-gtk-doc \
-            --docdir=/usr/share/doc/librsvg-2.50.5 &&
+            --docdir=/usr/share/doc/librsvg-2.50.7 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

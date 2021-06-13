@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/cryptsetup-2.3.5
+if test -d /sources/cryptsetup-2.3.6
  then
-  rm -rf /sources/cryptsetup-2.3.5
+  rm -rf /sources/cryptsetup-2.3.6
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.5.tar.xz \
+check_and_download https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.6.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-cryptsetup &&
 
-tar xf /sources/cryptsetup-2.3.5.tar.xz -C /sources/ &&
+tar xf /sources/cryptsetup-2.3.6.tar.xz -C /sources/ &&
 
-cd /sources/cryptsetup-2.3.5 &&
+cd /sources/cryptsetup-2.3.6 &&
 
 ./configure --prefix=/usr &&
 ${log} `basename "$0"` " configured" blfs_all &&

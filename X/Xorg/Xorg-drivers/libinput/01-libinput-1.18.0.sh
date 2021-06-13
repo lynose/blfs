@@ -2,28 +2,28 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libinput-1.17.2
+if test -d /sources/libinput-1.18.0
  then
-  as_root rm -rf /sources/libinput-1.17.2
+  as_root rm -rf /sources/libinput-1.18.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.freedesktop.org/software/libinput/libinput-1.17.2.tar.xz \
+check_and_download https://www.freedesktop.org/software/libinput/libinput-1.18.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-libinput &&
 
-tar xf /sources/libinput-1.17.2.tar.xz -C /sources/ &&
+tar xf /sources/libinput-1.18.0.tar.xz -C /sources/ &&
 
-cd /sources/libinput-1.17.2 &&
+cd /sources/libinput-1.18.0 &&
 
 mkdir build &&
 cd    build &&
 
 meson --prefix=$XORG_PREFIX \
-      -Dudev-dir=/lib/udev  \
+      --buildtype=release   \
       -Ddebug-gui=false     \
       -Dtests=false         \
       -Ddocumentation=false \
