@@ -23,7 +23,7 @@ mkdir build &&
 cd    build &&
 
 meson --prefix=/usr  --buildtype=release         \
-      -Ddocs=enabled   -Dman=true       \
+      -Ddocs=enabled   \
       .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 

@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/KDE/kseexpr.git
-version="v4.0.1.0"
+version="v4.0.2.0"
 
 gitget $url \
         /sources \

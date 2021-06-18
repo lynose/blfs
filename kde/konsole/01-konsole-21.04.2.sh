@@ -2,22 +2,24 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/kdenlive-20.12.2
+if test -d /sources/konsole-21.04.2
  then
-  as_root rm -rf /sources/kdenlive-20.12.2
+  rm -rf /sources/konsole-21.04.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.kde.org/stable/release-service/20.12.2/src/kdenlive-20.12.2.tar.xz \
+check_and_download http://download.kde.org/stable/release-service/21.04.2/src/konsole-21.04.2.tar.xz \
     /sources &&
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/konsole-21.04.2-scrollbar-1.patch \
+    /sources
+    
+md5sum -c ${SCRIPTPATH}/md5-konsole &&
 
-md5sum -c ${SCRIPTPATH}/md5-kdenlive &&
+tar xf /sources/konsole-21.04.2.tar.xz -C /sources/ &&
 
-tar xf /sources/kdenlive-20.12.2.tar.xz -C /sources/ &&
-
-cd /sources/kdenlive-20.12.2 &&
+cd /sources/konsole-21.04.2 &&
 
 mkdir build &&
 cd    build &&

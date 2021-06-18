@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/breeze-icons-5.79.0
+if test -d /sources/breeze-icons-5.83.0
  then
-  rm -rf /sources/breeze-icons-5.79.0
+  rm -rf /sources/breeze-icons-5.83.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.kde.org/stable/frameworks/5.79/breeze-icons-5.79.0.tar.xz \
+check_and_download http://download.kde.org/stable/frameworks/5.83/breeze-icons-5.83.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-breeze-icons &&
 
-tar xf /sources/breeze-icons-5.79.0.tar.xz -C /sources/ &&
+tar xf /sources/breeze-icons-5.83.0.tar.xz -C /sources/ &&
 
-cd /sources/breeze-icons-5.79.0 &&
+cd /sources/breeze-icons-5.83.0 &&
 
 mkdir build &&
 cd    build &&

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export KF5_PREFIX=/opt/kf5-5.79.0
+export KF5_PREFIX=/opt/kf5-5.83.0
 
 if [ ! -d ${KF5_PREFIX} ]
   then 
@@ -17,7 +17,7 @@ as_root ln -s ${KF5_PREFIX} /opt/kf5 &&
 cat > /tmp/kf5.sh << "EOF" &&
 # Begin /etc/profile.d/kf5.sh
 
-export KF5_PREFIX=/opt/kf5-5.79.0
+export KF5_PREFIX=/opt/kf5-5.83.0
 
 pathappend $KF5_PREFIX/bin              PATH
 pathappend $KF5_PREFIX/lib/pkgconfig    PKG_CONFIG_PATH
@@ -61,7 +61,9 @@ as_root mv -v /tmp/kf5.conf /etc/ld.so.conf.d/ &&
 
 as_root install -v -dm755           $KF5_PREFIX/{etc,share} &&
 as_root ln -sfv /etc/dbus-1         $KF5_PREFIX/etc         &&
-as_root ln -sfv /usr/share/dbus-1   $KF5_PREFIX/share
+as_root ln -sfv /usr/share/dbus-1   $KF5_PREFIX/share &&
+as_root install -v -dm755           $KF5_PREFIX/lib         &&
+as_root ln -sfv /usr/lib/systemd    $KF5_PREFIX/lib &&
 
 as_root install -v -dm755                $KF5_PREFIX/share/icons &&
 as_root ln -sfv /usr/share/icons/hicolor $KF5_PREFIX/share/icons

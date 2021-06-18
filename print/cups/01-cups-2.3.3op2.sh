@@ -25,7 +25,7 @@ as_root_groupadd groupadd -g 19 lpadmin &&
 
 if [ $EUID != 0 ]
  then
-    as_root usermod -a -G lpadmin $USER &&
+    as_root usermod -a -G lpadmin $USER
 fi
 
 sed -e "s/-Wno-format-truncation//" \
@@ -49,9 +49,10 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root make install &&
-ln -svnf ../cups/doc-2.3.3op2 /usr/share/doc/cups-2.3.3op2 &&
-echo "ServerName /run/cups/cups.sock" > /etc/cups/client.conf &&
-gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
+as_root ln -svnf ../cups/doc-2.3.3op2 /usr/share/doc/cups-2.3.3op2 &&
+echo "ServerName /run/cups/cups.sock" > /tmp/client.conf &&
+as_root install -vm644 --owner=root /tmp/client.conf /etc/cups/client.conf &&
+as_root gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
 
 
 cat > /tmp/cups << "EOF" &&

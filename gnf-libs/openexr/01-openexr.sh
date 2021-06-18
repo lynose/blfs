@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/AcademySoftwareFoundation/openexr.git
-version="v2.5.4"
+version="v3.0.4"
 
 gitget $url \
         /sources \

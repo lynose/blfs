@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/extra-cmake-modules-5.79.0
+if test -d /sources/extra-cmake-modules-5.83.0
  then
-  rm -rf /sources/extra-cmake-modules-5.79.0
+  rm -rf /sources/extra-cmake-modules-5.83.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.kde.org/stable/frameworks/5.79/extra-cmake-modules-5.79.0.tar.xz \
+check_and_download http://download.kde.org/stable/frameworks/5.83/extra-cmake-modules-5.83.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-extra-cmake-modules &&
 
-tar xf /sources/extra-cmake-modules-5.79.0.tar.xz -C /sources/ &&
+tar xf /sources/extra-cmake-modules-5.83.0.tar.xz -C /sources/ &&
 
-cd /sources/extra-cmake-modules-5.79.0 &&
+cd /sources/extra-cmake-modules-5.83.0 &&
 
 sed -i '/"lib64"/s/64//' kde-modules/KDEInstallDirs.cmake &&
 

@@ -31,6 +31,7 @@ sed -i '/srunner_add_suite(sr, oscar_util_suite());/d' libpurple/tests/check_lib
             --disable-gtkspell   \
             --disable-meanwhile  \
             --disable-idn        \
+            --disable-gevolution \
             --disable-vv &&
 ${log} `basename "$0"` " configured" blfs_all &&
 

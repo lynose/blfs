@@ -11,7 +11,7 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 check_and_download https://github.com/systemd/systemd/archive/v248/systemd-248.tar.gz \
     /sources &&
-check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/systemd-248-upstream_fixes-3.patch \
+check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/systemd-248-upstream_fixes-1.patch \
     /sources &&
     
 md5sum -c ${SCRIPTPATH}/md5-systemd &&

@@ -5,8 +5,8 @@ export CURRENT_PATH=`pwd`
 source ./help-functions.sh &&
 
 export log=${CURRENT_PATH}/logger.sh
-export MAKEFLAGS='-j 2'
-export NINJAJOBS=2
+export MAKEFLAGS='-j7'
+export NINJAJOBS=7
 export ENABLE_TEST=false
 export DANGER_TEST=false
 #############################################################################
@@ -47,7 +47,8 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # #
 # ############################################################################
 # #
-./typesetting/01preTeX.sh &&
+
+#./kde/01preKF5.sh &&
 
 
 if [ -f /etc/profile.d/rustc.sh ]
@@ -63,128 +64,215 @@ source /etc/profile.d/openjdk.sh &&
 
 #/bin/bash -l ./fsndm/btrfs-progs/01-btrfs-progs-5.12.1.sh && #307
 #/bin/bash -l ./sys/pciutils/01-pciutils-3.7.0.sh && #309
+# /bin/bash -l ./server/openldap/01-openldap-2.5.5.sh && #424
+# /bin/bash -l ./net-libs/curl/02-curl-7.77.0.sh && #426
+#/bin/bash -l ./sec/polkit/01-polkit-0.119.sh && #478
+#/bin/bash -l ./xfce/exo/01-exo-4.16.2.sh && #696
 
-/bin/bash -l ./net-libs/curl/01-curl-7.77.0.sh && #311
-/bin/bash -l ./devel/git/01-git-2.32.0.sh && #313
-/bin/bash -l ./devel/cmake/01-cmake-3.20.3.sh && #323
-/bin/bash -l ./gnf-libs/libjpeg-turbo/01-libjpeg-turbo-2.1.0.sh && #333
-/bin/bash -l ./gnf-libs/qpdf/01-qpdf-10.3.2.sh && #335
-/bin/bash -l ./gnf-libs/jasper/01-jasper-2.0.32.sh && #337
-/bin/bash -l ./fsndm/fuse/01-fuse-3.10.4.sh && #357
-/bin/bash -l ./net-libs/libevent/01-libevent-2.1.12.sh && #363
-/bin/bash -l ./gen-libs/popt/01-popt-1.18.sh && #367
-/bin/bash -l ./sys/logrotate/01-logrotate-3.18.1.sh && #369
-/bin/bash -l ./gen-libs/libyaml/01-libyaml-0.2.5.sh && #373
-/bin/bash -l ./devel/ruby/01-ruby-3.0.1.sh && #377
-/bin/bash -l ./gnf-libs/exiv2/01-exiv2-0.27.3.sh && #379
-/bin/bash -l ./sec/gnutls/01-gnutls-3.7.2.sh && ##381
-/bin/bash -l ./sys/usbutils/01-usbutils-013.sh && #401
-/bin/bash -l ./gen-libs/boost/01-boost_1_76_0.sh && #407
-/bin/bash -l ./devel/llvm/01-llvm.sh && #411
-/bin/bash -l ./devel/rustc/01-rustc-1.52.0.sh && #FIXME Reconfigure ld.so...
-source /etc/profile.d/rustc.sh && #413
-/bin/bash -l ./devel/cbindgen/01-cbindgen-0.19.0.sh && #416
-/bin/bash -l ./gen-libs/pcre/01-pcre-8.44.sh && ##418
-/bin/bash -l ./db/mariadb/01-mariadb-10.5.10.sh && #422
-/bin/bash -l ./server/openldap/01-openldap-2.5.5.sh && #424
-/bin/bash -l ./net-libs/curl/02-curl-7.77.0.sh && #426
-/bin/bash -l ./db/postgresql/01-postgresql-13.3.sh && #428
-/bin/bash -l ./sec/krb5/02-krb5-1.19.1.sh && #430
-/bin/bash -l ./net/nfsutils/01-nfsutils-2.5.3.sh && #432
-/bin/bash -l ./server/apache/01-apache-2.4.48.sh && #438
-/bin/bash -l ./gen-libs/glib/01-glib-2.68.3.sh && #444
-/bin/bash -l ./fsndm/sshfs/01-sshfs-3.7.2.sh && #TODO ??? #446
-/bin/bash -l ./net-libs/glib-networking/01-glib-networking-2.68.1.sh && #454
-/bin/bash -l ./gen-libs/icu/01-icu-69.1.sh && #458
-/bin/bash -l ./gen-libs/libxml2/02-libxml2-2.9.12.sh && #460
-/bin/bash -l ./gen-libs/JS/01-JS-78.11.0.sh && #464
-/bin/bash -l ./gen-libs/nodejs/01-nodejs-v14.17.0.sh && #466
-/bin/bash -l ./fsndm/gptfdisk/01-gptfdisk-1.0.8.sh && #468
-/bin/bash -l ./sec/polkit/01-polkit-0.119.sh && #478
-/bin/bash -l ./sys/systemd/01-systemd-248.sh && #480
-/bin/bash -l ./sec/libpwquality/01-libpwquality-1.4.4.sh && #482
-/bin/bash -l ./sec/cryptsetup/01-cryptsetup-2.3.6.sh && #484
-/bin/bash -l ./sec/gnupg/01-gnupg-2.2.28.sh && #486
-/bin/bash -l ./mld/alsa-lib/01-alsa-lib-1.2.5.sh && #494
-/bin/bash -l ./mld/alsa-plugin/01-alsa-plugin-1.2.5.sh && #504
-/bin/bash -l ./mld/alsa-utils/01-alsa-utils-1.2.5.sh && #506
-/bin/bash -l ./gen-libs/wayland-protocols/01-wayland-protocols-1.21.sh && #524
-/bin/bash -l ./X/xorgproto/01-xorgproto-2021.4.sh && #526
-/bin/bash -l ./X/libxcb/01-libxcb-1.14.sh && #538
-/bin/bash -l ./devel/python3/01-python-3.9.5.sh && #540
-/bin/bash -l ./devel/six/01-six-1.16.0.sh && #542
-/bin/bash -l ./devel/gdb/01-gdb-10.2.sh && #544
-/bin/bash -l ./devel/gcc/01-gcc-11.1.0.sh && #550
-/bin/bash -l ./sys/dbus/01-dbus-1.12.20.sh && #556
-/bin/bash -l ./devel/vala/01-vala-0.52.4.sh && #560
-/bin/bash -l ./X/libdrm/01-libdrm-2.4.106.sh && #576
-/bin/bash -l ./X/mesa/01-mesa-21.1.2.sh && #582
-/bin/bash -l ./X/libepoxy/01-libepoxy-1.5.8.sh && #584
-/bin/bash -l ./X/xkeyboard-config/01-xkeyboard-config-2.33.sh && #604
-/bin/bash -l ./gen-libs/libxkbcommon/01-libxkbcommon-1.3.0.sh && #606
-/bin/bash -l ./gen-libs/libwpe/01-libwpe-1.10.0.sh && #608
-/bin/bash -l ./gen-libs/wpebackend-fdo/01-wpebackend-fdo-1.10.0.sh && #610
-/bin/bash -l ./devel/pycairo/01-pycairo-1.20.1.sh && #618
-/bin/bash -l ./gen-libs/libical/01-libical-3.0.10.sh && #628
-/bin/bash -l ./sys/bluez/01-bluez-5.58.sh && #630
-/bin/bash -l ./net-libs/libpcap/01-libpcap-1.10.1.sh && #636
-/bin/bash -l ./gnf-libs/harfbuzz/01-harfbuzz-2.8.1.sh && #640
-/bin/bash -l ./mld/libass/01-libass-0.15.1.sh && #642
-/bin/bash -l ./X/gdk-pixbuf/01-gdk-pixbuf-2.42.6.sh && #644
-/bin/bash -l ./gen-libs/libgusb/01-libgusb-0.3.7.sh && #648
-/bin/bash -l ./X/at-spi2-core/01-at-spi2-core-2.40.2.sh && #656
-/bin/bash -l ./print/cups/01-cups-2.3.3op2.sh && #662
-/bin/bash -l ./gen-libs/libmbim/01-libmbim-1.24.8.sh && #670
-/bin/bash -l ./gen-libs/libqmi/01-libqmi-1.28.6.sh && #672
-/bin/bash -l ./sys/ModemManager/01-ModemManager-1.16.6.sh && #674
-/bin/bash -l ./X/pango/01-pango-1.48.5.sh && ##690
-/bin/bash -l ./X/gtk+/01-gtk+-3.24.29.sh && #692
-/bin/bash -l ./xfce/exo/01-exo-4.16.2.sh && #696
-/bin/bash -l ./gen-libs/libiodbc/01-libiodbc-3.52.15.sh && #706
-/bin/bash -l ./mld/alsa-tools/01-alsa-tools-1.2.5.sh && #712
-/bin/bash -l ./xsoft/xscreensaver/01-xscreensaver-6.01.sh && #716
-/bin/bash -l ./gnf-libs/librsvg/01-librsvg-2.50.7.sh && #720
-/bin/bash -l ./icons/adwaita-icon-theme/01-adwaita-icon-theme-40.1.1.sh && #722
-/bin/bash -l ./gnome/vte/01-vte-0.64.1.sh && #724
-/bin/bash -l ./X/gtk-vnc/01-gtk-vnc-1.2.0.sh && #726
-/bin/bash -l ./gnome/vte/01-vte-0.64.2.sh && #728
-/bin/bash -l ./devel/cmake/02-cmake-3.20.3.sh && #750
-/bin/bash -l ./gen/graphviz/01-graphviz-2.47.2.sh && #754
-/bin/bash -l ./gen-libs/qca/01-qca-2.3.3.sh && #760
-/bin/bash -l ./net/wpa_supplicant/01-wpa_supplicant-2.9.sh && #764
-/bin/bash -l ./typesetting/install-tl-unx/01-install-tl-unx.sh && #772
-/bin/bash -l ./mld/v4l-utils/01-v4l-utils-1.20.0.sh && #782
-/bin/bash -l ./mld/pipewire/01-pipewire-0.3.30.sh && #784
-/bin/bash -l ./audio-utils/mpg123/01-mpg123-1.28.0.sh && #790
-/bin/bash -l ./mld/gst-plugins-good/01-gst-plugins-good-1.18.4.sh && #794
-/bin/bash -l ./devel/lua-5.2/01-lua-5.2.4.sh && #800
-/bin/bash -l ./video-utils/vlc/01-vlc-3.0.15.sh && #808
-/bin/bash -l ./X/webkitgtk/01-webkitgtk-2.32.1.sh && #812
-/bin/bash -l ./net/NetworkManager/01-NetworkManager-1.30.4.sh && #816
-/bin/bash -l ./xsoft/firefox/01-firefox-78.11.0.sh && #818
-/bin/bash -l ./gnome/gnome-online-accounts/01-gnome-online-accounts-3.40.0.sh && #822
-/bin/bash -l ./gnome/gnome-keyring/01-gnome-keyring-40.0.sh && #826
-/bin/bash -l ./devel/subversion/01-subversion-1.14.1.sh && #824
-/bin/bash -l ./gnf-libs/poppler/01-poppler-21.06.1.sh && #840
-/bin/bash -l ./X/qtwebengine/01-qtwebengine-5.15.2.sh && #842
-/bin/bash -l ./gnf-libs/jasper/02-jasper-2.0.32.sh && #844
-/bin/bash -l ./X/fltk/01-fltk-1.3.6.sh && #846
-/bin/bash -l ./gen-libs/libgcrypt/02-libgcrypt-1.9.3.sh && #850
-/bin/bash -l ./sys/cpio/01-cpio-2.13.sh && #854
-/bin/bash -l ./devel/apache-ant/01-apache-ant-1.10.10.sh && #860
-/bin/bash -l ./net/bind/01-bind-9.16.16.sh && #862
-/bin/bash -l ./xsoft/pidgin/01-pidgin-2.14.5.sh && #878
-/bin/bash -l ./print/cups-filter/01-cups-filters-1.28.8.sh && #876
-/bin/bash -l ./gnome/gvfs/01-gvfs-1.48.1.sh && #878
-/bin/bash -l ./X/Xorg/Xorg-server/01-xorg-server-1.20.11.sh && #880 
-/bin/bash -l ./X/Xorg/Xorg-drivers/libinput/01-libinput-1.18.0.sh && #890
-/bin/bash -l ./X/Xorg/Xorg-drivers/xf86-input-libinput/01-xf86-input-libinput-1.0.1.sh && #892
-/bin/bash -l ./net/OpenSSH/02-openssh-8.6p1.sh && #904
-/bin/bash -l ./X/xterm/01-xterm-368.sh && #912
-/bin/bash -l ./devel/php/01-php-8.0.7.sh && #918
-/bin/bash -l ./net/wireshark/01-wireshark-3.4.6.sh && #952
-/bin/bash -l ./xsoft/thunderbird/01-thunderbird-78.11.0.sh && #956
-/bin/bash -l ./office/libreoffice/01-libreoffice-7.1.4.2.sh && #962
-/bin/bash -l ./virt/qemu/01-qemu-6.0.0.sh && #966
+/bin/bash -l ./kde/kf5/01-kf5-5.83.0.sh && #922
+/bin/bash -l ./kde/ark/01-ark-21.04.2.sh && #926
+/bin/bash -l ./kde/kdenlive/01-kdenlive-21.04.2.sh && #930
+/bin/bash -l ./kde/kmix/01-kmix-21.04.2.sh && #932
+/bin/bash -l ./kde/khelpcenter/01-khelpcenter-21.04.2.sh && #934
+/bin/bash -l ./kde/konsole/01-konsole-21.04.2.sh && #936
+/bin/bash -l ./kde/libkkexiv2/01-libkexiv2-21.04.2.sh && #938
+/bin/bash -l ./kde/okular/01-okular-21.04.2.sh && #940
+/bin/bash -l ./kde/libkdcraw/01-libkdcraw-21.04.2.sh && #942
+/bin/bash -l ./kde/gwenview/01-gwenview-21.04.2.sh && #944
+/bin/bash -l ./kde/libkcddb/01-libkcddb-21.04.2.sh && #946
+/bin/bash -l ./kde/k3b/01-k3b-21.04.2.sh && #948
+/bin/bash -l ./kde/plasma/01-plasma-5.22.1.sh && #950
+
+#############################################################################
+#
+#   Git section
+#
+############################################################################
+/bin/bash -l ./kde/libkomparediff2/01-libkomparediff2.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kate/01-kate.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kpimtexteditor/01-kpimtexteditor.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/akonadi/01-akonadi.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kontactinterface/01-kontactinterface.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/libkdepim/01-libkdepim.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/grantleetheme/01-grantleetheme.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kseexpr/01-kseexpr.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kmime/01-kmime.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/libkleo/01-libkleo.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/akonadi-contacts/01-akonadi-contacts.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kimap/01-kimap.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./gnf-libs/opencolorio/01-opencolorio.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kldap/01-kldap.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./devel/eigen3/01-eigen3.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/akonadi-mime/01-akonadi-mime.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/akonadi-search/01-akonadi-search.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/pimcommon/01-pimcommon.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kontact/01-kontact.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kidentitymanagement/01-kidentitymanagement.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./devel/vc/01-vc.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./mld/libheif/01-libheif.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./gnf-libs/openexr/01-openexr.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./gnf-libs/quazip/01-quazip.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./devel/clazy/01-clazy.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./devel/cppcheck/01-cppcheck.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/ksmtp/01-ksmtp.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/libkgapi/01-libkgapi.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kmailtransport/01-kmailtransport.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/libksieve/01-libksieve.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/gravatar/01-libgravatar.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kmbox/01-kmbox.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/messagelib/01-messagelib.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kcalutils/01-kcalutils.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/mailimporter/01-mailimporter.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/mailcommon/01-mailcommon.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/ktnef/01-ktnef.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kmail/01-kmail.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./X/Xorg/Xorg-drivers/xf86-video-qxl/01-xf86-video-qxl.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./virt/libosinfo/01-libosinfo.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/akonadi-calendar/01-akonadi-calendar.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/akonadi-notes/01-akonadi-notes.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/calendarsupport/01-calendarsupport.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/akonadi-import-wizard/01-akonadi-import-wizard.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/mbox-importer/01-mbox-importer.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/pim-data-exporter/01-pim-data-exporter.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/pim-sieve-editor/01-pim-sieve-editor.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/grantlee-editor/01-grantlee-editor.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kdepim-runtime/01-kdepim-runtime.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kdiagram/01-kdiagram.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/eventviews/01-eventviews.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/incidenceeditor/01-incidenceeditor.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kpkpass/01-kpkpass.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kitinerary/01-kitinerary.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kdepim-addons/01-kdepim-addons.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./gen-libs/libaccounts-glib/01-libaccounts-glib.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./gen-libs/signond/01-signond.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./gen-libs/libaccounts-qt/01-libaccounts-qt.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kaccounts-integration/01-kaccount-integration.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kaccounts-providers/01-kaccount-providers.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kmail-account-wizard/01-kmail-account-wizard.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kuserfeedback/01-kuserfeedback.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/korganizer/01-korganizer.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kaddressbook/01-kaddressbook.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/syndication/01-syndication.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kblog/01-kblog.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/akregator/01-akregator.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./gen-libs/libunwind/01-libunwind.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/heaptrack/01-heaptrack.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/okteta/01-okteta.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kdevelop/01-kdevelop.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kdevelop-pg-qt/01-kdevelop-pg-qt.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kdev-php/01-kdev-php.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kdev-python/01-kdev-python.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/knotes/01-knotes.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/baloo-widgets/01-baloo-widgets.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/dolphin/01-dolphin.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/dolphin-plugins/01-dolphin-plugins.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/konqueror/01-konqueror.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./net/freerdp/01-freerdp.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./net-libs/libvncserver/01-libvncserver.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/krdc/01-krdc.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kcalc/01-kalc.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/akonadiconsole/01-akonadiconsole.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./net-libs/libenet/01-libenet.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./gen-libs/libfmt/01-libfmt.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./net-libs/gloox/01-gloox-1.0.24.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./sec/libsodium/01-libsodium.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./net/miniupnp/01-miniupnpc.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./audio-utils/openal/01-openal.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./virt/libvirt/01-libvirt.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./virt/libvirt-glib/01-libvirt-glib.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./virt/virt-manager/01-virt-manager.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 
 ${log} `basename "$0"` " finished" blfs_all

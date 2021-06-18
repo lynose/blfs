@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libkcddb-20.12.2
+if test -d /sources/gwenview-21.04.2
  then
-  as_root rm -rf /sources/libkcddb-20.12.2
+  rm -rf /sources/gwenview-21.04.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.kde.org/stable/release-service/20.12.2/src/libkcddb-20.12.2.tar.xz \
+check_and_download http://download.kde.org/stable/release-service/21.04.2/src/gwenview-21.04.2.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-libkcddb &&
+md5sum -c ${SCRIPTPATH}/md5-gwenview &&
 
-tar xf /sources/libkcddb-20.12.2.tar.xz -C /sources/ &&
+tar xf /sources/gwenview-21.04.2.tar.xz -C /sources/ &&
 
-cd /sources/libkcddb-20.12.2 &&
+cd /sources/gwenview-21.04.2 &&
 
 mkdir build &&
 cd    build &&
@@ -25,7 +25,7 @@ cd    build &&
 cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
       -DCMAKE_BUILD_TYPE=Release         \
       -DBUILD_TESTING=OFF                \
-      -Wno-dev ..  &&
+      -Wno-dev .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

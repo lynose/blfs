@@ -40,14 +40,14 @@ if [ ${ENABLE_TEST} == true ]
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-ninja install                                             &&
+as_root ninja install                                             &&
 
-chmod u+s /usr/bin/fusermount3                &&
+as_root chmod u+s /usr/bin/fusermount3                &&
 
-install -v -m755 -d /usr/share/doc/fuse-3.10.4      &&
-install -v -m644    ../doc/{README.NFS,kernel.txt} \
+as_root install -v -m755 -d /usr/share/doc/fuse-3.10.4      &&
+as_root install -v -m644    ../doc/{README.NFS,kernel.txt} \
                     /usr/share/doc/fuse-3.10.4      &&
-cp -Rv ../doc/html  /usr/share/doc/fuse-3.10.4 &&
+as_root cp -Rv ../doc/html  /usr/share/doc/fuse-3.10.4 &&
 
 cat > ./fuse.conf << "EOF" &&
 # Set the maximum number of FUSE mounts allowed to non-root users.

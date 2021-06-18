@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/danmar/cppcheck.git
-version="2.3"
+version="2.4.1"
 
 gitget $url \
         /sources \

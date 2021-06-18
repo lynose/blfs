@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/alsa-lib-1.2.5
+if test -d /sources/alsa-lib-1.2.5.1
  then
-  rm -rf /sources/alsa-lib-1.2.5
+  rm -rf /sources/alsa-lib-1.2.5.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.5.tar.bz2 \
+check_and_download https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.5.1.tar.bz2 \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-alsa-lib &&
 
-tar xf /sources/alsa-lib-1.2.5.tar.bz2 -C /sources/ &&
+tar xf /sources/alsa-lib-1.2.5.1.tar.bz2 -C /sources/ &&
 
-cd /sources/alsa-lib-1.2.5 &&
+cd /sources/alsa-lib-1.2.5.1 &&
 
 ./configure &&
 ${log} `basename "$0"` " configured" blfs_all &&
@@ -27,10 +27,10 @@ make doc &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
-as_root install -v -d -m755 /usr/share/doc/alsa-lib-1.2.5/html/search &&
+as_root install -v -d -m755 /usr/share/doc/alsa-lib-1.2.5.1/html/search &&
 as_root install -v -m644 doc/doxygen/html/*.* \
-                /usr/share/doc/alsa-lib-1.2.5/html &&
+                /usr/share/doc/alsa-lib-1.2.5.1/html &&
 as_root install -v -m644 doc/doxygen/html/search/* \
-                /usr/share/doc/alsa-lib-1.2.5/html/search &&
+                /usr/share/doc/alsa-lib-1.2.5.1/html/search &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

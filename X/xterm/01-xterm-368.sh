@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/xterm-367
+if test -d /sources/xterm-368
  then
-  as_root rm -rf /sources/xterm-367
+  as_root rm -rf /sources/xterm-368
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://invisible-mirror.net/archives/xterm/xterm-367.tgz \
+check_and_download http://invisible-mirror.net/archives/xterm/xterm-368.tgz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-xterm &&
 
-tar xf /sources/xterm-367.tgz -C /sources/ &&
+tar xf /sources/xterm-368.tgz -C /sources/ &&
 
-cd /sources/xterm-367 &&
+cd /sources/xterm-368 &&
 
 sed -i '/v0/{n;s/new:/new:kb=^?:/}' termcap &&
 printf '\tkbs=\\177,\n' >> terminfo &&

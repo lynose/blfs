@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=git://source.winehq.org/git/wine.git
-version="release/20.12"
+version="release/21.04"
 
 gitget $url \
         /sources \

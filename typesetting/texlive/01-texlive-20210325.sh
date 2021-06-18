@@ -16,7 +16,7 @@ check_and_download ftp://tug.org/texlive/historic/2021/texlive-20210325-texmf.ta
     /sources &&
 check_and_download ftp://tug.org/texlive/historic/2021/texlive-20210325-tlpdb-full.tar.gz \
     /sources &&
-check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/texlive-20210325-upstream_fixes-1.patch &&
+check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/texlive-20210325-upstream_fixes-1.patch \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-texlive &&
@@ -85,9 +85,9 @@ as_root mkdir -pv /opt/texlive/2021/tlpkg/TeXLive/ &&
 as_root install -v -m644 ../texk/tests/TeXLive/* /opt/texlive/2021/tlpkg/TeXLive/ &&
 as_root tar -xf ../../texlive-20210325-tlpdb-full.tar.gz -C /opt/texlive/2021/tlpkg &&
 as_root tar -xf ../../texlive-20210325-texmf.tar.xz -C /opt/texlive/2021 --strip-components=1 &&
-source /etc/profile.d/extrapathtex.sh &&
+as_root source /etc/profile.d/extrapathtex.sh &&
 as_root /bin/bash -l mktexlsr &&
 as_root /bin/bash -l fmtutil-sys --all
-as_root mtxrun --generate &&
+as_root /bin/bash -l mtxrun --generate &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

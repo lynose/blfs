@@ -14,7 +14,7 @@ cp -u ${SCRIPTPATH}/md5-plasma /sources/plasma &&
 cd /sources/plasma &&
 
 
-url=http://download.kde.org/stable/plasma/5.21.1/ &&
+url=http://download.kde.org/stable/plasma/5.22.1/ &&
 wget --continue -r -nH -nd -A '*.xz' -np $url &&
 md5sum --ignore-missing -c ./md5-plasma &&
 
@@ -82,7 +82,7 @@ session  include        system-session
 # End /etc/pam.d/kde
 EOF
 
-as_root mv -v /tmp/kde /etc/pam.d/kde &&
+as_root install -vm644 --owner=root /tmp/kde /etc/pam.d/kde &&
 
 cat > /tmp/kde-np << "EOF" &&
 # Begin /etc/pam.d/kde-np
@@ -100,7 +100,7 @@ session  include        system-session
 # End /etc/pam.d/kde-np
 EOF
 
-as_root mv -v /tmp/kde-np /etc/pam.d/kde-np &&
+as_root install -vm644 --owner=root /tmp/kde-np /etc/pam.d/kde-np &&
 
 cat > /tmp/kscreensaver << "EOF" &&
 # Begin /etc/pam.d/kscreensaver
@@ -110,7 +110,7 @@ account include system-account
 
 # End /etc/pam.d/kscreensaver
 EOF
-as_root mv -v /tmp/kscreensaver /etc/pam.d/kscreensaver &&
+as_root install -vm644 --owner=root /tmp/kscreensaver /etc/pam.d/kscreensaver &&
 
 cat > ~/.xinitrc << "EOF" &&
 dbus-launch --exit-with-session $KF5_PREFIX/bin/startplasma-x11
@@ -118,7 +118,6 @@ EOF
 cp /usr/share/xsessions/plasma.desktop /tmp &&
 
 sed '/^Name=/s/Plasma/Plasma on Xorg/' -i /tmp/plasma.desktop &&
-as_root mv /tmp/plasma.desktop /usr/share/xsessions/plasma.desktop &&
-as_root chown root:root /usr/share/xsessions/plasma.desktop &&
+as_root install -vm644 --owner=root /usr/share/xsessions/plasma.desktop &&
 
 ${log} `basename "$0"` " finished" blfs_all 

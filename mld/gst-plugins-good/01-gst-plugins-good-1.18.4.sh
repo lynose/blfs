@@ -14,13 +14,15 @@ check_and_download https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-pl
     /sources &&
 
 check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/gst-plugins-good-1.18.4-upstream_fixes-1.patch \
-    sources &&
+    /sources &&
     
 md5sum -c ${SCRIPTPATH}/md5-gst-plugins-good &&
 
 tar xf /sources/gst-plugins-good-1.18.4.tar.xz -C /sources/ &&
 
 cd /sources/gst-plugins-good-1.18.4 &&
+
+patch -Np1 -i ../gst-plugins-good-1.18.4-upstream_fixes-1.patch &&
 
 mkdir build &&
 cd    build &&

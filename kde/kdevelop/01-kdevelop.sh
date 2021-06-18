@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/KDE/kdevelop.git
-version="5.6"
+version="v5.6.2"
 
 gitget $url \
         /sources \

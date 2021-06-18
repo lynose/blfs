@@ -11,7 +11,7 @@ mkdir -p /sources/kf5
 cp -uf ${SCRIPTPATH}/md5-kf5 /sources/kf5 &&
 cd /sources/kf5 &&
 
-url=http://download.kde.org/stable/frameworks/5.79/ &&
+url=http://download.kde.org/stable/frameworks/5.83/ &&
 wget --continue -r -nH -nd -A '*.xz' -np $url &&
 md5sum --ignore-missing -c ./md5-kf5 &&
 
@@ -63,5 +63,5 @@ if [ -L /opt/kf5 ]
  then
    as_root rm /opt/kf5
 fi
-as_root ln -sfv kf5-5.79.0 /opt/kf5
+as_root ln -sfv kf5-5.83.0 /opt/kf5
 ${log} `basename "$0"` " finished" blfs_all 

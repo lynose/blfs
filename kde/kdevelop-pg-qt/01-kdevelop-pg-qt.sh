@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/KDE/kdevelop-pg-qt.git
-version="2.2"
+version="v2.2.1"
 
 gitget $url \
         /sources \

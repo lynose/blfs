@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/libvirt/libvirt.git
-version="v7.0.0"
+version="v7.4.0"
 
 gitget $url \
         /sources \

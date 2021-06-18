@@ -33,9 +33,9 @@ make &&
 doxygen doc/doxygen.conf &&
 make javahl &&
 make swig-pl && # for Perl
-make swig-py \
-     swig_pydir=/usr/lib/python3.9/site-packages/libsvn \
-     swig_pydir_extra=/usr/lib/python3.9/site-packages/svn && # for Python
+# make swig-py \
+#      swig_pydir=/usr/lib/python3.9/site-packages/libsvn \
+#      swig_pydir_extra=/usr/lib/python3.9/site-packages/svn && # for Python
 make swig-rb && # for Ruby 
 ${log} `basename "$0"` " built" blfs_all &&
 
@@ -50,10 +50,10 @@ if [ ${ENABLE_TEST} == true ]
   make check-swig-pl &&
   ${log} `basename "$0"` " check-swig-pl succeed" blfs_all ||
   ${log} `basename "$0"` " !!!check-swig-pl fail!!!" blfs_all
-  make check-swig-py &&
-  ${log} `basename "$0"` " unexpected check-swig-py succeed" blfs_all
-  ${log} `basename "$0"` " expected check-swig-py fail?" blfs_all
-  make check-swig-rb &&
+#   make check-swig-py &&
+#   ${log} `basename "$0"` " unexpected check-swig-py succeed" blfs_all
+#   ${log} `basename "$0"` " expected check-swig-py fail?" blfs_all
+#   make check-swig-rb &&
   ${log} `basename "$0"` " unexpected check-swig-rb succeed" blfs_all ||
   ${log} `basename "$0"` " expected check-swig-rb fail?" blfs_all
 fi
@@ -63,9 +63,9 @@ as_root install -v -m755 -d /usr/share/doc/subversion-1.14.1 &&
 as_root cp      -v -R doc/* /usr/share/doc/subversion-1.14.1 &&
 as_root make install-javahl
 as_root make install-swig-pl &&
-as_root make install-swig-py \
-      swig_pydir=/usr/lib/python3.9/site-packages/libsvn \
-      swig_pydir_extra=/usr/lib/python3.9/site-packages/svn &&
+# as_root make install-swig-py \
+#       swig_pydir=/usr/lib/python3.9/site-packages/libsvn \
+#       swig_pydir_extra=/usr/lib/python3.9/site-packages/svn &&
 as_root make install-swig-rb &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

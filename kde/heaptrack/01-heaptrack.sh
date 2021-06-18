@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/KDE/heaptrack.git
-version="1.2"
+version="v1.2.0"
 
 gitget $url \
         /sources \

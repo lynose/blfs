@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/plasma-wayland-protocols-1.1.1
+if test -d /sources/plasma-wayland-protocols-1.3.0
  then
-  as_root rm -rf /sources/plasma-wayland-protocols-1.1.1
+  as_root rm -rf /sources/plasma-wayland-protocols-1.3.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.1.1.tar.xz \
+check_and_download https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.3.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-plasma-wayland-protocols &&
 
-tar xf /sources/plasma-wayland-protocols-1.1.1.tar.xz -C /sources/ &&
+tar xf /sources/plasma-wayland-protocols-1.3.0.tar.xz -C /sources/ &&
 
-cd /sources/plasma-wayland-protocols-1.1.1 &&
+cd /sources/plasma-wayland-protocols-1.3.0 &&
 
 mkdir build &&
 cd    build &&

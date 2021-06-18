@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/strukturag/libheif.git
-version="v1.11.0"
+version="v1.12.0"
 
 gitget $url \
         /sources \

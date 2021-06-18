@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/KDE/mailcommon.git
-version="release/20.12"
+version="release/21.04"
 
 gitget $url \
         /sources \

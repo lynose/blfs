@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/AcademySoftwareFoundation/OpenColorIO.git
-version="v2.0.0"
+version="v2.0.1"
 
 gitget $url \
         /sources \

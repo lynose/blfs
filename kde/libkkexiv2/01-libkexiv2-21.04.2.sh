@@ -2,24 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/konsole-20.12.2
+if test -d /sources/libkexiv2-21.04.2
  then
-  rm -rf /sources/konsole-20.12.2
+  rm -rf /sources/libkexiv2-21.04.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.kde.org/stable/release-service/20.12.2/src/konsole-20.12.2.tar.xz \
+check_and_download http://download.kde.org/stable/release-service/21.04.2/src/libkexiv2-21.04.2.tar.xz \
     /sources &&
-check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/konsole-20.12.2-scrollbar-1.patch \
-    /sources
-    
-md5sum -c ${SCRIPTPATH}/md5-konsole &&
 
-tar xf /sources/konsole-20.12.2.tar.xz -C /sources/ &&
+md5sum -c ${SCRIPTPATH}/md5-libkexiv2 &&
 
-cd /sources/konsole-20.12.2 &&
+tar xf /sources/libkexiv2-21.04.2.tar.xz -C /sources/ &&
+
+cd /sources/libkexiv2-21.04.2 &&
 
 mkdir build &&
 cd    build &&

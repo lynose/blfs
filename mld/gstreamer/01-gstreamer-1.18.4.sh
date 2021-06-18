@@ -12,7 +12,6 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 check_and_download https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.18.4.tar.xz \
     /sources &&
-
 md5sum -c ${SCRIPTPATH}/md5-gstreamer &&
 
 tar xf /sources/gstreamer-1.18.4.tar.xz -C /sources/ &&

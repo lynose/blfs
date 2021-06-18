@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/KDE/krita.git
-version="krita/4.4.2"
+version="v4.4.6"
 
 gitget $url \
         /sources \

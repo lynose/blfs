@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/khelpcenter-20.12.2
+if test -d /sources/okular-21.04.2
  then
-  rm -rf /sources/khelpcenter-20.12.2
+  rm -rf /sources/okular-21.04.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://download.kde.org/stable/release-service/20.12.2/src/khelpcenter-20.12.2.tar.xz \
+check_and_download http://download.kde.org/stable/release-service/21.04.2/src/okular-21.04.2.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-khelpcenter &&
+md5sum -c ${SCRIPTPATH}/md5-okular &&
 
-tar xf /sources/khelpcenter-20.12.2.tar.xz -C /sources/ &&
+tar xf /sources/okular-21.04.2.tar.xz -C /sources/ &&
 
-cd /sources/khelpcenter-20.12.2 &&
+cd /sources/okular-21.04.2 &&
 
 mkdir build &&
 cd    build &&
@@ -25,15 +25,12 @@ cd    build &&
 cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
       -DCMAKE_BUILD_TYPE=Release         \
       -DBUILD_TESTING=OFF                \
-      -Wno-dev ..  &&
+      -Wno-dev .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-as_root make install  &&
-
-as_root mv -v $KF5_PREFIX/share/kde4/services/khelpcenter.desktop /usr/share/applications/ &&
-as_root rm -rv $KF5_PREFIX/share/kde4 &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

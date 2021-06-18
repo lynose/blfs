@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libwpe-1.10.0
+if test -d /sources/libwpe-1.10.1
  then
-  as_root rm -rf /sources/libwpe-1.10.0
+  as_root rm -rf /sources/libwpe-1.10.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://wpewebkit.org/releases/libwpe-1.10.0.tar.xz \
+check_and_download http://wpewebkit.org/releases/libwpe-1.10.1.tar.xz \
         /sources &&
 
 
 md5sum -c ${SCRIPTPATH}/md5-libwpe &&
 
-tar xf /sources/libwpe-1.10.0.tar.xz -C /sources/ &&
+tar xf /sources/libwpe-1.10.1.tar.xz -C /sources/ &&
 
-cd /sources/libwpe-1.10.0 &&
+cd /sources/libwpe-1.10.1 &&
 
 mkdir build &&
 cd    build &&

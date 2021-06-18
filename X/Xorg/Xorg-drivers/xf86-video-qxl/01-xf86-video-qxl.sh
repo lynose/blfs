@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://gitlab.freedesktop.org/xorg/driver/xf86-video-qxl.git
-version="master"
+version="xf86-video-qxl-0.1.5"
 
 gitget $url \
         /sources \

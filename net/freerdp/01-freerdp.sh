@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/FreeRDP/FreeRDP.git
-version="2.2.0"
+version="2.3.2"
 
 gitget $url \
         /sources \
