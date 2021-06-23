@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/upower-0.99.11
+if test -d /sources/upower-0.99.12
  then
-  rm -rf /sources/upower-0.99.11
+  rm -rf /sources/upower-0.99.12
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://gitlab.freedesktop.org/upower/upower/uploads/93cfe7c8d66ed486001c4f3f55399b7a/upower-0.99.11.tar.xz \
+check_and_download https://gitlab.freedesktop.org/upower/upower/uploads/244f5966c58773bbd3b4c507c549560f/upower-0.99.12.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-upower &&
 
-tar xf /sources/upower-0.99.11.tar.xz -C /sources/ &&
+tar xf /sources/upower-0.99.12.tar.xz -C /sources/ &&
 
-cd /sources/upower-0.99.11 &&
+cd /sources/upower-0.99.12 &&
 
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \

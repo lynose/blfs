@@ -118,6 +118,6 @@ EOF
 cp /usr/share/xsessions/plasma.desktop /tmp &&
 
 sed '/^Name=/s/Plasma/Plasma on Xorg/' -i /tmp/plasma.desktop &&
-as_root install -vm644 --owner=root /usr/share/xsessions/plasma.desktop &&
+as_root install -vm644 --owner=root /tmp/plasma.desktop /usr/share/xsessions/plasma.desktop &&
 
 ${log} `basename "$0"` " finished" blfs_all 

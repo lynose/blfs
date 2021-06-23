@@ -2,31 +2,29 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/cups-filters-1.28.8
+if test -d /sources/cups-filters-1.28.9
  then
-  as_root rm -rf /sources/cups-filters-1.28.8
+  as_root rm -rf /sources/cups-filters-1.28.9
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.openprinting.org/download/cups-filters/cups-filters-1.28.8.tar.xz \
+check_and_download https://www.openprinting.org/download/cups-filters/cups-filters-1.28.9.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-cups-filters &&
 
-tar xf /sources/cups-filters-1.28.8.tar.xz -C /sources/ &&
+tar xf /sources/cups-filters-1.28.9.tar.xz -C /sources/ &&
 
-cd /sources/cups-filters-1.28.8 &&
+cd /sources/cups-filters-1.28.9 &&
 
-sed -i "s:cups.service:org.cups.cupsd.service:g" utils/cups-browsed.service &&
-sed -i 's/ldap_connect/ldap_connect_loc/g' utils/cups-browsed.c &&
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \
             --without-rcdir      \
             --disable-static     \
-            --docdir=/usr/share/doc/cups-filters-1.28.8 &&
+            --docdir=/usr/share/doc/cups-filters-1.28.9 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

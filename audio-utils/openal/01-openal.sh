@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/kcat/openal-soft.git
-version="1.21.0"
+version="1.21.1"
 
 gitget $url \
         /sources \

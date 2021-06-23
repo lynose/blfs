@@ -2,25 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/node-v14.17.0
+if test -d /sources/node-v14.17.1
  then
-  as_root rm -rf /sources/node-v14.17.0
+  as_root rm -rf /sources/node-v14.17.1
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://nodejs.org/dist/v14.17.0/node-v14.17.0.tar.xz \
-    /sources &&
-check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/node-v14.17.0-icu_69-1.patch \
+check_and_download https://nodejs.org/dist/v14.17.1/node-v14.17.1.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-nodejs &&
 
-tar xf /sources/node-v14.17.0.tar.xz -C /sources/ &&
+tar xf /sources/node-v14.17.1.tar.xz -C /sources/ &&
 
-cd /sources/node-v14.17.0 &&
-patch -Np1 -i ../node-v14.17.0-icu_69-1.patch &&
+cd /sources/node-v14.17.1 &&
 
 ./configure --prefix=/usr                  \
             --shared-cares                 \
@@ -42,6 +39,6 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root make install &&
-as_root ln -sf node /usr/share/doc/node-14.17.0 &&
+as_root ln -sf node /usr/share/doc/node-14.17.1 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/bind-9.16.16
+if test -d /sources/bind-9.16.18
  then
-  rm -rf /sources/bind-9.16.16
+  rm -rf /sources/bind-9.16.18
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download ftp://ftp.isc.org/isc/bind9/9.16.16/bind-9.16.16.tar.xz \
+check_and_download ftp://ftp.isc.org/isc/bind9/9.16.18/bind-9.16.18.tar.xz \
         /sources
 
 md5sum -c ${SCRIPTPATH}/md5-bind &&
 
-tar xf /sources/bind-9.16.16.tar.xz -C /sources/ &&
+tar xf /sources/bind-9.16.18.tar.xz -C /sources/ &&
 
-cd /sources/bind-9.16.16 &&
+cd /sources/bind-9.16.18 &&
 
 ./configure --prefix=/usr --without-python &&
 ${log} `basename "$0"` " configured" blfs_all &&

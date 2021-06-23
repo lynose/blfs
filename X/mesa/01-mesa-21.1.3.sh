@@ -2,26 +2,26 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/mesa-21.1.2
+if test -d /sources/mesa-21.1.3
  then
-  as_root rm -rf /sources/mesa-21.1.2
+  as_root rm -rf /sources/mesa-21.1.3
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://mesa.freedesktop.org/archive/mesa-21.1.2.tar.xz \
+check_and_download https://mesa.freedesktop.org/archive/mesa-21.1.3.tar.xz \
     /sources &&
-check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/mesa-21.1.2-add_xdemos-1.patch \
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/mesa-21.1.3-add_xdemos-1.patch \
     /sources &&
     
 md5sum -c ${SCRIPTPATH}/md5-mesa &&
 
-tar xf /sources/mesa-21.1.2.tar.xz -C /sources/ &&
+tar xf /sources/mesa-21.1.3.tar.xz -C /sources/ &&
 
-cd /sources/mesa-21.1.2 &&
+cd /sources/mesa-21.1.3 &&
 
-patch -Np1 -i ../mesa-21.1.2-add_xdemos-1.patch &&
+patch -Np1 -i ../mesa-21.1.3-add_xdemos-1.patch &&
 
 sed '1s/python/&3/' -i bin/symbols-check.py &&
 
@@ -59,7 +59,7 @@ fi
 
 as_root ninja install &&
 
-as_root install -v -dm755 /usr/share/doc/mesa-21.1.2 &&
-as_root cp -rfv ../docs/* /usr/share/doc/mesa-21.1.2 &&
+as_root install -v -dm755 /usr/share/doc/mesa-21.1.3 &&
+as_root cp -rfv ../docs/* /usr/share/doc/mesa-21.1.3 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/NetworkManager-1.30.4
+if test -d /sources/NetworkManager-1.32.0
  then
-  as_root rm -rf /sources/NetworkManager-1.30.4
+  as_root rm -rf /sources/NetworkManager-1.32.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.30/NetworkManager-1.30.4.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.32/NetworkManager-1.32.0.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-NetworkManager &&
 
-tar xf /sources/NetworkManager-1.30.4.tar.xz -C /sources/ &&
+tar xf /sources/NetworkManager-1.32.0.tar.xz -C /sources/ &&
 
-cd /sources/NetworkManager-1.30.4 &&
+cd /sources/NetworkManager-1.32.0 &&
 
 sed -e 's/-qt4/-qt5/'              \
     -e 's/moc_location/host_bins/' \
@@ -34,9 +34,8 @@ mkdir build &&
 cd    build    &&
 
 CXXFLAGS+="-O2 -fPIC"            \
-meson --prefix /usr              \
+meson --prefix=/usr              \
       --buildtype=release        \
-      -Ddocs=true                \
       -Dlibaudit=no              \
       -Dlibpsl=false             \
       -Dnmtui=true               \
@@ -44,7 +43,6 @@ meson --prefix /usr              \
       -Dppp=false                \
       -Dselinux=false            \
       -Dqt=false                 \
-      -Dudev_dir=/lib/udev       \
       -Dsession_tracking=systemd \
       -Dmodem_manager=false      \
       .. &&
@@ -61,8 +59,8 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root ninja install &&
-[ ! -d /usr/share/doc/NetworkManager-1.30.4 ] &&
-as_root mv -v /usr/share/doc/NetworkManager{,-1.30.4} ||
+[ ! -d /usr/share/doc/NetworkManager-1.32.0 ] &&
+as_root mv -v /usr/share/doc/NetworkManager{,-1.32.0} ||
 as_root rm -v /usr/share/doc/NetworkManager
 
 cat >> ./NetworkManager.conf << "EOF" &&
@@ -70,31 +68,31 @@ cat >> ./NetworkManager.conf << "EOF" &&
 plugins=keyfile
 EOF
 
-as_root install -vm644 ./NetworkManager.conf /etc/NetworkManager/NetworkManager.conf &&
+as_root install -vm644 --owner=root ./NetworkManager.conf /etc/NetworkManager/NetworkManager.conf &&
 
 cat > ./polkit.conf << "EOF" &&
 [main]
 auth-polkit=true
 EOF
 
-as_root install -vm644 ./polkit.conf /etc/NetworkManager/conf.d/polkit.conf && 
+as_root install -vm644 --owner=root ./polkit.conf /etc/NetworkManager/conf.d/polkit.conf && 
 
 cat > ./dhcp.conf << "EOF" &&
 [main]
 dhcp=dhclient
 EOF
 
-as_root install -vm644 ./dhcp.conf /etc/NetworkManager/conf.d/dhcp.conf &&
+as_root install -vm644 --owner=root ./dhcp.conf /etc/NetworkManager/conf.d/dhcp.conf &&
 
 cat > ./no-dns-update.conf << "EOF" &&
 [main]
 dns=none
 EOF
 
-as_root install -vm644 ./no-dns-update.conf /etc/NetworkManager/conf.d/no-dns-update.conf &&
+as_root install -vm644 --owner=root ./no-dns-update.conf /etc/NetworkManager/conf.d/no-dns-update.conf &&
 
 as_root_groupadd groupadd -fg 86 netdev &&
-as_root /usr/sbin/usermod -a -G netdev lynose &&
+as_root usermod -a -G netdev $USER &&
 
 
 cat > ./org.freedesktop.NetworkManager.rules << "EOF" &&

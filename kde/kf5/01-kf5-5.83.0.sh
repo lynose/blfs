@@ -5,7 +5,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-mkdir -p /sources/kf5
+mkdir -p /sources/kf5 &&
 
 
 cp -uf ${SCRIPTPATH}/md5-kf5 /sources/kf5 &&
@@ -17,7 +17,7 @@ md5sum --ignore-missing -c ./md5-kf5 &&
 
 as_root install -v -dm755           $KF5_PREFIX/{etc,share} &&
 as_root ln -sfv /etc/dbus-1         $KF5_PREFIX/etc         &&
-as_root ln -sfv /usr/share/dbus-1   $KF5_PREFIX/share
+as_root ln -sfv /usr/share/dbus-1   $KF5_PREFIX/share &&
 
 while read -r line; do
 
@@ -37,6 +37,10 @@ while read -r line; do
     tar -xf $file &&
     pushd $packagedir &&
 
+      case $name in
+        plasma-framework*)
+          sed -i "61s/OpenGL::/GL /" src/declarativeimports/core/CMakeLists.txt ;;
+      esac
       mkdir build &&
       cd    build &&
 
@@ -63,5 +67,5 @@ if [ -L /opt/kf5 ]
  then
    as_root rm /opt/kf5
 fi
-as_root ln -sfv kf5-5.83.0 /opt/kf5
+as_root ln -sfvn kf5-5.83.0 /opt/kf5
 ${log} `basename "$0"` " finished" blfs_all 

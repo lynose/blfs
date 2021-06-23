@@ -463,7 +463,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gen-libs/JS/01-JS-78.11.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./gen-libs/nodejs/01-nodejs-v14.17.0.sh &&
+/bin/bash -l ./gen-libs/nodejs/01-nodejs-v14.17.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./fsndm/gptfdisk/01-gptfdisk-1.0.8.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -579,7 +579,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/Xorg/Xorg-drivers/libvdpau/01-libvdpau-1.4.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./X/mesa/01-mesa-21.1.2.sh &&
+/bin/bash -l ./X/mesa/01-mesa-21.1.3.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/libepoxy/01-libepoxy-1.5.8.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -681,7 +681,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./devel/pygobject/01-pygobject-3.40.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./sys/upower/01-upower-0.99.11.sh &&
+/bin/bash -l ./sys/upower/01-upower-0.99.12.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gen-libs/json-glib/01-json-glib-1.6.2.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -813,7 +813,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnome/zenity/01-zenity-3.32.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./net/NetworkManager/01-NetworkManager-1.30.4.sh &&
+/bin/bash -l ./net/NetworkManager/01-NetworkManager-1.32.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./xsoft/firefox/01-firefox-78.11.0.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -863,7 +863,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./devel/apache-ant/01-apache-ant-1.10.10.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./net/bind/01-bind-9.16.16.sh &&
+/bin/bash -l ./net/bind/01-bind-9.16.18.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./X/dejavu-fonts/01-dejavu-fonts-2.37.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -877,7 +877,7 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./xsoft/pidgin/01-pidgin-2.14.5.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
-/bin/bash -l ./print/cups-filter/01-cups-filters-1.28.8.sh &&
+/bin/bash -l ./print/cups-filter/01-cups-filters-1.28.9.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnome/gvfs/01-gvfs-1.48.1.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
@@ -1003,6 +1003,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./gnf-libs/opencolorio/01-opencolorio.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./sec/qtkeychain/01-qtkeychain.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./kde/kldap/01-kldap.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./devel/eigen3/01-eigen3.sh &&
@@ -1072,6 +1074,8 @@ ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./kde/pim-sieve-editor/01-pim-sieve-editor.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./kde/grantlee-editor/01-grantlee-editor.sh &&
+${log} `basename "$0"` " ======================================" blfs_all &&
+/bin/bash -l ./kde/kdav/01-kdav.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&
 /bin/bash -l ./kde/kdepim-runtime/01-kdepim-runtime.sh &&
 ${log} `basename "$0"` " ======================================" blfs_all &&

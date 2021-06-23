@@ -5,8 +5,8 @@ ${log} `basename "$0"` " download" blfs_all &&
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-url=https://github.com/libvirt/libvirt-glib.git
-version="v4.0.0"
+url=https://github.com/frankosterfeld/qtkeychain.git
+version="0.12"
 
 gitget $url \
         /sources \
@@ -17,6 +17,7 @@ packname=${pack:0: -4}
 gitpack=/sources/git/${packname}
 
 cd ${gitpack} &&
+
 if [ -d ./build ]
  then
    as_root rm -rf build
@@ -24,12 +25,16 @@ fi
 
 mkdir build &&
 cd    build &&
-meson --prefix=/usr .. &&
+
+cmake -DCMAKE_INSTALL_PREFIX=/opt/qt5    \
+      -DCMAKE_BUILD_TYPE=Release         \
+      -DBUILD_TESTING=OFF                \
+      -Wno-dev .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-ninja &&
+make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
-as_root ninja install &&
+as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

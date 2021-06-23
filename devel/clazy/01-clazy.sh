@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/KDE/clazy.git
-version="v1.9"
+version="v1.8"
 
 gitget $url \
         /sources \

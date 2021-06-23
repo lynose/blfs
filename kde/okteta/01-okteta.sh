@@ -6,7 +6,7 @@ ${log} `basename "$0"` " download" blfs_all &&
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 url=https://github.com/KDE/okteta.git
-version="v17.12.3"
+version="v0.26.6"
 
 gitget $url \
         /sources \
