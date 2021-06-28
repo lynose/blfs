@@ -5,8 +5,8 @@ export CURRENT_PATH=`pwd`
 source ./help-functions.sh &&
 
 export log=${CURRENT_PATH}/logger.sh
-export MAKEFLAGS='-j7'
-export NINJAJOBS=7
+export MAKEFLAGS='-j3'
+export NINJAJOBS=3
 export ENABLE_TEST=false
 export DANGER_TEST=false
 #############################################################################
@@ -48,9 +48,6 @@ ${log} `basename "$0"` "                                       " blfs_all &&
 # ############################################################################
 # #
 
-#./kde/01preKF5.sh &&
-
-
 if [ -f /etc/profile.d/rustc.sh ]
   then
     source /etc/profile.d/rustc.sh
@@ -62,12 +59,6 @@ source /etc/profile.d/extrapaths.sh &&
 source /etc/profile.d/kf5.sh &&
 source /etc/profile.d/openjdk.sh &&
 
-#/bin/bash -l ./fsndm/btrfs-progs/01-btrfs-progs-5.12.1.sh && #307
-#/bin/bash -l ./sys/pciutils/01-pciutils-3.7.0.sh && #309
-#/bin/bash -l ./server/openldap/01-openldap-2.5.5.sh && #424
-#/bin/bash -l ./net-libs/curl/02-curl-7.77.0.sh && #426
-#/bin/bash -l ./sec/polkit/01-polkit-0.119.sh && #478
-#/bin/bash -l ./xfce/exo/01-exo-4.16.2.sh && #696
 #############################################################################
 #
 #   Git section

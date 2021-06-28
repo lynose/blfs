@@ -12,6 +12,8 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 check_and_download https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz \
     /sources &&
+check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/qt-everywhere-src-5.15.2-CVE-2021-3481-1.patch \
+    /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-qt5 &&
 
@@ -24,8 +26,12 @@ export QT5PREFIX=/opt/qt5 &&
 as_root mkdir -p /opt/qt-5.15.2 &&
 as_root ln -sfnv qt-5.15.2 /opt/qt5 &&
 
-sed -i 's/python /python3 /' qtdeclarative/qtdeclarative.pro \
-                             qtdeclarative/src/3rdparty/masm/masm.pri &&
+patch -Np1 -i ../qt-everywhere-src-5.15.2-CVE-2021-3481-1.patch &&
+
+sed -i '/utility/a #include <limits>'     qtbase/src/corelib/global/qglobal.h         &&
+sed -i '/string/a #include <limits>'      qtbase/src/corelib/global/qfloat16.h        &&
+sed -i '/qbytearray/a #include <limits>'  qtbase/src/corelib/text/qbytearraymatcher.h &&
+sed -i '/type_traits/a #include <limits>' qtdeclarative/src/qmldebug/qqmlprofilerevent_p.h &&
 
 ./configure -prefix $QT5PREFIX                        \
             -sysconfdir /etc/xdg                      \

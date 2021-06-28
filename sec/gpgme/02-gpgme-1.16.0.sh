@@ -2,24 +2,24 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/xf86-input-libinput-1.0.1
+if test -d /sources/gpgme-1.16.0
  then
-  rm -rf /sources/xf86-input-libinput-1.0.1
+  as_root rm -rf /sources/gpgme-1.16.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.x.org/pub/individual/driver/xf86-input-libinput-1.0.1.tar.bz2 \
+check_and_download https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.16.0.tar.bz2 \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-xf86-input-libinput &&
+md5sum -c ${SCRIPTPATH}/md5-gpgme &&
 
-tar xf /sources/xf86-input-libinput-1.0.1.tar.bz2 -C /sources/ &&
+tar xf /sources/gpgme-1.16.0.tar.bz2 -C /sources/ &&
 
-cd /sources/xf86-input-libinput-1.0.1 &&
+cd /sources/gpgme-1.16.0 &&
 
-./configure $XORG_CONFIG &&
+./configure --prefix=/usr  &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
@@ -27,10 +27,11 @@ ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make check &&
+  make -k check &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
+
 
 as_root make install &&
 ${log} `basename "$0"` " installed" blfs_all &&

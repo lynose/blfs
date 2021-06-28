@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gpgme-1.15.1
+if test -d /sources/gpgme-1.16.0
  then
-  rm -rf /sources/gpgme-1.15.1
+  as_root rm -rf /sources/gpgme-1.16.0
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.15.1.tar.bz2 \
+check_and_download https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.16.0.tar.bz2 \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-gpgme &&
 
-tar xf /sources/gpgme-1.15.1.tar.bz2 -C /sources/ &&
+tar xf /sources/gpgme-1.16.0.tar.bz2 -C /sources/ &&
 
-cd /sources/gpgme-1.15.1 &&
+cd /sources/gpgme-1.16.0 &&
 
 ./configure --prefix=/usr --disable-gpg-test &&
 ${log} `basename "$0"` " configured" blfs_all &&

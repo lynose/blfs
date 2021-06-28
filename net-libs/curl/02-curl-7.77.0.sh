@@ -24,6 +24,7 @@ grep -rl '#!.*python$' | xargs sed -i '1s/python/&3/' &&
 
 ./configure --prefix=/usr                           \
             --disable-static                        \
+            --with-gnutls                           \
             --enable-threaded-resolver              \
             --with-gssapi                           \
             --with-libssh2                          \

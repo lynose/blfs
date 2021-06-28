@@ -14,7 +14,9 @@ check_and_download https://download.qt.io/archive/qt/5.15/5.15.2/submodules/qtwe
         /sources
 check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/qtwebengine-everywhere-src-5.15.2-ICU68-2.patch \
         /sources
-
+check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/qt-everywhere-src-5.15.2-CVE-2021-3481-1.patch \
+    /sources &&        
+        
 md5sum -c ${SCRIPTPATH}/md5-qtwebengine &&
 
 tar xf /sources/qtwebengine-everywhere-src-5.15.2.tar.xz -C /sources/ &&

@@ -2,27 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/sqlite-autoconf-3350500
+if test -d /sources/sqlite-autoconf-3360000
  then
-  as_root rm -rf /sources/sqlite-autoconf-3350500
+  as_root rm -rf /sources/sqlite-autoconf-3360000
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://sqlite.org/2021/sqlite-autoconf-3350500.tar.gz \
+check_and_download https://sqlite.org/2021/sqlite-autoconf-3360000.tar.gz \
     /sources &&
     
-check_and_download https://sqlite.org/2021/sqlite-doc-3350500.zip \
+check_and_download https://sqlite.org/2021/sqlite-doc-3360000.zip \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-sqlite &&
 
-tar xf /sources/sqlite-autoconf-3350500.tar.gz -C /sources/ &&
+tar xf /sources/sqlite-autoconf-3360000.tar.gz -C /sources/ &&
 
-cd /sources/sqlite-autoconf-3350500 &&
+cd /sources/sqlite-autoconf-3360000 &&
 
-unzip -q ../sqlite-doc-3350500.zip &&
+unzip -q ../sqlite-doc-3360000.zip &&
 
 ./configure --prefix=/usr     \
             --disable-static  \
@@ -41,7 +41,7 @@ make &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 as_root make install &&
-as_root install -v -m755 -d /usr/share/doc/sqlite-3.35.5 &&
-as_root cp -v -R sqlite-doc-3350500/* /usr/share/doc/sqlite-3.35.5 &&
+as_root install -v -m755 -d /usr/share/doc/sqlite-3.36.0 &&
+as_root cp -v -R sqlite-doc-3360000/* /usr/share/doc/sqlite-3.36.0 &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 
