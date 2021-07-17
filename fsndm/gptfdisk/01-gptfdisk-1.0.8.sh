@@ -24,6 +24,7 @@ cd /sources/gptfdisk-1.0.8 &&
 
 patch -Np1 -i ../gptfdisk-1.0.8-convenience-1.patch &&
 sed -i 's|ncursesw/||' gptcurses.cc &&
+sed -i 's|sbin|usr/sbin|' Makefile &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&

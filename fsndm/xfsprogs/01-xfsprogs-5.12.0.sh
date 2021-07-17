@@ -27,5 +27,6 @@ ${log} `basename "$0"` " built" blfs_all &&
 as_root make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.12.0 install     &&
 as_root make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.12.0 install-dev &&
 
+as_root rm -rfv /usr/lib/libhandle.{a,la}
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

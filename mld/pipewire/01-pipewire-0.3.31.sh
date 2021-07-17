@@ -2,37 +2,42 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libuv-v1.41.0
+if test -d /sources/pipewire-0.3.31
  then
-  as_root rm -rf /sources/libuv-v1.41.0
+  as_root rm -rf /sources/pipewire-0.3.31
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://dist.libuv.org/dist/v1.41.0/libuv-v1.41.0.tar.gz \
+check_and_download https://github.com/PipeWire/pipewire/archive/0.3.31/pipewire-0.3.31.tar.gz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-libuv &&
+md5sum -c ${SCRIPTPATH}/md5-pipewire &&
 
-tar xf /sources/libuv-v1.41.0.tar.gz -C /sources/ &&
+tar xf /sources/pipewire-0.3.31.tar.gz -C /sources/ &&
 
-cd /sources/libuv-v1.41.0 &&
+cd /sources/pipewire-0.3.31 &&
 
-sh autogen.sh                              &&
-./configure --prefix=/usr --disable-static &&
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr  --buildtype=release         \
+      -Ddocs=true \
+      .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make &&
+ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make check &&
+  ninja test &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root make install &&
+
+as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

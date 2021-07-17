@@ -2,27 +2,31 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/pango-1.48.5
+if test -d /sources/harfbuzz-2.8.2
  then
-  as_root rm -rf /sources/pango-1.48.5
+  as_root rm -rf /sources/harfbuzz-2.8.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/pango/1.48/pango-1.48.5.tar.xz \
+check_and_download https://github.com/harfbuzz/harfbuzz/releases/download/2.8.2/harfbuzz-2.8.2.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-pango &&
+md5sum -c ${SCRIPTPATH}/md5-harfbuzz &&
 
-tar xf /sources/pango-1.48.5.tar.xz -C /sources/ &&
+tar xf /sources/harfbuzz-2.8.2.tar.xz -C /sources/ &&
 
-cd /sources/pango-1.48.5 &&
+cd /sources/harfbuzz-2.8.2 &&
 
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --buildtype=release -Dgtk_doc=true .. &&
+
+meson --prefix=/usr        \
+      --buildtype=release  \
+      -Dgraphite=enabled   \
+      -Dbenchmark=disabled &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 ninja &&

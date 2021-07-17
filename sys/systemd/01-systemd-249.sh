@@ -2,27 +2,28 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/systemd-248
+if test -d /sources/systemd-249
  then
-  as_root rm -rf /sources/systemd-248
+  as_root rm -rf /sources/systemd-249
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
-check_and_download https://github.com/systemd/systemd/archive/v248/systemd-248.tar.gz \
+check_and_download https://github.com/systemd/systemd/archive/v249/systemd-249.tar.gz \
     /sources &&
-check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/systemd-248-upstream_fixes-1.patch \
+check_and_download https://www.linuxfromscratch.org/patches/blfs/svn/systemd-249-upstream_fixes-1.patch \
     /sources &&
     
 md5sum -c ${SCRIPTPATH}/md5-systemd &&
 
-tar xf /sources/systemd-248.tar.gz -C /sources/ &&
+tar xf /sources/systemd-249.tar.gz -C /sources/ &&
 
-cd /sources/systemd-248 &&
+cd /sources/systemd-249 &&
 
-patch -Np1 -i ../systemd-248-upstream_fixes-1.patch &&
+patch -Np1 -i ../systemd-249-upstream_fixes-1.patch &&
 
-sed -i 's/GROUP="render"/GROUP="video"/' rules.d/50-udev-default.rules.in &&
+sed -i -e 's/GROUP="render"/GROUP="video"/' \
+       -e 's/GROUP="sgx", //' rules.d/50-udev-default.rules.in &&
 
 mkdir build &&
 cd    build &&
@@ -44,7 +45,7 @@ meson --prefix=/usr                 \
       -Duserdb=false                \
       -Dmode=release                \
       -Dpamconfdir=/etc/pam.d       \
-      -Ddocdir=/usr/share/doc/systemd-248 \
+      -Ddocdir=/usr/share/doc/systemd-249 \
       ..                            &&
 ${log} `basename "$0"` " configured" blfs_all &&
 

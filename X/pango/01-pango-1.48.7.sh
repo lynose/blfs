@@ -2,36 +2,39 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/libbytesize-2.5
+if test -d /sources/pango-1.48.7
  then
-  rm -rf /sources/libbytesize-2.5
+  as_root rm -rf /sources/pango-1.48.7
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://github.com/storaged-project/libbytesize/releases/download/2.5/libbytesize-2.5.tar.gz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/pango/1.48/pango-1.48.7.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-libbytesize &&
+md5sum -c ${SCRIPTPATH}/md5-pango &&
 
-tar xf /sources/libbytesize-2.5.tar.gz -C /sources/ &&
+tar xf /sources/pango-1.48.7.tar.xz -C /sources/ &&
 
-cd /sources/libbytesize-2.5 &&
+cd /sources/pango-1.48.7 &&
 
-./configure --prefix=/usr &&
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr --buildtype=release -Dgtk_doc=true .. &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make &&
+ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make check &&
+  ninja test &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root make install &&
+as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

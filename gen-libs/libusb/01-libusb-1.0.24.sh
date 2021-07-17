@@ -20,12 +20,10 @@ tar xf /sources/libusb-1.0.24.tar.bz2 -C /sources/ &&
 
 cd /sources/libusb-1.0.24 &&
 
-sed -i "s/^PROJECT_LOGO/#&/" doc/doxygen.cfg.in &&
-
 ./configure --prefix=/usr --disable-static &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make -j1 && 
+make && 
 ${log} `basename "$0"` " build" blfs_all &&
 
 sed -i "s/^TCL_SUBST/#&/; s/wide//" doc/doxygen.cfg &&

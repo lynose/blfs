@@ -4,7 +4,7 @@ ${log} `basename "$0"` " started" blfs_all &&
 ${log} `basename "$0"` " download" blfs_all &&
 if test -d /sources/iw-5.9
  then
-  rm -rf /sources/iw-5.9
+  as_root rm -rf /sources/iw-5.9
 fi
 
 SCRIPT=`realpath $0`

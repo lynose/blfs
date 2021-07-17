@@ -2,39 +2,39 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/ruby-3.0.1
+if test -d /sources/at-spi2-core-2.40.3
  then
-  as_root rm -rf /sources/ruby-3.0.1
+  rm -rf /sources/at-spi2-core-2.40.3
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.1.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.40/at-spi2-core-2.40.3.tar.xz \
     /sources &&
 
-md5sum -c ${SCRIPTPATH}/md5-ruby &&
+md5sum -c ${SCRIPTPATH}/md5-at-spi2-core &&
 
-tar xf /sources/ruby-3.0.1.tar.xz -C /sources/ &&
+tar xf /sources/at-spi2-core-2.40.3.tar.xz -C /sources/ &&
 
-cd /sources/ruby-3.0.1 &&
+cd /sources/at-spi2-core-2.40.3 &&
 
-./configure --prefix=/usr   \
-            --enable-shared \
-            --docdir=/usr/share/doc/ruby-3.0.1 &&
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr --buildtype=release ..  &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
-make &&
-make capi &&
+ninja &&
 ${log} `basename "$0"` " built" blfs_all &&
 
 if [ ${ENABLE_TEST} == true ]
  then
-  make check &&
+  ninja test &&
   ${log} `basename "$0"` " check succeed" blfs_all ||
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root make install &&
+as_root ninja install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

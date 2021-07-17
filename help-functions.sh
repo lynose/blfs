@@ -135,8 +135,8 @@ gitget ()
       cd ${packname}
     else
       cd ${repo}/${packname} &&
-      git reset --hard &&
-      git pull
+      git reset --hard #&&
+      #git pull
   fi
   
   if  [ $version ]; 

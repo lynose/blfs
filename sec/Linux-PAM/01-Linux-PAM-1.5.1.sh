@@ -54,11 +54,11 @@ EOF
 fi
 
 as_root make install &&
-as_root chmod -v 4755 /usr/sbin/unix_chkpwd &&
+as_root chmod -v 4755 /sbin/unix_chkpwd &&
 
 as_root install -vdm755 /etc/pam.d &&
 
-cat > ./system-account << "EOF" &&
+cat > /tmp/system-account << "EOF" &&
 # Begin /etc/pam.d/system-account
 
 account   required    pam_unix.so
@@ -66,9 +66,9 @@ account   required    pam_unix.so
 # End /etc/pam.d/system-account
 EOF
 
-as_root install -vm644 --owner=root ./system-account /etc/pam.d &&
+as_root install -vm644 --owner=root /tmp/system-account /etc/pam.d &&
 
-cat > ./system-auth << "EOF" &&
+cat > /tmp/system-auth << "EOF" &&
 # Begin /etc/pam.d/system-auth
 
 auth      required    pam_unix.so
@@ -76,9 +76,9 @@ auth      required    pam_unix.so
 # End /etc/pam.d/system-auth
 EOF
 
-as_root install -vm644 --owner=root ./system-auth /etc/pam.d &&
+as_root install -vm644 --owner=root /tmp/system-auth /etc/pam.d &&
 
-cat > ./system-session << "EOF" &&
+cat > /tmp/system-session << "EOF" &&
 # Begin /etc/pam.d/system-session
 
 session   required    pam_unix.so
@@ -86,9 +86,9 @@ session   required    pam_unix.so
 # End /etc/pam.d/system-session
 EOF
 
-as_root install -vm644 --owner=root ./system-session /etc/pam.d &&
+as_root install -vm644 --owner=root /tmp/system-session /etc/pam.d &&
 
-cat > ./system-password << "EOF" &&
+cat > /tmp/system-password << "EOF" &&
 # Begin /etc/pam.d/system-password
 
 # use sha512 hash for encryption, use shadow, and try to use any previously
@@ -98,9 +98,9 @@ password  required    pam_unix.so       sha512 shadow try_first_pass
 # End /etc/pam.d/system-password
 EOF
 
-as_root install -vm644 --owner=root ./system-password /etc/pam.d &&
+as_root install -vm644 --owner=root /tmp/system-password /etc/pam.d &&
 
-cat > ./other << "EOF" &&
+cat > /tmp/other << "EOF" &&
 # Begin /etc/pam.d/other
 
 auth        required        pam_warn.so
@@ -115,7 +115,7 @@ session     required        pam_deny.so
 # End /etc/pam.d/other
 EOF
 
-as_root install -vm644 --owner=root ./other /etc/pam.d &&
+as_root install -vm644 --owner=root /tmp/other /etc/pam.d &&
 
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

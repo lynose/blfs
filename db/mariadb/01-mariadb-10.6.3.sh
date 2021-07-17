@@ -2,23 +2,23 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/mariadb-10.5.11
+if test -d /sources/mariadb-10.6.3
  then
-  as_root rm -rf /sources/mariadb-10.5.11
+  as_root rm -rf /sources/mariadb-10.6.3
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://downloads.mariadb.org/interstitial/mariadb-10.5.11/source/mariadb-10.5.11.tar.gz \
+check_and_download https://downloads.mariadb.org/interstitial/mariadb-10.6.3/source/mariadb-10.6.3.tar.gz \
         /sources
 
 
 md5sum -c ${SCRIPTPATH}/md5-mariadb &&
 
-tar xf /sources/mariadb-10.5.11.tar.gz -C /sources/ &&
+tar xf /sources/mariadb-10.6.3.tar.gz -C /sources/ &&
 
-cd /sources/mariadb-10.5.11 &&
+cd /sources/mariadb-10.6.3 &&
 
 as_root_groupadd groupadd -g 40 mysql &&
 as_root_useradd useradd -c \"MySQL_Server\" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql &&
@@ -28,8 +28,8 @@ cd    build &&
 
 cmake -DCMAKE_BUILD_TYPE=Release                      \
       -DCMAKE_INSTALL_PREFIX=/usr                     \
-      -DINSTALL_DOCDIR=share/doc/mariadb-10.5.11       \
-      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.5.11 \
+      -DINSTALL_DOCDIR=share/doc/mariadb-10.6.3       \
+      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.6.3 \
       -DINSTALL_MANDIR=share/man                      \
       -DINSTALL_MYSQLSHAREDIR=share/mysql             \
       -DINSTALL_MYSQLTESTDIR=share/mysql/test         \
@@ -131,7 +131,7 @@ interactive-timeout
 # End /etc/mysql/my.cnf
 EOF
 
-as_root mv ./my.cnf /etc/mysql/my.cnf &&
+as_root install -m755 --owner=root ./my.cnf /etc/mysql/my.cnf &&
 
 as_root mysql_install_db --basedir=/usr --datadir=/srv/mysql --user=mysql &&
 as_root chown -R mysql:mysql /srv/mysql &&

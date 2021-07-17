@@ -33,6 +33,6 @@ if [ ${ENABLE_TEST} == true ]
   ${log} `basename "$0"` " expected check fail?" blfs_all
 fi
 
-as_root make install &&
+as_root make BINDIR=/usr/sbin install &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

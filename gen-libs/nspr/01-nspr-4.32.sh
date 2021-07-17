@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/nspr-4.31
+if test -d /sources/nspr-4.32
  then
-  rm -rf /sources/nspr-4.31
+  rm -rf /sources/nspr-4.32
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://archive.mozilla.org/pub/nspr/releases/v4.31/src/nspr-4.31.tar.gz \
+check_and_download https://archive.mozilla.org/pub/nspr/releases/v4.32/src/nspr-4.32.tar.gz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-nspr &&
 
-tar xf /sources/nspr-4.31.tar.gz -C /sources/ &&
+tar xf /sources/nspr-4.32.tar.gz -C /sources/ &&
 
-cd /sources/nspr-4.31 &&
+cd /sources/nspr-4.32 &&
 
 cd nspr                                                     &&
 sed -ri 's#^(RELEASE_BINS =).*#\1#' pr/src/misc/Makefile.in &&

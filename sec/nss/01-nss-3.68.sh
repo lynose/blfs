@@ -2,27 +2,27 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/nss-3.67
+if test -d /sources/nss-3.68
  then
-  as_root rm -rf /sources/nss-3.67
+  as_root rm -rf /sources/nss-3.68
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://archive.mozilla.org/pub/security/nss/releases/NSS_3_67_RTM/src/nss-3.67.tar.gz \
+check_and_download https://archive.mozilla.org/pub/security/nss/releases/NSS_3_67_RTM/src/nss-3.68.tar.gz \
     /sources &&
     
-check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.67-standalone-1.patch \
+check_and_download http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.68-standalone-1.patch \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-nss &&
 
-tar xf /sources/nss-3.67.tar.gz -C /sources/ &&
+tar xf /sources/nss-3.68.tar.gz -C /sources/ &&
 
-cd /sources/nss-3.67 &&
+cd /sources/nss-3.68 &&
 
-patch -Np1 -i ../nss-3.67-standalone-1.patch &&
+patch -Np1 -i ../nss-3.68-standalone-1.patch &&
 
 cd nss &&
 ${log} `basename "$0"` " configured" blfs_all &&

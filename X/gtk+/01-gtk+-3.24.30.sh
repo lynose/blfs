@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gtk+-3.24.29
+if test -d /sources/gtk+-3.24.30
  then
-  as_root rm -rf /sources/gtk+-3.24.29
+  as_root rm -rf /sources/gtk+-3.24.30
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.29.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.30.tar.xz \
     /sources &&
 
 md5sum --ignore-missing -c ${SCRIPTPATH}/md5-gtk &&
 
-tar xf /sources/gtk+-3.24.29.tar.xz -C /sources/ &&
+tar xf /sources/gtk+-3.24.30.tar.xz -C /sources/ &&
 
-cd /sources/gtk+-3.24.29 &&
+cd /sources/gtk+-3.24.30 &&
 
 ./configure --prefix=/usr              \
             --sysconfdir=/etc          \

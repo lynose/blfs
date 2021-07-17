@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/xorg-server-1.20.11
+if test -d /sources/xorg-server-1.20.12
  then
-  as_root rm -rf /sources/xorg-server-1.20.11
+  as_root rm -rf /sources/xorg-server-1.20.12
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.x.org/pub/individual/xserver/xorg-server-1.20.11.tar.bz2 \
+check_and_download https://www.x.org/pub/individual/xserver/xorg-server-1.20.12.tar.bz2 \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-xorg-server &&
 
-tar xf /sources/xorg-server-1.20.11.tar.bz2 -C /sources/ &&
+tar xf /sources/xorg-server-1.20.12.tar.bz2 -C /sources/ &&
 
-cd /sources/xorg-server-1.20.11 &&
+cd /sources/xorg-server-1.20.12 &&
 
 sed -i 's/malloc(pScreen/calloc(1, pScreen/' dix/pixmap.c &&
 

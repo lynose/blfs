@@ -2,32 +2,30 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/gnupg-2.2.28
+if test -d /sources/gnupg-2.2.29
  then
-  rm -rf /sources/gnupg-2.2.28
+  rm -rf /sources/gnupg-2.2.29
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.28.tar.bz2 \
+check_and_download https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.29.tar.bz2 \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-gnupg &&
 
-tar xf /sources/gnupg-2.2.28.tar.bz2 -C /sources/ &&
+tar xf /sources/gnupg-2.2.29.tar.bz2 -C /sources/ &&
 
-cd /sources/gnupg-2.2.28 &&
+cd /sources/gnupg-2.2.29 &&
 
 sed -e '/noinst_SCRIPTS = gpg-zip/c sbin_SCRIPTS += gpg-zip' \
     -i tools/Makefile.in &&
-sed -e '737a #if USE_LDAP' \
-    -e '760a #endif' \
-    -i dirmngr/dirmngr.c &&
+    
 ./configure --prefix=/usr            \
             --localstatedir=/var     \
             --enable-g13            \
-            --docdir=/usr/share/doc/gnupg-2.2.28 &&
+            --docdir=/usr/share/doc/gnupg-2.2.29 &&
 ${log} `basename "$0"` " configured" blfs_all &&
 
 make &&
@@ -46,12 +44,12 @@ fi
 
 as_root make install &&
 
-as_root install -v -m755 -d /usr/share/doc/gnupg-2.2.28/html            &&
+as_root install -v -m755 -d /usr/share/doc/gnupg-2.2.29/html            &&
 as_root install -v -m644    doc/gnupg_nochunks.html \
-                    /usr/share/doc/gnupg-2.2.28/html/gnupg.html &&
+                    /usr/share/doc/gnupg-2.2.29/html/gnupg.html &&
 as_root install -v -m644    doc/*.texi doc/gnupg.txt \
-                    /usr/share/doc/gnupg-2.2.28 &&
+                    /usr/share/doc/gnupg-2.2.29 &&
 as_root install -v -m644    doc/gnupg.html/* \
-                    /usr/share/doc/gnupg-2.2.28/html &&
+                    /usr/share/doc/gnupg-2.2.29/html &&
 ${log} `basename "$0"` " installed" blfs_all &&
 ${log} `basename "$0"` " finished" blfs_all 

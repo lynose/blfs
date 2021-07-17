@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/NetworkManager-1.32.0
+if test -d /sources/NetworkManager-1.32.2
  then
-  as_root rm -rf /sources/NetworkManager-1.32.0
+  as_root rm -rf /sources/NetworkManager-1.32.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.32/NetworkManager-1.32.0.tar.xz \
+check_and_download http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.32/NetworkManager-1.32.2.tar.xz \
     /sources &&
 
 md5sum -c ${SCRIPTPATH}/md5-NetworkManager &&
 
-tar xf /sources/NetworkManager-1.32.0.tar.xz -C /sources/ &&
+tar xf /sources/NetworkManager-1.32.2.tar.xz -C /sources/ &&
 
-cd /sources/NetworkManager-1.32.0 &&
+cd /sources/NetworkManager-1.32.2 &&
 
 sed -e 's/-qt4/-qt5/'              \
     -e 's/moc_location/host_bins/' \
@@ -59,8 +59,8 @@ if [ ${ENABLE_TEST} == true ]
 fi
 
 as_root ninja install &&
-[ ! -d /usr/share/doc/NetworkManager-1.32.0 ] &&
-as_root mv -v /usr/share/doc/NetworkManager{,-1.32.0} ||
+[ ! -d /usr/share/doc/NetworkManager-1.32.2 ] &&
+as_root mv -v /usr/share/doc/NetworkManager{,-1.32.2} ||
 as_root rm -v /usr/share/doc/NetworkManager
 
 cat >> ./NetworkManager.conf << "EOF" &&

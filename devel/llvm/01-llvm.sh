@@ -6,7 +6,7 @@ SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
 url=https://github.com/llvm/llvm-project.git
-version="llvmorg-12.0.0"
+version="llvmorg-12.0.1"
 
 gitget $url \
         /sources \

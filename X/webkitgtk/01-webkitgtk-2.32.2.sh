@@ -2,22 +2,22 @@
 ${log} `basename "$0"` " started" blfs_all &&
 
 ${log} `basename "$0"` " download" blfs_all &&
-if test -d /sources/webkitgtk-2.32.1
+if test -d /sources/webkitgtk-2.32.2
  then
-  as_root rm -rf /sources/webkitgtk-2.32.1
+  as_root rm -rf /sources/webkitgtk-2.32.2
 fi
 
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 
-check_and_download https://webkitgtk.org/releases/webkitgtk-2.32.1.tar.xz \
+check_and_download https://webkitgtk.org/releases/webkitgtk-2.32.2.tar.xz \
     /sources &&
     
 md5sum -c ${SCRIPTPATH}/md5-webkitgtk &&
 
-tar xf /sources/webkitgtk-2.32.1.tar.xz -C /sources/ &&
+tar xf /sources/webkitgtk-2.32.2.tar.xz -C /sources/ &&
 
-cd /sources/webkitgtk-2.32.1 &&
+cd /sources/webkitgtk-2.32.2 &&
 
 mkdir -vp build &&
 cd        build &&
